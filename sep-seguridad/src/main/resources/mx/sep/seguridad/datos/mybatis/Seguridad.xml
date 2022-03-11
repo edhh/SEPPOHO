@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mx.sep.seguridad.dao.SeguridadDao">
+
+	<resultMap type="UsuarioSeguridad" id="resultUsuario">
+		<id property="id" column="id_usuario"/>
+		<result property="username" column="username"/>
+		<result property="password" column="password"/>
+		<result property="nombre" column="nombre"/>
+		<result property="activo" column="usuario_activo"/>
+	</resultMap>
+	
+	<resultMap type="UsuarioSeguridad" id="resultUsuarioConRoles">
+		<id property="id" column="id_usuario"/>
+		<result property="username" column="username"/>
+		<result property="password" column="password"/>
+		<result property="nombre" column="nombre"/>
+		<result property="activo" column="usuario_activo"/>
+		<collection property="roles" column="id_usuario" ofType="RolSeguridad"
+			resultMap="resultRol"/>		
+	</resultMap>
+
+	<resultMap type="RolSeguridad" id="resultRol">
+		<id property="id" column="id_rol"/>
+		<result property="rol" column="rol"/>
+		<result property="activo" column="rol_activo"/>
+	</resultMap>
+	
+	<select id="consultarUsarios" resultMap="resultUsuario">
+		SELECT 1 AS ID_USUARIO, RFC, (TRIM(NB_CONTRATANTE) || ' ' || TRIM(AP_PATERNO) || ' ' || TRIM(AP_MATERNO)) AS NOMBRE, 1 AS PASSWORD, 1 AS USUARIO_ACTIVO
+                FROM TSH003_TRAMITE
+	</select>
+
+	<select id="consultarRoles" resultMap="resultRol">
+		select * from tses002_roles;
+	</select>
+	
+	<select id="consultarUsuarioConRoles" resultMap="resultUsuarioConRoles">
+		SELECT 1 AS ID_USUARIO, RFC AS USERNAME, (TRIM(NB_CONTRATANTE) || ' ' || TRIM(AP_PATERNO) || ' ' || TRIM(AP_MATERNO)) AS NOMBRE, RFC AS PASSWORD, 'TRUE'  AS USUARIO_ACTIVO,
+                1 AS ID_ROL, "ROLE_ADMINISTRADOR" AS ROL, 'TRUE' AS ROL_ACTIVO
+                FROM TSH003_TRAMITE
+                WHERE RFC = #{username}
+	</select>
+	
+</mapper>

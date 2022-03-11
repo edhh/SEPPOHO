@@ -1,0 +1,1415 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="mx.sep.poho.dao.Tsh003TramiteMapper" >
+  <resultMap id="BaseResultMap" type="mx.sep.poho.modelo.Tsh003Tramite" >
+    <id column="annio" property="annio" jdbcType="SMALLINT" />
+    <id column="nu_tramite" property="nuTramite" jdbcType="INTEGER" />
+    <id column="cve_consec_tram" property="cveConsecTram" jdbcType="SMALLINT" />
+    <result column="nu_oficio" property="nuOficio" jdbcType="INTEGER" />
+    <result column="cve_usuario" property="cveUsuario" jdbcType="CHAR" />
+    <result column="cve_consecutivo" property="cveConsecutivo" jdbcType="SMALLINT" />
+    <result column="cve_status" property="cveStatus" jdbcType="INTEGER" />
+    <result column="tpo_tramite" property="tpoTramite" jdbcType="INTEGER" />
+    <result column="cve_unidad" property="cveUnidad" jdbcType="CHAR" />
+    <result column="ap_paterno" property="apPaterno" jdbcType="CHAR" />
+    <result column="ap_materno" property="apMaterno" jdbcType="CHAR" />
+    <result column="nb_contratante" property="nbContratante" jdbcType="CHAR" />
+    <result column="tpo_sexo" property="tpoSexo" jdbcType="CHAR" />
+    <result column="rfc" property="rfc" jdbcType="CHAR" />
+    <result column="cve_titulo" property="cveTitulo" jdbcType="INTEGER" />
+    <result column="cve_nivel_puesto" property="cveNivelPuesto" jdbcType="CHAR" />
+    <result column="cve_edo" property="cveEdo" jdbcType="INTEGER" />
+    <result column="fh_ini" property="fhIni" jdbcType="DATE" />
+    <result column="fh_fin" property="fhFin" jdbcType="DATE" />
+    <result column="cve_programa" property="cvePrograma" jdbcType="CHAR" />
+    <result column="cve_codigo" property="cveCodigo" jdbcType="CHAR" />
+    <result column="nu_oficio_shcp" property="nuOficioShcp" jdbcType="VARCHAR" />
+    <result column="cve_tpo_programa" property="cveTpoPrograma" jdbcType="INTEGER" />
+    <result column="im_pago_mes" property="imPagoMes" jdbcType="DECIMAL" />
+    <result column="im_aguinaldo" property="imAguinaldo" jdbcType="DECIMAL" />
+    <result column="im_total_contrato" property="imTotalContrato" jdbcType="DECIMAL" />
+    <result column="im_pagado" property="imPagado" jdbcType="DECIMAL" />
+    <result column="im_faltante" property="imFaltante" jdbcType="DECIMAL" />
+    <result column="cve_desc_func" property="cveDescFunc" jdbcType="INTEGER" />
+    <result column="descripcion" property="descripcion" jdbcType="CHAR" />
+    <result column="cve_tpo_pto" property="cveTpoPto" jdbcType="SMALLINT" />
+    <result column="cve_status_pto" property="cveStatusPto" jdbcType="INTEGER" />
+    <result column="cve_tpo_pdo" property="cveTpoPdo" jdbcType="INTEGER" />
+    <result column="cve_status_pdo" property="cveStatusPdo" jdbcType="INTEGER" />
+    <result column="observaciones" property="observaciones" jdbcType="CHAR" />
+    <result column="nu_quinc_ini" property="nuQuincIni" jdbcType="SMALLINT" />
+    <result column="cve_producto" property="cveProducto" jdbcType="INTEGER" />
+    <result column="cve_tpo_actividad" property="cveTpoActividad" jdbcType="INTEGER" />
+    <result column="cve_tpo_recursos" property="cveTpoRecursos" jdbcType="INTEGER" />
+    <result column="im_total_neto" property="imTotalNeto" jdbcType="DECIMAL" />
+    <result column="nb_rechazo" property="nbRechazo" jdbcType="CHAR" />
+    <result column="im_aguinaldo_real" property="imAguinaldoReal" jdbcType="DECIMAL" />
+    <result column="cve_tpo_unidad" property="cveTpoUnidad" jdbcType="INTEGER" />
+    <result column="curp" property="curp" jdbcType="CHAR" />
+    <result column="cve_status_prog" property="cveStatusProg" jdbcType="INTEGER" />
+    <result column="cve_status_tpo_u" property="cveStatusTpoU" jdbcType="INTEGER" />
+    <result column="nu_emp" property="nuEmp" jdbcType="INTEGER" />
+    <result column="cve_nacionalidad" property="cveNacionalidad" jdbcType="INTEGER" />
+    <result column="domicilio" property="domicilio" jdbcType="CHAR" />
+    <result column="nu_cedula" property="nuCedula" jdbcType="CHAR" />
+    <result column="img_contrato" property="imgContrato" jdbcType="CHAR" />
+    <result column="cve_status_imp" property="cveStatusImp" jdbcType="INTEGER" />
+    <result column="nu_oficio_env_ur" property="nuOficioEnvUr" jdbcType="CHAR" />
+    <result column="cve_subprograma" property="cveSubprograma" jdbcType="CHAR" />
+    <result column="cve_tpo_fm" property="cveTpoFm" jdbcType="INTEGER" />
+    <result column="desc_perfil" property="descPerfil" jdbcType="CHAR" />
+    <result column="desc_experiencia" property="descExperiencia" jdbcType="CHAR" />
+    <result column="im_total_real" property="imTotalReal" jdbcType="DECIMAL" />
+    <result column="nota" property="nota" jdbcType="VARCHAR" />
+    <result column="cve_tpo_contrato" property="cveTpoContrato" jdbcType="INTEGER" />
+    <result column="cve_status_reg_sfp" property="cveStatusRegSfp" jdbcType="INTEGER" />
+    <result column="fh_status_reg_sfp" property="fhStatusRegSfp" jdbcType="DATE" />
+    <result column="cve_pen_alim" property="cvePenAlim" jdbcType="INTEGER" />
+    <result column="cve_expensa" property="cveExpensa" jdbcType="INTEGER" />
+    <result column="cve_imp_finiq" property="cveImpFiniq" jdbcType="INTEGER" />
+    <result column="cve_req_comp" property="cveReqComp" jdbcType="INTEGER" />
+    <result column="cve_flujo_sfp" property="cveFlujoSfp" jdbcType="INTEGER" />
+    <result column="cve_edo_civil" property="cveEdoCivil" jdbcType="SMALLINT" />
+    <result column="cve_req_issste" property="cveReqIssste" jdbcType="SMALLINT" />
+    <result column="fh_ini_ant" property="fhIniAnt" jdbcType="DATE" />
+    <result column="cve_entidad_cap" property="cveEntidadCap" jdbcType="SMALLINT" />
+    <result column="cve_mpio_cap" property="cveMpioCap" jdbcType="SMALLINT" />
+    <result column="cta_bancaria" property="ctaBancaria" jdbcType="CHAR" />
+    <result column="proceso_captura" property="procesoCaptura" jdbcType="SMALLINT" />
+    <result column="cve_area_gral" property="cveAreaGral" jdbcType="SMALLINT" />
+    <result column="otra_area_gral" property="otraAreaGral" jdbcType="CHAR" />
+    <result column="cve_conoc_req" property="cveConocReq" jdbcType="SMALLINT" />
+    <result column="otro_conoc_req" property="otroConocReq" jdbcType="CHAR" />
+    <result column="annios_exp" property="anniosExp" jdbcType="SMALLINT" />
+    <result column="email" property="email" jdbcType="CHAR" />
+    <result column="extension" property="extension" jdbcType="CHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    annio, nu_tramite, cve_consec_tram, nu_oficio, cve_usuario, cve_consecutivo, cve_status, 
+    tpo_tramite, cve_unidad, ap_paterno, ap_materno, nb_contratante, tpo_sexo, rfc, cve_titulo, 
+    cve_nivel_puesto, cve_edo, fh_ini, fh_fin, cve_programa, cve_codigo, nu_oficio_shcp, 
+    cve_tpo_programa, im_pago_mes, im_aguinaldo, im_total_contrato, im_pagado, im_faltante, 
+    cve_desc_func, descripcion, cve_tpo_pto, cve_status_pto, cve_tpo_pdo, cve_status_pdo, 
+    observaciones, nu_quinc_ini, cve_producto, cve_tpo_actividad, cve_tpo_recursos, im_total_neto, 
+    nb_rechazo, im_aguinaldo_real, cve_tpo_unidad, curp, cve_status_prog, cve_status_tpo_u, 
+    nu_emp, cve_nacionalidad, domicilio, nu_cedula, img_contrato, cve_status_imp, nu_oficio_env_ur, 
+    cve_subprograma, cve_tpo_fm, desc_perfil, desc_experiencia, im_total_real, nota, 
+    cve_tpo_contrato, cve_status_reg_sfp, fh_status_reg_sfp, cve_pen_alim, cve_expensa, 
+    cve_imp_finiq, cve_req_comp, cve_flujo_sfp, cve_edo_civil, cve_req_issste, fh_ini_ant, 
+    cve_entidad_cap, cve_mpio_cap, cta_bancaria, proceso_captura, cve_area_gral, otra_area_gral, 
+    cve_conoc_req, otro_conoc_req, annios_exp, email, extension
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="mx.sep.poho.modelo.Tsh003TramiteExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from tsh003_tramite
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="map" >
+    select 
+    <include refid="Base_Column_List" />
+    from tsh003_tramite
+    where annio = #{annio,jdbcType=SMALLINT}
+      and nu_tramite = #{nuTramite,jdbcType=INTEGER}
+      and cve_consec_tram = #{cveConsecTram,jdbcType=SMALLINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="map" >
+    delete from tsh003_tramite
+    where annio = #{annio,jdbcType=SMALLINT}
+      and nu_tramite = #{nuTramite,jdbcType=INTEGER}
+      and cve_consec_tram = #{cveConsecTram,jdbcType=SMALLINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="mx.sep.poho.modelo.Tsh003TramiteExample" >
+    delete from tsh003_tramite
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="mx.sep.poho.modelo.Tsh003Tramite" >
+    insert into tsh003_tramite (annio, nu_tramite, cve_consec_tram, 
+      nu_oficio, cve_usuario, cve_consecutivo, 
+      cve_status, tpo_tramite, cve_unidad, 
+      ap_paterno, ap_materno, nb_contratante, 
+      tpo_sexo, rfc, cve_titulo, 
+      cve_nivel_puesto, cve_edo, fh_ini, 
+      fh_fin, cve_programa, cve_codigo, 
+      nu_oficio_shcp, cve_tpo_programa, im_pago_mes, 
+      im_aguinaldo, im_total_contrato, im_pagado, 
+      im_faltante, cve_desc_func, descripcion, 
+      cve_tpo_pto, cve_status_pto, cve_tpo_pdo, 
+      cve_status_pdo, observaciones, nu_quinc_ini, 
+      cve_producto, cve_tpo_actividad, cve_tpo_recursos, 
+      im_total_neto, nb_rechazo, im_aguinaldo_real, 
+      cve_tpo_unidad, curp, cve_status_prog, 
+      cve_status_tpo_u, nu_emp, cve_nacionalidad, 
+      domicilio, nu_cedula, img_contrato, 
+      cve_status_imp, nu_oficio_env_ur, cve_subprograma, 
+      cve_tpo_fm, desc_perfil, desc_experiencia, 
+      im_total_real, nota, cve_tpo_contrato, 
+      cve_status_reg_sfp, fh_status_reg_sfp, cve_pen_alim, 
+      cve_expensa, cve_imp_finiq, cve_req_comp, 
+      cve_flujo_sfp, cve_edo_civil, cve_req_issste, 
+      fh_ini_ant, cve_entidad_cap, cve_mpio_cap, 
+      cta_bancaria, proceso_captura, cve_area_gral, 
+      otra_area_gral, cve_conoc_req, otro_conoc_req, 
+      annios_exp, email, extension
+      )
+    values (#{annio,jdbcType=SMALLINT}, #{nuTramite,jdbcType=INTEGER}, #{cveConsecTram,jdbcType=SMALLINT}, 
+      #{nuOficio,jdbcType=INTEGER}, #{cveUsuario,jdbcType=CHAR}, #{cveConsecutivo,jdbcType=SMALLINT}, 
+      #{cveStatus,jdbcType=INTEGER}, #{tpoTramite,jdbcType=INTEGER}, #{cveUnidad,jdbcType=CHAR}, 
+      #{apPaterno,jdbcType=CHAR}, #{apMaterno,jdbcType=CHAR}, #{nbContratante,jdbcType=CHAR}, 
+      #{tpoSexo,jdbcType=CHAR}, #{rfc,jdbcType=CHAR}, #{cveTitulo,jdbcType=INTEGER}, 
+      #{cveNivelPuesto,jdbcType=CHAR}, #{cveEdo,jdbcType=INTEGER}, #{fhIni,jdbcType=DATE}, 
+      #{fhFin,jdbcType=DATE}, #{cvePrograma,jdbcType=CHAR}, #{cveCodigo,jdbcType=CHAR}, 
+      #{nuOficioShcp,jdbcType=VARCHAR}, #{cveTpoPrograma,jdbcType=INTEGER}, #{imPagoMes,jdbcType=DECIMAL}, 
+      #{imAguinaldo,jdbcType=DECIMAL}, #{imTotalContrato,jdbcType=DECIMAL}, #{imPagado,jdbcType=DECIMAL}, 
+      #{imFaltante,jdbcType=DECIMAL}, #{cveDescFunc,jdbcType=INTEGER}, #{descripcion,jdbcType=CHAR}, 
+      #{cveTpoPto,jdbcType=SMALLINT}, #{cveStatusPto,jdbcType=INTEGER}, #{cveTpoPdo,jdbcType=INTEGER}, 
+      #{cveStatusPdo,jdbcType=INTEGER}, #{observaciones,jdbcType=CHAR}, #{nuQuincIni,jdbcType=SMALLINT}, 
+      #{cveProducto,jdbcType=INTEGER}, #{cveTpoActividad,jdbcType=INTEGER}, #{cveTpoRecursos,jdbcType=INTEGER}, 
+      #{imTotalNeto,jdbcType=DECIMAL}, #{nbRechazo,jdbcType=CHAR}, #{imAguinaldoReal,jdbcType=DECIMAL}, 
+      #{cveTpoUnidad,jdbcType=INTEGER}, #{curp,jdbcType=CHAR}, #{cveStatusProg,jdbcType=INTEGER}, 
+      #{cveStatusTpoU,jdbcType=INTEGER}, #{nuEmp,jdbcType=INTEGER}, #{cveNacionalidad,jdbcType=INTEGER}, 
+      #{domicilio,jdbcType=CHAR}, #{nuCedula,jdbcType=CHAR}, #{imgContrato,jdbcType=CHAR}, 
+      #{cveStatusImp,jdbcType=INTEGER}, #{nuOficioEnvUr,jdbcType=CHAR}, #{cveSubprograma,jdbcType=CHAR}, 
+      #{cveTpoFm,jdbcType=INTEGER}, #{descPerfil,jdbcType=CHAR}, #{descExperiencia,jdbcType=CHAR}, 
+      #{imTotalReal,jdbcType=DECIMAL}, #{nota,jdbcType=VARCHAR}, #{cveTpoContrato,jdbcType=INTEGER}, 
+      #{cveStatusRegSfp,jdbcType=INTEGER}, #{fhStatusRegSfp,jdbcType=DATE}, #{cvePenAlim,jdbcType=INTEGER}, 
+      #{cveExpensa,jdbcType=INTEGER}, #{cveImpFiniq,jdbcType=INTEGER}, #{cveReqComp,jdbcType=INTEGER}, 
+      #{cveFlujoSfp,jdbcType=INTEGER}, #{cveEdoCivil,jdbcType=SMALLINT}, #{cveReqIssste,jdbcType=SMALLINT}, 
+      #{fhIniAnt,jdbcType=DATE}, #{cveEntidadCap,jdbcType=SMALLINT}, #{cveMpioCap,jdbcType=SMALLINT}, 
+      #{ctaBancaria,jdbcType=CHAR}, #{procesoCaptura,jdbcType=SMALLINT}, #{cveAreaGral,jdbcType=SMALLINT}, 
+      #{otraAreaGral,jdbcType=CHAR}, #{cveConocReq,jdbcType=SMALLINT}, #{otroConocReq,jdbcType=CHAR}, 
+      #{anniosExp,jdbcType=SMALLINT}, #{email,jdbcType=CHAR}, #{extension,jdbcType=CHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="mx.sep.poho.modelo.Tsh003Tramite" >
+    insert into tsh003_tramite
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="annio != null" >
+        annio,
+      </if>
+      <if test="nuTramite != null" >
+        nu_tramite,
+      </if>
+      <if test="cveConsecTram != null" >
+        cve_consec_tram,
+      </if>
+      <if test="nuOficio != null" >
+        nu_oficio,
+      </if>
+      <if test="cveUsuario != null" >
+        cve_usuario,
+      </if>
+      <if test="cveConsecutivo != null" >
+        cve_consecutivo,
+      </if>
+      <if test="cveStatus != null" >
+        cve_status,
+      </if>
+      <if test="tpoTramite != null" >
+        tpo_tramite,
+      </if>
+      <if test="cveUnidad != null" >
+        cve_unidad,
+      </if>
+      <if test="apPaterno != null" >
+        ap_paterno,
+      </if>
+      <if test="apMaterno != null" >
+        ap_materno,
+      </if>
+      <if test="nbContratante != null" >
+        nb_contratante,
+      </if>
+      <if test="tpoSexo != null" >
+        tpo_sexo,
+      </if>
+      <if test="rfc != null" >
+        rfc,
+      </if>
+      <if test="cveTitulo != null" >
+        cve_titulo,
+      </if>
+      <if test="cveNivelPuesto != null" >
+        cve_nivel_puesto,
+      </if>
+      <if test="cveEdo != null" >
+        cve_edo,
+      </if>
+      <if test="fhIni != null" >
+        fh_ini,
+      </if>
+      <if test="fhFin != null" >
+        fh_fin,
+      </if>
+      <if test="cvePrograma != null" >
+        cve_programa,
+      </if>
+      <if test="cveCodigo != null" >
+        cve_codigo,
+      </if>
+      <if test="nuOficioShcp != null" >
+        nu_oficio_shcp,
+      </if>
+      <if test="cveTpoPrograma != null" >
+        cve_tpo_programa,
+      </if>
+      <if test="imPagoMes != null" >
+        im_pago_mes,
+      </if>
+      <if test="imAguinaldo != null" >
+        im_aguinaldo,
+      </if>
+      <if test="imTotalContrato != null" >
+        im_total_contrato,
+      </if>
+      <if test="imPagado != null" >
+        im_pagado,
+      </if>
+      <if test="imFaltante != null" >
+        im_faltante,
+      </if>
+      <if test="cveDescFunc != null" >
+        cve_desc_func,
+      </if>
+      <if test="descripcion != null" >
+        descripcion,
+      </if>
+      <if test="cveTpoPto != null" >
+        cve_tpo_pto,
+      </if>
+      <if test="cveStatusPto != null" >
+        cve_status_pto,
+      </if>
+      <if test="cveTpoPdo != null" >
+        cve_tpo_pdo,
+      </if>
+      <if test="cveStatusPdo != null" >
+        cve_status_pdo,
+      </if>
+      <if test="observaciones != null" >
+        observaciones,
+      </if>
+      <if test="nuQuincIni != null" >
+        nu_quinc_ini,
+      </if>
+      <if test="cveProducto != null" >
+        cve_producto,
+      </if>
+      <if test="cveTpoActividad != null" >
+        cve_tpo_actividad,
+      </if>
+      <if test="cveTpoRecursos != null" >
+        cve_tpo_recursos,
+      </if>
+      <if test="imTotalNeto != null" >
+        im_total_neto,
+      </if>
+      <if test="nbRechazo != null" >
+        nb_rechazo,
+      </if>
+      <if test="imAguinaldoReal != null" >
+        im_aguinaldo_real,
+      </if>
+      <if test="cveTpoUnidad != null" >
+        cve_tpo_unidad,
+      </if>
+      <if test="curp != null" >
+        curp,
+      </if>
+      <if test="cveStatusProg != null" >
+        cve_status_prog,
+      </if>
+      <if test="cveStatusTpoU != null" >
+        cve_status_tpo_u,
+      </if>
+      <if test="nuEmp != null" >
+        nu_emp,
+      </if>
+      <if test="cveNacionalidad != null" >
+        cve_nacionalidad,
+      </if>
+      <if test="domicilio != null" >
+        domicilio,
+      </if>
+      <if test="nuCedula != null" >
+        nu_cedula,
+      </if>
+      <if test="imgContrato != null" >
+        img_contrato,
+      </if>
+      <if test="cveStatusImp != null" >
+        cve_status_imp,
+      </if>
+      <if test="nuOficioEnvUr != null" >
+        nu_oficio_env_ur,
+      </if>
+      <if test="cveSubprograma != null" >
+        cve_subprograma,
+      </if>
+      <if test="cveTpoFm != null" >
+        cve_tpo_fm,
+      </if>
+      <if test="descPerfil != null" >
+        desc_perfil,
+      </if>
+      <if test="descExperiencia != null" >
+        desc_experiencia,
+      </if>
+      <if test="imTotalReal != null" >
+        im_total_real,
+      </if>
+      <if test="nota != null" >
+        nota,
+      </if>
+      <if test="cveTpoContrato != null" >
+        cve_tpo_contrato,
+      </if>
+      <if test="cveStatusRegSfp != null" >
+        cve_status_reg_sfp,
+      </if>
+      <if test="fhStatusRegSfp != null" >
+        fh_status_reg_sfp,
+      </if>
+      <if test="cvePenAlim != null" >
+        cve_pen_alim,
+      </if>
+      <if test="cveExpensa != null" >
+        cve_expensa,
+      </if>
+      <if test="cveImpFiniq != null" >
+        cve_imp_finiq,
+      </if>
+      <if test="cveReqComp != null" >
+        cve_req_comp,
+      </if>
+      <if test="cveFlujoSfp != null" >
+        cve_flujo_sfp,
+      </if>
+      <if test="cveEdoCivil != null" >
+        cve_edo_civil,
+      </if>
+      <if test="cveReqIssste != null" >
+        cve_req_issste,
+      </if>
+      <if test="fhIniAnt != null" >
+        fh_ini_ant,
+      </if>
+      <if test="cveEntidadCap != null" >
+        cve_entidad_cap,
+      </if>
+      <if test="cveMpioCap != null" >
+        cve_mpio_cap,
+      </if>
+      <if test="ctaBancaria != null" >
+        cta_bancaria,
+      </if>
+      <if test="procesoCaptura != null" >
+        proceso_captura,
+      </if>
+      <if test="cveAreaGral != null" >
+        cve_area_gral,
+      </if>
+      <if test="otraAreaGral != null" >
+        otra_area_gral,
+      </if>
+      <if test="cveConocReq != null" >
+        cve_conoc_req,
+      </if>
+      <if test="otroConocReq != null" >
+        otro_conoc_req,
+      </if>
+      <if test="anniosExp != null" >
+        annios_exp,
+      </if>
+      <if test="email != null" >
+        email,
+      </if>
+      <if test="extension != null" >
+        extension,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="annio != null" >
+        #{annio,jdbcType=SMALLINT},
+      </if>
+      <if test="nuTramite != null" >
+        #{nuTramite,jdbcType=INTEGER},
+      </if>
+      <if test="cveConsecTram != null" >
+        #{cveConsecTram,jdbcType=SMALLINT},
+      </if>
+      <if test="nuOficio != null" >
+        #{nuOficio,jdbcType=INTEGER},
+      </if>
+      <if test="cveUsuario != null" >
+        #{cveUsuario,jdbcType=CHAR},
+      </if>
+      <if test="cveConsecutivo != null" >
+        #{cveConsecutivo,jdbcType=SMALLINT},
+      </if>
+      <if test="cveStatus != null" >
+        #{cveStatus,jdbcType=INTEGER},
+      </if>
+      <if test="tpoTramite != null" >
+        #{tpoTramite,jdbcType=INTEGER},
+      </if>
+      <if test="cveUnidad != null" >
+        #{cveUnidad,jdbcType=CHAR},
+      </if>
+      <if test="apPaterno != null" >
+        #{apPaterno,jdbcType=CHAR},
+      </if>
+      <if test="apMaterno != null" >
+        #{apMaterno,jdbcType=CHAR},
+      </if>
+      <if test="nbContratante != null" >
+        #{nbContratante,jdbcType=CHAR},
+      </if>
+      <if test="tpoSexo != null" >
+        #{tpoSexo,jdbcType=CHAR},
+      </if>
+      <if test="rfc != null" >
+        #{rfc,jdbcType=CHAR},
+      </if>
+      <if test="cveTitulo != null" >
+        #{cveTitulo,jdbcType=INTEGER},
+      </if>
+      <if test="cveNivelPuesto != null" >
+        #{cveNivelPuesto,jdbcType=CHAR},
+      </if>
+      <if test="cveEdo != null" >
+        #{cveEdo,jdbcType=INTEGER},
+      </if>
+      <if test="fhIni != null" >
+        #{fhIni,jdbcType=DATE},
+      </if>
+      <if test="fhFin != null" >
+        #{fhFin,jdbcType=DATE},
+      </if>
+      <if test="cvePrograma != null" >
+        #{cvePrograma,jdbcType=CHAR},
+      </if>
+      <if test="cveCodigo != null" >
+        #{cveCodigo,jdbcType=CHAR},
+      </if>
+      <if test="nuOficioShcp != null" >
+        #{nuOficioShcp,jdbcType=VARCHAR},
+      </if>
+      <if test="cveTpoPrograma != null" >
+        #{cveTpoPrograma,jdbcType=INTEGER},
+      </if>
+      <if test="imPagoMes != null" >
+        #{imPagoMes,jdbcType=DECIMAL},
+      </if>
+      <if test="imAguinaldo != null" >
+        #{imAguinaldo,jdbcType=DECIMAL},
+      </if>
+      <if test="imTotalContrato != null" >
+        #{imTotalContrato,jdbcType=DECIMAL},
+      </if>
+      <if test="imPagado != null" >
+        #{imPagado,jdbcType=DECIMAL},
+      </if>
+      <if test="imFaltante != null" >
+        #{imFaltante,jdbcType=DECIMAL},
+      </if>
+      <if test="cveDescFunc != null" >
+        #{cveDescFunc,jdbcType=INTEGER},
+      </if>
+      <if test="descripcion != null" >
+        #{descripcion,jdbcType=CHAR},
+      </if>
+      <if test="cveTpoPto != null" >
+        #{cveTpoPto,jdbcType=SMALLINT},
+      </if>
+      <if test="cveStatusPto != null" >
+        #{cveStatusPto,jdbcType=INTEGER},
+      </if>
+      <if test="cveTpoPdo != null" >
+        #{cveTpoPdo,jdbcType=INTEGER},
+      </if>
+      <if test="cveStatusPdo != null" >
+        #{cveStatusPdo,jdbcType=INTEGER},
+      </if>
+      <if test="observaciones != null" >
+        #{observaciones,jdbcType=CHAR},
+      </if>
+      <if test="nuQuincIni != null" >
+        #{nuQuincIni,jdbcType=SMALLINT},
+      </if>
+      <if test="cveProducto != null" >
+        #{cveProducto,jdbcType=INTEGER},
+      </if>
+      <if test="cveTpoActividad != null" >
+        #{cveTpoActividad,jdbcType=INTEGER},
+      </if>
+      <if test="cveTpoRecursos != null" >
+        #{cveTpoRecursos,jdbcType=INTEGER},
+      </if>
+      <if test="imTotalNeto != null" >
+        #{imTotalNeto,jdbcType=DECIMAL},
+      </if>
+      <if test="nbRechazo != null" >
+        #{nbRechazo,jdbcType=CHAR},
+      </if>
+      <if test="imAguinaldoReal != null" >
+        #{imAguinaldoReal,jdbcType=DECIMAL},
+      </if>
+      <if test="cveTpoUnidad != null" >
+        #{cveTpoUnidad,jdbcType=INTEGER},
+      </if>
+      <if test="curp != null" >
+        #{curp,jdbcType=CHAR},
+      </if>
+      <if test="cveStatusProg != null" >
+        #{cveStatusProg,jdbcType=INTEGER},
+      </if>
+      <if test="cveStatusTpoU != null" >
+        #{cveStatusTpoU,jdbcType=INTEGER},
+      </if>
+      <if test="nuEmp != null" >
+        #{nuEmp,jdbcType=INTEGER},
+      </if>
+      <if test="cveNacionalidad != null" >
+        #{cveNacionalidad,jdbcType=INTEGER},
+      </if>
+      <if test="domicilio != null" >
+        #{domicilio,jdbcType=CHAR},
+      </if>
+      <if test="nuCedula != null" >
+        #{nuCedula,jdbcType=CHAR},
+      </if>
+      <if test="imgContrato != null" >
+        #{imgContrato,jdbcType=CHAR},
+      </if>
+      <if test="cveStatusImp != null" >
+        #{cveStatusImp,jdbcType=INTEGER},
+      </if>
+      <if test="nuOficioEnvUr != null" >
+        #{nuOficioEnvUr,jdbcType=CHAR},
+      </if>
+      <if test="cveSubprograma != null" >
+        #{cveSubprograma,jdbcType=CHAR},
+      </if>
+      <if test="cveTpoFm != null" >
+        #{cveTpoFm,jdbcType=INTEGER},
+      </if>
+      <if test="descPerfil != null" >
+        #{descPerfil,jdbcType=CHAR},
+      </if>
+      <if test="descExperiencia != null" >
+        #{descExperiencia,jdbcType=CHAR},
+      </if>
+      <if test="imTotalReal != null" >
+        #{imTotalReal,jdbcType=DECIMAL},
+      </if>
+      <if test="nota != null" >
+        #{nota,jdbcType=VARCHAR},
+      </if>
+      <if test="cveTpoContrato != null" >
+        #{cveTpoContrato,jdbcType=INTEGER},
+      </if>
+      <if test="cveStatusRegSfp != null" >
+        #{cveStatusRegSfp,jdbcType=INTEGER},
+      </if>
+      <if test="fhStatusRegSfp != null" >
+        #{fhStatusRegSfp,jdbcType=DATE},
+      </if>
+      <if test="cvePenAlim != null" >
+        #{cvePenAlim,jdbcType=INTEGER},
+      </if>
+      <if test="cveExpensa != null" >
+        #{cveExpensa,jdbcType=INTEGER},
+      </if>
+      <if test="cveImpFiniq != null" >
+        #{cveImpFiniq,jdbcType=INTEGER},
+      </if>
+      <if test="cveReqComp != null" >
+        #{cveReqComp,jdbcType=INTEGER},
+      </if>
+      <if test="cveFlujoSfp != null" >
+        #{cveFlujoSfp,jdbcType=INTEGER},
+      </if>
+      <if test="cveEdoCivil != null" >
+        #{cveEdoCivil,jdbcType=SMALLINT},
+      </if>
+      <if test="cveReqIssste != null" >
+        #{cveReqIssste,jdbcType=SMALLINT},
+      </if>
+      <if test="fhIniAnt != null" >
+        #{fhIniAnt,jdbcType=DATE},
+      </if>
+      <if test="cveEntidadCap != null" >
+        #{cveEntidadCap,jdbcType=SMALLINT},
+      </if>
+      <if test="cveMpioCap != null" >
+        #{cveMpioCap,jdbcType=SMALLINT},
+      </if>
+      <if test="ctaBancaria != null" >
+        #{ctaBancaria,jdbcType=CHAR},
+      </if>
+      <if test="procesoCaptura != null" >
+        #{procesoCaptura,jdbcType=SMALLINT},
+      </if>
+      <if test="cveAreaGral != null" >
+        #{cveAreaGral,jdbcType=SMALLINT},
+      </if>
+      <if test="otraAreaGral != null" >
+        #{otraAreaGral,jdbcType=CHAR},
+      </if>
+      <if test="cveConocReq != null" >
+        #{cveConocReq,jdbcType=SMALLINT},
+      </if>
+      <if test="otroConocReq != null" >
+        #{otroConocReq,jdbcType=CHAR},
+      </if>
+      <if test="anniosExp != null" >
+        #{anniosExp,jdbcType=SMALLINT},
+      </if>
+      <if test="email != null" >
+        #{email,jdbcType=CHAR},
+      </if>
+      <if test="extension != null" >
+        #{extension,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="mx.sep.poho.modelo.Tsh003TramiteExample" resultType="java.lang.Integer" >
+    select count(*) from tsh003_tramite
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update tsh003_tramite
+    <set >
+      <if test="record.annio != null" >
+        annio = #{record.annio,jdbcType=SMALLINT},
+      </if>
+      <if test="record.nuTramite != null" >
+        nu_tramite = #{record.nuTramite,jdbcType=INTEGER},
+      </if>
+      <if test="record.cveConsecTram != null" >
+        cve_consec_tram = #{record.cveConsecTram,jdbcType=SMALLINT},
+      </if>
+      <if test="record.nuOficio != null" >
+        nu_oficio = #{record.nuOficio,jdbcType=INTEGER},
+      </if>
+      <if test="record.cveUsuario != null" >
+        cve_usuario = #{record.cveUsuario,jdbcType=CHAR},
+      </if>
+      <if test="record.cveConsecutivo != null" >
+        cve_consecutivo = #{record.cveConsecutivo,jdbcType=SMALLINT},
+      </if>
+      <if test="record.cveStatus != null" >
+        cve_status = #{record.cveStatus,jdbcType=INTEGER},
+      </if>
+      <if test="record.tpoTramite != null" >
+        tpo_tramite = #{record.tpoTramite,jdbcType=INTEGER},
+      </if>
+      <if test="record.cveUnidad != null" >
+        cve_unidad = #{record.cveUnidad,jdbcType=CHAR},
+      </if>
+      <if test="record.apPaterno != null" >
+        ap_paterno = #{record.apPaterno,jdbcType=CHAR},
+      </if>
+      <if test="record.apMaterno != null" >
+        ap_materno = #{record.apMaterno,jdbcType=CHAR},
+      </if>
+      <if test="record.nbContratante != null" >
+        nb_contratante = #{record.nbContratante,jdbcType=CHAR},
+      </if>
+      <if test="record.tpoSexo != null" >
+        tpo_sexo = #{record.tpoSexo,jdbcType=CHAR},
+      </if>
+      <if test="record.rfc != null" >
+        rfc = #{record.rfc,jdbcType=CHAR},
+      </if>
+      <if test="record.cveTitulo != null" >
+        cve_titulo = #{record.cveTitulo,jdbcType=INTEGER},
+      </if>
+      <if test="record.cveNivelPuesto != null" >
+        cve_nivel_puesto = #{record.cveNivelPuesto,jdbcType=CHAR},
+      </if>
+      <if test="record.cveEdo != null" >
+        cve_edo = #{record.cveEdo,jdbcType=INTEGER},
+      </if>
+      <if test="record.fhIni != null" >
+        fh_ini = #{record.fhIni,jdbcType=DATE},
+      </if>
+      <if test="record.fhFin != null" >
+        fh_fin = #{record.fhFin,jdbcType=DATE},
+      </if>
+      <if test="record.cvePrograma != null" >
+        cve_programa = #{record.cvePrograma,jdbcType=CHAR},
+      </if>
+      <if test="record.cveCodigo != null" >
+        cve_codigo = #{record.cveCodigo,jdbcType=CHAR},
+      </if>
+      <if test="record.nuOficioShcp != null" >
+        nu_oficio_shcp = #{record.nuOficioShcp,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cveTpoPrograma != null" >
+        cve_tpo_programa = #{record.cveTpoPrograma,jdbcType=INTEGER},
+      </if>
+      <if test="record.imPagoMes != null" >
+        im_pago_mes = #{record.imPagoMes,jdbcType=DECIMAL},
+      </if>
+      <if test="record.imAguinaldo != null" >
+        im_aguinaldo = #{record.imAguinaldo,jdbcType=DECIMAL},
+      </if>
+      <if test="record.imTotalContrato != null" >
+        im_total_contrato = #{record.imTotalContrato,jdbcType=DECIMAL},
+      </if>
+      <if test="record.imPagado != null" >
+        im_pagado = #{record.imPagado,jdbcType=DECIMAL},
+      </if>
+      <if test="record.imFaltante != null" >
+        im_faltante = #{record.imFaltante,jdbcType=DECIMAL},
+      </if>
+      <if test="record.cveDescFunc != null" >
+        cve_desc_func = #{record.cveDescFunc,jdbcType=INTEGER},
+      </if>
+      <if test="record.descripcion != null" >
+        descripcion = #{record.descripcion,jdbcType=CHAR},
+      </if>
+      <if test="record.cveTpoPto != null" >
+        cve_tpo_pto = #{record.cveTpoPto,jdbcType=SMALLINT},
+      </if>
+      <if test="record.cveStatusPto != null" >
+        cve_status_pto = #{record.cveStatusPto,jdbcType=INTEGER},
+      </if>
+      <if test="record.cveTpoPdo != null" >
+        cve_tpo_pdo = #{record.cveTpoPdo,jdbcType=INTEGER},
+      </if>
+      <if test="record.cveStatusPdo != null" >
+        cve_status_pdo = #{record.cveStatusPdo,jdbcType=INTEGER},
+      </if>
+      <if test="record.observaciones != null" >
+        observaciones = #{record.observaciones,jdbcType=CHAR},
+      </if>
+      <if test="record.nuQuincIni != null" >
+        nu_quinc_ini = #{record.nuQuincIni,jdbcType=SMALLINT},
+      </if>
+      <if test="record.cveProducto != null" >
+        cve_producto = #{record.cveProducto,jdbcType=INTEGER},
+      </if>
+      <if test="record.cveTpoActividad != null" >
+        cve_tpo_actividad = #{record.cveTpoActividad,jdbcType=INTEGER},
+      </if>
+      <if test="record.cveTpoRecursos != null" >
+        cve_tpo_recursos = #{record.cveTpoRecursos,jdbcType=INTEGER},
+      </if>
+      <if test="record.imTotalNeto != null" >
+        im_total_neto = #{record.imTotalNeto,jdbcType=DECIMAL},
+      </if>
+      <if test="record.nbRechazo != null" >
+        nb_rechazo = #{record.nbRechazo,jdbcType=CHAR},
+      </if>
+      <if test="record.imAguinaldoReal != null" >
+        im_aguinaldo_real = #{record.imAguinaldoReal,jdbcType=DECIMAL},
+      </if>
+      <if test="record.cveTpoUnidad != null" >
+        cve_tpo_unidad = #{record.cveTpoUnidad,jdbcType=INTEGER},
+      </if>
+      <if test="record.curp != null" >
+        curp = #{record.curp,jdbcType=CHAR},
+      </if>
+      <if test="record.cveStatusProg != null" >
+        cve_status_prog = #{record.cveStatusProg,jdbcType=INTEGER},
+      </if>
+      <if test="record.cveStatusTpoU != null" >
+        cve_status_tpo_u = #{record.cveStatusTpoU,jdbcType=INTEGER},
+      </if>
+      <if test="record.nuEmp != null" >
+        nu_emp = #{record.nuEmp,jdbcType=INTEGER},
+      </if>
+      <if test="record.cveNacionalidad != null" >
+        cve_nacionalidad = #{record.cveNacionalidad,jdbcType=INTEGER},
+      </if>
+      <if test="record.domicilio != null" >
+        domicilio = #{record.domicilio,jdbcType=CHAR},
+      </if>
+      <if test="record.nuCedula != null" >
+        nu_cedula = #{record.nuCedula,jdbcType=CHAR},
+      </if>
+      <if test="record.imgContrato != null" >
+        img_contrato = #{record.imgContrato,jdbcType=CHAR},
+      </if>
+      <if test="record.cveStatusImp != null" >
+        cve_status_imp = #{record.cveStatusImp,jdbcType=INTEGER},
+      </if>
+      <if test="record.nuOficioEnvUr != null" >
+        nu_oficio_env_ur = #{record.nuOficioEnvUr,jdbcType=CHAR},
+      </if>
+      <if test="record.cveSubprograma != null" >
+        cve_subprograma = #{record.cveSubprograma,jdbcType=CHAR},
+      </if>
+      <if test="record.cveTpoFm != null" >
+        cve_tpo_fm = #{record.cveTpoFm,jdbcType=INTEGER},
+      </if>
+      <if test="record.descPerfil != null" >
+        desc_perfil = #{record.descPerfil,jdbcType=CHAR},
+      </if>
+      <if test="record.descExperiencia != null" >
+        desc_experiencia = #{record.descExperiencia,jdbcType=CHAR},
+      </if>
+      <if test="record.imTotalReal != null" >
+        im_total_real = #{record.imTotalReal,jdbcType=DECIMAL},
+      </if>
+      <if test="record.nota != null" >
+        nota = #{record.nota,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cveTpoContrato != null" >
+        cve_tpo_contrato = #{record.cveTpoContrato,jdbcType=INTEGER},
+      </if>
+      <if test="record.cveStatusRegSfp != null" >
+        cve_status_reg_sfp = #{record.cveStatusRegSfp,jdbcType=INTEGER},
+      </if>
+      <if test="record.fhStatusRegSfp != null" >
+        fh_status_reg_sfp = #{record.fhStatusRegSfp,jdbcType=DATE},
+      </if>
+      <if test="record.cvePenAlim != null" >
+        cve_pen_alim = #{record.cvePenAlim,jdbcType=INTEGER},
+      </if>
+      <if test="record.cveExpensa != null" >
+        cve_expensa = #{record.cveExpensa,jdbcType=INTEGER},
+      </if>
+      <if test="record.cveImpFiniq != null" >
+        cve_imp_finiq = #{record.cveImpFiniq,jdbcType=INTEGER},
+      </if>
+      <if test="record.cveReqComp != null" >
+        cve_req_comp = #{record.cveReqComp,jdbcType=INTEGER},
+      </if>
+      <if test="record.cveFlujoSfp != null" >
+        cve_flujo_sfp = #{record.cveFlujoSfp,jdbcType=INTEGER},
+      </if>
+      <if test="record.cveEdoCivil != null" >
+        cve_edo_civil = #{record.cveEdoCivil,jdbcType=SMALLINT},
+      </if>
+      <if test="record.cveReqIssste != null" >
+        cve_req_issste = #{record.cveReqIssste,jdbcType=SMALLINT},
+      </if>
+      <if test="record.fhIniAnt != null" >
+        fh_ini_ant = #{record.fhIniAnt,jdbcType=DATE},
+      </if>
+      <if test="record.cveEntidadCap != null" >
+        cve_entidad_cap = #{record.cveEntidadCap,jdbcType=SMALLINT},
+      </if>
+      <if test="record.cveMpioCap != null" >
+        cve_mpio_cap = #{record.cveMpioCap,jdbcType=SMALLINT},
+      </if>
+      <if test="record.ctaBancaria != null" >
+        cta_bancaria = #{record.ctaBancaria,jdbcType=CHAR},
+      </if>
+      <if test="record.procesoCaptura != null" >
+        proceso_captura = #{record.procesoCaptura,jdbcType=SMALLINT},
+      </if>
+      <if test="record.cveAreaGral != null" >
+        cve_area_gral = #{record.cveAreaGral,jdbcType=SMALLINT},
+      </if>
+      <if test="record.otraAreaGral != null" >
+        otra_area_gral = #{record.otraAreaGral,jdbcType=CHAR},
+      </if>
+      <if test="record.cveConocReq != null" >
+        cve_conoc_req = #{record.cveConocReq,jdbcType=SMALLINT},
+      </if>
+      <if test="record.otroConocReq != null" >
+        otro_conoc_req = #{record.otroConocReq,jdbcType=CHAR},
+      </if>
+      <if test="record.anniosExp != null" >
+        annios_exp = #{record.anniosExp,jdbcType=SMALLINT},
+      </if>
+      <if test="record.email != null" >
+        email = #{record.email,jdbcType=CHAR},
+      </if>
+      <if test="record.extension != null" >
+        extension = #{record.extension,jdbcType=CHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update tsh003_tramite
+    set annio = #{record.annio,jdbcType=SMALLINT},
+      nu_tramite = #{record.nuTramite,jdbcType=INTEGER},
+      cve_consec_tram = #{record.cveConsecTram,jdbcType=SMALLINT},
+      nu_oficio = #{record.nuOficio,jdbcType=INTEGER},
+      cve_usuario = #{record.cveUsuario,jdbcType=CHAR},
+      cve_consecutivo = #{record.cveConsecutivo,jdbcType=SMALLINT},
+      cve_status = #{record.cveStatus,jdbcType=INTEGER},
+      tpo_tramite = #{record.tpoTramite,jdbcType=INTEGER},
+      cve_unidad = #{record.cveUnidad,jdbcType=CHAR},
+      ap_paterno = #{record.apPaterno,jdbcType=CHAR},
+      ap_materno = #{record.apMaterno,jdbcType=CHAR},
+      nb_contratante = #{record.nbContratante,jdbcType=CHAR},
+      tpo_sexo = #{record.tpoSexo,jdbcType=CHAR},
+      rfc = #{record.rfc,jdbcType=CHAR},
+      cve_titulo = #{record.cveTitulo,jdbcType=INTEGER},
+      cve_nivel_puesto = #{record.cveNivelPuesto,jdbcType=CHAR},
+      cve_edo = #{record.cveEdo,jdbcType=INTEGER},
+      fh_ini = #{record.fhIni,jdbcType=DATE},
+      fh_fin = #{record.fhFin,jdbcType=DATE},
+      cve_programa = #{record.cvePrograma,jdbcType=CHAR},
+      cve_codigo = #{record.cveCodigo,jdbcType=CHAR},
+      nu_oficio_shcp = #{record.nuOficioShcp,jdbcType=VARCHAR},
+      cve_tpo_programa = #{record.cveTpoPrograma,jdbcType=INTEGER},
+      im_pago_mes = #{record.imPagoMes,jdbcType=DECIMAL},
+      im_aguinaldo = #{record.imAguinaldo,jdbcType=DECIMAL},
+      im_total_contrato = #{record.imTotalContrato,jdbcType=DECIMAL},
+      im_pagado = #{record.imPagado,jdbcType=DECIMAL},
+      im_faltante = #{record.imFaltante,jdbcType=DECIMAL},
+      cve_desc_func = #{record.cveDescFunc,jdbcType=INTEGER},
+      descripcion = #{record.descripcion,jdbcType=CHAR},
+      cve_tpo_pto = #{record.cveTpoPto,jdbcType=SMALLINT},
+      cve_status_pto = #{record.cveStatusPto,jdbcType=INTEGER},
+      cve_tpo_pdo = #{record.cveTpoPdo,jdbcType=INTEGER},
+      cve_status_pdo = #{record.cveStatusPdo,jdbcType=INTEGER},
+      observaciones = #{record.observaciones,jdbcType=CHAR},
+      nu_quinc_ini = #{record.nuQuincIni,jdbcType=SMALLINT},
+      cve_producto = #{record.cveProducto,jdbcType=INTEGER},
+      cve_tpo_actividad = #{record.cveTpoActividad,jdbcType=INTEGER},
+      cve_tpo_recursos = #{record.cveTpoRecursos,jdbcType=INTEGER},
+      im_total_neto = #{record.imTotalNeto,jdbcType=DECIMAL},
+      nb_rechazo = #{record.nbRechazo,jdbcType=CHAR},
+      im_aguinaldo_real = #{record.imAguinaldoReal,jdbcType=DECIMAL},
+      cve_tpo_unidad = #{record.cveTpoUnidad,jdbcType=INTEGER},
+      curp = #{record.curp,jdbcType=CHAR},
+      cve_status_prog = #{record.cveStatusProg,jdbcType=INTEGER},
+      cve_status_tpo_u = #{record.cveStatusTpoU,jdbcType=INTEGER},
+      nu_emp = #{record.nuEmp,jdbcType=INTEGER},
+      cve_nacionalidad = #{record.cveNacionalidad,jdbcType=INTEGER},
+      domicilio = #{record.domicilio,jdbcType=CHAR},
+      nu_cedula = #{record.nuCedula,jdbcType=CHAR},
+      img_contrato = #{record.imgContrato,jdbcType=CHAR},
+      cve_status_imp = #{record.cveStatusImp,jdbcType=INTEGER},
+      nu_oficio_env_ur = #{record.nuOficioEnvUr,jdbcType=CHAR},
+      cve_subprograma = #{record.cveSubprograma,jdbcType=CHAR},
+      cve_tpo_fm = #{record.cveTpoFm,jdbcType=INTEGER},
+      desc_perfil = #{record.descPerfil,jdbcType=CHAR},
+      desc_experiencia = #{record.descExperiencia,jdbcType=CHAR},
+      im_total_real = #{record.imTotalReal,jdbcType=DECIMAL},
+      nota = #{record.nota,jdbcType=VARCHAR},
+      cve_tpo_contrato = #{record.cveTpoContrato,jdbcType=INTEGER},
+      cve_status_reg_sfp = #{record.cveStatusRegSfp,jdbcType=INTEGER},
+      fh_status_reg_sfp = #{record.fhStatusRegSfp,jdbcType=DATE},
+      cve_pen_alim = #{record.cvePenAlim,jdbcType=INTEGER},
+      cve_expensa = #{record.cveExpensa,jdbcType=INTEGER},
+      cve_imp_finiq = #{record.cveImpFiniq,jdbcType=INTEGER},
+      cve_req_comp = #{record.cveReqComp,jdbcType=INTEGER},
+      cve_flujo_sfp = #{record.cveFlujoSfp,jdbcType=INTEGER},
+      cve_edo_civil = #{record.cveEdoCivil,jdbcType=SMALLINT},
+      cve_req_issste = #{record.cveReqIssste,jdbcType=SMALLINT},
+      fh_ini_ant = #{record.fhIniAnt,jdbcType=DATE},
+      cve_entidad_cap = #{record.cveEntidadCap,jdbcType=SMALLINT},
+      cve_mpio_cap = #{record.cveMpioCap,jdbcType=SMALLINT},
+      cta_bancaria = #{record.ctaBancaria,jdbcType=CHAR},
+      proceso_captura = #{record.procesoCaptura,jdbcType=SMALLINT},
+      cve_area_gral = #{record.cveAreaGral,jdbcType=SMALLINT},
+      otra_area_gral = #{record.otraAreaGral,jdbcType=CHAR},
+      cve_conoc_req = #{record.cveConocReq,jdbcType=SMALLINT},
+      otro_conoc_req = #{record.otroConocReq,jdbcType=CHAR},
+      annios_exp = #{record.anniosExp,jdbcType=SMALLINT},
+      email = #{record.email,jdbcType=CHAR},
+      extension = #{record.extension,jdbcType=CHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="mx.sep.poho.modelo.Tsh003Tramite" >
+    update tsh003_tramite
+    <set >
+      <if test="nuOficio != null" >
+        nu_oficio = #{nuOficio,jdbcType=INTEGER},
+      </if>
+      <if test="cveUsuario != null" >
+        cve_usuario = #{cveUsuario,jdbcType=CHAR},
+      </if>
+      <if test="cveConsecutivo != null" >
+        cve_consecutivo = #{cveConsecutivo,jdbcType=SMALLINT},
+      </if>
+      <if test="cveStatus != null" >
+        cve_status = #{cveStatus,jdbcType=INTEGER},
+      </if>
+      <if test="tpoTramite != null" >
+        tpo_tramite = #{tpoTramite,jdbcType=INTEGER},
+      </if>
+      <if test="cveUnidad != null" >
+        cve_unidad = #{cveUnidad,jdbcType=CHAR},
+      </if>
+      <if test="apPaterno != null" >
+        ap_paterno = #{apPaterno,jdbcType=CHAR},
+      </if>
+      <if test="apMaterno != null" >
+        ap_materno = #{apMaterno,jdbcType=CHAR},
+      </if>
+      <if test="nbContratante != null" >
+        nb_contratante = #{nbContratante,jdbcType=CHAR},
+      </if>
+      <if test="tpoSexo != null" >
+        tpo_sexo = #{tpoSexo,jdbcType=CHAR},
+      </if>
+      <if test="rfc != null" >
+        rfc = #{rfc,jdbcType=CHAR},
+      </if>
+      <if test="cveTitulo != null" >
+        cve_titulo = #{cveTitulo,jdbcType=INTEGER},
+      </if>
+      <if test="cveNivelPuesto != null" >
+        cve_nivel_puesto = #{cveNivelPuesto,jdbcType=CHAR},
+      </if>
+      <if test="cveEdo != null" >
+        cve_edo = #{cveEdo,jdbcType=INTEGER},
+      </if>
+      <if test="fhIni != null" >
+        fh_ini = #{fhIni,jdbcType=DATE},
+      </if>
+      <if test="fhFin != null" >
+        fh_fin = #{fhFin,jdbcType=DATE},
+      </if>
+      <if test="cvePrograma != null" >
+        cve_programa = #{cvePrograma,jdbcType=CHAR},
+      </if>
+      <if test="cveCodigo != null" >
+        cve_codigo = #{cveCodigo,jdbcType=CHAR},
+      </if>
+      <if test="nuOficioShcp != null" >
+        nu_oficio_shcp = #{nuOficioShcp,jdbcType=VARCHAR},
+      </if>
+      <if test="cveTpoPrograma != null" >
+        cve_tpo_programa = #{cveTpoPrograma,jdbcType=INTEGER},
+      </if>
+      <if test="imPagoMes != null" >
+        im_pago_mes = #{imPagoMes,jdbcType=DECIMAL},
+      </if>
+      <if test="imAguinaldo != null" >
+        im_aguinaldo = #{imAguinaldo,jdbcType=DECIMAL},
+      </if>
+      <if test="imTotalContrato != null" >
+        im_total_contrato = #{imTotalContrato,jdbcType=DECIMAL},
+      </if>
+      <if test="imPagado != null" >
+        im_pagado = #{imPagado,jdbcType=DECIMAL},
+      </if>
+      <if test="imFaltante != null" >
+        im_faltante = #{imFaltante,jdbcType=DECIMAL},
+      </if>
+      <if test="cveDescFunc != null" >
+        cve_desc_func = #{cveDescFunc,jdbcType=INTEGER},
+      </if>
+      <if test="descripcion != null" >
+        descripcion = #{descripcion,jdbcType=CHAR},
+      </if>
+      <if test="cveTpoPto != null" >
+        cve_tpo_pto = #{cveTpoPto,jdbcType=SMALLINT},
+      </if>
+      <if test="cveStatusPto != null" >
+        cve_status_pto = #{cveStatusPto,jdbcType=INTEGER},
+      </if>
+      <if test="cveTpoPdo != null" >
+        cve_tpo_pdo = #{cveTpoPdo,jdbcType=INTEGER},
+      </if>
+      <if test="cveStatusPdo != null" >
+        cve_status_pdo = #{cveStatusPdo,jdbcType=INTEGER},
+      </if>
+      <if test="observaciones != null" >
+        observaciones = #{observaciones,jdbcType=CHAR},
+      </if>
+      <if test="nuQuincIni != null" >
+        nu_quinc_ini = #{nuQuincIni,jdbcType=SMALLINT},
+      </if>
+      <if test="cveProducto != null" >
+        cve_producto = #{cveProducto,jdbcType=INTEGER},
+      </if>
+      <if test="cveTpoActividad != null" >
+        cve_tpo_actividad = #{cveTpoActividad,jdbcType=INTEGER},
+      </if>
+      <if test="cveTpoRecursos != null" >
+        cve_tpo_recursos = #{cveTpoRecursos,jdbcType=INTEGER},
+      </if>
+      <if test="imTotalNeto != null" >
+        im_total_neto = #{imTotalNeto,jdbcType=DECIMAL},
+      </if>
+      <if test="nbRechazo != null" >
+        nb_rechazo = #{nbRechazo,jdbcType=CHAR},
+      </if>
+      <if test="imAguinaldoReal != null" >
+        im_aguinaldo_real = #{imAguinaldoReal,jdbcType=DECIMAL},
+      </if>
+      <if test="cveTpoUnidad != null" >
+        cve_tpo_unidad = #{cveTpoUnidad,jdbcType=INTEGER},
+      </if>
+      <if test="curp != null" >
+        curp = #{curp,jdbcType=CHAR},
+      </if>
+      <if test="cveStatusProg != null" >
+        cve_status_prog = #{cveStatusProg,jdbcType=INTEGER},
+      </if>
+      <if test="cveStatusTpoU != null" >
+        cve_status_tpo_u = #{cveStatusTpoU,jdbcType=INTEGER},
+      </if>
+      <if test="nuEmp != null" >
+        nu_emp = #{nuEmp,jdbcType=INTEGER},
+      </if>
+      <if test="cveNacionalidad != null" >
+        cve_nacionalidad = #{cveNacionalidad,jdbcType=INTEGER},
+      </if>
+      <if test="domicilio != null" >
+        domicilio = #{domicilio,jdbcType=CHAR},
+      </if>
+      <if test="nuCedula != null" >
+        nu_cedula = #{nuCedula,jdbcType=CHAR},
+      </if>
+      <if test="imgContrato != null" >
+        img_contrato = #{imgContrato,jdbcType=CHAR},
+      </if>
+      <if test="cveStatusImp != null" >
+        cve_status_imp = #{cveStatusImp,jdbcType=INTEGER},
+      </if>
+      <if test="nuOficioEnvUr != null" >
+        nu_oficio_env_ur = #{nuOficioEnvUr,jdbcType=CHAR},
+      </if>
+      <if test="cveSubprograma != null" >
+        cve_subprograma = #{cveSubprograma,jdbcType=CHAR},
+      </if>
+      <if test="cveTpoFm != null" >
+        cve_tpo_fm = #{cveTpoFm,jdbcType=INTEGER},
+      </if>
+      <if test="descPerfil != null" >
+        desc_perfil = #{descPerfil,jdbcType=CHAR},
+      </if>
+      <if test="descExperiencia != null" >
+        desc_experiencia = #{descExperiencia,jdbcType=CHAR},
+      </if>
+      <if test="imTotalReal != null" >
+        im_total_real = #{imTotalReal,jdbcType=DECIMAL},
+      </if>
+      <if test="nota != null" >
+        nota = #{nota,jdbcType=VARCHAR},
+      </if>
+      <if test="cveTpoContrato != null" >
+        cve_tpo_contrato = #{cveTpoContrato,jdbcType=INTEGER},
+      </if>
+      <if test="cveStatusRegSfp != null" >
+        cve_status_reg_sfp = #{cveStatusRegSfp,jdbcType=INTEGER},
+      </if>
+      <if test="fhStatusRegSfp != null" >
+        fh_status_reg_sfp = #{fhStatusRegSfp,jdbcType=DATE},
+      </if>
+      <if test="cvePenAlim != null" >
+        cve_pen_alim = #{cvePenAlim,jdbcType=INTEGER},
+      </if>
+      <if test="cveExpensa != null" >
+        cve_expensa = #{cveExpensa,jdbcType=INTEGER},
+      </if>
+      <if test="cveImpFiniq != null" >
+        cve_imp_finiq = #{cveImpFiniq,jdbcType=INTEGER},
+      </if>
+      <if test="cveReqComp != null" >
+        cve_req_comp = #{cveReqComp,jdbcType=INTEGER},
+      </if>
+      <if test="cveFlujoSfp != null" >
+        cve_flujo_sfp = #{cveFlujoSfp,jdbcType=INTEGER},
+      </if>
+      <if test="cveEdoCivil != null" >
+        cve_edo_civil = #{cveEdoCivil,jdbcType=SMALLINT},
+      </if>
+      <if test="cveReqIssste != null" >
+        cve_req_issste = #{cveReqIssste,jdbcType=SMALLINT},
+      </if>
+      <if test="fhIniAnt != null" >
+        fh_ini_ant = #{fhIniAnt,jdbcType=DATE},
+      </if>
+      <if test="cveEntidadCap != null" >
+        cve_entidad_cap = #{cveEntidadCap,jdbcType=SMALLINT},
+      </if>
+      <if test="cveMpioCap != null" >
+        cve_mpio_cap = #{cveMpioCap,jdbcType=SMALLINT},
+      </if>
+      <if test="ctaBancaria != null" >
+        cta_bancaria = #{ctaBancaria,jdbcType=CHAR},
+      </if>
+      <if test="procesoCaptura != null" >
+        proceso_captura = #{procesoCaptura,jdbcType=SMALLINT},
+      </if>
+      <if test="cveAreaGral != null" >
+        cve_area_gral = #{cveAreaGral,jdbcType=SMALLINT},
+      </if>
+      <if test="otraAreaGral != null" >
+        otra_area_gral = #{otraAreaGral,jdbcType=CHAR},
+      </if>
+      <if test="cveConocReq != null" >
+        cve_conoc_req = #{cveConocReq,jdbcType=SMALLINT},
+      </if>
+      <if test="otroConocReq != null" >
+        otro_conoc_req = #{otroConocReq,jdbcType=CHAR},
+      </if>
+      <if test="anniosExp != null" >
+        annios_exp = #{anniosExp,jdbcType=SMALLINT},
+      </if>
+      <if test="email != null" >
+        email = #{email,jdbcType=CHAR},
+      </if>
+      <if test="extension != null" >
+        extension = #{extension,jdbcType=CHAR},
+      </if>
+    </set>
+    where annio = #{annio,jdbcType=SMALLINT}
+      and nu_tramite = #{nuTramite,jdbcType=INTEGER}
+      and cve_consec_tram = #{cveConsecTram,jdbcType=SMALLINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="mx.sep.poho.modelo.Tsh003Tramite" >
+    update tsh003_tramite
+    set nu_oficio = #{nuOficio,jdbcType=INTEGER},
+      cve_usuario = #{cveUsuario,jdbcType=CHAR},
+      cve_consecutivo = #{cveConsecutivo,jdbcType=SMALLINT},
+      cve_status = #{cveStatus,jdbcType=INTEGER},
+      tpo_tramite = #{tpoTramite,jdbcType=INTEGER},
+      cve_unidad = #{cveUnidad,jdbcType=CHAR},
+      ap_paterno = #{apPaterno,jdbcType=CHAR},
+      ap_materno = #{apMaterno,jdbcType=CHAR},
+      nb_contratante = #{nbContratante,jdbcType=CHAR},
+      tpo_sexo = #{tpoSexo,jdbcType=CHAR},
+      rfc = #{rfc,jdbcType=CHAR},
+      cve_titulo = #{cveTitulo,jdbcType=INTEGER},
+      cve_nivel_puesto = #{cveNivelPuesto,jdbcType=CHAR},
+      cve_edo = #{cveEdo,jdbcType=INTEGER},
+      fh_ini = #{fhIni,jdbcType=DATE},
+      fh_fin = #{fhFin,jdbcType=DATE},
+      cve_programa = #{cvePrograma,jdbcType=CHAR},
+      cve_codigo = #{cveCodigo,jdbcType=CHAR},
+      nu_oficio_shcp = #{nuOficioShcp,jdbcType=VARCHAR},
+      cve_tpo_programa = #{cveTpoPrograma,jdbcType=INTEGER},
+      im_pago_mes = #{imPagoMes,jdbcType=DECIMAL},
+      im_aguinaldo = #{imAguinaldo,jdbcType=DECIMAL},
+      im_total_contrato = #{imTotalContrato,jdbcType=DECIMAL},
+      im_pagado = #{imPagado,jdbcType=DECIMAL},
+      im_faltante = #{imFaltante,jdbcType=DECIMAL},
+      cve_desc_func = #{cveDescFunc,jdbcType=INTEGER},
+      descripcion = #{descripcion,jdbcType=CHAR},
+      cve_tpo_pto = #{cveTpoPto,jdbcType=SMALLINT},
+      cve_status_pto = #{cveStatusPto,jdbcType=INTEGER},
+      cve_tpo_pdo = #{cveTpoPdo,jdbcType=INTEGER},
+      cve_status_pdo = #{cveStatusPdo,jdbcType=INTEGER},
+      observaciones = #{observaciones,jdbcType=CHAR},
+      nu_quinc_ini = #{nuQuincIni,jdbcType=SMALLINT},
+      cve_producto = #{cveProducto,jdbcType=INTEGER},
+      cve_tpo_actividad = #{cveTpoActividad,jdbcType=INTEGER},
+      cve_tpo_recursos = #{cveTpoRecursos,jdbcType=INTEGER},
+      im_total_neto = #{imTotalNeto,jdbcType=DECIMAL},
+      nb_rechazo = #{nbRechazo,jdbcType=CHAR},
+      im_aguinaldo_real = #{imAguinaldoReal,jdbcType=DECIMAL},
+      cve_tpo_unidad = #{cveTpoUnidad,jdbcType=INTEGER},
+      curp = #{curp,jdbcType=CHAR},
+      cve_status_prog = #{cveStatusProg,jdbcType=INTEGER},
+      cve_status_tpo_u = #{cveStatusTpoU,jdbcType=INTEGER},
+      nu_emp = #{nuEmp,jdbcType=INTEGER},
+      cve_nacionalidad = #{cveNacionalidad,jdbcType=INTEGER},
+      domicilio = #{domicilio,jdbcType=CHAR},
+      nu_cedula = #{nuCedula,jdbcType=CHAR},
+      img_contrato = #{imgContrato,jdbcType=CHAR},
+      cve_status_imp = #{cveStatusImp,jdbcType=INTEGER},
+      nu_oficio_env_ur = #{nuOficioEnvUr,jdbcType=CHAR},
+      cve_subprograma = #{cveSubprograma,jdbcType=CHAR},
+      cve_tpo_fm = #{cveTpoFm,jdbcType=INTEGER},
+      desc_perfil = #{descPerfil,jdbcType=CHAR},
+      desc_experiencia = #{descExperiencia,jdbcType=CHAR},
+      im_total_real = #{imTotalReal,jdbcType=DECIMAL},
+      nota = #{nota,jdbcType=VARCHAR},
+      cve_tpo_contrato = #{cveTpoContrato,jdbcType=INTEGER},
+      cve_status_reg_sfp = #{cveStatusRegSfp,jdbcType=INTEGER},
+      fh_status_reg_sfp = #{fhStatusRegSfp,jdbcType=DATE},
+      cve_pen_alim = #{cvePenAlim,jdbcType=INTEGER},
+      cve_expensa = #{cveExpensa,jdbcType=INTEGER},
+      cve_imp_finiq = #{cveImpFiniq,jdbcType=INTEGER},
+      cve_req_comp = #{cveReqComp,jdbcType=INTEGER},
+      cve_flujo_sfp = #{cveFlujoSfp,jdbcType=INTEGER},
+      cve_edo_civil = #{cveEdoCivil,jdbcType=SMALLINT},
+      cve_req_issste = #{cveReqIssste,jdbcType=SMALLINT},
+      fh_ini_ant = #{fhIniAnt,jdbcType=DATE},
+      cve_entidad_cap = #{cveEntidadCap,jdbcType=SMALLINT},
+      cve_mpio_cap = #{cveMpioCap,jdbcType=SMALLINT},
+      cta_bancaria = #{ctaBancaria,jdbcType=CHAR},
+      proceso_captura = #{procesoCaptura,jdbcType=SMALLINT},
+      cve_area_gral = #{cveAreaGral,jdbcType=SMALLINT},
+      otra_area_gral = #{otraAreaGral,jdbcType=CHAR},
+      cve_conoc_req = #{cveConocReq,jdbcType=SMALLINT},
+      otro_conoc_req = #{otroConocReq,jdbcType=CHAR},
+      annios_exp = #{anniosExp,jdbcType=SMALLINT},
+      email = #{email,jdbcType=CHAR},
+      extension = #{extension,jdbcType=CHAR}
+    where annio = #{annio,jdbcType=SMALLINT}
+      and nu_tramite = #{nuTramite,jdbcType=INTEGER}
+      and cve_consec_tram = #{cveConsecTram,jdbcType=SMALLINT}
+  </update>
+</mapper>

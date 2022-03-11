@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+
+<mapper namespace="mx.sep.poho.dao.join.TramitesJoinMapper">
+   
+    <select id="obtieneAnniosTramites" parameterType="java.lang.String" resultType="java.lang.Integer">
+        SELECT ANNIO, NU_TRAMITE, CVE_CODIGO, (FH_INI) || ' AL ' || (FH_FIN) AS PERIODO , CVE_UNIDAD
+            FROM TSH003_TRAMITE WHERE RFC = #{rfc,jdbcType=VARCHAR} AND CVE_STATUS = 1036
+    </select>
+    
+</mapper>   
