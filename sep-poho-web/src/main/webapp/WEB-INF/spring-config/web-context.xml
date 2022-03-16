@@ -94,4 +94,6 @@
     </bean>
 
     <bean id="notificacionLog" class="mx.sep.poho.web.util.ServicioNotificacionLog" />
+    
+    <context:component-scan base-package="mx.sep.poho.web.controller" />
 </beans>

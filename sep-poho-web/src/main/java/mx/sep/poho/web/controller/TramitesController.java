@@ -65,7 +65,7 @@ public class TramitesController {
                         lstAnnios = tramitesService.obtieneAnniosTramite(usuarioSeguridad.getUsername());
 		} catch (Exception ex) {
 			logger.error("Error al obtener el usuario de seguridad.", ex);
-			String mensaje = "No se pudo realizar la busqueda solicitada:" + " por favor intente más tarde";
+			String mensaje = "No se pudo realizar la busqueda solicitada:" + " por favor intente mas tarde";
 			return lstAnnios;
 		}
 		return lstAnnios;

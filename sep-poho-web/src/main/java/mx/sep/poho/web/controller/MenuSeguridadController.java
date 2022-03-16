@@ -59,7 +59,7 @@ public class MenuSeguridadController {
                         usuario.setRol(usuarioSeguridad.getRoles().get(0).getRol());
 		} catch (Exception ex) {
 			logger.error("Error al obtener el usuario de seguridad.", ex);
-			String mensaje = "No se pudo realizar la busqueda solicitada:" + " por favor intente más tarde";
+			String mensaje = "No se pudo realizar la busqueda solicitada:" + " por favor intente mas tarde";
 			return new ResponseEntity<String>(mensaje, HttpStatus.CONFLICT);
 		}
 		return new ResponseEntity<UsuarioVO>(usuario, HttpStatus.OK);

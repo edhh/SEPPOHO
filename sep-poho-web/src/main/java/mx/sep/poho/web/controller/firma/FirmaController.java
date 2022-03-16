@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package mx.sep.poho.web.controller;
+package mx.sep.poho.web.controller.firma;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -53,17 +53,24 @@ package mx.sep.poho.web.controller;
     import javax.servlet.http.HttpServlet;
     import javax.servlet.http.HttpServletRequest;
     import javax.servlet.http.HttpServletResponse;
+import mx.sep.poho.web.controller.MenuSeguridadController;
     import org.codehaus.jackson.map.ObjectMapper;
     import org.codehaus.jackson.map.ObjectWriter;
+    import org.slf4j.Logger;
+    import org.slf4j.LoggerFactory;
 
     /**
      *
      * @author eduardo.hernandez
      */
     public class FirmaController extends HttpServlet {
-
+        
+        final static Logger logger = LoggerFactory.getLogger(MenuSeguridadController.class);
+        
         protected void processRequest(HttpServletRequest request, HttpServletResponse response)
                 throws ServletException, IOException {
+            logger.debug("CONTROLADOR FIRMA");
+            System.out.println("CONTROLADOR FIRMA");
             response.setContentType("application/json; charset=utf-8");
             PrintWriter out = response.getWriter();
             String entidad = this.getInitParameter("entidad");
@@ -87,11 +94,13 @@ package mx.sep.poho.web.controller;
                     return;
                 }
                 if (operacion.equals("decodecert")) {
+                    System.out.println("OPERACION DECODECERT");
                     String certificate = request.getParameter("cert");
                     String reference = request.getParameter("referencia");
                     reference = new String((new sun.misc.BASE64Decoder()).decodeBuffer(reference), "utf8");
                     if (reference == null || reference.trim().isEmpty()) {
                         reference = "Decodificación Certificado";
+                        System.out.println("REFRENCIA VACIO");
                     }
                     if (certificate != null && request.getParameter("verifyOCSP") != null) {
                         DecodeCertificate parameters = new DecodeCertificate();
@@ -108,6 +117,7 @@ package mx.sep.poho.web.controller;
                             out.write(json);
 
                         } else {
+                            System.out.println("ERROR");
                             out.write(encodeError(-90, "No se obtuvo respuesta de web service"));
                         }
 
@@ -482,6 +492,7 @@ package mx.sep.poho.web.controller;
         @Override
         protected void doGet(HttpServletRequest request, HttpServletResponse response)
                 throws ServletException, IOException {
+            logger.debug("DO GET");
             processRequest(request, response);
         }
 
@@ -496,6 +507,7 @@ package mx.sep.poho.web.controller;
         @Override
         protected void doPost(HttpServletRequest request, HttpServletResponse response)
                 throws ServletException, IOException {
+            logger.debug("DO POST");
             processRequest(request, response);
         }
 

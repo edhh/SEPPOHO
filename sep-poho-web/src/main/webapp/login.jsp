@@ -47,11 +47,11 @@
                                 
                                 <div class="form-group">
                                     <label class="control-label" for="certificado">Certificado (.cer)*:</label>
-                                    <input id="certificado" type="file">
+                                    <input id="certificado" type="file" change="limpiaDatosEFirma()">
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label" for="llavePrivada">Llave privada (.key)*:</label>
-                                    <input id="llavePrivada" type="file">
+                                    <input id="llavePrivada" name="llavePrivada" type="file" change="limpiaDatosEFirma()">
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label" for="fraseLlaves">Contrase&ntilde;a de clave privada*:</label>
@@ -59,12 +59,12 @@
                                 </div>
                                 <div class="form-group" id="divRFC">
                                     <label class="control-label" for="j_username">R.F.C. *:</label>
-                                    <input class="form-control" id="j_username" name="j_username" placeholder="R.F.C." type="text" onkeyup="this.value = this.value.toUpperCase()" maxlength="13">
+                                    <input class="form-control" disabled id="j_username" name="j_username" placeholder="R.F.C." type="text" onkeyup="this.value = this.value.toUpperCase()" maxlength="13">
                                     <span id="errorRFC" class="help-block" ></span>
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                      <input type="checkbox">
+                                      <input type="checkbox" id="checkPrivacidad">
                                       He leído y acepto el aviso de privacidad
                                     </label>
                                 </div>
@@ -80,23 +80,19 @@
                                 <div id="error4" style="display: none;">
                                     <span style="color: red">Problema al ingresar,verifique su conexión a Internet.</span>
                                 </div>
+                                <div id="error5" style="display: none;">
+                                    <span style="color: red">Debe aceptar el aviso de privacidad antes de validar su e.firma.</span>
+                                </div>
                                 <br>
-                                <div class="row">
-                                    <div class="form-group" class="col-md-12">
-                                        <div class="pull-right">
-                                            <input id="firmaButton" 
+                                <div class="form-group pull-right">
+                                        <input id="firmaButton" 
                                                    type="button" 
                                                    value="Validar e.firma"
                                                    onclick="return validateKeyPairs(event);"
                                                    class="btn btn-primary"/>
-                                        </div>
-                                    </div> 
-                                </div>
-                                <div class="form-group">
-                                    <div class="col-sm-offset-7 col-sm-5">
-                                        <button class="btn btn-primary pull-right" type="button" id="btnEnviar">Entrar</button>
+                                        &nbsp;
+                                        <button class="btn btn-primary pull-right" type="button" id="btnEnviar" >Entrar</button>
                                         <button class="btn btn-primary pull-right" type="submit" style="display:none" id="btnSubmit"></button>
-                                    </div>
                                 </div>
                                 
                             </form>
@@ -227,22 +223,39 @@
         ajaxAsync : true,
         controller : "${pageContext.request.contextPath}/FirmaController"
     });
-    
+    $('#btnEnviar').prop('disabled',true);
+    $('#j_username').val("");
+    $('#checkPrivacidad').prop('checked',false);
+    console.log("${pageContext.request.contextPath}/FirmaController");
     var fileDragAndDrop = null;
-
+    console.log("Script firma");
     objFirma.validateWebBrowser("El explorador web no tiene soporte para HTML5. El proceso de firmado no continuará");
     
     $(function() {
+        console.log("Function lee certificado y llave");
         objFirma.readCertificate("certificado");
         objFirma.readPrivateKey("llavePrivada");
     });
     
     //Función que intentará abrir el par de llaves
     function validateKeyPairs(e) {
+        if (!jQuery('#checkPrivacidad').is(':checked')) {
+            jQuery("#error5").show("blind");
+            return;
+        }
+        else{
+            jQuery("#error5").hide();
+        }
+        console.log($('.checkPrivacidad:checked').val());
+        //objFirma.readCertificateAndPrivateKey($("#fraseLlaves").val(),$("#fraseLlaves").val());
+        console.log("Validando pares llaves");
         objFirma.validateKeyPairs($("#fraseLlaves").val(), function (result) {
+            console.log(result);
             if (result.state == 0) {
+                console.log("Correcto");
                 decodificarCertificadoUsuario(true);
             } else {
+                console.log("Fallo");
                 alert(result.description);
             }
         });
@@ -272,8 +285,12 @@
         //console.log("rfcUsuario-"+rfcUsuario);
         //console.log("solicitud-"+solicitudRvoe);
         //var cadena = prompt("Referencia");
-        
+        console.log(objFirma.getCertificate());
+        var cadena = "MECP940508SR2"+"-"+"12345";
+        console.log("cadena-"+cadena);
+        objFirma.setReferencia(cadena);
         objFirma.decodeCertificate({ocsp: (typeof bOcsp == "undefined" ? false : bOcsp), tsa: {name: "NA", algorithm: fielnet.Digest.SHA1}}, function (cert) {
+            console.log(cert);
             if (cert.state == 0) {
                 console.log("cert.state-"+cert.state);
                 cert.transfer
@@ -282,13 +299,15 @@
                 console.log("ab");
                 console.log(JSON.stringify(cert, undefined, 4));
                 console.log("RFC-"+cert.subjectRFC);
-                $('#rfc').val(cert.subjectRFC);
-                if(rfcUsuario != cert.subjectRFC){
-                    alert("La e.firma no corresponde al usuario registrado.");
-                }else{
-                    $('#guardarIGButton').prop('disabled',false);
-                    $('#firmaButton').prop('disabled',true);
-                }
+                $('#j_username').val(cert.subjectRFC);
+                $('#btnEnviar').prop('disabled',false);
+                $('#firmaButton').prop('disabled',true);
+                //if(rfcUsuario != cert.subjectRFC){
+                //    alert("La e.firma no corresponde al usuario registrado.");
+                //}else{
+                //    $('#guardarIGButton').prop('disabled',false);
+                //    $('#firmaButton').prop('disabled',true);
+                //}
                 //$("#contenidoModalCertificado").html("<textarea class='form-control' style='width:100%; height:500px;'>" + JSON.stringify(cert, undefined, 4) + "</textarea>");
                 //$("#modalDetallesCertificado").modal();
                 //alert(JSON.stringify(cert, undefined, 4) );
@@ -310,6 +329,12 @@
     function decodificarCertificadoUsuario2(bOcsp) {
         $('#guardarIGButton').prop('disabled',false);
         $('#firmaButton').prop('disabled',true);
+    }
+    
+    function limpiaDatosEFirma(){
+        $('#j_username').val("");
+        $('#btnEnviar').prop('disabled',true);
+        $('#firmaButton').prop('disabled',false);
     }
 
 </script>

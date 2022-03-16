@@ -15,10 +15,7 @@
         <!--<intercept-url pattern="/WEB-INF/index.jsp*" access="permitAll"/>-->
         <intercept-url pattern="/static/**" access="permitAll"/>
         <!--<intercept-url pattern="/mvc/archivo/subirArchivo**" access="permitAll"/>-->
-        <intercept-url pattern="/mvc/qr" access="permitAll"/>
-        <intercept-url pattern="/mvc/qr/**" access="permitAll"/>
-        <intercept-url pattern="/mvc/qr/vC/**" access="permitAll"/>
-        <intercept-url pattern="/mvc/consultaQR/**" access="permitAll"/>
+        <intercept-url pattern="/**/FirmaController" access="permitAll"/>
         <intercept-url pattern="/**" access="isAuthenticated()" />
         <form-login login-page="/login.jsp"
                     username-parameter="j_username"
