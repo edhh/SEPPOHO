@@ -8,6 +8,7 @@ package mx.sep.poho.servicios.impl;
 import java.util.List;
 import mx.sep.poho.servicios.TramitesService;
 import mx.sep.poho.dao.join.TramitesJoinMapper;
+import mx.sep.poho.datos.vo.ContratoVO;
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -25,6 +26,11 @@ public class TramitesServiceImpl implements TramitesService{
         List<Integer> lstAnnios = tramitesJoinMapper.obtieneAnniosTramites(rfc);
         return lstAnnios;
         
+    }
+    
+    public List<ContratoVO> obtieneTramitesAnnio (String rfc, Integer annio){
+        List<ContratoVO> lstContratos = tramitesJoinMapper.obtieneContratosXAnnio(rfc, annio);
+        return lstContratos;
     }
     
 }

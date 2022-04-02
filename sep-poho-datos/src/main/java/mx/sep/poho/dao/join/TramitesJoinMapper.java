@@ -6,7 +6,8 @@
 package mx.sep.poho.dao.join;
 
 import java.util.List;
-
+import mx.sep.poho.datos.vo.ContratoVO;
+import org.apache.ibatis.annotations.Param;
 
 /**
  *
@@ -15,4 +16,6 @@ import java.util.List;
 public interface TramitesJoinMapper {
     
     List<Integer> obtieneAnniosTramites (String rfc);
+    
+    List<ContratoVO> obtieneContratosXAnnio (@Param("rfc") String rfc, @Param("annio") Integer annio);
 }

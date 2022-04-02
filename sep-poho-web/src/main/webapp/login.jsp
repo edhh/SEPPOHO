@@ -31,6 +31,7 @@
     <jsp:attribute name="scripts">
     </jsp:attribute>
     <jsp:body>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <div class="container">
             <div class="row">
                 <div class="col-md-8">
@@ -59,7 +60,7 @@
                                 </div>
                                 <div class="form-group" id="divRFC">
                                     <label class="control-label" for="j_username">R.F.C. *:</label>
-                                    <input class="form-control" disabled id="j_username" name="j_username" placeholder="R.F.C." type="text" onkeyup="this.value = this.value.toUpperCase()" maxlength="13">
+                                    <input class="form-control" id="j_username" name="j_username" placeholder="R.F.C." type="text" onkeyup="this.value = this.value.toUpperCase()" maxlength="13">
                                     <span id="errorRFC" class="help-block" ></span>
                                 </div>
                                 <div class="checkbox">
@@ -75,7 +76,7 @@
                                     <span style="color: red">El usuario se encuentra inhabilitado.</span>
                                 </div>
                                 <div id="error3" style="display: none;">
-                                    <span style="color: red">El usuario ya ha iniciado sesi&oacute;n en otro lugar.</span>
+                                    <span style="color: red">El usuario ya ha iniciado sesi&oacue;n en otro lugar.</span>
                                 </div>
                                 <div id="error4" style="display: none;">
                                     <span style="color: red">Problema al ingresar,verifique su conexión a Internet.</span>
@@ -84,14 +85,11 @@
                                     <span style="color: red">Debe aceptar el aviso de privacidad antes de validar su e.firma.</span>
                                 </div>
                                 <br>
-                                <div class="form-group pull-right">
-                                        <input id="firmaButton" 
-                                                   type="button" 
-                                                   value="Validar e.firma"
-                                                   onclick="return validateKeyPairs(event);"
-                                                   class="btn btn-primary"/>
+                                <button class="btn btn-primary" type="button" id="firmaButton" onclick="return validateKeyPairs(event);" ><i class='fa fa-circle-o-notch fa-spin' id="loadingLlaves" style="display: none;"></i> Validar e.firma</button>
                                         &nbsp;
-                                        <button class="btn btn-primary pull-right" type="button" id="btnEnviar" >Entrar</button>
+                                <div class="form-group pull-right">
+                                        
+                                    <button class="btn btn-primary pull-right" type="button" id="btnEnviar" ><i class='fa fa-circle-o-notch fa-spin' id="loadingEntrar" style="display: none;"></i> Entrar</button>
                                         <button class="btn btn-primary pull-right" type="submit" style="display:none" id="btnSubmit"></button>
                                 </div>
                                 
@@ -120,7 +118,8 @@
 
             <c:if test="${param.authfailed == true}" >
                 var messageException = "<c:out value="${SPRING_SECURITY_LAST_EXCEPTION.message}"/>";
-
+                jQuery("#loadingEntrar").hide();
+                //$('#btnEnviar').prop('disabled',false);
                 if ("Bad credentials" === messageException) {
                     jQuery("#error").show("blind");
                 } else if ("User is disabled" === messageException) {
@@ -134,6 +133,9 @@
                 jQuery("#btnEnviar").click(function () {
                     crearCookieRecordame();
                     jQuery("#btnSubmit").click();
+                    jQuery("#loadingEntrar").show("blind");
+                    $('#btnEnviar').prop('disabled',true);
+                    console.log("BOTN ENTRAR");
                 });
 
                 jQuery('#j_username').keypress(function (e) {
@@ -226,6 +228,7 @@
     $('#btnEnviar').prop('disabled',true);
     $('#j_username').val("");
     $('#checkPrivacidad').prop('checked',false);
+    $('#loadingLlaves'). prop('styler','display:none;');
     console.log("${pageContext.request.contextPath}/FirmaController");
     var fileDragAndDrop = null;
     console.log("Script firma");
@@ -239,8 +242,18 @@
     
     //Función que intentará abrir el par de llaves
     function validateKeyPairs(e) {
+        jQuery("#loadingLlaves").show("blind");
+        $('#firmaButton').prop('disabled',true);
+        console.log($("#certificado").val());
+        if (($("#certificado").val() == '')){
+            //jQuery("#error5").show("blind");
+            alert("Ingrese el certificado");
+            return;
+        }
         if (!jQuery('#checkPrivacidad').is(':checked')) {
             jQuery("#error5").show("blind");
+            jQuery("#loadingLlaves").hide();
+            $('#firmaButton').prop('disabled',false);
             return;
         }
         else{
@@ -257,6 +270,8 @@
             } else {
                 console.log("Fallo");
                 alert(result.description);
+                jQuery("#loadingLlaves").hide();
+                $('#firmaButton').prop('disabled',false);
             }
         });
         //$('#solicitudRVOERevisionForm').submit();
@@ -288,12 +303,13 @@
         console.log(objFirma.getCertificate());
         var cadena = "MECP940508SR2"+"-"+"12345";
         console.log("cadena-"+cadena);
+        //$('#firmaButton' ).append( "<i class='fa fa-circle-o-notch fa-spin'></i>" );
         objFirma.setReferencia(cadena);
         objFirma.decodeCertificate({ocsp: (typeof bOcsp == "undefined" ? false : bOcsp), tsa: {name: "NA", algorithm: fielnet.Digest.SHA1}}, function (cert) {
             console.log(cert);
             if (cert.state == 0) {
                 console.log("cert.state-"+cert.state);
-                cert.transfer
+                cert.transfer;
                 console.log("cert.transfer-"+cert.transfer);
                 console.log(cert);
                 console.log("ab");
@@ -302,6 +318,7 @@
                 $('#j_username').val(cert.subjectRFC);
                 $('#btnEnviar').prop('disabled',false);
                 $('#firmaButton').prop('disabled',true);
+                jQuery("#loadingLlaves").hide();
                 //if(rfcUsuario != cert.subjectRFC){
                 //    alert("La e.firma no corresponde al usuario registrado.");
                 //}else{
@@ -316,6 +333,7 @@
                 alert(cert.description);
                 $('#guardarIGButton').prop('disabled',true);
                 $('#firmaButton').prop('disabled',false);
+                jQuery("#loadingLlaves").hide();
             }
         });
     }

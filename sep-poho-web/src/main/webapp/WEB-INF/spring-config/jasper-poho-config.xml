@@ -6,5 +6,16 @@
 		http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
 
     <!-- Aqui se agregan las vistas que usarán los controllers para generar jasper reports. -->
-
+    <bean id="repContrato"
+          class="org.springframework.web.servlet.view.jasperreports.JasperReportsPdfView">
+        <property name="url" value="/WEB-INF/classes/mx/sep/poho/reportes/ModeloContrato_01032022_SC.jasper"/>   
+        <property name="reportDataKey" value="dataSourceKey"/>     
+        <property name="headers">
+            <props>
+                <prop key="Content-Disposition">        
+                    attachment; filename=ModeloContrato_01032022_SC.pdf
+                </prop>
+            </props>
+        </property>
+    </bean>
 </beans>

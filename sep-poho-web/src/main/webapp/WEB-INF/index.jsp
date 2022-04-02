@@ -26,6 +26,7 @@
     <jsp:attribute name="breadcrumb">
     </jsp:attribute>
     <jsp:body>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <div class="container">
 
             <h4>Parámetros de búsqueda</h4>
@@ -48,7 +49,7 @@
              <div class="row">
              <div class="form-group">
             <div class="col-md-6">
-                <button class="btn btn-primary pull-right" type="submit" onclick="insertaAlumno()" id="btnGuardar">Buscar</button>
+                <button class="btn btn-primary pull-right" type="submit" onclick="obtieneContratos()" id="btnGuardar"><i class='fa fa-circle-o-notch fa-spin' id="loadingBuscar" style="display: none;"></i> Buscar</button>
             </div>
              </div>
             </div>            
@@ -60,57 +61,8 @@
             <div class="row bottom-buffer" id="resultadoLista">
                 <div class="col-md-12" >
                     <div class="table-responsive" style="width:100%" id="datosCtDiv">
-                        <table class="table table-responsive table-striped" name="" id="alumnosPlantel">
-                              <tr>
-                                <th>Año</th>
-                                <th>Nivel</th>
-                                <th>Número de tramite</th>                                
-                                <th>Periodo del contrato</th>
-                                <th>Unidad Responsable</th>
-                                <th>Estatus</th>
-                                <th>Firmar</th>
-                                <th>Descargar</th>
-                              </tr>
-                              <tr>
-                                <td>2020</td>
-                                <td>N11</td>
-                                <td>12936</td>
-                                <td>01/01/2020 - 31/03/2020</td>
-                                <td>711</td>
-                                <td>Pendiente de firmas</td>
-                                <td><button class="btn btn-primary" id="btnFirmar" onclick="modalFirmar()">Firmar</button></td>
-                                <td><button class="btn btn-primary" id="btnImprimir">Descargar</button></td>
-                              </tr>
-                              <tr>
-                                <td>2020</td>
-                                <td>12956</td>
-                                <td>N11</td>
-                                <td>01/04/2020 - 30/06/2020</td>
-                                <td>711</td>
-                                <td>Pendiente de firma de autoridad</td>
-                                <td><button class="btn btn-primary" id="btnFirmar" onclick="modalFirmar()">Firmar</button></td>
-                                <td><button class="btn btn-primary" id="btnImprimir"">Descargar</button></td>
-                              </tr>
-                              <tr>
-                                <td>2020</td>
-                                <td>12976</td>
-                                <td>N11</td>
-                                <td>01/07/2020 - 30/09/2020</td>
-                                <td>711</td>
-                                <td>Pendiente de firma de prestador</td>
-                                <td><button class="btn btn-primary" id="btnFirmar" onclick="modalFirmar()">Firmar</button></td>
-                                <td><button class="btn btn-primary" id="btnImprimir" >Descargar</button></td>
-                              </tr>
-                              <tr>
-                                <td>2020</td>
-                                <td>12998</td>
-                                <td>N11</td>
-                                <td>01/10/2020 - 3|/12/2020</td>
-                                <td>711</td>
-                                <td>Firmado</td>
-                                <td><button class="btn btn-primary" id="btnFirmar" onclick="modalFirmar()">Firmar</button></td>
-                                <td><button class="btn btn-primary" id="btnImprimir" >Descargar</button></td>
-                              </tr>
+                        <table class="table table-responsive table-striped" name="contratosTrabajador" id="contratosTrabajador">
+                            
                         </table>                                                
                     </div>
                 </div>
@@ -132,16 +84,16 @@
                         <div class="modal-body">
                             <form role="form">
                                 <div class="form-group">
-                                    <label class="control-label" for="cer">Certificado (.cer)*:</label>
-                                    <input id="cer" type="file">
+                                    <label class="control-label" for="certificado">Certificado (.cer)*:</label>
+                                    <input id="certificado" type="file">
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label" for="key">Llave privada (.key)*:</label>
-                                    <input id="key" type="file">
+                                    <label class="control-label" for="llavePrivada">Llave privada (.key)*:</label>
+                                    <input id="llavePrivada" name="llavePrivada" type="file">
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label" for="password">Contrase&ntilde;a de clave privada*:</label>
-                                    <input class="form-control" id="password" placeholder="Contrase&ntilde;a" type="password">
+                                    <label class="control-label" for="fraseLlaves">Contrase&ntilde;a de clave privada*:</label>
+                                    <input class="form-control" id="fraseLlaves" name="fraseLlaves" placeholder="Contrase&ntilde;a" type="password">
                                 </div>
                                 <div class="form-group" id="divRFC">
                                     <label class="control-label" for="rfc">R.F.C. *:</label>
@@ -150,7 +102,7 @@
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                      <input type="checkbox">
+                                      <input type="checkbox" id="checkPrivacidad">
                                       He leído y acepto el aviso de privacidad
                                     </label>
                                 </div>
@@ -166,11 +118,15 @@
                                 <div id="error4" style="display: none;">
                                     <span style="color: red">Problema al ingresar,verifique su conexión a Internet.</span>
                                 </div>
+                                <div id="error5" style="display: none;">
+                                    <span style="color: red">Debe aceptar el aviso de privacidad antes de validar su e.firma.</span>
+                                </div>
                                 
                             </form>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal" id="si">Firmar</button>
+                            <button class="btn btn-primary" type="button" id="firmaButton" onclick="return validateKeyPairs(event);" ><i class='fa fa-circle-o-notch fa-spin' id="loadingLlaves" style="display: none;"></i> Validar e.firma</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal" id="firmarBtn">Firmar</button>
                             <button type="button" class="btn btn-default" data-dismiss="modal" id="no">Cerrar</button>
                         </div>
                         <div class="alert" style="text-align:left;padding-left: 12px;"><b>Aviso de privacidad</b>
@@ -223,3 +179,151 @@
 <script src="<c:url value="/static/js/libs/bootstrap/imageMapResizer.min.js" /> "></script>
 <script src="<c:url value="/static/js/libs/bootstrap/bootstrap-table.min.js" /> "></script>
 <script src="<c:url value="/static/js/app/tramite/contratos.js" />" rel="text/javascript"></script>
+<script type="text/javascript" src="<c:url value='/static/js/firma/Firma.js'/>"></script>   
+   <script>
+       
+    function modalFirmar(){
+        $('#firmarBtn').prop('disabled',true);
+        $('#rfc').val("");
+        $('#checkPrivacidad').prop('checked',false);
+    console.log("${pageContext.request.contextPath}/FirmaController");
+     $('#myModal4').modal('show');
+    }
+    var objFirma = new fielnet.Firma({
+        //subDirectory: "/static/js/firma",
+        subDirectory: "${pageContext.request.contextPath}/static/js/firma",
+        ajaxAsync : true,
+        controller : "${pageContext.request.contextPath}/FirmaController"
+    });
+    $('#firmarBtn').prop('disabled',true);
+    $('#rfc').val("");
+    $('#checkPrivacidad').prop('checked',false);
+    console.log("${pageContext.request.contextPath}/FirmaController");
+    var fileDragAndDrop = null;
+    console.log("Script firma");
+    objFirma.validateWebBrowser("El explorador web no tiene soporte para HTML5. El proceso de firmado no continuará");
+    
+    $(function() {
+        console.log("Function lee certificado y llave");
+        objFirma.readCertificate("certificado");
+        objFirma.readPrivateKey("llavePrivada");
+    });
+    
+    //Función que intentará abrir el par de llaves
+    function validateKeyPairs(e) {
+        jQuery("#loadingLlaves").show("blind");
+        $('#firmaButton').prop('disabled',true);
+        if (!jQuery('#checkPrivacidad').is(':checked')) {
+            jQuery("#error5").show("blind");
+            jQuery("#loadingLlaves").hide();
+            $('#firmaButton').prop('disabled',false);
+            return;
+        }
+        else{
+            jQuery("#error5").hide();
+        }
+        console.log($('.checkPrivacidad:checked').val());
+        //objFirma.readCertificateAndPrivateKey($("#fraseLlaves").val(),$("#fraseLlaves").val());
+        console.log("Validando pares llaves");
+        objFirma.validateKeyPairs($("#fraseLlaves").val(), function (result) {
+            console.log(result);
+            if (result.state == 0) {
+                console.log("Correcto");
+                decodificarCertificadoUsuario(true);
+            } else {
+                console.log("Fallo");
+                alert(result.description);
+                jQuery("#loadingLlaves").hide();
+                $('#firmaButton').prop('disabled',false);
+            }
+        });
+        //$('#solicitudRVOERevisionForm').submit();
+    }
+    
+    function decodeCertificate() {
+        objFirma.setReferencia("Decodificación de Certificado");
+        objFirma.decodeCertificate({ocsp: true, tsa: {name: "NA", algorithm: fielnet.Digest.SHA1}}, function (e) {
+            if (e.state == 0) {
+                console.log("1");
+                console.log("e.state-"+e.state);
+                console.log(e);
+                var nombre = e.subjectName;
+                var serie = e.hexSerie;
+                var vigencia = e.notBefore + " - " + e.notAfter;
+                //alert("Propietario:"+nombre+" Serie:"+serie+ " Vigencia:"+vigencia);
+                console.log("Propietario:"+nombre+" Serie:"+serie+ " Vigencia:"+vigencia);
+            } else {
+                //$("#credenciales").html("Error al decodificar certificado");
+                alert("Error al decodificar certificado");
+            }
+        });
+    }
+    
+    function decodificarCertificadoUsuario(bOcsp) {
+        //console.log("rfcUsuario-"+rfcUsuario);
+        //console.log("solicitud-"+solicitudRvoe);
+        //var cadena = prompt("Referencia");
+        console.log(objFirma.getCertificate());
+        var cadena = "MECP940508SR2"+"-"+"12345";
+        console.log("cadena-"+cadena);
+        objFirma.setReferencia(cadena);
+        objFirma.decodeCertificate({ocsp: (typeof bOcsp == "undefined" ? false : bOcsp), tsa: {name: "NA", algorithm: fielnet.Digest.SHA1}}, function (cert) {
+            console.log(cert);
+            if (cert.state == 0) {
+                console.log("cert.state-"+cert.state);
+                cert.transfer;
+                console.log("cert.transfer-"+cert.transfer);
+                console.log(cert);
+                console.log("ab");
+                console.log("USUARIO: " + rfcUsuario);
+                console.log(JSON.stringify(cert, undefined, 4));
+                console.log("RFC-"+cert.subjectRFC);
+                $('#rfc').val(cert.subjectRFC);
+                if(rfcUsuario != cert.subjectRFC){
+                    alert("La e.firma no corresponde al usuario registrado.");
+                    jQuery("#loadingLlaves").hide();
+                }else{
+                                    $('#firmarBtn').prop('disabled',false);
+                $('#firmaButton').prop('disabled',true);
+                jQuery("#loadingLlaves").hide();
+                }
+                //$("#contenidoModalCertificado").html("<textarea class='form-control' style='width:100%; height:500px;'>" + JSON.stringify(cert, undefined, 4) + "</textarea>");
+                //$("#modalDetallesCertificado").modal();
+                //alert(JSON.stringify(cert, undefined, 4) );
+                //console.log("solicitudEstatus-"+solicitudEstatus);
+            } else {
+                alert(cert.description);
+                $('#guardarIGButton').prop('disabled',true);
+                $('#firmarBtn').prop('disabled',false);
+                jQuery("#loadingLlaves").hide();
+                $('#firmaButton').prop('disabled',false);
+            }
+        });
+    }
+    
+    //Función que intentará abrir el par de llaves
+    function validateKeyPairs2(e) {
+        alert("aaa");
+        decodificarCertificadoUsuario2(true);
+    }
+    
+    function decodificarCertificadoUsuario2(bOcsp) {
+        $('#guardarIGButton').prop('disabled',false);
+        $('#firmaButton').prop('disabled',true);
+    }
+    
+    function limpiaDatosEFirma(){
+        $('#j_username').val("");
+        $('#btnEnviar').prop('disabled',true);
+        $('#firmaButton').prop('disabled',false);
+    }
+    
+    function modalFirmar(){
+        $('#firmarBtn').prop('disabled',true);
+        $('#rfc').val("");
+        $('#checkPrivacidad').prop('checked',false);
+    console.log("${pageContext.request.contextPath}/FirmaController");
+     $('#myModal4').modal('show');
+    }
+
+</script>

@@ -6,6 +6,7 @@
 package mx.sep.poho.servicios;
 
 import java.util.List;
+import mx.sep.poho.datos.vo.ContratoVO;
 
 /**
  *
@@ -14,4 +15,6 @@ import java.util.List;
 public interface TramitesService {
 
     List<Integer> obtieneAnniosTramite(String rfc);
+    
+    List<ContratoVO> obtieneTramitesAnnio (String rfc, Integer annio);
 }

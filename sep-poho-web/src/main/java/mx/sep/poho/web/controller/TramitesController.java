@@ -11,6 +11,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import mx.sep.poho.datos.vo.UsuarioVO;
+import mx.sep.poho.datos.vo.ContratoVO;
 
 import mx.sep.seguridad.modelo.ModuloMenu;
 import mx.sep.seguridad.modelo.OpcionMenu;
@@ -69,6 +70,26 @@ public class TramitesController {
 			return lstAnnios;
 		}
 		return lstAnnios;
+
+	}
+
+    @RequestMapping(value = "/tramitesAnnios/{annio}", method = RequestMethod.GET)
+    @ResponseBody
+    public List<ContratoVO> obtenerTramitesXAnnio(@PathVariable Integer annio) {
+		UsuarioVO usuario = new UsuarioVO();
+                List<ContratoVO> lstContratos = new ArrayList<ContratoVO>();
+		try {
+			UsuarioSeguridad usuarioSeguridad = SeguridadUtil.getUsuarioActual();
+                        //usuario.setNombre(usuarioSeguridad.getNombre());
+			//usuario.setUsername(usuarioSeguridad.getUsername());
+                        System.out.println("RFC: "+ usuarioSeguridad.getUsername());
+                        lstContratos = tramitesService.obtieneTramitesAnnio(usuarioSeguridad.getUsername(), annio);
+		} catch (Exception ex) {
+			logger.error("Error al obtener el usuario de seguridad.", ex);
+			String mensaje = "No se pudo realizar la busqueda solicitada:" + " por favor intente mas tarde";
+			return lstContratos;
+		}
+		return lstContratos;
 
 	}
     
