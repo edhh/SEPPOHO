@@ -7,8 +7,12 @@ window.addEventListener ?
 window.addEventListener("load", obtAnniosTramites, false) :
 window.attachEvent && window.attachEvent("onload", obtAnniosTramites);
 var rfcUsuario = "";
+var cadenaOriginal = "";
 
-
+$("#btnFirma_cer").on("change", function () {
+    $_cer = this.files[0];
+    $cer.val($_cer.name);
+});
     
  function validaDatos() {
         console.log("Validacion de datos requeridos");
@@ -157,7 +161,7 @@ function drawTableGeneric(result) {
             align: 'left'
         }, {
             field: 'noTramite',
-            title: 'N&uacute;mero de tramite',
+            title: 'N&uacute;mero de contrato',
             align: 'left'
         },{
             field: 'periodo',
@@ -165,7 +169,7 @@ function drawTableGeneric(result) {
             align: 'left'
         },{
             field: 'claveUnidad',
-            title: 'Unidad Responsable',
+            title: 'Unidad responsable',
             align: 'left'
         },{
             field: 'estatus',
@@ -217,7 +221,9 @@ function btnFirmar(estatus){
                         if (value == "firmar"){
                             //alert($el.ctId"-"+$el.curp+"-"+$el.nombre);
                             console.log("Modficar");
-                            $('#firmarBtn').prop('disabled',true);
+                            cadenaOriginal = "||" + $el.annio + "|" + $el.noTramite + "|" + $el.rfc + "|" + $el.curp + "|" + $el.apPaterno + "|" + $el.apMaterno + "|" + $el.nombre + "|" + $el.fechaIniContrato + "|" + $el.fechaFinContrato + "|" + $el.claveNivel + "|" + $el.claveUnidad + "||";
+                            console.log("cadena Original: "+cadenaOriginal);
+                              $('#firmarBtn').prop('disabled',true);
                             $('#rfc').val("");
                             $('#checkPrivacidad').prop('checked',false);
                             $('#myModal4').modal('show');
@@ -290,6 +296,7 @@ function btnDescargar(contrato){
     if (contrato.annio >= 2015)
         return "<button type='button' class='btn btn-primary' disabled>Descargar</button>";
     else{
+        //return "<form action='${pageContext.request.contextPath}/mvc/jasper/repContrato?noTramite='" + contrato.noTramite + "> <button class='btn btn-primary pull-right'  id='btnDescarga' type='submit' >Descargar</button></form>";
         return "<button type='button' class='btn btn-primary'>Descargar</button>";    
     }
 }
@@ -320,6 +327,7 @@ function btnDescargar(contrato){
 
 }*/
 
+
     function converBase64toBlob(content, contentType) {
         contentType = contentType || '';
         var sliceSize = 512;
@@ -338,4 +346,34 @@ function btnDescargar(contrato){
             type: contentType
         }); //statement which creates the blob
         return blob;
+    }
+    
+        function initEfirma() {
+        console.log("inicializando las variables de la e.firma...");
+        var wrapper = $('<div/>').css({height: 0, width: 0, 'overflow': 'hidden'});
+        var fileInput = $('#idFileCer').wrap(wrapper);
+        $('#cer').val(null);
+        $('#key').val(null);
+        fileInput.change(function () {
+            $this = $(this);
+            $('#cer').val($this.val().substring(12));
+        });
+
+        $('#fileCer').click(function () {
+            fileInput.click();
+        }).show();
+
+        var wrapperKey = $('<div/>').css({height: 0, width: 0, 'overflow': 'hidden'});
+        var fileInputKey = $('#idFileKey').wrap(wrapperKey);
+
+        fileInputKey.change(function () {
+            $this = $(this);
+            $('#key').val($this.val().substring(12));
+        });
+
+        $('#fileKey').click(function () {
+            fileInputKey.click();
+        }).show();
+
+        //$('#confirmarTramite').prop('disabled', true);
     }

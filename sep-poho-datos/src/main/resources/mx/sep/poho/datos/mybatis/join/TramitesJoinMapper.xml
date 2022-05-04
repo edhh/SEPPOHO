@@ -11,6 +11,13 @@
     <result column="PERIODO" property="periodo" jdbcType="VARCHAR" />
     <result column="CVE_UNIDAD" property="claveUnidad" jdbcType="VARCHAR" />
     <result column="annio" property="estatus" jdbcType="INTEGER" />
+    <result column="RFC" property="rfc" jdbcType="INTEGER" />
+    <result column="CURP" property="curp" jdbcType="INTEGER" />
+    <result column="AP_PATERNO" property="apPaterno" jdbcType="INTEGER" />
+    <result column="AP_MATERNO" property="apMaterno" jdbcType="INTEGER" />
+    <result column="NB_CONTRATANTE" property="nombre" jdbcType="INTEGER" />
+    <result column="fh_ini" property="fechaIniContrato" jdbcType="INTEGER" />
+    <result column="fh_fin" property="fechaFinContrato" jdbcType="INTEGER" />
   </resultMap>
    
     <select id="obtieneAnniosTramites" parameterType="java.lang.String" resultType="java.lang.Integer">
@@ -18,8 +25,10 @@
     </select>
     
     <select id="obtieneContratosXAnnio" resultMap="contratoResultMap">
-        SELECT ANNIO, NU_TRAMITE, CVE_CODIGO, (FH_INI) || ' AL ' || (FH_FIN) AS PERIODO , CVE_UNIDAD
+        SELECT ANNIO, NU_TRAMITE, TRIM(CVE_CODIGO) AS CVE_CODIGO, (FH_INI) || ' AL ' || (FH_FIN) AS PERIODO , TRIM(CVE_UNIDAD) AS CVE_UNIDAD,
+            CURP, RFC, TRIM(AP_PATERNO) AS AP_PATERNO, TRIM(AP_MATERNO) AS AP_MATERNO, TRIM(NB_CONTRATANTE) AS NB_CONTRATANTE, fh_ini, fh_fin
             FROM TSH003_TRAMITE WHERE RFC = #{rfc} AND ANNIO = #{annio} AND CVE_STATUS = 1036
     </select>
+    
     
 </mapper>   

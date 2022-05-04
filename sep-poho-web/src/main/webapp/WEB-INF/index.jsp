@@ -29,13 +29,16 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <div class="container">
 
-            <h4>Parámetros de búsqueda</h4>
+            <h4>Búsqueda</h4>
             <hr class="red">
+            <div>
+                <p>Selecciona el año de contrato que quieras consultar.</p>
+            </div>
             
              <div class="row">
                 <div class="form-group">
                     <div class="col-md-2" id="cctAluDiv">
-                        <label class="control-label" for="anio">Año*:</label>
+                        <label class="control-label" for="anio">Año de contrato*:</label>
                         <select class="form-control"  id="anio">
                             <option>Selecciona </option>
                          </select>
@@ -45,10 +48,12 @@
                 </div>
              </div>
              
-            
+            <div>
+                <p>(*) Campos obligatorios </p>
+            </div>
              <div class="row">
              <div class="form-group">
-            <div class="col-md-6">
+            <div class="col-md-12">
                 <button class="btn btn-primary pull-right" type="submit" onclick="obtieneContratos()" id="btnGuardar"><i class='fa fa-circle-o-notch fa-spin' id="loadingBuscar" style="display: none;"></i> Buscar</button>
             </div>
              </div>
@@ -69,43 +74,87 @@
 
             
         </div>
-            <div class="row">
-                <p>(*) Campos obligatorios </p>
-            </div>
             
             
 
             <div class="modal fade" id="myModal4">
-                <div class="modal-dialog" id="myModal15">
+                <div class="modal-dialog  modal-lg" id="myModal15">
                     <div class="modal-content" id="myModal6">
                         <div class="modal-header" id="myModal7">
-                            <h4 class="modal-title">POHO</h4>
+                            <h4 class="modal-title">Firma de contrato</h4>
                         </div>
                         <div class="modal-body">
                             <form role="form">
-                                <div class="form-group">
-                                    <label class="control-label" for="certificado">Certificado (.cer)*:</label>
-                                    <input id="certificado" type="file">
+                                <div class="row">
+                                    
+					<div class="col-md-5">
+						<label for="selEntidad">Certificado (.cer)<span class="form-text">*</span>:</label>
+					</div>
+				
                                 </div>
-                                <div class="form-group">
-                                    <label class="control-label" for="llavePrivada">Llave privada (.key)*:</label>
-                                    <input id="llavePrivada" name="llavePrivada" type="file">
+                                <div class="row"> 
+                                   <div class="col-md-5">
+                                        <input class="form-control" id="cer" placeholder="Ubicación del certificado" name="key" readonly="">
+                                    </div>
+                                    <div class="col-md-5">
+                                        <div id="fileCer" class="btn btn-default">
+                                            Buscar
+                                        </div>
+                                        <div style="height: 0px; width: 0px; overflow: hidden;"><div style="height: 0px; width: 0px; overflow: hidden;"><input type="file" name="idFileCer" id="idFileCer" accept=".cer"></div></div>
+                                        <!-- 
+                                        <input  type="file" style="display: none"/> -->
+                                    </div>
                                 </div>
-                                <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-5">
+                                    <label class="control-label" for="llavePrivada">Clave privada (.key)*:</label>
+                                    </div>
+                                </div>
+                                
+                                <div class="row"> 
+                                    <div class="col-md-5">
+                                        <input class="form-control" id="key" placeholder="Ubicaci&oacute;n de la clave privada" name="key" readonly="">
+                                    </div>
+                                    <div class="col-md-5">
+                                        <div id="fileKey" class="btn btn-default">
+                                            Buscar
+                                        </div>
+                                        <div style="height: 0px; width: 0px; overflow: hidden;"><div style="height: 0px; width: 0px; overflow: hidden;"><input type="file" name="idFileKey" id="idFileKey" accept=".key"></div></div>
+                                        <!-- 
+                                        <input  type="file" style="display: none"/> -->
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-5">
                                     <label class="control-label" for="fraseLlaves">Contrase&ntilde;a de clave privada*:</label>
+                                    </div>
+                                    </div>
+                                <div class="row">
+                                    <div class="col-md-5">
                                     <input class="form-control" id="fraseLlaves" name="fraseLlaves" placeholder="Contrase&ntilde;a" type="password">
+                                    </div>
                                 </div>
-                                <div class="form-group" id="divRFC">
-                                    <label class="control-label" for="rfc">R.F.C. *:</label>
-                                    <input class="form-control" disabled id="rfc" placeholder="R.F.C." type="text" onkeyup="this.value = this.value.toUpperCase()" maxlength="13">
+                                <div class="row" id="divRFC">
+                                    <div class="col-md-5">
+                                    <label class="control-label" for="j_username">RFC*:</label>
+                                    </div>
+                                    </div>
+                                <div class="row">
+                                    <div class="col-md-5">
+                                    <input class="form-control" disabled id="rfc" name="rfc" placeholder="RFC" type="text" onkeyup="this.value = this.value.toUpperCase()" maxlength="13">
                                     <span id="errorRFC" class="help-block" ></span>
                                 </div>
+                                    </div>
+                                 <div class="row">
+                                <div class="col-md-10">
                                 <div class="checkbox">
                                     <label>
                                       <input type="checkbox" id="checkPrivacidad">
                                       He leído y acepto el aviso de privacidad
                                     </label>
                                 </div>
+                                    </div>
+                                     </div>
                                 <div id="error" style="display: none;">
                                     <span style="color: red">Datos incorrectos, verifique e inténtelo de nuevo.</span>
                                 </div>
@@ -121,17 +170,29 @@
                                 <div id="error5" style="display: none;">
                                     <span style="color: red">Debe aceptar el aviso de privacidad antes de validar su e.firma.</span>
                                 </div>
-                                
+                                <div>
+                                    <p>(*) Campos obligatorios </p>
+                                </div>
                             </form>
+                            <br>
+                                <div class="alert alert-info bottom-buffer">
+                                <strong>Aviso de privacidad</strong>
+                                <p>
+                                    La recolección de datos personales se lleva a cabo a través de la página electrónica www.gob.mx/cedulaprofesional cuyo administrador y responsable del tratamiento es la Dirección General de Profesiones de la Secretaría de Educación Pública. Los datos personales que se recaban serán utilizados con la finalidad de generar y obtener el registro de título profesional y expedición de cédula profesional.
+                                    <br>
+                                    Si deseas conocer nuestro aviso de privacidad integral, lo podrás consultar en el portal: 
+                                    <br>
+                                    <a href ="http://www.sep.gob.mx/actualiza/aviso.html"> www.sep.gob.mx/actualiza/aviso.html </a>
+                                </p>
+                                </div>
                         </div>
                         <div class="modal-footer">
                             <button class="btn btn-primary" type="button" id="firmaButton" onclick="return validateKeyPairs(event);" ><i class='fa fa-circle-o-notch fa-spin' id="loadingLlaves" style="display: none;"></i> Validar e.firma</button>
-                            <button type="button" class="btn btn-default" data-dismiss="modal" id="firmarBtn">Firmar</button>
-                            <button type="button" class="btn btn-default" data-dismiss="modal" id="no">Cerrar</button>
+                            <button type="button" class="btn btn-default" onclick="return firma();" id="firmarBtn">Firmar</button>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal" id="no">Cerrar</button>
                         </div>
-                        <div class="alert" style="text-align:left;padding-left: 12px;"><b>Aviso de privacidad</b>
-                                    <p style="text-align:left;">La recolección de datos personales se lleva a cabo a través de .....</p>
-                        </div>
+                        <div class="modal-body">
+                            </div>
                     </div><!-- /.modal-content -->
                 </div><!-- /.modal-dialog -->
             </div><!-- /.modal -->
@@ -156,7 +217,7 @@
                 <div class="modal-dialog" id="myModal15">
                     <div class="modal-content" id="myModal6">
                         <div class="modal-header" id="myModal7">
-                            <h4 class="modal-title">LEEN</h4>
+                            <h4 class="modal-title">POHO</h4>
                         </div>
                         <div class="modal-body">
                             <p>Verifique los datos introducidos</p>
@@ -181,7 +242,7 @@
 <script src="<c:url value="/static/js/app/tramite/contratos.js" />" rel="text/javascript"></script>
 <script type="text/javascript" src="<c:url value='/static/js/firma/Firma.js'/>"></script>   
    <script>
-       
+     initEfirma();  
     function modalFirmar(){
         $('#firmarBtn').prop('disabled',true);
         $('#rfc').val("");
@@ -193,6 +254,7 @@
         //subDirectory: "/static/js/firma",
         subDirectory: "${pageContext.request.contextPath}/static/js/firma",
         ajaxAsync : true,
+        ocsp : 1,
         controller : "${pageContext.request.contextPath}/FirmaController"
     });
     $('#firmarBtn').prop('disabled',true);
@@ -205,8 +267,8 @@
     
     $(function() {
         console.log("Function lee certificado y llave");
-        objFirma.readCertificate("certificado");
-        objFirma.readPrivateKey("llavePrivada");
+        objFirma.readCertificate("idFileCer");
+        objFirma.readPrivateKey("idFileKey");
     });
     
     //Función que intentará abrir el par de llaves
@@ -228,10 +290,8 @@
         objFirma.validateKeyPairs($("#fraseLlaves").val(), function (result) {
             console.log(result);
             if (result.state == 0) {
-                console.log("Correcto");
                 decodificarCertificadoUsuario(true);
             } else {
-                console.log("Fallo");
                 alert(result.description);
                 jQuery("#loadingLlaves").hide();
                 $('#firmaButton').prop('disabled',false);
@@ -240,24 +300,6 @@
         //$('#solicitudRVOERevisionForm').submit();
     }
     
-    function decodeCertificate() {
-        objFirma.setReferencia("Decodificación de Certificado");
-        objFirma.decodeCertificate({ocsp: true, tsa: {name: "NA", algorithm: fielnet.Digest.SHA1}}, function (e) {
-            if (e.state == 0) {
-                console.log("1");
-                console.log("e.state-"+e.state);
-                console.log(e);
-                var nombre = e.subjectName;
-                var serie = e.hexSerie;
-                var vigencia = e.notBefore + " - " + e.notAfter;
-                //alert("Propietario:"+nombre+" Serie:"+serie+ " Vigencia:"+vigencia);
-                console.log("Propietario:"+nombre+" Serie:"+serie+ " Vigencia:"+vigencia);
-            } else {
-                //$("#credenciales").html("Error al decodificar certificado");
-                alert("Error al decodificar certificado");
-            }
-        });
-    }
     
     function decodificarCertificadoUsuario(bOcsp) {
         //console.log("rfcUsuario-"+rfcUsuario);
@@ -282,10 +324,13 @@
                 if(rfcUsuario != cert.subjectRFC){
                     alert("La e.firma no corresponde al usuario registrado.");
                     jQuery("#loadingLlaves").hide();
+                    $('#firmarBtn').prop('disabled',false);
+                    firma();
                 }else{
                                     $('#firmarBtn').prop('disabled',false);
                 $('#firmaButton').prop('disabled',true);
                 jQuery("#loadingLlaves").hide();
+                firma();
                 }
                 //$("#contenidoModalCertificado").html("<textarea class='form-control' style='width:100%; height:500px;'>" + JSON.stringify(cert, undefined, 4) + "</textarea>");
                 //$("#modalDetallesCertificado").modal();
@@ -301,15 +346,25 @@
         });
     }
     
-    //Función que intentará abrir el par de llaves
-    function validateKeyPairs2(e) {
-        alert("aaa");
-        decodificarCertificadoUsuario2(true);
-    }
-    
-    function decodificarCertificadoUsuario2(bOcsp) {
-        $('#guardarIGButton').prop('disabled',false);
-        $('#firmaButton').prop('disabled',true);
+ 
+    function firma(){
+        console.log(cadenaOriginal);
+        objFirma.signPKCS1(cadenaOriginal,fielnet.Digest.SHA1,fielnet.Encoding.UTF8,{ocsp:true,tsa:{name:'NA', algorithm:0},nom:{name:'NA'}},function(e){
+            if (e.state == 0) {
+                console.log("FIRMADO EXITOSO");
+                console.log(e);
+            var strCommonName = e.cn;
+            var strFechaProceso = e.tsaMoment;
+            var strHexSerie = e.hexSerie;
+            var strSign = e.sign;
+            var iTransfer = e.transfer;
+            }
+            else {
+                console.log(e);
+            alert(e.description);
+            }
+        });
+        
     }
     
     function limpiaDatosEFirma(){

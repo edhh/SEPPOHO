@@ -15,6 +15,20 @@ public class ContratoVO {
     
     private Long noTramite;
     
+    private String rfc;
+    
+    private String curp;
+    
+    private String apPaterno;
+    
+    private String apMaterno;
+    
+    private String nombre;
+    
+    private String fechaIniContrato;
+    
+    private String fechaFinContrato;
+       
     private String claveNivel;
     
     private String periodo;
@@ -105,6 +119,104 @@ public class ContratoVO {
      */
     public void setEstatus(Integer estatus) {
         this.estatus = estatus;
+    }
+
+    /**
+     * @return the rfc
+     */
+    public String getRfc() {
+        return rfc;
+    }
+
+    /**
+     * @param rfc the rfc to set
+     */
+    public void setRfc(String rfc) {
+        this.rfc = rfc;
+    }
+
+    /**
+     * @return the curp
+     */
+    public String getCurp() {
+        return curp;
+    }
+
+    /**
+     * @param curp the curp to set
+     */
+    public void setCurp(String curp) {
+        this.curp = curp;
+    }
+
+    /**
+     * @return the apPaterno
+     */
+    public String getApPaterno() {
+        return apPaterno;
+    }
+
+    /**
+     * @param apPaterno the apPaterno to set
+     */
+    public void setApPaterno(String apPaterno) {
+        this.apPaterno = apPaterno;
+    }
+
+    /**
+     * @return the apMaterno
+     */
+    public String getApMaterno() {
+        return apMaterno;
+    }
+
+    /**
+     * @param apMaterno the apMaterno to set
+     */
+    public void setApMaterno(String apMaterno) {
+        this.apMaterno = apMaterno;
+    }
+
+    /**
+     * @return the nombre
+     */
+    public String getNombre() {
+        return nombre;
+    }
+
+    /**
+     * @param nombre the nombre to set
+     */
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    /**
+     * @return the fechaIniContrato
+     */
+    public String getFechaIniContrato() {
+        return fechaIniContrato;
+    }
+
+    /**
+     * @param fechaIniContrato the fechaIniContrato to set
+     */
+    public void setFechaIniContrato(String fechaIniContrato) {
+        this.fechaIniContrato = fechaIniContrato;
+    }
+
+    /**
+     * @return the fechaFinContrato
+     */
+    public String getFechaFinContrato() {
+        return fechaFinContrato;
+    }
+
+    /**
+     * @param fechaFinContrato the fechaFinContrato to set
+     */
+    public void setFechaFinContrato(String fechaFinContrato) {
+        this.fechaFinContrato = fechaFinContrato;
     }
     
 }

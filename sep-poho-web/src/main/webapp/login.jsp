@@ -37,32 +37,81 @@
                 <div class="col-md-8">
                     <h3>Portal de Honorarios</h3>
                         <hr class="red">
+                        
+                        <div>
+                            <p>Para acceder al portal ingresa tu e.firma.</p>
+                        </div>
                         </div>
                         </div>
 
-                        <div id="login" class="col-sm-8">
+                        <div id="login" class="col-sm-10">
+
                             <br>
                             <form id="command" role="form" class="form-horizontal bottom-buffer"
                                   role="form" id="frmLogin" action="j_spring_security_check"
                                   method="post">
+                                <div class="row">
+                                    
+					<div class="col-md-5">
+						<label for="selEntidad">Certificado (.cer)<span class="form-text">*</span>:</label>
+					</div>
+				
+                                </div>
+                                <div class="row"> 
+                                   <div class="col-md-5">
+                                        <input class="form-control" id="cer" placeholder="Ubicación del certificado" name="key" readonly="">
+                                    </div>
+                                    <div class="col-md-5">
+                                        <div id="fileCer" class="btn btn-default">
+                                            Buscar
+                                        </div>
+                                        <div style="height: 0px; width: 0px; overflow: hidden;"><div style="height: 0px; width: 0px; overflow: hidden;"><input type="file" name="idFileCer" id="idFileCer" accept=".cer"></div></div>
+                                        <!-- 
+                                        <input  type="file" style="display: none"/> -->
+                                    </div>
+                                </div>
+                                                                
+                                <div class="row">
+                                    <div class="col-md-5">
+                                    <label class="control-label" for="llavePrivada">Clave privada (.key)*:</label>
+                                    </div>
+                                </div>
                                 
-                                <div class="form-group">
-                                    <label class="control-label" for="certificado">Certificado (.cer)*:</label>
-                                    <input id="certificado" type="file" change="limpiaDatosEFirma()">
+                                <div class="row"> 
+                                    <div class="col-md-5">
+                                        <input class="form-control" id="key" placeholder="Ubicaci&oacute;n de la clave privada" name="key" readonly="">
+                                    </div>
+                                    <div class="col-md-5">
+                                        <div id="fileKey" class="btn btn-default">
+                                            Buscar
+                                        </div>
+                                        <div style="height: 0px; width: 0px; overflow: hidden;"><div style="height: 0px; width: 0px; overflow: hidden;"><input type="file" name="idFileKey" id="idFileKey" accept=".key"></div></div>
+                                        <!-- 
+                                        <input  type="file" style="display: none"/> -->
+                                    </div>
                                 </div>
-                                <div class="form-group">
-                                    <label class="control-label" for="llavePrivada">Llave privada (.key)*:</label>
-                                    <input id="llavePrivada" name="llavePrivada" type="file" change="limpiaDatosEFirma()">
-                                </div>
-                                <div class="form-group">
+                                
+                                <div class="row">
+                                    <div class="col-md-5">
                                     <label class="control-label" for="fraseLlaves">Contrase&ntilde;a de clave privada*:</label>
+                                    </div>
+                                    </div>
+                                <div class="row">
+                                    <div class="col-md-5">
                                     <input class="form-control" id="fraseLlaves" name="fraseLlaves" placeholder="Contrase&ntilde;a" type="password">
+                                    </div>
                                 </div>
-                                <div class="form-group" id="divRFC">
-                                    <label class="control-label" for="j_username">R.F.C. *:</label>
-                                    <input class="form-control" id="j_username" name="j_username" placeholder="R.F.C." type="text" onkeyup="this.value = this.value.toUpperCase()" maxlength="13">
+                                <div class="row" id="divRFC">
+                                    <div class="col-md-5">
+                                    <label class="control-label" for="j_username">RFC*:</label>
+                                    </div>
+                                    </div>
+                                <div class="row">
+                                    <div class="col-md-5">
+                                    <input class="form-control" id="j_username" name="j_username" placeholder="RFC" type="text" onkeyup="this.value = this.value.toUpperCase()" maxlength="13">
                                     <span id="errorRFC" class="help-block" ></span>
                                 </div>
+                                    </div>
                                 <div class="checkbox">
                                     <label>
                                       <input type="checkbox" id="checkPrivacidad">
@@ -85,18 +134,32 @@
                                     <span style="color: red">Debe aceptar el aviso de privacidad antes de validar su e.firma.</span>
                                 </div>
                                 <br>
+                                <div>
+                                    <p>(*) Campos obligatorios </p>
+                                </div>
+                                <div class="form-group pull-right">
                                 <button class="btn btn-primary" type="button" id="firmaButton" onclick="return validateKeyPairs(event);" ><i class='fa fa-circle-o-notch fa-spin' id="loadingLlaves" style="display: none;"></i> Validar e.firma</button>
                                         &nbsp;
-                                <div class="form-group pull-right">
+                                
                                         
-                                    <button class="btn btn-primary pull-right" type="button" id="btnEnviar" ><i class='fa fa-circle-o-notch fa-spin' id="loadingEntrar" style="display: none;"></i> Entrar</button>
-                                        <button class="btn btn-primary pull-right" type="submit" style="display:none" id="btnSubmit"></button>
+                                    <button class="btn btn-default pull-right" type="button" id="btnEnviar" ><i class='fa fa-circle-o-notch fa-spin' id="loadingEntrar" style="display: none;"></i> Ingresar</button>
+                                        <button class="btn btn-default pull-right" type="submit" style="display:none" id="btnSubmit"></button>
                                 </div>
                                 
                             </form>
+                            <br>
+                                <div class="alert alert-info bottom-buffer">
+                                <strong>Aviso de privacidad</strong>
+                                <p>
+                                    La recolección de datos personales se lleva a cabo a través de la página electrónica www.gob.mx/cedulaprofesional cuyo administrador y responsable del tratamiento es la Dirección General de Profesiones de la Secretaría de Educación Pública. Los datos personales que se recaban serán utilizados con la finalidad de generar y obtener el registro de título profesional y expedición de cédula profesional.
+                                    <br>
+                                    Si deseas conocer nuestro aviso de privacidad integral, lo podrás consultar en el portal: 
+                                    <br>
+                                    <a href ="http://www.sep.gob.mx/actualiza/aviso.html"> www.sep.gob.mx/actualiza/aviso.html </a>
+                                </p>
+                                </div>
                         </div>
                 </div>
-
                 <div class="col-md-8 text-right">
                     <!-- TESTING -->
                     <!--<h6 id="title" align="center">versi&oacute;n 2.27</h6>-->
@@ -225,6 +288,12 @@
         ajaxAsync : true,
         controller : "${pageContext.request.contextPath}/FirmaController"
     });
+    initEfirma();
+    $("#btnFirma_cer").on("change", function () {
+        console.log($_cer);
+    $_cer = this.files[0];
+    $cer.val($_cer.name);
+    });
     $('#btnEnviar').prop('disabled',true);
     $('#j_username').val("");
     $('#checkPrivacidad').prop('checked',false);
@@ -236,8 +305,8 @@
     
     $(function() {
         console.log("Function lee certificado y llave");
-        objFirma.readCertificate("certificado");
-        objFirma.readPrivateKey("llavePrivada");
+        objFirma.readCertificate("idFileCer");
+        objFirma.readPrivateKey("idFileKey");
     });
     
     //Función que intentará abrir el par de llaves
@@ -294,6 +363,38 @@
                 alert("Error al decodificar certificado");
             }
         });
+    }
+    
+            function initEfirma() {
+        console.log("inicializando las variables de la e.firma...");
+        var wrapper = $('<div/>').css({height: 0, width: 0, 'overflow': 'hidden'});
+        var fileInput = $('#idFileCer').wrap(wrapper);
+        $('#cer').val(null);
+        $('#key').val(null);
+
+        fileInput.change(function () {
+            $this = $(this);
+            $('#cer').val($this.val().substring(12));
+            console.log($this.val());
+        });
+
+        $('#fileCer').click(function () {
+            fileInput.click();
+        }).show();
+
+        var wrapperKey = $('<div/>').css({height: 0, width: 0, 'overflow': 'hidden'});
+        var fileInputKey = $('#idFileKey').wrap(wrapperKey);
+
+        fileInputKey.change(function () {
+            $this = $(this);
+            $('#key').val($this.val().substring(12));
+        });
+
+        $('#fileKey').click(function () {
+            fileInputKey.click();
+        }).show();
+
+        //$('#confirmarTramite').prop('disabled', true);
     }
     
     function decodificarCertificadoUsuario(bOcsp) {

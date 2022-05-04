@@ -18,4 +18,5 @@ public interface TramitesJoinMapper {
     List<Integer> obtieneAnniosTramites (String rfc);
     
     List<ContratoVO> obtieneContratosXAnnio (@Param("rfc") String rfc, @Param("annio") Integer annio);
+    
 }

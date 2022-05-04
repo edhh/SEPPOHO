@@ -1,220 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ModeloContrato2015_12082015" pageWidth="612" pageHeight="792" columnWidth="442" leftMargin="85" rightMargin="85" topMargin="70" bottomMargin="69" isSummaryNewPage="true" isFloatColumnFooter="true" uuid="d390a025-d823-4a71-9d52-4d01bcd4d79d">
 	<property name="ireport.zoom" value="1.2100000000000015"/>
+	<property name="ireport.scriptlethandling" value="0"/>
+	<property name="ireport.encoding" value="UTF-8"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="81"/>
+	<property name="ireport.y" value="394"/>
+	<import value="net.sf.jasperreports.engine.*"/>
+	<import value="java.util.*"/>
+	<import value="net.sf.jasperreports.engine.data.*"/>
 	<style name="style1" fontName="Arial Black" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
-	<style name="style_previa">
-		<conditionalStyle>
-			<conditionExpression><![CDATA[new Boolean( $F{previoDefinitivo}.equals( "0" ) )]]></conditionExpression>
-			<style mode="Transparent"/>
-		</conditionalStyle>
-		<conditionalStyle>
-			<conditionExpression><![CDATA[new Boolean( $F{previoDefinitivo}.equals( "1" ) )]]></conditionExpression>
-			<style mode="Opaque"/>
-		</conditionalStyle>
-	</style>
-	<parameter name="REAL_PATH" class="java.lang.String" isForPrompting="false">
-		<defaultValueExpression><![CDATA["C:\\Users\\PabloJesusMendozaCer\\Documents\\GitHub\\SEPPOHO\\sep-poho-web\\src\\main\\resources\\mx\\sep\\poho\\reportes"]]></defaultValueExpression>
-	</parameter>
-	<parameter name="pRuta" class="java.lang.String" isForPrompting="false">
-		<defaultValueExpression><![CDATA["C:\\NEN\\UP01\\imagenes"]]></defaultValueExpression>
-	</parameter>
 	<queryString>
 		<![CDATA[]]>
 	</queryString>
-	<field name="previoDefinitivo" class="java.lang.String">
-		<fieldDescription><![CDATA[previoDefinitivo]]></fieldDescription>
-	</field>
-	<field name="prefijoFirmaRepArea" class="java.lang.String">
-		<fieldDescription><![CDATA[prefijoFirmaRepArea]]></fieldDescription>
-	</field>
-	<field name="nombreFirmaRepArea" class="java.lang.String">
-		<fieldDescription><![CDATA[nombreFirmaRepArea]]></fieldDescription>
-	</field>
 	<field name="nombreContratado" class="java.lang.String">
 		<fieldDescription><![CDATA[nombreContratado]]></fieldDescription>
 	</field>
-	<field name="puestoFirmaRepArea" class="java.lang.String">
-		<fieldDescription><![CDATA[puestoFirmaRepArea]]></fieldDescription>
-	</field>
-	<field name="descPerfinContratado" class="java.lang.String">
-		<fieldDescription><![CDATA[descPerfinContratado]]></fieldDescription>
-	</field>
-	<field name="descNacionalidadContratado" class="java.lang.String">
-		<fieldDescription><![CDATA[descNacionalidadContratado]]></fieldDescription>
-	</field>
-	<field name="rfcContratado" class="java.lang.String">
-		<fieldDescription><![CDATA[rfcContratado]]></fieldDescription>
-	</field>
-	<field name="experienciaContratado" class="java.lang.String">
-		<fieldDescription><![CDATA[experienciaContratado]]></fieldDescription>
-	</field>
-	<field name="domicilioContratado" class="java.lang.String">
-		<fieldDescription><![CDATA[domicilioContratado]]></fieldDescription>
-	</field>
-	<field name="descFunciones" class="java.lang.String">
-		<fieldDescription><![CDATA[descFunciones]]></fieldDescription>
-	</field>
-	<field name="sumaImpBrutoRecibido" class="java.lang.String">
-		<fieldDescription><![CDATA[sumaImpBrutoRecibido]]></fieldDescription>
-	</field>
-	<field name="importeLetra" class="java.lang.String">
-		<fieldDescription><![CDATA[importeLetra]]></fieldDescription>
-	</field>
-	<field name="noExhibiciones" class="java.lang.String">
-		<fieldDescription><![CDATA[noExhibiciones]]></fieldDescription>
-	</field>
-	<field name="fechaVigenciaInicial" class="java.lang.String">
-		<fieldDescription><![CDATA[fechaVigenciaInicial]]></fieldDescription>
-	</field>
-	<field name="fechaVigenciaFinal" class="java.lang.String">
-		<fieldDescription><![CDATA[fechaVigenciaFinal]]></fieldDescription>
-	</field>
-	<field name="prefijoFirmaRecepRepAct" class="java.lang.String">
-		<fieldDescription><![CDATA[prefijoFirmaRecepRepAct]]></fieldDescription>
-	</field>
-	<field name="nombreFirmaRecepRepAct" class="java.lang.String">
-		<fieldDescription><![CDATA[nombreFirmaRecepRepAct]]></fieldDescription>
-	</field>
-	<field name="puestoFirmaRecepRepAct" class="java.lang.String">
-		<fieldDescription><![CDATA[puestoFirmaRecepRepAct]]></fieldDescription>
-	</field>
-	<field name="fechaFirmaContrato" class="java.lang.String">
-		<fieldDescription><![CDATA[fechaFirmaContrato]]></fieldDescription>
-	</field>
-	<field name="tituloFirmaRepArea" class="java.lang.String">
-		<fieldDescription><![CDATA[tituloFirmaRepArea]]></fieldDescription>
-	</field>
-	<field name="prefijoContratado" class="java.lang.String">
-		<fieldDescription><![CDATA[prefijoContratado]]></fieldDescription>
-	</field>
-	<field name="reqCompatibilidad" class="java.lang.String">
-		<fieldDescription><![CDATA[reqCompatibilidad]]></fieldDescription>
-	</field>
-	<field name="numReqCompatibilidad" class="java.lang.String">
-		<fieldDescription><![CDATA[numReqCompatibilidad]]></fieldDescription>
-	</field>
-	<field name="fechaOficioCompatibilidad" class="java.lang.String">
-		<fieldDescription><![CDATA[fechaOficioCompatibilidad]]></fieldDescription>
-	</field>
-	<field name="reqOfRespSFP" class="java.lang.String">
-		<fieldDescription><![CDATA[reqOfRespSFP]]></fieldDescription>
-	</field>
-	<field name="numeroOfRespoSFP" class="java.lang.String">
-		<fieldDescription><![CDATA[numeroOfRespoSFP]]></fieldDescription>
-	</field>
-	<field name="fechaOficioRespSFP" class="java.lang.String">
-		<fieldDescription><![CDATA[fechaOficioRespSFP]]></fieldDescription>
-	</field>
-	<field name="reqOfExisPzaVac" class="java.lang.String">
-		<fieldDescription><![CDATA[reqOfExisPzaVac]]></fieldDescription>
-	</field>
-	<field name="numOfExisOzaVac" class="java.lang.String">
-		<fieldDescription><![CDATA[numOfExisOzaVac]]></fieldDescription>
-	</field>
-	<field name="fechaOficioExisPzaVac" class="java.lang.String">
-		<fieldDescription><![CDATA[fechaOficioExisPzaVac]]></fieldDescription>
-	</field>
-	<field name="nbPuestoCompatibilidad" class="java.lang.String">
-		<fieldDescription><![CDATA[nbPuestoCompatibilidad]]></fieldDescription>
-	</field>
-	<field name="nbDepCompatibilidad" class="java.lang.String">
-		<fieldDescription><![CDATA[nbDepCompatibilidad]]></fieldDescription>
-	</field>
-	<field name="descEntregables" class="java.lang.String">
-		<fieldDescription><![CDATA[descEntregables]]></fieldDescription>
-	</field>
-	<field name="reqIssste" class="java.lang.String">
-		<fieldDescription><![CDATA[reqIssste]]></fieldDescription>
-	</field>
-	<field name="num2ReqCompatibilidad" class="java.lang.String">
-		<fieldDescription><![CDATA[num2ReqCompatibilidad]]></fieldDescription>
-	</field>
-	<field name="domDependencia" class="java.lang.String">
-		<fieldDescription><![CDATA[domDependencia]]></fieldDescription>
-	</field>
-	<field name="ciudadFirma" class="java.lang.String">
-		<fieldDescription><![CDATA[ciudadFirma]]></fieldDescription>
-	</field>
-	<field name="partida" class="java.lang.String">
-		<fieldDescription><![CDATA[partida]]></fieldDescription>
-	</field>
-	<field name="prefijoFirmaRepSep" class="java.lang.String">
-		<fieldDescription><![CDATA[prefijoFirmaRepSep]]></fieldDescription>
-	</field>
-	<field name="tituloFirmaRepSep" class="java.lang.String">
-		<fieldDescription><![CDATA[tituloFirmaRepSep]]></fieldDescription>
-	</field>
-	<field name="nombreFirmaRepSep" class="java.lang.String">
-		<fieldDescription><![CDATA[nombreFirmaRepSep]]></fieldDescription>
-	</field>
-	<field name="puestoFirmaRepSep" class="java.lang.String">
-		<fieldDescription><![CDATA[puestoFirmaRepSep]]></fieldDescription>
-	</field>
-	<field name="noTramite" class="java.lang.String">
-		<fieldDescription><![CDATA[noTramite]]></fieldDescription>
-	</field>
-	<field name="ur" class="java.lang.String">
-		<fieldDescription><![CDATA[ur]]></fieldDescription>
-	</field>
-	<field name="annio" class="java.lang.String">
-		<fieldDescription><![CDATA[annio]]></fieldDescription>
-	</field>
-	<field name="firmaDirectorGeneral" class="java.lang.String">
-		<fieldDescription><![CDATA[firmaDirectorGeneral]]></fieldDescription>
-	</field>
-	<field name="firmaDirectorUr" class="java.lang.String">
-		<fieldDescription><![CDATA[firmaDirectorUr]]></fieldDescription>
-	</field>
-	<field name="curpDirectorGeneral" class="java.lang.String">
-		<fieldDescription><![CDATA[curpDirectorGeneral]]></fieldDescription>
-	</field>
-	<field name="serieDirectorGeneral" class="java.lang.String">
-		<fieldDescription><![CDATA[serieDirectorGeneral]]></fieldDescription>
-	</field>
-	<field name="selloDirectorGeneral" class="java.lang.String">
-		<fieldDescription><![CDATA[selloDirectorGeneral]]></fieldDescription>
-	</field>
-	<field name="suplenciaDirectorGeneral" class="java.lang.String">
-		<fieldDescription><![CDATA[suplenciaDirectorGeneral]]></fieldDescription>
-	</field>
-	<field name="nombreUR" class="java.lang.String">
-		<fieldDescription><![CDATA[nombreUR]]></fieldDescription>
-	</field>
-	<field name="curpDirectorUR" class="java.lang.String">
-		<fieldDescription><![CDATA[curpDirectorUR]]></fieldDescription>
-	</field>
-	<field name="serieDirectorUR" class="java.lang.String">
-		<fieldDescription><![CDATA[serieDirectorUR]]></fieldDescription>
-	</field>
-	<field name="selloDirectorUR" class="java.lang.String">
-		<fieldDescription><![CDATA[selloDirectorUR]]></fieldDescription>
-	</field>
-	<field name="suplenciaDirectorUR" class="java.lang.String">
-		<fieldDescription><![CDATA[suplenciaDirectorUR]]></fieldDescription>
-	</field>
-	<field name="curpContratado" class="java.lang.String">
-		<fieldDescription><![CDATA[curpContratado]]></fieldDescription>
-	</field>
-	<field name="cadenaOriginal" class="java.lang.String">
-		<fieldDescription><![CDATA[cadenaOriginal]]></fieldDescription>
-	</field>
 	<background>
-		<band height="653" splitType="Prevent">
-			<image evaluationTime="Report">
-				<reportElement uuid="690e849e-9aac-462f-b525-3aae6525fecd" positionType="FixRelativeToBottom" stretchType="RelativeToBandHeight" isPrintRepeatedValues="false" x="0" y="0" width="440" height="641" isPrintWhenDetailOverflows="true">
-					<printWhenExpression><![CDATA[new Boolean( $F{previoDefinitivo}.equals( "0" ) )]]></printWhenExpression>
-				</reportElement>
-				<imageExpression><![CDATA[$P{pRuta}+"/img_vista_previa.png"]]></imageExpression>
-			</image>
-			<image evaluationTime="Report">
-				<reportElement uuid="a7585e52-ed78-48e4-9f5c-ea75cad6c667" positionType="FixRelativeToBottom" stretchType="RelativeToBandHeight" isPrintRepeatedValues="false" x="0" y="0" width="440" height="641" isPrintWhenDetailOverflows="true">
-					<printWhenExpression><![CDATA[new Boolean( $F{previoDefinitivo}.equals( "1" ) )]]></printWhenExpression>
-				</reportElement>
-				<imageExpression><![CDATA[$P{pRuta}+"/img_rayas_horizontales.png"]]></imageExpression>
-			</image>
-		</band>
+		<band height="653" splitType="Prevent"/>
 	</background>
 	<pageHeader>
 		<band height="14">
@@ -223,30 +25,30 @@
 				<textElement textAlignment="Right" markup="none">
 					<font fontName="SansSerif" size="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
 				</textElement>
-				<textFieldExpression><![CDATA["UR " + $F{ur} + " / " + $F{annio}]]></textFieldExpression>
+				<textFieldExpression><![CDATA["UR " + " 713" + " / " +" 2022"]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
 				<reportElement uuid="e8a34273-7a55-452b-be8c-f538d73b5210" stretchType="RelativeToTallestObject" mode="Opaque" x="255" y="0" width="187" height="14" backcolor="#FFFFFF"/>
 				<textElement textAlignment="Right" markup="none">
 					<font fontName="SansSerif" size="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{noTramite}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[12345]]></textFieldExpression>
 			</textField>
 		</band>
 	</pageHeader>
 	<detail>
 		<band height="14" splitType="Stretch">
 			<textField isStretchWithOverflow="true">
-				<reportElement uuid="ea22d249-b74e-4a01-8465-803f4666fee2" style="style_previa" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="14" backcolor="#FFFFFF"/>
+				<reportElement uuid="ea22d249-b74e-4a01-8465-803f4666fee2" style="style1" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="14" backcolor="#FFFFFF"/>
 				<textElement textAlignment="Justified" markup="none">
 					<font fontName="SansSerif" size="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
 				</textElement>
-				<textFieldExpression><![CDATA["CONTRATO DE PRESTACIÓN DE SERVICIOS PROFESIONALES POR HONORARIOS QUE CELEBRAN, POR UNA PARTE, EL EJECUTIVO FEDERAL POR CONDUCTO DE LA SECRETARÍA DE EDUCACIÓN PÚBLICA, REPRESENTADA POR MARÍA TERESA LÓPEZ MATA, EN SU CARÁCTER DE DIRECTORA GENERAL DE RECURSOS HUMANOS Y ORGANIZACIÓN Y " + $F{nombreFirmaRepArea} + ", "+$F{puestoFirmaRepArea}+", Y POR LA OTRA, " + $F{nombreContratado} +", A QUIENES EN LO SUCESIVO Y PARA LOS EFECTOS DEL PRESENTE CONTRATO SE LES DENOMINARÁ “LA DEPENDENCIA” Y “EL PRESTADOR DE LOS SERVICIOS”, RESPECTIVAMENTE, AL TENOR DE LAS SIGUIENTES:"]]></textFieldExpression>
+				<textFieldExpression><![CDATA["CONTRATO DE PRESTACIÓN DE SERVICIOS PROFESIONALES POR HONORARIOS QUE CELEBRAN, POR UNA PARTE, EL EJECUTIVO FEDERAL POR CONDUCTO DE LA SECRETARÍA DE EDUCACIÓN PÚBLICA, REPRESENTADA POR MARÍA TERESA LÓPEZ MATA, EN SU CARÁCTER DE DIRECTORA GENERAL DE RECURSOS HUMANOS Y ORGANIZACIÓN Y " + ", "+", Y POR LA OTRA, " +", A QUIENES EN LO SUCESIVO Y PARA LOS EFECTOS DEL PRESENTE CONTRATO SE LES DENOMINARÁ “LA DEPENDENCIA” Y “EL PRESTADOR DE LOS SERVICIOS”, RESPECTIVAMENTE, AL TENOR DE LAS SIGUIENTES:"]]></textFieldExpression>
 			</textField>
 		</band>
 		<band height="14">
 			<textField isStretchWithOverflow="true">
-				<reportElement uuid="e844df3a-ba32-45fe-b652-cbc1229849be" style="style_previa" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="14" backcolor="#FFFFFF"/>
+				<reportElement uuid="e844df3a-ba32-45fe-b652-cbc1229849be" style="style1" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="14" backcolor="#FFFFFF"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle" markup="html">
 					<font fontName="SansSerif" size="10" isBold="true"/>
 				</textElement>
@@ -255,7 +57,7 @@
 		</band>
 		<band height="13" splitType="Prevent">
 			<textField isStretchWithOverflow="true">
-				<reportElement uuid="bcfd97da-8d04-4f9f-aec2-6d4435189307" style="style_previa" stretchType="RelativeToTallestObject" x="0" y="0" width="34" height="13" backcolor="#FFFFFF"/>
+				<reportElement uuid="bcfd97da-8d04-4f9f-aec2-6d4435189307" style="style1" stretchType="RelativeToTallestObject" x="0" y="0" width="34" height="13" backcolor="#FFFFFF"/>
 				<box topPadding="5"/>
 				<textElement textAlignment="Justified" markup="none">
 					<font fontName="SansSerif" size="10" isBold="true"/>
@@ -263,7 +65,7 @@
 				<textFieldExpression><![CDATA["I."]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement uuid="9bdb07aa-9e55-4db9-aa95-b1790f9e1a8c" style="style_previa" stretchType="RelativeToTallestObject" x="34" y="0" width="408" height="13" backcolor="#FFFFFF"/>
+				<reportElement uuid="9bdb07aa-9e55-4db9-aa95-b1790f9e1a8c" style="style1" stretchType="RelativeToTallestObject" x="34" y="0" width="408" height="13" backcolor="#FFFFFF"/>
 				<box topPadding="5" leftPadding="0"/>
 				<textElement textAlignment="Justified" markup="html">
 					<font fontName="SansSerif" size="10" isBold="true"/>
@@ -273,7 +75,7 @@
 		</band>
 		<band height="14" splitType="Stretch">
 			<textField isStretchWithOverflow="true">
-				<reportElement uuid="20210490-7288-4a52-a28a-c2b98ff38e38" style="style_previa" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="14" backcolor="#FFFFFF"/>
+				<reportElement uuid="20210490-7288-4a52-a28a-c2b98ff38e38" style="style1" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="14" backcolor="#FFFFFF"/>
 				<textElement textAlignment="Justified" markup="html">
 					<font fontName="SansSerif" size="10" isBold="false" isPdfEmbedded="true"/>
 				</textElement>
@@ -282,28 +84,28 @@
 		</band>
 		<band height="16" splitType="Stretch">
 			<textField isStretchWithOverflow="true">
-				<reportElement uuid="1794c115-a73a-4a45-b3b9-7b1fe8364995" style="style_previa" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="16" backcolor="#FFFFFF"/>
+				<reportElement uuid="1794c115-a73a-4a45-b3b9-7b1fe8364995" style="style1" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="16" backcolor="#FFFFFF"/>
 				<box topPadding="9"/>
 				<textElement textAlignment="Justified" markup="html">
 					<font fontName="SansSerif" size="10" isBold="false" pdfEncoding="Cp1252" isPdfEmbedded="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA["<b>I.2</b> QUE DE ACUERDO A SUS NECESIDADES REQUIERE TEMPORALMENTE CONTAR CON LOS SERVICIOS DE UNA PERSONA FÍSICA CON CONOCIMIENTOS EN " + $F{descPerfinContratado} + ", POR LO QUE HA DETERMINADO LLEVAR A CABO LA CONTRATACIÓN DE <b>“EL PRESTADOR DE LOS SERVICIOS”</b>."]]></textFieldExpression>
+				<textFieldExpression><![CDATA["<b>I.2</b> QUE DE ACUERDO A SUS NECESIDADES REQUIERE TEMPORALMENTE CONTAR CON LOS SERVICIOS DE UNA PERSONA FÍSICA CON CONOCIMIENTOS EN " + ", POR LO QUE HA DETERMINADO LLEVAR A CABO LA CONTRATACIÓN DE <b>“EL PRESTADOR DE LOS SERVICIOS”</b>."]]></textFieldExpression>
 			</textField>
 		</band>
 		<band height="16" splitType="Stretch">
 			<textField isStretchWithOverflow="true" isBlankWhenNull="false">
-				<reportElement uuid="33bb4c4d-0819-4f6a-9b34-b320b1252803" style="style_previa" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="16" forecolor="#000000" backcolor="#FFFFFF"/>
+				<reportElement uuid="33bb4c4d-0819-4f6a-9b34-b320b1252803" style="style1" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="16" forecolor="#000000" backcolor="#FFFFFF"/>
 				<box topPadding="9"/>
 				<textElement textAlignment="Justified" verticalAlignment="Top" rotation="None" markup="html">
 					<font fontName="SansSerif" size="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="true"/>
 					<paragraph lineSpacing="Single"/>
 				</textElement>
-				<textFieldExpression><![CDATA["<b>I.3</b> QUE CUENTA CON LOS RECURSOS SUFICIENTES PARA CUBRIR EL IMPORTE DE LOS HONORARIOS DE <b>“EL PRESTADOR DE LOS SERVICIOS”</b> CONFORME A LA PARTIDA PRESUPUESTARIA: "+$F{partida}+"."]]></textFieldExpression>
+				<textFieldExpression><![CDATA["<b>I.3</b> QUE CUENTA CON LOS RECURSOS SUFICIENTES PARA CUBRIR EL IMPORTE DE LOS HONORARIOS DE <b>“EL PRESTADOR DE LOS SERVICIOS”</b> CONFORME A LA PARTIDA PRESUPUESTARIA: "+"."]]></textFieldExpression>
 			</textField>
 		</band>
 		<band height="16" splitType="Prevent">
 			<textField isStretchWithOverflow="true">
-				<reportElement uuid="92a9aa7f-3178-4804-bec7-1bf8990a4f19" style="style_previa" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="16" backcolor="#FFFFFF"/>
+				<reportElement uuid="92a9aa7f-3178-4804-bec7-1bf8990a4f19" style="style1" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="16" backcolor="#FFFFFF"/>
 				<box topPadding="9"/>
 				<textElement textAlignment="Justified" markup="html">
 					<font fontName="SansSerif" size="10" isBold="false" isPdfEmbedded="true"/>
@@ -313,7 +115,7 @@
 		</band>
 		<band height="16" splitType="Prevent">
 			<textField isStretchWithOverflow="true">
-				<reportElement uuid="99944383-0b1a-4eb7-815f-736285c03892" style="style_previa" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="16" backcolor="#FFFFFF"/>
+				<reportElement uuid="99944383-0b1a-4eb7-815f-736285c03892" style="style1" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="16" backcolor="#FFFFFF"/>
 				<box topPadding="9"/>
 				<textElement textAlignment="Justified" markup="html">
 					<font fontName="SansSerif" size="10" isBold="false"/>
@@ -323,50 +125,47 @@
 		</band>
 		<band height="16" splitType="Stretch">
 			<textField isStretchWithOverflow="true">
-				<reportElement uuid="965abc43-ef5b-4314-b1e4-652a44602980" style="style_previa" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="16" backcolor="#FFFFFF"/>
+				<reportElement uuid="965abc43-ef5b-4314-b1e4-652a44602980" style="style1" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="16" backcolor="#FFFFFF"/>
 				<box topPadding="9"/>
 				<textElement textAlignment="Justified" markup="html">
 					<font fontName="SansSerif" size="10" isBold="false"/>
 				</textElement>
-				<textFieldExpression><![CDATA["<b>I.6</b> QUE PARA LOS EFECTOS DEL PRESENTE CONTRATO, SEÑALA COMO SU DOMICILIO EL UBICADO EN " + $F{domDependencia} +"."]]></textFieldExpression>
+				<textFieldExpression><![CDATA["<b>I.6</b> QUE PARA LOS EFECTOS DEL PRESENTE CONTRATO, SEÑALA COMO SU DOMICILIO EL UBICADO EN "  +"."]]></textFieldExpression>
 			</textField>
 		</band>
 		<band height="16" splitType="Stretch">
-			<printWhenExpression><![CDATA[new Boolean( ( $F{reqCompatibilidad}.equals("SI") ) )]]></printWhenExpression>
 			<textField isStretchWithOverflow="true">
-				<reportElement uuid="0bc19216-26a7-4b58-b997-29b0a950b45f" style="style_previa" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="16" backcolor="#FFFFFF"/>
+				<reportElement uuid="0bc19216-26a7-4b58-b997-29b0a950b45f" style="style1" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="16" backcolor="#FFFFFF"/>
 				<box topPadding="9"/>
 				<textElement textAlignment="Justified" markup="html">
 					<font fontName="SansSerif" size="10" isBold="false"/>
 				</textElement>
-				<textFieldExpression><![CDATA["<b>"+$F{fechaOficioCompatibilidad}+"</b> QUE PARA LOS EFECTOS DEL PRESENTE CONTRATO SE CUENTA CON EL DICTAMEN DE COMPATIBILIDAD DE EMPLEOS Y/O CONTRATOS DE PRESTACIÓN DE SERVICIOS PROFESIONALES POR HONORARIOS, OFICIO No. "+$F{fechaOficioCompatibilidad}+", EMITIDO POR LA INSTITUCIÓN PÚBLICA CONTRATANTE O POR LA DIRECCIÓN GENERAL DE DESARROLLO HUMANO Y ORGANIZACIÓN DE LA ADMINISTRACIÓN PÚBLICA FEDERAL DE LA SECRETARÍA DE LA FUNCIÓN PÚBLICA, SEGÚN SEA EL CASO, PREVIA VERIFICACIÓN DE QUE NO SE ACTUALIZA LA HIPÓTESIS PREVISTA EN LA FRACCIÓN XX DEL ARTÍCULO 8 DE LA LEY FEDERAL DE RESPONSABILIDADES ADMINISTRATIVAS DE LOS SERVIDORES PÚBLICOS."]]></textFieldExpression>
+				<textFieldExpression><![CDATA["<b>"+"</b> QUE PARA LOS EFECTOS DEL PRESENTE CONTRATO SE CUENTA CON EL DICTAMEN DE COMPATIBILIDAD DE EMPLEOS Y/O CONTRATOS DE PRESTACIÓN DE SERVICIOS PROFESIONALES POR HONORARIOS, OFICIO No. "+", EMITIDO POR LA INSTITUCIÓN PÚBLICA CONTRATANTE O POR LA DIRECCIÓN GENERAL DE DESARROLLO HUMANO Y ORGANIZACIÓN DE LA ADMINISTRACIÓN PÚBLICA FEDERAL DE LA SECRETARÍA DE LA FUNCIÓN PÚBLICA, SEGÚN SEA EL CASO, PREVIA VERIFICACIÓN DE QUE NO SE ACTUALIZA LA HIPÓTESIS PREVISTA EN LA FRACCIÓN XX DEL ARTÍCULO 8 DE LA LEY FEDERAL DE RESPONSABILIDADES ADMINISTRATIVAS DE LOS SERVIDORES PÚBLICOS."]]></textFieldExpression>
 			</textField>
 		</band>
 		<band height="16" splitType="Stretch">
-			<printWhenExpression><![CDATA[new Boolean( ( $F{reqOfRespSFP}.equals("SI") ) )]]></printWhenExpression>
 			<textField isStretchWithOverflow="true">
-				<reportElement uuid="fcd8922d-3ccf-4417-b2c7-8a6e7016ec61" style="style_previa" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="16" backcolor="#FFFFFF"/>
+				<reportElement uuid="fcd8922d-3ccf-4417-b2c7-8a6e7016ec61" style="style1" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="16" backcolor="#FFFFFF"/>
 				<box topPadding="9"/>
 				<textElement textAlignment="Justified" markup="html">
 					<font fontName="SansSerif" size="10" isBold="false"/>
 				</textElement>
-				<textFieldExpression><![CDATA["<b>"+$F{fechaOficioRespSFP}+"</b> QUE MANIFIESTA CONTAR CON LA AUTORIZACIÓN DE LA DIRECCIÓN GENERAL DE DESARROLLO HUMANO Y ORGANIZACIÓN DE LA ADMINISTRACIÓN PÚBLICA FEDERAL DE LA SECRETARÍA DE LA FUNCIÓN PÚBLICA, OFICIO NO. "+$F{numeroOfRespoSFP}+"."]]></textFieldExpression>
+				<textFieldExpression><![CDATA["<b>"+"</b> QUE MANIFIESTA CONTAR CON LA AUTORIZACIÓN DE LA DIRECCIÓN GENERAL DE DESARROLLO HUMANO Y ORGANIZACIÓN DE LA ADMINISTRACIÓN PÚBLICA FEDERAL DE LA SECRETARÍA DE LA FUNCIÓN PÚBLICA, OFICIO NO. "+"."]]></textFieldExpression>
 			</textField>
 		</band>
 		<band height="16" splitType="Stretch">
-			<printWhenExpression><![CDATA[new Boolean( ( $F{reqOfExisPzaVac}.equals("SI") ) )]]></printWhenExpression>
 			<textField isStretchWithOverflow="true">
-				<reportElement uuid="9f8bc94a-0ec3-49ff-96bc-41f668c490d2" style="style_previa" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="16" backcolor="#FFFFFF"/>
+				<reportElement uuid="9f8bc94a-0ec3-49ff-96bc-41f668c490d2" style="style1" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="16" backcolor="#FFFFFF"/>
 				<box topPadding="9"/>
 				<textElement textAlignment="Justified" markup="html">
 					<font fontName="SansSerif" size="10" isBold="false"/>
 				</textElement>
-				<textFieldExpression><![CDATA["<b>"+$F{numOfExisOzaVac}+"</b> QUE MANIFIESTA HABER PRESENTADO LA JUSTIFICACIÓN, DE LA EXISTENCIA DE VACANTES QUE PUDIERAN PERMITIR LA CONTRATACIÓN RESPECTIVA EN TODOS LOS CASOS, EXCEPTO PARA PROGRAMAS SUJETOS A REGLAS DE OPERACIÓN Y PARA PROYECTOS FINANCIADOS CON CRÉDITO EXTERNO, ANTE LA DIRECCIÓN GENERAL DE DESARROLLO HUMANO Y ORGANIZACIÓN DE LA ADMINISTRACIÓN PÚBLICA FEDERAL DE LA SECRETARÍA DE LA FUNCIÓN PÚBLICA, OFICIO NO. "+ $F{fechaOficioExisPzaVac} +"."]]></textFieldExpression>
+				<textFieldExpression><![CDATA["<b>"+"</b> QUE MANIFIESTA HABER PRESENTADO LA JUSTIFICACIÓN, DE LA EXISTENCIA DE VACANTES QUE PUDIERAN PERMITIR LA CONTRATACIÓN RESPECTIVA EN TODOS LOS CASOS, EXCEPTO PARA PROGRAMAS SUJETOS A REGLAS DE OPERACIÓN Y PARA PROYECTOS FINANCIADOS CON CRÉDITO EXTERNO, ANTE LA DIRECCIÓN GENERAL DE DESARROLLO HUMANO Y ORGANIZACIÓN DE LA ADMINISTRACIÓN PÚBLICA FEDERAL DE LA SECRETARÍA DE LA FUNCIÓN PÚBLICA, OFICIO NO. "+ "."]]></textFieldExpression>
 			</textField>
 		</band>
 		<band height="19" splitType="Prevent">
 			<textField isStretchWithOverflow="true">
-				<reportElement uuid="c5227bb1-30c3-4f4a-9294-80295e877f38" style="style_previa" stretchType="RelativeToBandHeight" x="0" y="0" width="34" height="19" backcolor="#FFFFFF"/>
+				<reportElement uuid="c5227bb1-30c3-4f4a-9294-80295e877f38" style="style1" stretchType="RelativeToBandHeight" x="0" y="0" width="34" height="19" backcolor="#FFFFFF"/>
 				<box topPadding="12"/>
 				<textElement textAlignment="Justified" markup="html">
 					<font fontName="SansSerif" size="10" isBold="true"/>
@@ -374,7 +173,7 @@
 				<textFieldExpression><![CDATA["II."]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement uuid="5c0f4d65-c4af-4a62-9bd0-7b7481326163" style="style_previa" stretchType="RelativeToTallestObject" x="34" y="0" width="408" height="19" backcolor="#FFFFFF"/>
+				<reportElement uuid="5c0f4d65-c4af-4a62-9bd0-7b7481326163" style="style1" stretchType="RelativeToTallestObject" x="34" y="0" width="408" height="19" backcolor="#FFFFFF"/>
 				<box topPadding="12"/>
 				<textElement textAlignment="Justified" markup="html">
 					<font fontName="SansSerif" size="10" isBold="true"/>
@@ -384,37 +183,36 @@
 		</band>
 		<band height="14" splitType="Stretch">
 			<textField isStretchWithOverflow="true">
-				<reportElement uuid="6ac103ab-d854-4f44-bad7-37da4bc54e08" style="style_previa" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="14" backcolor="#FFFFFF"/>
+				<reportElement uuid="6ac103ab-d854-4f44-bad7-37da4bc54e08" style="style1" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="14" backcolor="#FFFFFF"/>
 				<textElement textAlignment="Justified" markup="html">
 					<font fontName="SansSerif" size="10" isBold="false" isPdfEmbedded="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA["<b>II.1</b> QUE ES DE NACIONALIDAD "+ $F{descNacionalidadContratado}.trim() +", EN PLENO USO Y GOCE DE LAS FACULTADES QUE LE OTORGA LA LEY, Y QUE CUENTA CON LOS CONOCIMIENTOS Y, EN SU CASO, CON LA EXPERIENCIA NECESARIOS PARA PRESTAR EL SERVICIO REQUERIDO POR <b>“LA DEPENDENCIA”</b>."]]></textFieldExpression>
+				<textFieldExpression><![CDATA["<b>II.1</b> QUE ES DE NACIONALIDAD " +", EN PLENO USO Y GOCE DE LAS FACULTADES QUE LE OTORGA LA LEY, Y QUE CUENTA CON LOS CONOCIMIENTOS Y, EN SU CASO, CON LA EXPERIENCIA NECESARIOS PARA PRESTAR EL SERVICIO REQUERIDO POR <b>“LA DEPENDENCIA”</b>."]]></textFieldExpression>
 			</textField>
 		</band>
 		<band height="16" splitType="Stretch">
 			<textField isStretchWithOverflow="true">
-				<reportElement uuid="1c1ddfab-f740-4373-88f1-1ab0340b2b34" style="style_previa" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="16" backcolor="#FFFFFF"/>
+				<reportElement uuid="1c1ddfab-f740-4373-88f1-1ab0340b2b34" style="style1" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="16" backcolor="#FFFFFF"/>
 				<box topPadding="9"/>
 				<textElement textAlignment="Justified" markup="html">
 					<font fontName="SansSerif" size="10" isBold="false"/>
 				</textElement>
-				<textFieldExpression><![CDATA["<b>II.2</b> QUE CUENTA CON EL REGISTRO FEDERAL DE CONTRIBUYENTES No. "+ $F{rfcContratado} +", OTORGADO POR EL SERVICIO DE ADMINISTRACIÓN TRIBUTARIA DE LA SECRETARÍA DE HACIENDA Y CRÉDITO PÚBLICO."]]></textFieldExpression>
+				<textFieldExpression><![CDATA["<b>II.2</b> QUE CUENTA CON EL REGISTRO FEDERAL DE CONTRIBUYENTES No. "+ ", OTORGADO POR EL SERVICIO DE ADMINISTRACIÓN TRIBUTARIA DE LA SECRETARÍA DE HACIENDA Y CRÉDITO PÚBLICO."]]></textFieldExpression>
 			</textField>
 		</band>
 		<band height="16" splitType="Stretch">
 			<textField isStretchWithOverflow="true">
-				<reportElement uuid="a175b364-30f2-4e90-8bcc-a34148611d91" style="style_previa" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="16" backcolor="#FFFFFF"/>
+				<reportElement uuid="a175b364-30f2-4e90-8bcc-a34148611d91" style="style1" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="16" backcolor="#FFFFFF"/>
 				<box topPadding="9"/>
 				<textElement textAlignment="Justified" markup="html">
 					<font fontName="SansSerif" size="10" isBold="false"/>
 				</textElement>
-				<textFieldExpression><![CDATA["<b>II.3</b> QUE CUENTA CON ESTUDIOS Y CONOCIMIENTOS EN MATERIA DE " + $F{experienciaContratado} + " Y CONOCE PLENAMENTE LAS CARACTERÍSTICAS Y NECESIDADES DE LOS SERVICIOS MATERIA DEL PRESENTE CONTRATO, ASÍ COMO QUE HA CONSIDERADO TODOS LOS FACTORES QUE INTERVIENEN PARA DESARROLLAR EFICAZMENTE LAS ACTIVIDADES QUE DESEMPEÑARÁ."]]></textFieldExpression>
+				<textFieldExpression><![CDATA["<b>II.3</b> QUE CUENTA CON ESTUDIOS Y CONOCIMIENTOS EN MATERIA DE " + " Y CONOCE PLENAMENTE LAS CARACTERÍSTICAS Y NECESIDADES DE LOS SERVICIOS MATERIA DEL PRESENTE CONTRATO, ASÍ COMO QUE HA CONSIDERADO TODOS LOS FACTORES QUE INTERVIENEN PARA DESARROLLAR EFICAZMENTE LAS ACTIVIDADES QUE DESEMPEÑARÁ."]]></textFieldExpression>
 			</textField>
 		</band>
 		<band height="16" splitType="Stretch">
-			<printWhenExpression><![CDATA[new Boolean( ( $F{reqCompatibilidad}.equals("NO") ) )]]></printWhenExpression>
 			<textField isStretchWithOverflow="true">
-				<reportElement uuid="c4f627d6-e65b-4fd8-a521-b1cbc1d502c0" style="style_previa" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="16" backcolor="#FFFFFF"/>
+				<reportElement uuid="c4f627d6-e65b-4fd8-a521-b1cbc1d502c0" style="style1" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="16" backcolor="#FFFFFF"/>
 				<box topPadding="9"/>
 				<textElement textAlignment="Justified" markup="html">
 					<font fontName="SansSerif" size="10" isBold="false"/>
@@ -423,29 +221,28 @@
 			</textField>
 		</band>
 		<band height="16" splitType="Stretch">
-			<printWhenExpression><![CDATA[new Boolean( ( $F{reqCompatibilidad}.equals("SI") ) )]]></printWhenExpression>
 			<textField isStretchWithOverflow="true">
-				<reportElement uuid="60725ce2-f322-484f-bab7-8b7cce335efa" style="style_previa" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="16" backcolor="#FFFFFF"/>
+				<reportElement uuid="60725ce2-f322-484f-bab7-8b7cce335efa" style="style1" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="16" backcolor="#FFFFFF"/>
 				<box topPadding="9"/>
 				<textElement textAlignment="Justified" markup="html">
 					<font fontName="SansSerif" size="10" isBold="false"/>
 				</textElement>
-				<textFieldExpression><![CDATA["<b>II.4</b> QUE MANIFIESTA, BAJO PROTESTA DE DECIR VERDAD, QUE NO SE ENCUENTRA INHABILITADO PARA EL DESEMPEÑO DE UN EMPLEO, CARGO O COMISIÓN EN EL SERVICIO PÚBLICO Y QUE CONOCE EL RÉGIMEN DE COMPATIBILIDAD DE EMPLEOS POR LO QUE SIN DETRIMENTO DE LAS FUNCIONES QUE TIENE ENCOMENDADAS EN EL PUESTO DE " + $F{nbPuestoCompatibilidad} + " O DE LA PRESTACIÓN DE LOS SERVICIOS CONTRATADOS CON LA " + $F{nbDepCompatibilidad} + ", SE COMPROMETE A CUMPLIR CON LA MÁXIMA DILIGENCIA LAS OBLIGACIONES A QUE SE REFIERE LA CLÁUSULA PRIMERA DE ESTE CONTRATO; ASIMISMO QUE NO ES PARTE EN UN JUICIO DEL ORDEN CIVIL, MERCANTIL O LABORAL EN CONTRA DE ALGUNA DEPENDENCIA O ENTIDAD DE LA ADMINISTRACIÓN PÚBLICA FEDERAL, DE LA PROCURADURÍA GENERAL DE LA REPÚBLICA, DE UN TRIBUNAL ADMINISTRATIVO O DE LA PRESIDENCIA DE LA REPÚBLICA; Y QUE NO SE ENCUENTRA EN ALGÚN OTRO SUPUESTO O SITUACIÓN QUE PUDIERA GENERAR CONFLICTO DE INTERESES PARA PRESTAR LOS SERVICIOS PROFESIONALES OBJETO DEL PRESENTE CONTRATO."]]></textFieldExpression>
+				<textFieldExpression><![CDATA["<b>II.4</b> QUE MANIFIESTA, BAJO PROTESTA DE DECIR VERDAD, QUE NO SE ENCUENTRA INHABILITADO PARA EL DESEMPEÑO DE UN EMPLEO, CARGO O COMISIÓN EN EL SERVICIO PÚBLICO Y QUE CONOCE EL RÉGIMEN DE COMPATIBILIDAD DE EMPLEOS POR LO QUE SIN DETRIMENTO DE LAS FUNCIONES QUE TIENE ENCOMENDADAS EN EL PUESTO DE " +  " O DE LA PRESTACIÓN DE LOS SERVICIOS CONTRATADOS CON LA "  + ", SE COMPROMETE A CUMPLIR CON LA MÁXIMA DILIGENCIA LAS OBLIGACIONES A QUE SE REFIERE LA CLÁUSULA PRIMERA DE ESTE CONTRATO; ASIMISMO QUE NO ES PARTE EN UN JUICIO DEL ORDEN CIVIL, MERCANTIL O LABORAL EN CONTRA DE ALGUNA DEPENDENCIA O ENTIDAD DE LA ADMINISTRACIÓN PÚBLICA FEDERAL, DE LA PROCURADURÍA GENERAL DE LA REPÚBLICA, DE UN TRIBUNAL ADMINISTRATIVO O DE LA PRESIDENCIA DE LA REPÚBLICA; Y QUE NO SE ENCUENTRA EN ALGÚN OTRO SUPUESTO O SITUACIÓN QUE PUDIERA GENERAR CONFLICTO DE INTERESES PARA PRESTAR LOS SERVICIOS PROFESIONALES OBJETO DEL PRESENTE CONTRATO."]]></textFieldExpression>
 			</textField>
 		</band>
 		<band height="16" splitType="Stretch">
 			<textField isStretchWithOverflow="true">
-				<reportElement uuid="e4978b92-d1ed-4ad8-8dc8-9b75396bddce" style="style_previa" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="16" backcolor="#FFFFFF"/>
+				<reportElement uuid="e4978b92-d1ed-4ad8-8dc8-9b75396bddce" style="style1" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="16" backcolor="#FFFFFF"/>
 				<box topPadding="9"/>
 				<textElement textAlignment="Justified" markup="html">
 					<font fontName="SansSerif" size="10" isBold="false"/>
 				</textElement>
-				<textFieldExpression><![CDATA["<b>"+$F{num2ReqCompatibilidad}+"</b> QUE PARA LOS EFECTOS DEL PRESENTE CONTRATO, SEÑALA COMO SU DOMICILIO EL UBICADO EN " + $F{domicilioContratado} +"."]]></textFieldExpression>
+				<textFieldExpression><![CDATA["<b>"+"</b> QUE PARA LOS EFECTOS DEL PRESENTE CONTRATO, SEÑALA COMO SU DOMICILIO EL UBICADO EN " +"."]]></textFieldExpression>
 			</textField>
 		</band>
 		<band height="50" splitType="Prevent">
 			<textField isStretchWithOverflow="true">
-				<reportElement uuid="f2ba998e-1b59-4479-b6f5-be07fd248215" style="style_previa" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="36" backcolor="#FFFFFF"/>
+				<reportElement uuid="f2ba998e-1b59-4479-b6f5-be07fd248215" style="style1" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="36" backcolor="#FFFFFF"/>
 				<box topPadding="8"/>
 				<textElement textAlignment="Justified" markup="html">
 					<font fontName="SansSerif" size="10" isBold="true"/>
@@ -453,7 +250,7 @@
 				<textFieldExpression><![CDATA["DECLARAN LAS PARTES QUE ES SU VOLUNTAD CELEBRAR EL PRESENTE CONTRATO, PARA LO CUAL CONVIENEN EN SUJETARSE A LAS SIGUIENTES:"]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement uuid="7dc684f3-f8be-465e-a8f6-fa30ab5ed1ab" style="style_previa" stretchType="RelativeToTallestObject" x="0" y="36" width="442" height="14" backcolor="#FFFFFF"/>
+				<reportElement uuid="7dc684f3-f8be-465e-a8f6-fa30ab5ed1ab" style="style1" stretchType="RelativeToTallestObject" x="0" y="36" width="442" height="14" backcolor="#FFFFFF"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle" markup="html">
 					<font fontName="SansSerif" size="10" isBold="true"/>
 				</textElement>
@@ -462,16 +259,16 @@
 		</band>
 		<band height="15" splitType="Stretch">
 			<textField isStretchWithOverflow="true">
-				<reportElement uuid="d39bfb10-33df-4edc-8bd9-7b90f5071809" style="style_previa" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="15" backcolor="#FFFFFF"/>
+				<reportElement uuid="d39bfb10-33df-4edc-8bd9-7b90f5071809" style="style1" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="15" backcolor="#FFFFFF"/>
 				<textElement textAlignment="Justified" markup="html">
 					<font fontName="SansSerif" size="10" isBold="false" isPdfEmbedded="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA["<b>PRIMERA.- “LA DEPENDENCIA”</b> ENCOMIENDA A <b>“EL PRESTADOR DE LOS SERVICIOS”</b> Y ÉSTE SE OBLIGA A PRESTAR LOS SERVICIOS PROFESIONALES CONSISTENTES EN " + (( $F{descFunciones}.trim().substring( $F{descFunciones}.trim().length()-1 , $F{descFunciones}.trim().length() ).equals(".") )?$F{descFunciones}.trim().substring(0,$F{descFunciones}.trim().length()-1):$F{descFunciones}.trim()) + ", ASÍ COMO A RENDIR LOS INFORMES DE LAS ACTIVIDADES DESARROLLADAS Y/O LOS SERVICIOS ENCOMENDADOS MENSUALMENTE O CUANDO SE LE REQUIERA, MISMOS QUE DEBERÁ PRESENTAR AL SERVIDOR PÚBLICO QUE DESIGNE <b>“LA DEPENDENCIA”</b>. LOS INFORMES A ENTREGAR SERÁN LOS SIGUIENTES: " + (( $F{descEntregables}.trim().substring( $F{descEntregables}.trim().length()-1 , $F{descEntregables}.trim().length() ).equals(".") )?$F{descEntregables}.trim().substring(0,$F{descEntregables}.trim().length()-1):$F{descEntregables}.trim()) + "."]]></textFieldExpression>
+				<textFieldExpression><![CDATA["<b>PRIMERA.- “LA DEPENDENCIA”</b> ENCOMIENDA A <b>“EL PRESTADOR DE LOS SERVICIOS”</b> Y ÉSTE SE OBLIGA A PRESTAR LOS SERVICIOS PROFESIONALES CONSISTENTES EN " +", ASÍ COMO A RENDIR LOS INFORMES DE LAS ACTIVIDADES DESARROLLADAS Y/O LOS SERVICIOS ENCOMENDADOS MENSUALMENTE O CUANDO SE LE REQUIERA, MISMOS QUE DEBERÁ PRESENTAR AL SERVIDOR PÚBLICO QUE DESIGNE <b>“LA DEPENDENCIA”</b>. LOS INFORMES A ENTREGAR SERÁN LOS SIGUIENTES: " +"."]]></textFieldExpression>
 			</textField>
 		</band>
 		<band height="16">
 			<textField isStretchWithOverflow="true">
-				<reportElement uuid="88cc70ae-e292-4b41-90cb-1971432c6f0b" style="style_previa" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="16" backcolor="#FFFFFF"/>
+				<reportElement uuid="88cc70ae-e292-4b41-90cb-1971432c6f0b" style="style1" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="16" backcolor="#FFFFFF"/>
 				<box topPadding="9"/>
 				<textElement textAlignment="Justified" markup="html">
 					<font fontName="SansSerif" size="10" isBold="false"/>
@@ -481,7 +278,7 @@
 		</band>
 		<band height="16">
 			<textField isStretchWithOverflow="true">
-				<reportElement uuid="826f12bb-bca7-4bae-a44b-6e117242ad93" style="style_previa" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="16" backcolor="#FFFFFF"/>
+				<reportElement uuid="826f12bb-bca7-4bae-a44b-6e117242ad93" style="style1" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="16" backcolor="#FFFFFF"/>
 				<box topPadding="9"/>
 				<textElement textAlignment="Justified" markup="html">
 					<font fontName="SansSerif" size="10" isBold="false"/>
@@ -491,19 +288,19 @@
 		</band>
 		<band height="28">
 			<textField isStretchWithOverflow="true">
-				<reportElement uuid="f228d014-07c4-46f8-8557-e538a5033916" style="style_previa" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="28" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF"/>
+				<reportElement uuid="f228d014-07c4-46f8-8557-e538a5033916" style="style1" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="28" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF"/>
 				<box topPadding="9" bottomPadding="0"/>
 				<textElement textAlignment="Justified" verticalAlignment="Top" markup="html">
 					<font fontName="SansSerif" size="10" isBold="false"/>
 				</textElement>
-				<textFieldExpression><![CDATA["<b>CUARTA.- “LA DEPENDENCIA”</b> CUBRIRÁ A <b>“EL PRESTADOR DE LOS SERVICIOS”</b> POR CONCEPTO DE SUS HONORARIOS, UN IMPORTE BRUTO DE $ "+$F{sumaImpBrutoRecibido}+" (" + $F{importeLetra} + "). DICHO IMPORTE SERÁ PAGADO EN "+ $F{noExhibiciones} +", PREVIA LA ENTREGA DE LOS INFORMES O DE LOS SERVICIOS ENCOMENDADOS A SATISFACCIÓN DE <b>“LA DEPENDENCIA”</b>." +
+				<textFieldExpression><![CDATA["<b>CUARTA.- “LA DEPENDENCIA”</b> CUBRIRÁ A <b>“EL PRESTADOR DE LOS SERVICIOS”</b> POR CONCEPTO DE SUS HONORARIOS, UN IMPORTE BRUTO DE $ "+" (" +  "). DICHO IMPORTE SERÁ PAGADO EN " +", PREVIA LA ENTREGA DE LOS INFORMES O DE LOS SERVICIOS ENCOMENDADOS A SATISFACCIÓN DE <b>“LA DEPENDENCIA”</b>." +
 "<br><br>SÍ PARA EL CUMPLIMIENTO DEL OBJETO DEL PRESENTE CONTRATO SE REQUIERE DEL TRASLADO DE <b>“EL PRESTADOR DE LOS SERVICIOS”</b> A LUGAR DISTINTO A AQUEL QUE PRESTE SUS SERVICIOS, SE PAGARÁN LAS EXPENSAS CORRESPONDIENTES, DE CONFORMIDAD CON LO ESTABLECIDO POR LOS ARTÍCULOS 2609 Y 2610 DEL CÓDIGO CIVIL FEDERAL Y CON SUJECIÓN A LAS NORMAS Y TARIFAS ESTABLECIDAS PARA ESTE TIPO DE EROGACIONES." +
 "<br><br>LAS EXPENSAS SE PAGARÁN CON BASE EN LAS TARIFAS ESTABLECIDAS EN LA NORMATIVIDAD APLICABLE A <b“LA DEPENDENCIA”</b>, OBLIGÁNDOSE <b>“EL PRESTADOR DE LOS SERVICIOS”</b> A SU COMPROBACIÓN CON LOS DOCUMENTOS QUE CUMPLAN CON LOS REQUISITOS FISCALES APLICABLES."]]></textFieldExpression>
 			</textField>
 		</band>
 		<band height="16">
 			<textField isStretchWithOverflow="true">
-				<reportElement uuid="23f5ffa8-d591-4fa7-9daa-7e7fe410c74f" style="style_previa" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="16" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF"/>
+				<reportElement uuid="23f5ffa8-d591-4fa7-9daa-7e7fe410c74f" style="style1" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="16" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF"/>
 				<box topPadding="9"/>
 				<textElement textAlignment="Justified" markup="html">
 					<font fontName="SansSerif" size="10" isBold="false"/>
@@ -512,9 +309,9 @@
 			</textField>
 		</band>
 		<band height="16">
-			<printWhenExpression><![CDATA[new Boolean( ( $F{reqIssste}.equals("SI") ) )]]></printWhenExpression>
+			<printWhenExpression><![CDATA[]]></printWhenExpression>
 			<textField isStretchWithOverflow="true">
-				<reportElement uuid="c047f83a-11d1-444f-aa46-1317f05a719b" style="style_previa" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="16" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF"/>
+				<reportElement uuid="c047f83a-11d1-444f-aa46-1317f05a719b" style="style1" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="16" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF"/>
 				<box topPadding="9"/>
 				<textElement textAlignment="Justified" markup="html">
 					<font fontName="SansSerif" size="10" isBold="false"/>
@@ -524,17 +321,17 @@
 		</band>
 		<band height="16">
 			<textField isStretchWithOverflow="true">
-				<reportElement uuid="1bb86252-7a21-406b-a353-4cf48b3a5a3e" style="style_previa" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="16" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF"/>
+				<reportElement uuid="1bb86252-7a21-406b-a353-4cf48b3a5a3e" style="style1" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="16" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF"/>
 				<box topPadding="9"/>
 				<textElement textAlignment="Justified" markup="html">
 					<font fontName="SansSerif" size="10" isBold="false"/>
 				</textElement>
-				<textFieldExpression><![CDATA["<b>QUINTA.-</b> EL PRESENTE CONTRATO OBSERVARÁ UNA VIGENCIA DEL " + $F{fechaVigenciaInicial} + " AL "+ $F{fechaVigenciaFinal}  +"."]]></textFieldExpression>
+				<textFieldExpression><![CDATA["<b>QUINTA.-</b> EL PRESENTE CONTRATO OBSERVARÁ UNA VIGENCIA DEL " +"."]]></textFieldExpression>
 			</textField>
 		</band>
 		<band height="16">
 			<textField isStretchWithOverflow="true">
-				<reportElement uuid="d29a66d1-3419-4161-94d1-7a8c9a3804f8" style="style_previa" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="16" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF"/>
+				<reportElement uuid="d29a66d1-3419-4161-94d1-7a8c9a3804f8" style="style1" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="16" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF"/>
 				<box topPadding="9"/>
 				<textElement textAlignment="Justified" markup="html">
 					<font fontName="SansSerif" size="10" isBold="false"/>
@@ -544,7 +341,7 @@
 		</band>
 		<band height="16">
 			<textField isStretchWithOverflow="true">
-				<reportElement uuid="5f6009e0-d01f-427c-bbe6-55047b6589c5" style="style_previa" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="16" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF"/>
+				<reportElement uuid="5f6009e0-d01f-427c-bbe6-55047b6589c5" style="style1" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="16" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF"/>
 				<box topPadding="9"/>
 				<textElement textAlignment="Justified" markup="html">
 					<font fontName="SansSerif" size="10" isBold="false"/>
@@ -554,7 +351,7 @@
 		</band>
 		<band height="16">
 			<textField isStretchWithOverflow="true">
-				<reportElement uuid="74796492-604c-4b22-afa6-6ac3483c9291" style="style_previa" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="16" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF"/>
+				<reportElement uuid="74796492-604c-4b22-afa6-6ac3483c9291" style="style1" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="16" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF"/>
 				<box topPadding="9"/>
 				<textElement textAlignment="Justified" markup="html">
 					<font fontName="SansSerif" size="10" isBold="false"/>
@@ -564,7 +361,7 @@
 		</band>
 		<band height="16">
 			<textField isStretchWithOverflow="true">
-				<reportElement uuid="8149b535-605b-4880-8a4f-b8a2cf0e9d3f" style="style_previa" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="16" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF"/>
+				<reportElement uuid="8149b535-605b-4880-8a4f-b8a2cf0e9d3f" style="style1" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="16" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF"/>
 				<box topPadding="9"/>
 				<textElement textAlignment="Justified" markup="html">
 					<font fontName="SansSerif" size="10" isBold="false"/>
@@ -574,17 +371,17 @@
 		</band>
 		<band height="16">
 			<textField isStretchWithOverflow="true">
-				<reportElement uuid="295f68fd-395e-4fea-af10-25e87afaf0b9" style="style_previa" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="16" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF"/>
+				<reportElement uuid="295f68fd-395e-4fea-af10-25e87afaf0b9" style="style1" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="16" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF"/>
 				<box topPadding="9"/>
 				<textElement textAlignment="Justified" markup="html">
 					<font fontName="SansSerif" size="10" isBold="false"/>
 				</textElement>
-				<textFieldExpression><![CDATA["<b>DÉCIMA.- “LA DEPENDENCIA”</b> DESIGNA A " + $F{nombreFirmaRecepRepAct} + ", " + $F{puestoFirmaRecepRepAct} + ", PARA RECIBIR A SU ENTERA SATISFACCIÓN LOS INFORMES DE LAS ACTIVIDADES DESARROLLADAS POR <b>“EL PRESTADOR DE LOS SERVICIOS”</b>, ASÍ COMO EL RESULTADO DE LOS SERVICIOS PACTADOS EN EL CONTRATO (ENTREGABLES)."]]></textFieldExpression>
+				<textFieldExpression><![CDATA["<b>DÉCIMA.- “LA DEPENDENCIA”</b> DESIGNA A " + ", PARA RECIBIR A SU ENTERA SATISFACCIÓN LOS INFORMES DE LAS ACTIVIDADES DESARROLLADAS POR <b>“EL PRESTADOR DE LOS SERVICIOS”</b>, ASÍ COMO EL RESULTADO DE LOS SERVICIOS PACTADOS EN EL CONTRATO (ENTREGABLES)."]]></textFieldExpression>
 			</textField>
 		</band>
 		<band height="16" splitType="Stretch">
 			<textField isStretchWithOverflow="true">
-				<reportElement uuid="2eaaadf6-94ff-45d5-a20e-6f5b67ec5582" style="style_previa" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="16" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF"/>
+				<reportElement uuid="2eaaadf6-94ff-45d5-a20e-6f5b67ec5582" style="style1" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="16" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF"/>
 				<box topPadding="9"/>
 				<textElement textAlignment="Justified" markup="html">
 					<font fontName="SansSerif" size="10" isBold="false"/>
@@ -594,7 +391,7 @@
 		</band>
 		<band height="14" splitType="Stretch">
 			<textField isStretchWithOverflow="true">
-				<reportElement uuid="bcffbe6e-6c7b-4b75-8952-de46b487068b" style="style_previa" stretchType="RelativeToTallestObject" x="50" y="0" width="392" height="14" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF"/>
+				<reportElement uuid="bcffbe6e-6c7b-4b75-8952-de46b487068b" style="style1" stretchType="RelativeToTallestObject" x="50" y="0" width="392" height="14" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF"/>
 				<box topPadding="5"/>
 				<textElement textAlignment="Justified" markup="html">
 					<font fontName="SansSerif" size="10" isBold="false"/>
@@ -602,7 +399,7 @@
 				<textFieldExpression><![CDATA["POR PRESTAR LOS SERVICIOS DEFICIENTEMENTE, DE MANERA INOPORTUNA O POR NO APEGARSE A LO ESTIPULADO EN EL PRESENTE CONTRATO;"]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement uuid="29d3bd6e-30d2-46d9-b362-07b54ac4bd3e" style="style_previa" stretchType="RelativeToTallestObject" x="0" y="0" width="50" height="14" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF"/>
+				<reportElement uuid="29d3bd6e-30d2-46d9-b362-07b54ac4bd3e" style="style1" stretchType="RelativeToTallestObject" x="0" y="0" width="50" height="14" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF"/>
 				<box topPadding="5" leftPadding="35"/>
 				<textElement textAlignment="Justified" markup="html">
 					<font fontName="SansSerif" size="10" isBold="true"/>
@@ -612,7 +409,7 @@
 		</band>
 		<band height="14" splitType="Stretch">
 			<textField isStretchWithOverflow="true">
-				<reportElement uuid="1255b87c-37b6-443b-badf-166fc4979504" style="style_previa" stretchType="RelativeToTallestObject" x="50" y="0" width="392" height="14" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF"/>
+				<reportElement uuid="1255b87c-37b6-443b-badf-166fc4979504" style="style1" stretchType="RelativeToTallestObject" x="50" y="0" width="392" height="14" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF"/>
 				<box topPadding="5"/>
 				<textElement textAlignment="Justified" markup="html">
 					<font fontName="SansSerif" size="10" isBold="false"/>
@@ -620,7 +417,7 @@
 				<textFieldExpression><![CDATA["POR NO OBSERVAR LA DISCRECIÓN DEBIDA RESPECTO DE LA INFORMACIÓN A LA QUE TENGA ACCESO COMO CONSECUENCIA DE LA PRESTACIÓN DE LOS SERVICIOS ENCOMENDADOS;"]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement uuid="ebe2b607-89a7-440e-acff-125133d74251" style="style_previa" stretchType="RelativeToTallestObject" x="0" y="0" width="50" height="14" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF"/>
+				<reportElement uuid="ebe2b607-89a7-440e-acff-125133d74251" style="style1" stretchType="RelativeToTallestObject" x="0" y="0" width="50" height="14" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF"/>
 				<box topPadding="5" leftPadding="35"/>
 				<textElement textAlignment="Justified" markup="html">
 					<font fontName="SansSerif" size="10" isBold="true"/>
@@ -631,7 +428,7 @@
 		<band height="14" splitType="Stretch">
 			<elementGroup>
 				<textField isStretchWithOverflow="true">
-					<reportElement uuid="d799f3dc-be30-4661-a4fc-b3b4a0aea825" style="style_previa" stretchType="RelativeToTallestObject" x="50" y="0" width="392" height="14" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF"/>
+					<reportElement uuid="d799f3dc-be30-4661-a4fc-b3b4a0aea825" style="style1" stretchType="RelativeToTallestObject" x="50" y="0" width="392" height="14" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF"/>
 					<box topPadding="5"/>
 					<textElement textAlignment="Justified" markup="html">
 						<font fontName="SansSerif" size="10" isBold="false"/>
@@ -639,7 +436,7 @@
 					<textFieldExpression><![CDATA["POR SUSPENDER INJUSTIFICADAMENTE LA PRESTACIÓN DE LOS SERVICIOS O POR NEGARSE A CORREGIR LO RECHAZADO POR <b>“LA DEPENDENCIA”</b>;"]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true">
-					<reportElement uuid="32096555-c105-42ca-ada6-f79f77861171" style="style_previa" stretchType="RelativeToTallestObject" x="0" y="0" width="50" height="14" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF"/>
+					<reportElement uuid="32096555-c105-42ca-ada6-f79f77861171" style="style1" stretchType="RelativeToTallestObject" x="0" y="0" width="50" height="14" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF"/>
 					<box topPadding="5" leftPadding="35"/>
 					<textElement textAlignment="Justified" markup="html">
 						<font fontName="SansSerif" size="10" isBold="true"/>
@@ -650,7 +447,7 @@
 		</band>
 		<band height="14" splitType="Stretch">
 			<textField isStretchWithOverflow="true">
-				<reportElement uuid="d9290f61-05be-40a1-8e18-4ff60fb56749" style="style_previa" stretchType="RelativeToTallestObject" x="50" y="0" width="392" height="14" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF"/>
+				<reportElement uuid="d9290f61-05be-40a1-8e18-4ff60fb56749" style="style1" stretchType="RelativeToTallestObject" x="50" y="0" width="392" height="14" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF"/>
 				<box topPadding="5"/>
 				<textElement textAlignment="Justified" markup="html">
 					<font fontName="SansSerif" size="10" isBold="false"/>
@@ -658,7 +455,7 @@
 				<textFieldExpression><![CDATA["POR NEGARSE A INFORMAR A <b>“LA DEPENDENCIA”</b> SOBRE LA PRESTACIÓN Y/O EL RESULTADO DE LOS SERVICIOS ENCOMENDADOS;"]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement uuid="b2759324-e33b-41ca-9df6-9ec7751ac616" style="style_previa" stretchType="RelativeToTallestObject" x="0" y="0" width="50" height="14" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF"/>
+				<reportElement uuid="b2759324-e33b-41ca-9df6-9ec7751ac616" style="style1" stretchType="RelativeToTallestObject" x="0" y="0" width="50" height="14" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF"/>
 				<box topPadding="5" leftPadding="35"/>
 				<textElement textAlignment="Justified" markup="html">
 					<font fontName="SansSerif" size="10" isBold="true"/>
@@ -668,7 +465,7 @@
 		</band>
 		<band height="14" splitType="Stretch">
 			<textField isStretchWithOverflow="true">
-				<reportElement uuid="9f93161e-ecea-4e27-8cc8-94d23c944f19" style="style_previa" stretchType="RelativeToTallestObject" x="50" y="0" width="392" height="14" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF"/>
+				<reportElement uuid="9f93161e-ecea-4e27-8cc8-94d23c944f19" style="style1" stretchType="RelativeToTallestObject" x="50" y="0" width="392" height="14" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF"/>
 				<box topPadding="5"/>
 				<textElement textAlignment="Justified" markup="html">
 					<font fontName="SansSerif" size="10" isBold="false"/>
@@ -676,7 +473,7 @@
 				<textFieldExpression><![CDATA["POR IMPEDIR EL DESEMPEÑO NORMAL DE LABORES DE <b>“LA DEPENDENCIA”</b> DURANTE LA PRESTACIÓN DE LOS SERVICIOS;"]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement uuid="afe3e0bc-080c-423f-aeed-797e7d4a6cdc" style="style_previa" stretchType="RelativeToTallestObject" x="0" y="0" width="50" height="14" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF"/>
+				<reportElement uuid="afe3e0bc-080c-423f-aeed-797e7d4a6cdc" style="style1" stretchType="RelativeToTallestObject" x="0" y="0" width="50" height="14" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF"/>
 				<box topPadding="5" leftPadding="35"/>
 				<textElement textAlignment="Justified" markup="html">
 					<font fontName="SansSerif" size="10" isBold="true"/>
@@ -686,7 +483,7 @@
 		</band>
 		<band height="14" splitType="Stretch">
 			<textField isStretchWithOverflow="true">
-				<reportElement uuid="fae47e56-4829-4891-97ad-6dc1d482cfb4" style="style_previa" stretchType="RelativeToTallestObject" x="0" y="0" width="50" height="14" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF"/>
+				<reportElement uuid="fae47e56-4829-4891-97ad-6dc1d482cfb4" style="style1" stretchType="RelativeToTallestObject" x="0" y="0" width="50" height="14" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF"/>
 				<box topPadding="5" leftPadding="35"/>
 				<textElement textAlignment="Justified" markup="html">
 					<font fontName="SansSerif" size="10" isBold="true"/>
@@ -694,7 +491,7 @@
 				<textFieldExpression><![CDATA["F)"]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement uuid="867340a6-0e21-4a28-8d25-f810ec4e878a" style="style_previa" stretchType="RelativeToTallestObject" x="50" y="0" width="392" height="14" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF"/>
+				<reportElement uuid="867340a6-0e21-4a28-8d25-f810ec4e878a" style="style1" stretchType="RelativeToTallestObject" x="50" y="0" width="392" height="14" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF"/>
 				<box topPadding="5"/>
 				<textElement textAlignment="Justified" markup="html">
 					<font fontName="SansSerif" size="10" isBold="false"/>
@@ -704,7 +501,7 @@
 		</band>
 		<band height="14" splitType="Stretch">
 			<textField isStretchWithOverflow="true">
-				<reportElement uuid="f7a04deb-fdcd-4829-9700-86b5e613268b" style="style_previa" stretchType="RelativeToTallestObject" x="50" y="0" width="392" height="14" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF"/>
+				<reportElement uuid="f7a04deb-fdcd-4829-9700-86b5e613268b" style="style1" stretchType="RelativeToTallestObject" x="50" y="0" width="392" height="14" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF"/>
 				<box topPadding="5"/>
 				<textElement textAlignment="Justified" markup="html">
 					<font fontName="SansSerif" size="10" isBold="false"/>
@@ -712,7 +509,7 @@
 				<textFieldExpression><![CDATA["POR INCUMPLIMIENTO DE CUALQUIERA DE LAS OBLIGACIONES ESTABLECIDAS EN ESTE CONTRATO."]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement uuid="bde7153e-b467-4ef8-8cc9-0498fea4d1ff" style="style_previa" stretchType="RelativeToTallestObject" x="0" y="0" width="50" height="14" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF"/>
+				<reportElement uuid="bde7153e-b467-4ef8-8cc9-0498fea4d1ff" style="style1" stretchType="RelativeToTallestObject" x="0" y="0" width="50" height="14" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF"/>
 				<box topPadding="5" leftPadding="35"/>
 				<textElement textAlignment="Justified" markup="html">
 					<font fontName="SansSerif" size="10" isBold="true"/>
@@ -722,7 +519,7 @@
 		</band>
 		<band height="16">
 			<textField isStretchWithOverflow="true">
-				<reportElement uuid="118803e8-35e9-41b3-9127-792bd0a80a3d" style="style_previa" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="16" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF"/>
+				<reportElement uuid="118803e8-35e9-41b3-9127-792bd0a80a3d" style="style1" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="16" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF"/>
 				<box topPadding="5"/>
 				<textElement textAlignment="Justified" markup="html">
 					<font fontName="SansSerif" size="10" isBold="false"/>
@@ -732,7 +529,7 @@
 		</band>
 		<band height="16">
 			<textField isStretchWithOverflow="true">
-				<reportElement uuid="ec789c3e-1eed-446d-b56e-e3744a0d96bb" style="style_previa" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="16" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF"/>
+				<reportElement uuid="ec789c3e-1eed-446d-b56e-e3744a0d96bb" style="style1" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="16" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF"/>
 				<box topPadding="5"/>
 				<textElement textAlignment="Justified" markup="html">
 					<font fontName="SansSerif" size="10" isBold="false"/>
@@ -742,7 +539,7 @@
 		</band>
 		<band height="16" splitType="Stretch">
 			<textField isStretchWithOverflow="true">
-				<reportElement uuid="3970c2e9-d534-4571-a2c2-6c95a0305bac" style="style_previa" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="16" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF"/>
+				<reportElement uuid="3970c2e9-d534-4571-a2c2-6c95a0305bac" style="style1" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="16" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF"/>
 				<box topPadding="5" bottomPadding="0"/>
 				<textElement textAlignment="Justified" markup="html">
 					<font fontName="SansSerif" size="10" isBold="false" isPdfEmbedded="false"/>
@@ -752,7 +549,7 @@
 		</band>
 		<band height="16">
 			<textField isStretchWithOverflow="true">
-				<reportElement uuid="1d4883db-7b4d-4001-8a08-6dbb42f7343d" style="style_previa" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="16" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF"/>
+				<reportElement uuid="1d4883db-7b4d-4001-8a08-6dbb42f7343d" style="style1" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="16" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF"/>
 				<box topPadding="5"/>
 				<textElement textAlignment="Justified" markup="html">
 					<font fontName="SansSerif" size="10" isBold="false"/>
@@ -762,7 +559,7 @@
 		</band>
 		<band height="16">
 			<textField isStretchWithOverflow="true">
-				<reportElement uuid="7275fbb4-ab55-473c-968b-0900ffb657e0" style="style_previa" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="16" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF"/>
+				<reportElement uuid="7275fbb4-ab55-473c-968b-0900ffb657e0" style="style1" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="16" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF"/>
 				<box topPadding="5"/>
 				<textElement textAlignment="Justified" markup="html">
 					<font fontName="SansSerif" size="10" isBold="false"/>
@@ -772,7 +569,7 @@
 		</band>
 		<band height="16" splitType="Stretch">
 			<textField isStretchWithOverflow="true">
-				<reportElement uuid="a0ff729d-a96d-4746-a5a3-cd5a65be151f" style="style_previa" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="16" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF"/>
+				<reportElement uuid="a0ff729d-a96d-4746-a5a3-cd5a65be151f" style="style1" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="16" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF"/>
 				<box topPadding="5"/>
 				<textElement textAlignment="Justified" markup="html">
 					<font fontName="SansSerif" size="10" isBold="false" isPdfEmbedded="false"/>
@@ -782,7 +579,7 @@
 		</band>
 		<band height="20">
 			<textField isStretchWithOverflow="true">
-				<reportElement uuid="317e8b70-23e0-4532-83a2-87443da85e0e" style="style_previa" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="20" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF"/>
+				<reportElement uuid="317e8b70-23e0-4532-83a2-87443da85e0e" style="style1" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="20" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF"/>
 				<box topPadding="5"/>
 				<textElement textAlignment="Justified" markup="html">
 					<font fontName="SansSerif" size="10" isBold="false"/>
@@ -792,7 +589,7 @@
 		</band>
 		<band height="20">
 			<textField isStretchWithOverflow="true">
-				<reportElement uuid="572caee5-861e-477c-b156-822b34c9df4b" style="style_previa" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="20" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF"/>
+				<reportElement uuid="572caee5-861e-477c-b156-822b34c9df4b" style="style1" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="20" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF"/>
 				<box topPadding="5"/>
 				<textElement textAlignment="Justified" markup="html">
 					<font fontName="SansSerif" size="10" isBold="false"/>
@@ -819,44 +616,32 @@
 				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-				<reportElement uuid="4fae1889-b479-4051-9a7e-d62320e07fba" stretchType="RelativeToTallestObject" mode="Opaque" x="0" y="0" width="210" height="38" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF">
-					<printWhenExpression><![CDATA[new Boolean( $F{previoDefinitivo}.equals( "1" ) )]]></printWhenExpression>
-				</reportElement>
+				<reportElement uuid="4fae1889-b479-4051-9a7e-d62320e07fba" stretchType="RelativeToTallestObject" mode="Opaque" x="0" y="0" width="210" height="38" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF"/>
 				<box topPadding="5"/>
 				<textElement textAlignment="Justified" markup="html">
 					<font fontName="SansSerif" size="5" isBold="false"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{firmaDirectorGeneral}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-				<reportElement uuid="1849dd72-2072-4d11-ad45-26d28c29ad00" stretchType="RelativeToTallestObject" mode="Opaque" x="0" y="40" width="210" height="12" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF">
-					<printWhenExpression><![CDATA[new Boolean( $F{previoDefinitivo}.equals( "1" ) )]]></printWhenExpression>
-				</reportElement>
+				<reportElement uuid="1849dd72-2072-4d11-ad45-26d28c29ad00" stretchType="RelativeToTallestObject" mode="Opaque" x="0" y="40" width="210" height="12" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF"/>
 				<box topPadding="5"/>
 				<textElement textAlignment="Justified" markup="html">
 					<font fontName="SansSerif" size="5" isBold="false"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{nombreFirmaRepSep}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-				<reportElement uuid="e755d428-6017-44d8-9b9f-23b594f422de" stretchType="RelativeToTallestObject" mode="Opaque" x="232" y="0" width="210" height="38" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF">
-					<printWhenExpression><![CDATA[new Boolean( $F{previoDefinitivo}.equals( "1" ) )]]></printWhenExpression>
-				</reportElement>
+				<reportElement uuid="e755d428-6017-44d8-9b9f-23b594f422de" stretchType="RelativeToTallestObject" mode="Opaque" x="232" y="0" width="210" height="38" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF"/>
 				<box topPadding="5"/>
 				<textElement textAlignment="Justified" markup="html">
 					<font fontName="SansSerif" size="5" isBold="false"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{firmaDirectorUr}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-				<reportElement uuid="ad190117-f916-4a6b-904e-6d822dc01f68" stretchType="RelativeToTallestObject" mode="Opaque" x="232" y="40" width="210" height="12" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF">
-					<printWhenExpression><![CDATA[new Boolean( $F{previoDefinitivo}.equals( "1" ) )]]></printWhenExpression>
-				</reportElement>
+				<reportElement uuid="ad190117-f916-4a6b-904e-6d822dc01f68" stretchType="RelativeToTallestObject" mode="Opaque" x="232" y="40" width="210" height="12" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF"/>
 				<box topPadding="5"/>
 				<textElement textAlignment="Justified" markup="html">
 					<font fontName="SansSerif" size="5" isBold="false"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{nombreFirmaRepArea}]]></textFieldExpression>
 			</textField>
 		</band>
 	</pageFooter>
@@ -877,44 +662,32 @@
 				<textFieldExpression><![CDATA[$V{PAGE_NUMBER} + " de  "]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-				<reportElement uuid="8043a31a-3d84-4a43-8dd6-5edce3c406f4" stretchType="RelativeToTallestObject" mode="Opaque" x="232" y="0" width="210" height="38" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF">
-					<printWhenExpression><![CDATA[new Boolean( $F{previoDefinitivo}.equals( "1" ) )]]></printWhenExpression>
-				</reportElement>
+				<reportElement uuid="8043a31a-3d84-4a43-8dd6-5edce3c406f4" stretchType="RelativeToTallestObject" mode="Opaque" x="232" y="0" width="210" height="38" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF"/>
 				<box topPadding="5"/>
 				<textElement textAlignment="Justified" markup="html">
 					<font fontName="SansSerif" size="5" isBold="false"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{firmaDirectorUr}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-				<reportElement uuid="04ca8692-39b3-4730-ad26-fa45f51adec8" stretchType="RelativeToTallestObject" mode="Opaque" x="232" y="40" width="210" height="12" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF">
-					<printWhenExpression><![CDATA[new Boolean( $F{previoDefinitivo}.equals( "1" ) )]]></printWhenExpression>
-				</reportElement>
+				<reportElement uuid="04ca8692-39b3-4730-ad26-fa45f51adec8" stretchType="RelativeToTallestObject" mode="Opaque" x="232" y="40" width="210" height="12" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF"/>
 				<box topPadding="5"/>
 				<textElement textAlignment="Justified" markup="html">
 					<font fontName="SansSerif" size="5" isBold="false"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{nombreFirmaRepArea}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-				<reportElement uuid="0e0c88bd-f602-4506-a98f-cfad383edc12" stretchType="RelativeToTallestObject" mode="Opaque" x="0" y="0" width="210" height="38" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF">
-					<printWhenExpression><![CDATA[new Boolean( $F{previoDefinitivo}.equals( "1" ) )]]></printWhenExpression>
-				</reportElement>
+				<reportElement uuid="0e0c88bd-f602-4506-a98f-cfad383edc12" stretchType="RelativeToTallestObject" mode="Opaque" x="0" y="0" width="210" height="38" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF"/>
 				<box topPadding="5"/>
 				<textElement textAlignment="Justified" markup="html">
 					<font fontName="SansSerif" size="5" isBold="false"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{firmaDirectorGeneral}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-				<reportElement uuid="e9dd478b-24ff-46b3-9d42-abf722bd5747" stretchType="RelativeToTallestObject" mode="Opaque" x="0" y="40" width="210" height="12" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF">
-					<printWhenExpression><![CDATA[new Boolean( $F{previoDefinitivo}.equals( "1" ) )]]></printWhenExpression>
-				</reportElement>
+				<reportElement uuid="e9dd478b-24ff-46b3-9d42-abf722bd5747" stretchType="RelativeToTallestObject" mode="Opaque" x="0" y="40" width="210" height="12" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF"/>
 				<box topPadding="5"/>
 				<textElement textAlignment="Justified" markup="html">
 					<font fontName="SansSerif" size="5" isBold="false"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{nombreFirmaRepSep}]]></textFieldExpression>
 			</textField>
 		</band>
 	</lastPageFooter>
