@@ -91,7 +91,7 @@ public class JasperController {
             System.out.println(classpath);
             Path pdfPath = Paths.get("C:\\Users\\PabloJesusMendozaCer\\Documents\\GitHub\\SEPPOHO\\sep-poho-web\\target\\sep-poho-web\\WEB-INF\\classes\\mx\\sep\\poho\\reportes\\ModeloContrato_01032022_SC.jasper");
             byte[] jasperFiles = Files.readAllBytes(pdfPath);
-            File jasperFile = new File ("/WEB-INF/classes/mx/sep/poho/reportes/ModeloContrato_01032022_SC.jrxml");
+            //File jasperFile = new File ("/WEB-INF/classes/mx/sep/poho/reportes/ModeloContrato_01032022_SC.jrxml");
             //jasperFile.delete();
             //System.out.println(jasperFile.length());
             //System.out.println(jasperFile.getName());
@@ -100,13 +100,13 @@ public class JasperController {
             //MultipartFile multipartFile = new CommonsMultipartFile(fileItem);
             //byte[] objJasper = multipartFile.getBytes();
             System.out.println(jasperFiles);
-            FileUtils.writeByteArrayToFile(new File("C:\\Users\\PabloJesusMendozaCer\\Documents\\GitHub\\SEPPOHO\\sep-poho-web\\target\\sep-poho-web\\WEB-INF\\classes\\mx\\sep\\poho\\reportes\\ModeloContrato_01032022_SC_clon.jasper"), jasperFiles);
+            //FileUtils.writeByteArrayToFile(new File("C:\\Users\\PabloJesusMendozaCer\\Documents\\GitHub\\SEPPOHO\\sep-poho-web\\target\\sep-poho-web\\WEB-INF\\classes\\mx\\sep\\poho\\reportes\\ModeloContrato_01032022_SC_clon.jasper"), jasperFiles);
             //TimeUnit.SECONDS.sleep(5);
         }
         catch(Exception  e){
             System.out.println(e);
         }
-        File jasperFile2 = new File ("C:\\Users\\PabloJesusMendozaCer\\Documents\\GitHub\\SEPPOHO\\sep-poho-web\\target\\sep-poho-web\\WEB-INF\\classes\\mx\\sep\\poho\\reportes\\ModeloContrato_01032022_SC_clon.jasper");
+        //File jasperFile2 = new File ("C:\\Users\\PabloJesusMendozaCer\\Documents\\GitHub\\SEPPOHO\\sep-poho-web\\target\\sep-poho-web\\WEB-INF\\classes\\mx\\sep\\poho\\reportes\\ModeloContrato_01032022_SC_clon.jasper");
         System.out.println("SE LLENA EL OBJETO");
         List<DatosContratoVO> lstDatosContrato = new ArrayList<DatosContratoVO>();
         DatosContratoVO datosContrato = new DatosContratoVO();
@@ -142,23 +142,23 @@ public class JasperController {
         System.out.println("Se obtiene el jasper de la ruta especificada");
         //InputStream jasperStream = this.getClass().getResourceAsStream(new File("C:\\Users\\PabloJesusMendozaCer\\Documents\\GitHub\\SEPPOHO\\sep-poho-web\\target\\sep-poho-web\\WEB-INF\\classes\\mx\\sep\\poho\\reportes\\ModeloContrato_01032022_SC_clon.jasper", jasperFiles));
         System.out.println("Se carga el jasper en el objeto especificado");
-        JasperReport jasperReport = (JasperReport) JRLoader.loadObject(jasperFile2);
+       // JasperReport jasperReport = (JasperReport) JRLoader.loadObject(jasperFile2);
         //String pathJasperFile = "C:\\Users\\PabloJesusMendozaCer\\Documents\\GitHub\\SEPPOHO\\sep-poho-web\\target\\sep-poho-web\\WEB-INF\\classes\\mx\\sep\\poho\\reportes\\ModeloContrato_01032022_SC_clon.jasper";
         JasperPrint print = new JasperPrint();
         System.out.println("Se crea el reporte");
-        print = JasperFillManager.fillReport(jasperReport,model);
+        //print = JasperFillManager.fillReport(jasperReport,model);
         //byte[] pdfBytes = JasperExportManager.exportReportToPdf(print);
-        //ModelAndView modelAndView = new ModelAndView("repContrato", model);
+        ModelAndView modelAndView = new ModelAndView("repContrato", model);
         System.out.println("Se retorna el model and view empty");
         //ModelAndView modelAndView = new ModelAndView();
         
         System.out.println("eNCABEZADOS DE RESPUESTA");
-        response.setContentType("application/x-pdf");
-        response.setHeader("Content-disposition", "inline; filename=helloWorldReport.pdf");
-        final OutputStream outStream = response.getOutputStream();
-        JasperExportManager.exportReportToPdfStream(print, outStream);
+        //response.setContentType("application/x-pdf");
+        //response.setHeader("Content-disposition", "inline; filename=helloWorldReport.pdf");
+        //final OutputStream outStream = response.getOutputStream();
+        //JasperExportManager.exportReportToPdfStream(print, outStream);
         
-        ModelAndView modelAndView = new ModelAndView("repContrato", modelMap);
+        //ModelAndView modelAndView = new ModelAndView("repContrato", modelMap);
         //Cookie cookie = new Cookie("downloadRepContrato", "");
         //cookie.setPath("/");
         //response.addCookie(cookie);

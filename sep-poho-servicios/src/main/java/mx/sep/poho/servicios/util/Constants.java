@@ -45,4 +45,7 @@ public class Constants {
     public static final String CLAVE_SECRETA = "Sesi202114se379!";
 
     public static final String SEPARADOR_QR = "/vC.jsp/";
+    
+    //ESTATUS FIRMANTES
+    public static final Integer EN_ESPERA_FIRMA_AUTORIDAD = 1903;
 }

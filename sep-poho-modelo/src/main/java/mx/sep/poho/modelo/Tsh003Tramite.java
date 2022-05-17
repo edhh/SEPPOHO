@@ -166,6 +166,8 @@ public class Tsh003Tramite {
 
     private String extension;
 
+    private Integer cveStatusFirmantes;
+
     public Short getAnnio() {
         return annio;
     }
@@ -814,6 +816,14 @@ public class Tsh003Tramite {
         this.extension = extension == null ? null : extension.trim();
     }
 
+    public Integer getCveStatusFirmantes() {
+        return cveStatusFirmantes;
+    }
+
+    public void setCveStatusFirmantes(Integer cveStatusFirmantes) {
+        this.cveStatusFirmantes = cveStatusFirmantes;
+    }
+
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -906,7 +916,8 @@ public class Tsh003Tramite {
             && (this.getOtroConocReq() == null ? other.getOtroConocReq() == null : this.getOtroConocReq().equals(other.getOtroConocReq()))
             && (this.getAnniosExp() == null ? other.getAnniosExp() == null : this.getAnniosExp().equals(other.getAnniosExp()))
             && (this.getEmail() == null ? other.getEmail() == null : this.getEmail().equals(other.getEmail()))
-            && (this.getExtension() == null ? other.getExtension() == null : this.getExtension().equals(other.getExtension()));
+            && (this.getExtension() == null ? other.getExtension() == null : this.getExtension().equals(other.getExtension()))
+            && (this.getCveStatusFirmantes() == null ? other.getCveStatusFirmantes() == null : this.getCveStatusFirmantes().equals(other.getCveStatusFirmantes()));
     }
 
     @Override
@@ -994,6 +1005,7 @@ public class Tsh003Tramite {
         result = prime * result + ((getAnniosExp() == null) ? 0 : getAnniosExp().hashCode());
         result = prime * result + ((getEmail() == null) ? 0 : getEmail().hashCode());
         result = prime * result + ((getExtension() == null) ? 0 : getExtension().hashCode());
+        result = prime * result + ((getCveStatusFirmantes() == null) ? 0 : getCveStatusFirmantes().hashCode());
         return result;
     }
 }

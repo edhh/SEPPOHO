@@ -9,7 +9,7 @@
         pageEncoding="UTF-8"%>
 <%@ page import="mx.sep.seguridad.util.SeguridadUtil"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@taglib prefix="s" uri="http://www.springframework.org/tags"%>
+<%@taglib prefix="x" uri="http://www.springframework.org/tags"%>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags"%>
 <script src="/lib/jquery.min.js"></script>
@@ -84,6 +84,22 @@
                             <h4 class="modal-title">Firma de contrato</h4>
                         </div>
                         <div class="modal-body">
+                            <div class="alert alert-success" id="alertaExito">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <p>El contrato se ha firmado exitósamente</p>
+                            </div>
+                            <div class="alert alert-danger" id="alertaError">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <p>El contrato ya ha sido firmado previamente</p>
+                            </div>
+                            <div id="errorLog" tabindex="0" class="row col-md-12">
+                                <div class="alert alert-danger" id="errorDiv" tabindex="1" style="display:none">
+                                    <s:property value="error" escapeHtml="false"/>         						
+                                </div>
+                                <div class="alert alert-warning" id="warningDiv" tabindex="2" style="display:none">
+                                    <s:property value="warning"  escapeHtml="false"/>
+                                </div>
+                            </div>
                             <form role="form">
                                 <div class="row">
                                     
@@ -105,6 +121,9 @@
                                         <input  type="file" style="display: none"/> -->
                                     </div>
                                 </div>
+                                <div id="error5" style="display: none;">
+                                    <span style="color: red">Es necesario ingresar el certificado.</span>
+                                </div>
                                 <div class="row">
                                     <div class="col-md-5">
                                     <label class="control-label" for="llavePrivada">Clave privada (.key)*:</label>
@@ -124,6 +143,9 @@
                                         <input  type="file" style="display: none"/> -->
                                     </div>
                                 </div>
+                                <div id="error6" style="display: none;">
+                                    <span style="color: red">Es necesario ingresar la clave privada.</span>
+                                </div>
                                 <div class="row">
                                     <div class="col-md-5">
                                     <label class="control-label" for="fraseLlaves">Contrase&ntilde;a de clave privada*:</label>
@@ -133,6 +155,9 @@
                                     <div class="col-md-5">
                                     <input class="form-control" id="fraseLlaves" name="fraseLlaves" placeholder="Contrase&ntilde;a" type="password">
                                     </div>
+                                </div>
+                                <div id="error7" style="display: none;">
+                                    <span style="color: red">Es necesario ingresar la contrase&ntilde;a de la clave privada.</span>
                                 </div>
                                 <div class="row" id="divRFC">
                                     <div class="col-md-5">
@@ -167,7 +192,7 @@
                                 <div id="error4" style="display: none;">
                                     <span style="color: red">Problema al ingresar,verifique su conexión a Internet.</span>
                                 </div>
-                                <div id="error5" style="display: none;">
+                                <div id="error8" style="display: none;">
                                     <span style="color: red">Debe aceptar el aviso de privacidad antes de validar su e.firma.</span>
                                 </div>
                                 <div>
@@ -188,7 +213,7 @@
                         </div>
                         <div class="modal-footer">
                             <button class="btn btn-primary" type="button" id="firmaButton" onclick="return validateKeyPairs(event);" ><i class='fa fa-circle-o-notch fa-spin' id="loadingLlaves" style="display: none;"></i> Validar e.firma</button>
-                            <button type="button" class="btn btn-default" onclick="return firma();" id="firmarBtn">Firmar</button>
+                            <button type="button" class="btn btn-default" onclick="return firma();" id="firmarBtn"><i class='fa fa-circle-o-notch fa-spin' id="firmando" style="display: none;"></i> Firmar</button>
                             <button type="button" class="btn btn-danger" data-dismiss="modal" id="no">Cerrar</button>
                         </div>
                         <div class="modal-body">
@@ -273,16 +298,47 @@
     
     //Función que intentará abrir el par de llaves
     function validateKeyPairs(e) {
+        $('#warningDiv').css("display", "none");
         jQuery("#loadingLlaves").show("blind");
         $('#firmaButton').prop('disabled',true);
-        if (!jQuery('#checkPrivacidad').is(':checked')) {
+        if (($("#idFileCer").val() == '')|| ($("#idFileCer").val() == null)){
             jQuery("#error5").show("blind");
+            jQuery("#loadingLlaves").hide();
+            $('#firmaButton').prop('disabled',false);
+            //alert("Ingrese el certificado");
+            return;
+        }
+        else
+            jQuery("#error5").hide();
+        
+        if (($("#idFileKey").val() == '')|| ($("#idFileKey").val() == null)){
+            jQuery("#error6").show("blind");
+            jQuery("#loadingLlaves").hide();
+            $('#firmaButton').prop('disabled',false);
+            //alert("Ingrese el certificado");
+            return;
+        }
+        else
+            jQuery("#error6").hide();
+        
+        if (($("#fraseLlaves").val() == '')|| ($("#fraseLlaves").val() == null)){
+            jQuery("#error7").show("blind");
+            jQuery("#loadingLlaves").hide();
+            $('#firmaButton').prop('disabled',false);
+            //alert("Ingrese el certificado");
+            return;
+        }
+        else
+            jQuery("#error7").hide();
+        
+        if (!jQuery('#checkPrivacidad').is(':checked')) {
+            jQuery("#error8").show("blind");
             jQuery("#loadingLlaves").hide();
             $('#firmaButton').prop('disabled',false);
             return;
         }
         else{
-            jQuery("#error5").hide();
+            jQuery("#error8").hide();
         }
         console.log($('.checkPrivacidad:checked').val());
         //objFirma.readCertificateAndPrivateKey($("#fraseLlaves").val(),$("#fraseLlaves").val());
@@ -292,9 +348,12 @@
             if (result.state == 0) {
                 decodificarCertificadoUsuario(true);
             } else {
-                alert(result.description);
+                //alert(result.description);
                 jQuery("#loadingLlaves").hide();
                 $('#firmaButton').prop('disabled',false);
+                $('#warningDiv').html(result.description);
+                $('#warningDiv').css("display", "block");
+                document.getElementById('errorLog').focus();
             }
         });
         //$('#solicitudRVOERevisionForm').submit();
@@ -305,32 +364,32 @@
         //console.log("rfcUsuario-"+rfcUsuario);
         //console.log("solicitud-"+solicitudRvoe);
         //var cadena = prompt("Referencia");
-        console.log(objFirma.getCertificate());
+        //console.log(objFirma.getCertificate());
         var cadena = "MECP940508SR2"+"-"+"12345";
-        console.log("cadena-"+cadena);
+        //console.log("cadena-"+cadena);
         objFirma.setReferencia(cadena);
         objFirma.decodeCertificate({ocsp: (typeof bOcsp == "undefined" ? false : bOcsp), tsa: {name: "NA", algorithm: fielnet.Digest.SHA1}}, function (cert) {
-            console.log(cert);
+            //console.log(cert);
             if (cert.state == 0) {
-                console.log("cert.state-"+cert.state);
+                //console.log("cert.state-"+cert.state);
                 cert.transfer;
-                console.log("cert.transfer-"+cert.transfer);
-                console.log(cert);
-                console.log("ab");
-                console.log("USUARIO: " + rfcUsuario);
-                console.log(JSON.stringify(cert, undefined, 4));
-                console.log("RFC-"+cert.subjectRFC);
+                //console.log("cert.transfer-"+cert.transfer);
+                //console.log(cert);
+                //console.log("ab");
+                //console.log("USUARIO: " + rfcUsuario);
+                //console.log(JSON.stringify(cert, undefined, 4));
+                //console.log("RFC-"+cert.subjectRFC);
                 $('#rfc').val(cert.subjectRFC);
                 if(rfcUsuario != cert.subjectRFC){
                     alert("La e.firma no corresponde al usuario registrado.");
                     jQuery("#loadingLlaves").hide();
                     $('#firmarBtn').prop('disabled',false);
-                    firma();
+                    //firma();
                 }else{
                                     $('#firmarBtn').prop('disabled',false);
                 $('#firmaButton').prop('disabled',true);
                 jQuery("#loadingLlaves").hide();
-                firma();
+                //firma();
                 }
                 //$("#contenidoModalCertificado").html("<textarea class='form-control' style='width:100%; height:500px;'>" + JSON.stringify(cert, undefined, 4) + "</textarea>");
                 //$("#modalDetallesCertificado").modal();
@@ -348,7 +407,10 @@
     
  
     function firma(){
-        console.log(cadenaOriginal);
+        jQuery("#alertaError").hide();
+        jQuery("#firmando").show("blind");
+        $('#firmarBtn').prop('disabled',true);
+        //console.log(cadenaOriginal);
         objFirma.signPKCS1(cadenaOriginal,fielnet.Digest.SHA1,fielnet.Encoding.UTF8,{ocsp:true,tsa:{name:'NA', algorithm:0},nom:{name:'NA'}},function(e){
             if (e.state == 0) {
                 console.log("FIRMADO EXITOSO");
@@ -358,13 +420,63 @@
             var strHexSerie = e.hexSerie;
             var strSign = e.sign;
             var iTransfer = e.transfer;
+            //objectFirmaPrestador.fhFirmaP = e.tsaMoment;
+            objectFirmaPrestador.nombreFirmanteP = e.cn;
+            objectFirmaPrestador.nuSerieFirmanteP = e.hexSerie;
+            objectFirmaPrestador.firmaP = e.sign;
+            objectFirmaPrestador.tsaP = e.sign;
+            //objectFirmaPrestador.curpFirmanteP = e.subjectCurp;
+            console.log("FIRMADO EXITOSO!!!!");
+            console.log(objectFirmaPrestador);
+            guardaDatosFirma(objectFirmaPrestador);
             }
             else {
-                console.log(e);
+                jQuery("#firmando").hide();
+                $('#firmarBtn').prop('disabled',false);
+                //console.log(e);
             alert(e.description);
             }
         });
         
+    }
+    
+    function guardaDatosFirma(datosContrato){
+
+
+        $.ajax({
+            type: "POST",
+            contentType: "application/json; charset=UTF-8",
+            url: baseURI + "/mvc/tramite/datosFirmaPrestador",
+            data: JSON.stringify(datosContrato),
+            dataType: 'json',
+            timeout: 100000,
+            success: function (data) {
+                if (data !== null) {
+                    if(data == 1){
+                        jQuery("#firmando").hide();
+                        jQuery("#alertaExito").show("blind");
+                        $('#firmarBtn').prop('disabled',true);
+                    }
+                    else{
+                        jQuery("#firmando").hide();
+                        jQuery("#alertaError").show("blind");
+                        $('#firmarBtn').prop('disabled',false);
+                    }
+                    //MENSAJE EXITO
+                }
+            },
+            error: function (e, errorThrown) {
+                jQuery("#firmando").hide();
+                $('#firmarBtn').prop('disabled',false);
+                jQuery("#alertaError").show("blind");
+                console.log("error js " + e.toString());
+                console.log("error js " + errorThrown);
+            },
+            done: function (e) {
+                jQuery("#firmando").hide();
+                console.log("Hecho los datos");
+            }
+        });
     }
     
     function limpiaDatosEFirma(){

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="mx.sep.poho.dao.join.TramitesFirmadosJoinMapper">
+   
+    <select id="obtieneNoContratosXAnioNoTramite" resultType="java.lang.Integer">
+        SELECT COUNT (*) FROM TSH087_TRAMITES_FIRMADOS WHERE ANNIO = #{annio} AND NU_TRAMITE = #{nuTramite}
+
+    </select>
+    
+    <insert id = "guardaDatosFirma" parameterType="mx.sep.poho.modelo.Tsh087TramitesFirmados" >
+        
+      insert into tsh087_tramites_firmados (annio, nu_tramite, 
+      nombre_firmante_p, curp_firmante_p, nu_serie_firmante_p, 
+      firma_p, tsa_p, fh_firma_p)
+    values (#{annio,jdbcType=SMALLINT}, #{nuTramite,jdbcType=INTEGER}, 
+      #{nombreFirmanteP,jdbcType=VARCHAR}, #{curpFirmanteP,jdbcType=VARCHAR}, #{nuSerieFirmanteP,jdbcType=VARCHAR}, 
+      #{firmaP,jdbcType=CHAR}, #{tsaP,jdbcType=CHAR}, #{fhFirmaP,jdbcType=DATE})
+        
+    </insert>
+    
+    
+</mapper>  

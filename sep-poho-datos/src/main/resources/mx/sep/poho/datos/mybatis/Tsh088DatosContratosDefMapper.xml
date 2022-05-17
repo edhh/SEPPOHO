@@ -1,0 +1,848 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="mx.sep.poho.dao.Tsh088DatosContratosDefMapper" >
+  <resultMap id="BaseResultMap" type="mx.sep.poho.modelo.Tsh088DatosContratosDef" >
+    <id column="annio" property="annio" jdbcType="CHAR" />
+    <id column="nu_tramite" property="nuTramite" jdbcType="VARCHAR" />
+    <result column="ur" property="ur" jdbcType="CHAR" />
+    <result column="nombre_ur" property="nombreUr" jdbcType="VARCHAR" />
+    <result column="previo_definitivo" property="previoDefinitivo" jdbcType="CHAR" />
+    <result column="firma_rep_area_prefijo" property="firmaRepAreaPrefijo" jdbcType="CHAR" />
+    <result column="firma_rep_area_nombre" property="firmaRepAreaNombre" jdbcType="CHAR" />
+    <result column="firma_rep_area_puesto" property="firmaRepAreaPuesto" jdbcType="CHAR" />
+    <result column="desc_perfil_contratado" property="descPerfilContratado" jdbcType="CHAR" />
+    <result column="desc_nac_contratado" property="descNacContratado" jdbcType="CHAR" />
+    <result column="rfc_contratado" property="rfcContratado" jdbcType="CHAR" />
+    <result column="experiencia_contratado" property="experienciaContratado" jdbcType="CHAR" />
+    <result column="domicilio_contratado" property="domicilioContratado" jdbcType="CHAR" />
+    <result column="desc_funciones" property="descFunciones" jdbcType="CHAR" />
+    <result column="sum_im_bruto_recibidos" property="sumImBrutoRecibidos" jdbcType="CHAR" />
+    <result column="importe_letra" property="importeLetra" jdbcType="CHAR" />
+    <result column="nu_exhibiciones" property="nuExhibiciones" jdbcType="CHAR" />
+    <result column="fh_vigencia_inicial" property="fhVigenciaInicial" jdbcType="CHAR" />
+    <result column="fh_vigencia_final" property="fhVigenciaFinal" jdbcType="CHAR" />
+    <result column="firma_recep_rep_act_prefijo" property="firmaRecepRepActPrefijo" jdbcType="CHAR" />
+    <result column="firma_recep_rep_act_nombre" property="firmaRecepRepActNombre" jdbcType="CHAR" />
+    <result column="firma_recep_rep_act_puesto" property="firmaRecepRepActPuesto" jdbcType="CHAR" />
+    <result column="fh_firma_contrato" property="fhFirmaContrato" jdbcType="CHAR" />
+    <result column="firma_rep_area_titulo" property="firmaRepAreaTitulo" jdbcType="VARCHAR" />
+    <result column="prefijo_contratado" property="prefijoContratado" jdbcType="CHAR" />
+    <result column="req_compatibilidad" property="reqCompatibilidad" jdbcType="CHAR" />
+    <result column="num_req_compatiblidad" property="numReqCompatiblidad" jdbcType="CHAR" />
+    <result column="oficio_fh_compatiblidad" property="oficioFhCompatiblidad" jdbcType="VARCHAR" />
+    <result column="req_of_resp_sfp" property="reqOfRespSfp" jdbcType="CHAR" />
+    <result column="num_of_res_sfp" property="numOfResSfp" jdbcType="CHAR" />
+    <result column="oficio_fh_resp_sfp" property="oficioFhRespSfp" jdbcType="VARCHAR" />
+    <result column="req_of_exis_pza_vac" property="reqOfExisPzaVac" jdbcType="CHAR" />
+    <result column="num_of_exis_pza_vac" property="numOfExisPzaVac" jdbcType="CHAR" />
+    <result column="oficio_fh_exis_pza_vac" property="oficioFhExisPzaVac" jdbcType="VARCHAR" />
+    <result column="nb_dep_compatibilidad" property="nbDepCompatibilidad" jdbcType="CHAR" />
+    <result column="desc_entregables" property="descEntregables" jdbcType="CHAR" />
+    <result column="req_issste" property="reqIssste" jdbcType="CHAR" />
+    <result column="num2_req_compatibilidad" property="num2ReqCompatibilidad" jdbcType="CHAR" />
+    <result column="dom_dependencia" property="domDependencia" jdbcType="CHAR" />
+    <result column="ciudad_firma" property="ciudadFirma" jdbcType="CHAR" />
+    <result column="partida" property="partida" jdbcType="CHAR" />
+    <result column="firma_rep_sep_prefijo" property="firmaRepSepPrefijo" jdbcType="CHAR" />
+    <result column="firma_rep_sep_titulo" property="firmaRepSepTitulo" jdbcType="VARCHAR" />
+    <result column="firma_rep_sep_nombre" property="firmaRepSepNombre" jdbcType="CHAR" />
+    <result column="firma_rep_sep_puesto" property="firmaRepSepPuesto" jdbcType="CHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    annio, nu_tramite, ur, nombre_ur, previo_definitivo, firma_rep_area_prefijo, firma_rep_area_nombre, 
+    firma_rep_area_puesto, desc_perfil_contratado, desc_nac_contratado, rfc_contratado, 
+    experiencia_contratado, domicilio_contratado, desc_funciones, sum_im_bruto_recibidos, 
+    importe_letra, nu_exhibiciones, fh_vigencia_inicial, fh_vigencia_final, firma_recep_rep_act_prefijo, 
+    firma_recep_rep_act_nombre, firma_recep_rep_act_puesto, fh_firma_contrato, firma_rep_area_titulo, 
+    prefijo_contratado, req_compatibilidad, num_req_compatiblidad, oficio_fh_compatiblidad, 
+    req_of_resp_sfp, num_of_res_sfp, oficio_fh_resp_sfp, req_of_exis_pza_vac, num_of_exis_pza_vac, 
+    oficio_fh_exis_pza_vac, nb_dep_compatibilidad, desc_entregables, req_issste, num2_req_compatibilidad, 
+    dom_dependencia, ciudad_firma, partida, firma_rep_sep_prefijo, firma_rep_sep_titulo, 
+    firma_rep_sep_nombre, firma_rep_sep_puesto
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="mx.sep.poho.modelo.Tsh088DatosContratosDefExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from tsh088_datos_contratos_def
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="map" >
+    select 
+    <include refid="Base_Column_List" />
+    from tsh088_datos_contratos_def
+    where annio = #{annio,jdbcType=CHAR}
+      and nu_tramite = #{nuTramite,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="map" >
+    delete from tsh088_datos_contratos_def
+    where annio = #{annio,jdbcType=CHAR}
+      and nu_tramite = #{nuTramite,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="mx.sep.poho.modelo.Tsh088DatosContratosDefExample" >
+    delete from tsh088_datos_contratos_def
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="mx.sep.poho.modelo.Tsh088DatosContratosDef" >
+    insert into tsh088_datos_contratos_def (annio, nu_tramite, ur, 
+      nombre_ur, previo_definitivo, firma_rep_area_prefijo, 
+      firma_rep_area_nombre, firma_rep_area_puesto, desc_perfil_contratado, 
+      desc_nac_contratado, rfc_contratado, experiencia_contratado, 
+      domicilio_contratado, desc_funciones, sum_im_bruto_recibidos, 
+      importe_letra, nu_exhibiciones, fh_vigencia_inicial, 
+      fh_vigencia_final, firma_recep_rep_act_prefijo, firma_recep_rep_act_nombre, 
+      firma_recep_rep_act_puesto, fh_firma_contrato, firma_rep_area_titulo, 
+      prefijo_contratado, req_compatibilidad, num_req_compatiblidad, 
+      oficio_fh_compatiblidad, req_of_resp_sfp, num_of_res_sfp, 
+      oficio_fh_resp_sfp, req_of_exis_pza_vac, num_of_exis_pza_vac, 
+      oficio_fh_exis_pza_vac, nb_dep_compatibilidad, desc_entregables, 
+      req_issste, num2_req_compatibilidad, dom_dependencia, 
+      ciudad_firma, partida, firma_rep_sep_prefijo, 
+      firma_rep_sep_titulo, firma_rep_sep_nombre, firma_rep_sep_puesto
+      )
+    values (#{annio,jdbcType=CHAR}, #{nuTramite,jdbcType=VARCHAR}, #{ur,jdbcType=CHAR}, 
+      #{nombreUr,jdbcType=VARCHAR}, #{previoDefinitivo,jdbcType=CHAR}, #{firmaRepAreaPrefijo,jdbcType=CHAR}, 
+      #{firmaRepAreaNombre,jdbcType=CHAR}, #{firmaRepAreaPuesto,jdbcType=CHAR}, #{descPerfilContratado,jdbcType=CHAR}, 
+      #{descNacContratado,jdbcType=CHAR}, #{rfcContratado,jdbcType=CHAR}, #{experienciaContratado,jdbcType=CHAR}, 
+      #{domicilioContratado,jdbcType=CHAR}, #{descFunciones,jdbcType=CHAR}, #{sumImBrutoRecibidos,jdbcType=CHAR}, 
+      #{importeLetra,jdbcType=CHAR}, #{nuExhibiciones,jdbcType=CHAR}, #{fhVigenciaInicial,jdbcType=CHAR}, 
+      #{fhVigenciaFinal,jdbcType=CHAR}, #{firmaRecepRepActPrefijo,jdbcType=CHAR}, #{firmaRecepRepActNombre,jdbcType=CHAR}, 
+      #{firmaRecepRepActPuesto,jdbcType=CHAR}, #{fhFirmaContrato,jdbcType=CHAR}, #{firmaRepAreaTitulo,jdbcType=VARCHAR}, 
+      #{prefijoContratado,jdbcType=CHAR}, #{reqCompatibilidad,jdbcType=CHAR}, #{numReqCompatiblidad,jdbcType=CHAR}, 
+      #{oficioFhCompatiblidad,jdbcType=VARCHAR}, #{reqOfRespSfp,jdbcType=CHAR}, #{numOfResSfp,jdbcType=CHAR}, 
+      #{oficioFhRespSfp,jdbcType=VARCHAR}, #{reqOfExisPzaVac,jdbcType=CHAR}, #{numOfExisPzaVac,jdbcType=CHAR}, 
+      #{oficioFhExisPzaVac,jdbcType=VARCHAR}, #{nbDepCompatibilidad,jdbcType=CHAR}, #{descEntregables,jdbcType=CHAR}, 
+      #{reqIssste,jdbcType=CHAR}, #{num2ReqCompatibilidad,jdbcType=CHAR}, #{domDependencia,jdbcType=CHAR}, 
+      #{ciudadFirma,jdbcType=CHAR}, #{partida,jdbcType=CHAR}, #{firmaRepSepPrefijo,jdbcType=CHAR}, 
+      #{firmaRepSepTitulo,jdbcType=VARCHAR}, #{firmaRepSepNombre,jdbcType=CHAR}, #{firmaRepSepPuesto,jdbcType=CHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="mx.sep.poho.modelo.Tsh088DatosContratosDef" >
+    insert into tsh088_datos_contratos_def
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="annio != null" >
+        annio,
+      </if>
+      <if test="nuTramite != null" >
+        nu_tramite,
+      </if>
+      <if test="ur != null" >
+        ur,
+      </if>
+      <if test="nombreUr != null" >
+        nombre_ur,
+      </if>
+      <if test="previoDefinitivo != null" >
+        previo_definitivo,
+      </if>
+      <if test="firmaRepAreaPrefijo != null" >
+        firma_rep_area_prefijo,
+      </if>
+      <if test="firmaRepAreaNombre != null" >
+        firma_rep_area_nombre,
+      </if>
+      <if test="firmaRepAreaPuesto != null" >
+        firma_rep_area_puesto,
+      </if>
+      <if test="descPerfilContratado != null" >
+        desc_perfil_contratado,
+      </if>
+      <if test="descNacContratado != null" >
+        desc_nac_contratado,
+      </if>
+      <if test="rfcContratado != null" >
+        rfc_contratado,
+      </if>
+      <if test="experienciaContratado != null" >
+        experiencia_contratado,
+      </if>
+      <if test="domicilioContratado != null" >
+        domicilio_contratado,
+      </if>
+      <if test="descFunciones != null" >
+        desc_funciones,
+      </if>
+      <if test="sumImBrutoRecibidos != null" >
+        sum_im_bruto_recibidos,
+      </if>
+      <if test="importeLetra != null" >
+        importe_letra,
+      </if>
+      <if test="nuExhibiciones != null" >
+        nu_exhibiciones,
+      </if>
+      <if test="fhVigenciaInicial != null" >
+        fh_vigencia_inicial,
+      </if>
+      <if test="fhVigenciaFinal != null" >
+        fh_vigencia_final,
+      </if>
+      <if test="firmaRecepRepActPrefijo != null" >
+        firma_recep_rep_act_prefijo,
+      </if>
+      <if test="firmaRecepRepActNombre != null" >
+        firma_recep_rep_act_nombre,
+      </if>
+      <if test="firmaRecepRepActPuesto != null" >
+        firma_recep_rep_act_puesto,
+      </if>
+      <if test="fhFirmaContrato != null" >
+        fh_firma_contrato,
+      </if>
+      <if test="firmaRepAreaTitulo != null" >
+        firma_rep_area_titulo,
+      </if>
+      <if test="prefijoContratado != null" >
+        prefijo_contratado,
+      </if>
+      <if test="reqCompatibilidad != null" >
+        req_compatibilidad,
+      </if>
+      <if test="numReqCompatiblidad != null" >
+        num_req_compatiblidad,
+      </if>
+      <if test="oficioFhCompatiblidad != null" >
+        oficio_fh_compatiblidad,
+      </if>
+      <if test="reqOfRespSfp != null" >
+        req_of_resp_sfp,
+      </if>
+      <if test="numOfResSfp != null" >
+        num_of_res_sfp,
+      </if>
+      <if test="oficioFhRespSfp != null" >
+        oficio_fh_resp_sfp,
+      </if>
+      <if test="reqOfExisPzaVac != null" >
+        req_of_exis_pza_vac,
+      </if>
+      <if test="numOfExisPzaVac != null" >
+        num_of_exis_pza_vac,
+      </if>
+      <if test="oficioFhExisPzaVac != null" >
+        oficio_fh_exis_pza_vac,
+      </if>
+      <if test="nbDepCompatibilidad != null" >
+        nb_dep_compatibilidad,
+      </if>
+      <if test="descEntregables != null" >
+        desc_entregables,
+      </if>
+      <if test="reqIssste != null" >
+        req_issste,
+      </if>
+      <if test="num2ReqCompatibilidad != null" >
+        num2_req_compatibilidad,
+      </if>
+      <if test="domDependencia != null" >
+        dom_dependencia,
+      </if>
+      <if test="ciudadFirma != null" >
+        ciudad_firma,
+      </if>
+      <if test="partida != null" >
+        partida,
+      </if>
+      <if test="firmaRepSepPrefijo != null" >
+        firma_rep_sep_prefijo,
+      </if>
+      <if test="firmaRepSepTitulo != null" >
+        firma_rep_sep_titulo,
+      </if>
+      <if test="firmaRepSepNombre != null" >
+        firma_rep_sep_nombre,
+      </if>
+      <if test="firmaRepSepPuesto != null" >
+        firma_rep_sep_puesto,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="annio != null" >
+        #{annio,jdbcType=CHAR},
+      </if>
+      <if test="nuTramite != null" >
+        #{nuTramite,jdbcType=VARCHAR},
+      </if>
+      <if test="ur != null" >
+        #{ur,jdbcType=CHAR},
+      </if>
+      <if test="nombreUr != null" >
+        #{nombreUr,jdbcType=VARCHAR},
+      </if>
+      <if test="previoDefinitivo != null" >
+        #{previoDefinitivo,jdbcType=CHAR},
+      </if>
+      <if test="firmaRepAreaPrefijo != null" >
+        #{firmaRepAreaPrefijo,jdbcType=CHAR},
+      </if>
+      <if test="firmaRepAreaNombre != null" >
+        #{firmaRepAreaNombre,jdbcType=CHAR},
+      </if>
+      <if test="firmaRepAreaPuesto != null" >
+        #{firmaRepAreaPuesto,jdbcType=CHAR},
+      </if>
+      <if test="descPerfilContratado != null" >
+        #{descPerfilContratado,jdbcType=CHAR},
+      </if>
+      <if test="descNacContratado != null" >
+        #{descNacContratado,jdbcType=CHAR},
+      </if>
+      <if test="rfcContratado != null" >
+        #{rfcContratado,jdbcType=CHAR},
+      </if>
+      <if test="experienciaContratado != null" >
+        #{experienciaContratado,jdbcType=CHAR},
+      </if>
+      <if test="domicilioContratado != null" >
+        #{domicilioContratado,jdbcType=CHAR},
+      </if>
+      <if test="descFunciones != null" >
+        #{descFunciones,jdbcType=CHAR},
+      </if>
+      <if test="sumImBrutoRecibidos != null" >
+        #{sumImBrutoRecibidos,jdbcType=CHAR},
+      </if>
+      <if test="importeLetra != null" >
+        #{importeLetra,jdbcType=CHAR},
+      </if>
+      <if test="nuExhibiciones != null" >
+        #{nuExhibiciones,jdbcType=CHAR},
+      </if>
+      <if test="fhVigenciaInicial != null" >
+        #{fhVigenciaInicial,jdbcType=CHAR},
+      </if>
+      <if test="fhVigenciaFinal != null" >
+        #{fhVigenciaFinal,jdbcType=CHAR},
+      </if>
+      <if test="firmaRecepRepActPrefijo != null" >
+        #{firmaRecepRepActPrefijo,jdbcType=CHAR},
+      </if>
+      <if test="firmaRecepRepActNombre != null" >
+        #{firmaRecepRepActNombre,jdbcType=CHAR},
+      </if>
+      <if test="firmaRecepRepActPuesto != null" >
+        #{firmaRecepRepActPuesto,jdbcType=CHAR},
+      </if>
+      <if test="fhFirmaContrato != null" >
+        #{fhFirmaContrato,jdbcType=CHAR},
+      </if>
+      <if test="firmaRepAreaTitulo != null" >
+        #{firmaRepAreaTitulo,jdbcType=VARCHAR},
+      </if>
+      <if test="prefijoContratado != null" >
+        #{prefijoContratado,jdbcType=CHAR},
+      </if>
+      <if test="reqCompatibilidad != null" >
+        #{reqCompatibilidad,jdbcType=CHAR},
+      </if>
+      <if test="numReqCompatiblidad != null" >
+        #{numReqCompatiblidad,jdbcType=CHAR},
+      </if>
+      <if test="oficioFhCompatiblidad != null" >
+        #{oficioFhCompatiblidad,jdbcType=VARCHAR},
+      </if>
+      <if test="reqOfRespSfp != null" >
+        #{reqOfRespSfp,jdbcType=CHAR},
+      </if>
+      <if test="numOfResSfp != null" >
+        #{numOfResSfp,jdbcType=CHAR},
+      </if>
+      <if test="oficioFhRespSfp != null" >
+        #{oficioFhRespSfp,jdbcType=VARCHAR},
+      </if>
+      <if test="reqOfExisPzaVac != null" >
+        #{reqOfExisPzaVac,jdbcType=CHAR},
+      </if>
+      <if test="numOfExisPzaVac != null" >
+        #{numOfExisPzaVac,jdbcType=CHAR},
+      </if>
+      <if test="oficioFhExisPzaVac != null" >
+        #{oficioFhExisPzaVac,jdbcType=VARCHAR},
+      </if>
+      <if test="nbDepCompatibilidad != null" >
+        #{nbDepCompatibilidad,jdbcType=CHAR},
+      </if>
+      <if test="descEntregables != null" >
+        #{descEntregables,jdbcType=CHAR},
+      </if>
+      <if test="reqIssste != null" >
+        #{reqIssste,jdbcType=CHAR},
+      </if>
+      <if test="num2ReqCompatibilidad != null" >
+        #{num2ReqCompatibilidad,jdbcType=CHAR},
+      </if>
+      <if test="domDependencia != null" >
+        #{domDependencia,jdbcType=CHAR},
+      </if>
+      <if test="ciudadFirma != null" >
+        #{ciudadFirma,jdbcType=CHAR},
+      </if>
+      <if test="partida != null" >
+        #{partida,jdbcType=CHAR},
+      </if>
+      <if test="firmaRepSepPrefijo != null" >
+        #{firmaRepSepPrefijo,jdbcType=CHAR},
+      </if>
+      <if test="firmaRepSepTitulo != null" >
+        #{firmaRepSepTitulo,jdbcType=VARCHAR},
+      </if>
+      <if test="firmaRepSepNombre != null" >
+        #{firmaRepSepNombre,jdbcType=CHAR},
+      </if>
+      <if test="firmaRepSepPuesto != null" >
+        #{firmaRepSepPuesto,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="mx.sep.poho.modelo.Tsh088DatosContratosDefExample" resultType="java.lang.Integer" >
+    select count(*) from tsh088_datos_contratos_def
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update tsh088_datos_contratos_def
+    <set >
+      <if test="record.annio != null" >
+        annio = #{record.annio,jdbcType=CHAR},
+      </if>
+      <if test="record.nuTramite != null" >
+        nu_tramite = #{record.nuTramite,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ur != null" >
+        ur = #{record.ur,jdbcType=CHAR},
+      </if>
+      <if test="record.nombreUr != null" >
+        nombre_ur = #{record.nombreUr,jdbcType=VARCHAR},
+      </if>
+      <if test="record.previoDefinitivo != null" >
+        previo_definitivo = #{record.previoDefinitivo,jdbcType=CHAR},
+      </if>
+      <if test="record.firmaRepAreaPrefijo != null" >
+        firma_rep_area_prefijo = #{record.firmaRepAreaPrefijo,jdbcType=CHAR},
+      </if>
+      <if test="record.firmaRepAreaNombre != null" >
+        firma_rep_area_nombre = #{record.firmaRepAreaNombre,jdbcType=CHAR},
+      </if>
+      <if test="record.firmaRepAreaPuesto != null" >
+        firma_rep_area_puesto = #{record.firmaRepAreaPuesto,jdbcType=CHAR},
+      </if>
+      <if test="record.descPerfilContratado != null" >
+        desc_perfil_contratado = #{record.descPerfilContratado,jdbcType=CHAR},
+      </if>
+      <if test="record.descNacContratado != null" >
+        desc_nac_contratado = #{record.descNacContratado,jdbcType=CHAR},
+      </if>
+      <if test="record.rfcContratado != null" >
+        rfc_contratado = #{record.rfcContratado,jdbcType=CHAR},
+      </if>
+      <if test="record.experienciaContratado != null" >
+        experiencia_contratado = #{record.experienciaContratado,jdbcType=CHAR},
+      </if>
+      <if test="record.domicilioContratado != null" >
+        domicilio_contratado = #{record.domicilioContratado,jdbcType=CHAR},
+      </if>
+      <if test="record.descFunciones != null" >
+        desc_funciones = #{record.descFunciones,jdbcType=CHAR},
+      </if>
+      <if test="record.sumImBrutoRecibidos != null" >
+        sum_im_bruto_recibidos = #{record.sumImBrutoRecibidos,jdbcType=CHAR},
+      </if>
+      <if test="record.importeLetra != null" >
+        importe_letra = #{record.importeLetra,jdbcType=CHAR},
+      </if>
+      <if test="record.nuExhibiciones != null" >
+        nu_exhibiciones = #{record.nuExhibiciones,jdbcType=CHAR},
+      </if>
+      <if test="record.fhVigenciaInicial != null" >
+        fh_vigencia_inicial = #{record.fhVigenciaInicial,jdbcType=CHAR},
+      </if>
+      <if test="record.fhVigenciaFinal != null" >
+        fh_vigencia_final = #{record.fhVigenciaFinal,jdbcType=CHAR},
+      </if>
+      <if test="record.firmaRecepRepActPrefijo != null" >
+        firma_recep_rep_act_prefijo = #{record.firmaRecepRepActPrefijo,jdbcType=CHAR},
+      </if>
+      <if test="record.firmaRecepRepActNombre != null" >
+        firma_recep_rep_act_nombre = #{record.firmaRecepRepActNombre,jdbcType=CHAR},
+      </if>
+      <if test="record.firmaRecepRepActPuesto != null" >
+        firma_recep_rep_act_puesto = #{record.firmaRecepRepActPuesto,jdbcType=CHAR},
+      </if>
+      <if test="record.fhFirmaContrato != null" >
+        fh_firma_contrato = #{record.fhFirmaContrato,jdbcType=CHAR},
+      </if>
+      <if test="record.firmaRepAreaTitulo != null" >
+        firma_rep_area_titulo = #{record.firmaRepAreaTitulo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.prefijoContratado != null" >
+        prefijo_contratado = #{record.prefijoContratado,jdbcType=CHAR},
+      </if>
+      <if test="record.reqCompatibilidad != null" >
+        req_compatibilidad = #{record.reqCompatibilidad,jdbcType=CHAR},
+      </if>
+      <if test="record.numReqCompatiblidad != null" >
+        num_req_compatiblidad = #{record.numReqCompatiblidad,jdbcType=CHAR},
+      </if>
+      <if test="record.oficioFhCompatiblidad != null" >
+        oficio_fh_compatiblidad = #{record.oficioFhCompatiblidad,jdbcType=VARCHAR},
+      </if>
+      <if test="record.reqOfRespSfp != null" >
+        req_of_resp_sfp = #{record.reqOfRespSfp,jdbcType=CHAR},
+      </if>
+      <if test="record.numOfResSfp != null" >
+        num_of_res_sfp = #{record.numOfResSfp,jdbcType=CHAR},
+      </if>
+      <if test="record.oficioFhRespSfp != null" >
+        oficio_fh_resp_sfp = #{record.oficioFhRespSfp,jdbcType=VARCHAR},
+      </if>
+      <if test="record.reqOfExisPzaVac != null" >
+        req_of_exis_pza_vac = #{record.reqOfExisPzaVac,jdbcType=CHAR},
+      </if>
+      <if test="record.numOfExisPzaVac != null" >
+        num_of_exis_pza_vac = #{record.numOfExisPzaVac,jdbcType=CHAR},
+      </if>
+      <if test="record.oficioFhExisPzaVac != null" >
+        oficio_fh_exis_pza_vac = #{record.oficioFhExisPzaVac,jdbcType=VARCHAR},
+      </if>
+      <if test="record.nbDepCompatibilidad != null" >
+        nb_dep_compatibilidad = #{record.nbDepCompatibilidad,jdbcType=CHAR},
+      </if>
+      <if test="record.descEntregables != null" >
+        desc_entregables = #{record.descEntregables,jdbcType=CHAR},
+      </if>
+      <if test="record.reqIssste != null" >
+        req_issste = #{record.reqIssste,jdbcType=CHAR},
+      </if>
+      <if test="record.num2ReqCompatibilidad != null" >
+        num2_req_compatibilidad = #{record.num2ReqCompatibilidad,jdbcType=CHAR},
+      </if>
+      <if test="record.domDependencia != null" >
+        dom_dependencia = #{record.domDependencia,jdbcType=CHAR},
+      </if>
+      <if test="record.ciudadFirma != null" >
+        ciudad_firma = #{record.ciudadFirma,jdbcType=CHAR},
+      </if>
+      <if test="record.partida != null" >
+        partida = #{record.partida,jdbcType=CHAR},
+      </if>
+      <if test="record.firmaRepSepPrefijo != null" >
+        firma_rep_sep_prefijo = #{record.firmaRepSepPrefijo,jdbcType=CHAR},
+      </if>
+      <if test="record.firmaRepSepTitulo != null" >
+        firma_rep_sep_titulo = #{record.firmaRepSepTitulo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.firmaRepSepNombre != null" >
+        firma_rep_sep_nombre = #{record.firmaRepSepNombre,jdbcType=CHAR},
+      </if>
+      <if test="record.firmaRepSepPuesto != null" >
+        firma_rep_sep_puesto = #{record.firmaRepSepPuesto,jdbcType=CHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update tsh088_datos_contratos_def
+    set annio = #{record.annio,jdbcType=CHAR},
+      nu_tramite = #{record.nuTramite,jdbcType=VARCHAR},
+      ur = #{record.ur,jdbcType=CHAR},
+      nombre_ur = #{record.nombreUr,jdbcType=VARCHAR},
+      previo_definitivo = #{record.previoDefinitivo,jdbcType=CHAR},
+      firma_rep_area_prefijo = #{record.firmaRepAreaPrefijo,jdbcType=CHAR},
+      firma_rep_area_nombre = #{record.firmaRepAreaNombre,jdbcType=CHAR},
+      firma_rep_area_puesto = #{record.firmaRepAreaPuesto,jdbcType=CHAR},
+      desc_perfil_contratado = #{record.descPerfilContratado,jdbcType=CHAR},
+      desc_nac_contratado = #{record.descNacContratado,jdbcType=CHAR},
+      rfc_contratado = #{record.rfcContratado,jdbcType=CHAR},
+      experiencia_contratado = #{record.experienciaContratado,jdbcType=CHAR},
+      domicilio_contratado = #{record.domicilioContratado,jdbcType=CHAR},
+      desc_funciones = #{record.descFunciones,jdbcType=CHAR},
+      sum_im_bruto_recibidos = #{record.sumImBrutoRecibidos,jdbcType=CHAR},
+      importe_letra = #{record.importeLetra,jdbcType=CHAR},
+      nu_exhibiciones = #{record.nuExhibiciones,jdbcType=CHAR},
+      fh_vigencia_inicial = #{record.fhVigenciaInicial,jdbcType=CHAR},
+      fh_vigencia_final = #{record.fhVigenciaFinal,jdbcType=CHAR},
+      firma_recep_rep_act_prefijo = #{record.firmaRecepRepActPrefijo,jdbcType=CHAR},
+      firma_recep_rep_act_nombre = #{record.firmaRecepRepActNombre,jdbcType=CHAR},
+      firma_recep_rep_act_puesto = #{record.firmaRecepRepActPuesto,jdbcType=CHAR},
+      fh_firma_contrato = #{record.fhFirmaContrato,jdbcType=CHAR},
+      firma_rep_area_titulo = #{record.firmaRepAreaTitulo,jdbcType=VARCHAR},
+      prefijo_contratado = #{record.prefijoContratado,jdbcType=CHAR},
+      req_compatibilidad = #{record.reqCompatibilidad,jdbcType=CHAR},
+      num_req_compatiblidad = #{record.numReqCompatiblidad,jdbcType=CHAR},
+      oficio_fh_compatiblidad = #{record.oficioFhCompatiblidad,jdbcType=VARCHAR},
+      req_of_resp_sfp = #{record.reqOfRespSfp,jdbcType=CHAR},
+      num_of_res_sfp = #{record.numOfResSfp,jdbcType=CHAR},
+      oficio_fh_resp_sfp = #{record.oficioFhRespSfp,jdbcType=VARCHAR},
+      req_of_exis_pza_vac = #{record.reqOfExisPzaVac,jdbcType=CHAR},
+      num_of_exis_pza_vac = #{record.numOfExisPzaVac,jdbcType=CHAR},
+      oficio_fh_exis_pza_vac = #{record.oficioFhExisPzaVac,jdbcType=VARCHAR},
+      nb_dep_compatibilidad = #{record.nbDepCompatibilidad,jdbcType=CHAR},
+      desc_entregables = #{record.descEntregables,jdbcType=CHAR},
+      req_issste = #{record.reqIssste,jdbcType=CHAR},
+      num2_req_compatibilidad = #{record.num2ReqCompatibilidad,jdbcType=CHAR},
+      dom_dependencia = #{record.domDependencia,jdbcType=CHAR},
+      ciudad_firma = #{record.ciudadFirma,jdbcType=CHAR},
+      partida = #{record.partida,jdbcType=CHAR},
+      firma_rep_sep_prefijo = #{record.firmaRepSepPrefijo,jdbcType=CHAR},
+      firma_rep_sep_titulo = #{record.firmaRepSepTitulo,jdbcType=VARCHAR},
+      firma_rep_sep_nombre = #{record.firmaRepSepNombre,jdbcType=CHAR},
+      firma_rep_sep_puesto = #{record.firmaRepSepPuesto,jdbcType=CHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="mx.sep.poho.modelo.Tsh088DatosContratosDef" >
+    update tsh088_datos_contratos_def
+    <set >
+      <if test="ur != null" >
+        ur = #{ur,jdbcType=CHAR},
+      </if>
+      <if test="nombreUr != null" >
+        nombre_ur = #{nombreUr,jdbcType=VARCHAR},
+      </if>
+      <if test="previoDefinitivo != null" >
+        previo_definitivo = #{previoDefinitivo,jdbcType=CHAR},
+      </if>
+      <if test="firmaRepAreaPrefijo != null" >
+        firma_rep_area_prefijo = #{firmaRepAreaPrefijo,jdbcType=CHAR},
+      </if>
+      <if test="firmaRepAreaNombre != null" >
+        firma_rep_area_nombre = #{firmaRepAreaNombre,jdbcType=CHAR},
+      </if>
+      <if test="firmaRepAreaPuesto != null" >
+        firma_rep_area_puesto = #{firmaRepAreaPuesto,jdbcType=CHAR},
+      </if>
+      <if test="descPerfilContratado != null" >
+        desc_perfil_contratado = #{descPerfilContratado,jdbcType=CHAR},
+      </if>
+      <if test="descNacContratado != null" >
+        desc_nac_contratado = #{descNacContratado,jdbcType=CHAR},
+      </if>
+      <if test="rfcContratado != null" >
+        rfc_contratado = #{rfcContratado,jdbcType=CHAR},
+      </if>
+      <if test="experienciaContratado != null" >
+        experiencia_contratado = #{experienciaContratado,jdbcType=CHAR},
+      </if>
+      <if test="domicilioContratado != null" >
+        domicilio_contratado = #{domicilioContratado,jdbcType=CHAR},
+      </if>
+      <if test="descFunciones != null" >
+        desc_funciones = #{descFunciones,jdbcType=CHAR},
+      </if>
+      <if test="sumImBrutoRecibidos != null" >
+        sum_im_bruto_recibidos = #{sumImBrutoRecibidos,jdbcType=CHAR},
+      </if>
+      <if test="importeLetra != null" >
+        importe_letra = #{importeLetra,jdbcType=CHAR},
+      </if>
+      <if test="nuExhibiciones != null" >
+        nu_exhibiciones = #{nuExhibiciones,jdbcType=CHAR},
+      </if>
+      <if test="fhVigenciaInicial != null" >
+        fh_vigencia_inicial = #{fhVigenciaInicial,jdbcType=CHAR},
+      </if>
+      <if test="fhVigenciaFinal != null" >
+        fh_vigencia_final = #{fhVigenciaFinal,jdbcType=CHAR},
+      </if>
+      <if test="firmaRecepRepActPrefijo != null" >
+        firma_recep_rep_act_prefijo = #{firmaRecepRepActPrefijo,jdbcType=CHAR},
+      </if>
+      <if test="firmaRecepRepActNombre != null" >
+        firma_recep_rep_act_nombre = #{firmaRecepRepActNombre,jdbcType=CHAR},
+      </if>
+      <if test="firmaRecepRepActPuesto != null" >
+        firma_recep_rep_act_puesto = #{firmaRecepRepActPuesto,jdbcType=CHAR},
+      </if>
+      <if test="fhFirmaContrato != null" >
+        fh_firma_contrato = #{fhFirmaContrato,jdbcType=CHAR},
+      </if>
+      <if test="firmaRepAreaTitulo != null" >
+        firma_rep_area_titulo = #{firmaRepAreaTitulo,jdbcType=VARCHAR},
+      </if>
+      <if test="prefijoContratado != null" >
+        prefijo_contratado = #{prefijoContratado,jdbcType=CHAR},
+      </if>
+      <if test="reqCompatibilidad != null" >
+        req_compatibilidad = #{reqCompatibilidad,jdbcType=CHAR},
+      </if>
+      <if test="numReqCompatiblidad != null" >
+        num_req_compatiblidad = #{numReqCompatiblidad,jdbcType=CHAR},
+      </if>
+      <if test="oficioFhCompatiblidad != null" >
+        oficio_fh_compatiblidad = #{oficioFhCompatiblidad,jdbcType=VARCHAR},
+      </if>
+      <if test="reqOfRespSfp != null" >
+        req_of_resp_sfp = #{reqOfRespSfp,jdbcType=CHAR},
+      </if>
+      <if test="numOfResSfp != null" >
+        num_of_res_sfp = #{numOfResSfp,jdbcType=CHAR},
+      </if>
+      <if test="oficioFhRespSfp != null" >
+        oficio_fh_resp_sfp = #{oficioFhRespSfp,jdbcType=VARCHAR},
+      </if>
+      <if test="reqOfExisPzaVac != null" >
+        req_of_exis_pza_vac = #{reqOfExisPzaVac,jdbcType=CHAR},
+      </if>
+      <if test="numOfExisPzaVac != null" >
+        num_of_exis_pza_vac = #{numOfExisPzaVac,jdbcType=CHAR},
+      </if>
+      <if test="oficioFhExisPzaVac != null" >
+        oficio_fh_exis_pza_vac = #{oficioFhExisPzaVac,jdbcType=VARCHAR},
+      </if>
+      <if test="nbDepCompatibilidad != null" >
+        nb_dep_compatibilidad = #{nbDepCompatibilidad,jdbcType=CHAR},
+      </if>
+      <if test="descEntregables != null" >
+        desc_entregables = #{descEntregables,jdbcType=CHAR},
+      </if>
+      <if test="reqIssste != null" >
+        req_issste = #{reqIssste,jdbcType=CHAR},
+      </if>
+      <if test="num2ReqCompatibilidad != null" >
+        num2_req_compatibilidad = #{num2ReqCompatibilidad,jdbcType=CHAR},
+      </if>
+      <if test="domDependencia != null" >
+        dom_dependencia = #{domDependencia,jdbcType=CHAR},
+      </if>
+      <if test="ciudadFirma != null" >
+        ciudad_firma = #{ciudadFirma,jdbcType=CHAR},
+      </if>
+      <if test="partida != null" >
+        partida = #{partida,jdbcType=CHAR},
+      </if>
+      <if test="firmaRepSepPrefijo != null" >
+        firma_rep_sep_prefijo = #{firmaRepSepPrefijo,jdbcType=CHAR},
+      </if>
+      <if test="firmaRepSepTitulo != null" >
+        firma_rep_sep_titulo = #{firmaRepSepTitulo,jdbcType=VARCHAR},
+      </if>
+      <if test="firmaRepSepNombre != null" >
+        firma_rep_sep_nombre = #{firmaRepSepNombre,jdbcType=CHAR},
+      </if>
+      <if test="firmaRepSepPuesto != null" >
+        firma_rep_sep_puesto = #{firmaRepSepPuesto,jdbcType=CHAR},
+      </if>
+    </set>
+    where annio = #{annio,jdbcType=CHAR}
+      and nu_tramite = #{nuTramite,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="mx.sep.poho.modelo.Tsh088DatosContratosDef" >
+    update tsh088_datos_contratos_def
+    set ur = #{ur,jdbcType=CHAR},
+      nombre_ur = #{nombreUr,jdbcType=VARCHAR},
+      previo_definitivo = #{previoDefinitivo,jdbcType=CHAR},
+      firma_rep_area_prefijo = #{firmaRepAreaPrefijo,jdbcType=CHAR},
+      firma_rep_area_nombre = #{firmaRepAreaNombre,jdbcType=CHAR},
+      firma_rep_area_puesto = #{firmaRepAreaPuesto,jdbcType=CHAR},
+      desc_perfil_contratado = #{descPerfilContratado,jdbcType=CHAR},
+      desc_nac_contratado = #{descNacContratado,jdbcType=CHAR},
+      rfc_contratado = #{rfcContratado,jdbcType=CHAR},
+      experiencia_contratado = #{experienciaContratado,jdbcType=CHAR},
+      domicilio_contratado = #{domicilioContratado,jdbcType=CHAR},
+      desc_funciones = #{descFunciones,jdbcType=CHAR},
+      sum_im_bruto_recibidos = #{sumImBrutoRecibidos,jdbcType=CHAR},
+      importe_letra = #{importeLetra,jdbcType=CHAR},
+      nu_exhibiciones = #{nuExhibiciones,jdbcType=CHAR},
+      fh_vigencia_inicial = #{fhVigenciaInicial,jdbcType=CHAR},
+      fh_vigencia_final = #{fhVigenciaFinal,jdbcType=CHAR},
+      firma_recep_rep_act_prefijo = #{firmaRecepRepActPrefijo,jdbcType=CHAR},
+      firma_recep_rep_act_nombre = #{firmaRecepRepActNombre,jdbcType=CHAR},
+      firma_recep_rep_act_puesto = #{firmaRecepRepActPuesto,jdbcType=CHAR},
+      fh_firma_contrato = #{fhFirmaContrato,jdbcType=CHAR},
+      firma_rep_area_titulo = #{firmaRepAreaTitulo,jdbcType=VARCHAR},
+      prefijo_contratado = #{prefijoContratado,jdbcType=CHAR},
+      req_compatibilidad = #{reqCompatibilidad,jdbcType=CHAR},
+      num_req_compatiblidad = #{numReqCompatiblidad,jdbcType=CHAR},
+      oficio_fh_compatiblidad = #{oficioFhCompatiblidad,jdbcType=VARCHAR},
+      req_of_resp_sfp = #{reqOfRespSfp,jdbcType=CHAR},
+      num_of_res_sfp = #{numOfResSfp,jdbcType=CHAR},
+      oficio_fh_resp_sfp = #{oficioFhRespSfp,jdbcType=VARCHAR},
+      req_of_exis_pza_vac = #{reqOfExisPzaVac,jdbcType=CHAR},
+      num_of_exis_pza_vac = #{numOfExisPzaVac,jdbcType=CHAR},
+      oficio_fh_exis_pza_vac = #{oficioFhExisPzaVac,jdbcType=VARCHAR},
+      nb_dep_compatibilidad = #{nbDepCompatibilidad,jdbcType=CHAR},
+      desc_entregables = #{descEntregables,jdbcType=CHAR},
+      req_issste = #{reqIssste,jdbcType=CHAR},
+      num2_req_compatibilidad = #{num2ReqCompatibilidad,jdbcType=CHAR},
+      dom_dependencia = #{domDependencia,jdbcType=CHAR},
+      ciudad_firma = #{ciudadFirma,jdbcType=CHAR},
+      partida = #{partida,jdbcType=CHAR},
+      firma_rep_sep_prefijo = #{firmaRepSepPrefijo,jdbcType=CHAR},
+      firma_rep_sep_titulo = #{firmaRepSepTitulo,jdbcType=VARCHAR},
+      firma_rep_sep_nombre = #{firmaRepSepNombre,jdbcType=CHAR},
+      firma_rep_sep_puesto = #{firmaRepSepPuesto,jdbcType=CHAR}
+    where annio = #{annio,jdbcType=CHAR}
+      and nu_tramite = #{nuTramite,jdbcType=VARCHAR}
+  </update>
+</mapper>

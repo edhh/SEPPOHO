@@ -7,7 +7,9 @@ package mx.sep.poho.web.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import mx.sep.poho.datos.vo.UsuarioVO;
@@ -21,6 +23,7 @@ import mx.sep.seguridad.util.SeguridadUtil;
 import mx.sep.poho.dao.Tsh003TramiteMapper;
 import mx.sep.poho.modelo.Tsh003Tramite;
 import mx.sep.poho.modelo.Tsh003TramiteExample;
+import mx.sep.poho.modelo.Tsh087TramitesFirmados;
 import mx.sep.poho.servicios.TramitesService;
 //import mx.sep.sidepaae.modelo.Tdp090Usuarios;
 //import mx.sep.poho.servicios.configuracion.UsuarioService;
@@ -39,6 +42,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.MediaType;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.RequestBody;
 
 /**
  *
@@ -92,5 +96,26 @@ public class TramitesController {
 		return lstContratos;
 
 	}
+    
+    
+    @RequestMapping(value = "/datosFirmaPrestador", method = RequestMethod.POST)
+    @ResponseBody
+    public Object obtenerCedulaGrado(@RequestBody Tsh087TramitesFirmados datosFirma) throws Exception {
+        Map<String, Object> mensaje = new HashMap<String, Object>();
+        System.out.println("DATOS OBJ FIRMA PRESTADOR");
+        System.out.println(datosFirma.getAnnio());
+        System.out.println(datosFirma.getNuTramite());
+        Integer resultadoInsert = tramitesService.guardaDatosFirmaPrestador(datosFirma);
+        if(resultadoInsert == null){
+            mensaje.put("El contrato ha sido previamente firmado",null);
+        }
+        else if(resultadoInsert != 0){
+            mensaje.put("El contrato ha sido firmado exitosamente",1);
+        }
+        else {
+            mensaje.put("Ocurri? un error durante la firma del contrato, inténtelo m?s tarde",0);
+        }
+        return mensaje;
+    }
     
 }

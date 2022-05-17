@@ -1,0 +1,511 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="mx.sep.poho.dao.Tsh087TramitesFirmadosMapper" >
+  <resultMap id="BaseResultMap" type="mx.sep.poho.modelo.Tsh087TramitesFirmados" >
+    <id column="annio" property="annio" jdbcType="SMALLINT" />
+    <id column="nu_tramite" property="nuTramite" jdbcType="INTEGER" />
+    <result column="nombre_firmante_dg" property="nombreFirmanteDg" jdbcType="VARCHAR" />
+    <result column="puesto_firmante_dg" property="puestoFirmanteDg" jdbcType="VARCHAR" />
+    <result column="curp_firmante_dg" property="curpFirmanteDg" jdbcType="VARCHAR" />
+    <result column="nu_serie_firmante_dg" property="nuSerieFirmanteDg" jdbcType="VARCHAR" />
+    <result column="firma_dg" property="firmaDg" jdbcType="CHAR" />
+    <result column="tsa_dg" property="tsaDg" jdbcType="CHAR" />
+    <result column="suplencia_dg" property="suplenciaDg" jdbcType="VARCHAR" />
+    <result column="nombre_firmante_ur" property="nombreFirmanteUr" jdbcType="VARCHAR" />
+    <result column="puesto_firmante_ur" property="puestoFirmanteUr" jdbcType="VARCHAR" />
+    <result column="curp_firmante_ur" property="curpFirmanteUr" jdbcType="VARCHAR" />
+    <result column="nu_serie_firmante_ur" property="nuSerieFirmanteUr" jdbcType="VARCHAR" />
+    <result column="firma_ur" property="firmaUr" jdbcType="CHAR" />
+    <result column="tsa_ur" property="tsaUr" jdbcType="CHAR" />
+    <result column="suplencia_ur" property="suplenciaUr" jdbcType="VARCHAR" />
+    <result column="cadena_original" property="cadenaOriginal" jdbcType="VARCHAR" />
+    <result column="fh_firma" property="fhFirma" jdbcType="DATE" />
+    <result column="nombre_firmante_p" property="nombreFirmanteP" jdbcType="VARCHAR" />
+    <result column="curp_firmante_p" property="curpFirmanteP" jdbcType="VARCHAR" />
+    <result column="nu_serie_firmante_p" property="nuSerieFirmanteP" jdbcType="VARCHAR" />
+    <result column="firma_p" property="firmaP" jdbcType="CHAR" />
+    <result column="tsa_p" property="tsaP" jdbcType="CHAR" />
+    <result column="fh_firma_p" property="fhFirmaP" jdbcType="DATE" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    annio, nu_tramite, nombre_firmante_dg, puesto_firmante_dg, curp_firmante_dg, nu_serie_firmante_dg, 
+    firma_dg, tsa_dg, suplencia_dg, nombre_firmante_ur, puesto_firmante_ur, curp_firmante_ur, 
+    nu_serie_firmante_ur, firma_ur, tsa_ur, suplencia_ur, cadena_original, fh_firma, 
+    nombre_firmante_p, curp_firmante_p, nu_serie_firmante_p, firma_p, tsa_p, fh_firma_p
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="mx.sep.poho.modelo.Tsh087TramitesFirmadosExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from "tsh087_tramites_firmados"
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="map" >
+    select 
+    <include refid="Base_Column_List" />
+    from "tsh087_tramites_firmados"
+    where annio = #{annio,jdbcType=SMALLINT}
+      and nu_tramite = #{nuTramite,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="map" >
+    delete from "tsh087_tramites_firmados"
+    where annio = #{annio,jdbcType=SMALLINT}
+      and nu_tramite = #{nuTramite,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="mx.sep.poho.modelo.Tsh087TramitesFirmadosExample" >
+    delete from "tsh087_tramites_firmados"
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="mx.sep.poho.modelo.Tsh087TramitesFirmados" >
+    insert into "tsh087_tramites_firmados" (annio, nu_tramite, nombre_firmante_dg, 
+      puesto_firmante_dg, curp_firmante_dg, nu_serie_firmante_dg, 
+      firma_dg, tsa_dg, suplencia_dg, 
+      nombre_firmante_ur, puesto_firmante_ur, curp_firmante_ur, 
+      nu_serie_firmante_ur, firma_ur, tsa_ur, 
+      suplencia_ur, cadena_original, fh_firma, 
+      nombre_firmante_p, curp_firmante_p, nu_serie_firmante_p, 
+      firma_p, tsa_p, fh_firma_p)
+    values (#{annio,jdbcType=SMALLINT}, #{nuTramite,jdbcType=INTEGER}, #{nombreFirmanteDg,jdbcType=VARCHAR}, 
+      #{puestoFirmanteDg,jdbcType=VARCHAR}, #{curpFirmanteDg,jdbcType=VARCHAR}, #{nuSerieFirmanteDg,jdbcType=VARCHAR}, 
+      #{firmaDg,jdbcType=CHAR}, #{tsaDg,jdbcType=CHAR}, #{suplenciaDg,jdbcType=VARCHAR}, 
+      #{nombreFirmanteUr,jdbcType=VARCHAR}, #{puestoFirmanteUr,jdbcType=VARCHAR}, #{curpFirmanteUr,jdbcType=VARCHAR}, 
+      #{nuSerieFirmanteUr,jdbcType=VARCHAR}, #{firmaUr,jdbcType=CHAR}, #{tsaUr,jdbcType=CHAR}, 
+      #{suplenciaUr,jdbcType=VARCHAR}, #{cadenaOriginal,jdbcType=VARCHAR}, #{fhFirma,jdbcType=DATE}, 
+      #{nombreFirmanteP,jdbcType=VARCHAR}, #{curpFirmanteP,jdbcType=VARCHAR}, #{nuSerieFirmanteP,jdbcType=VARCHAR}, 
+      #{firmaP,jdbcType=CHAR}, #{tsaP,jdbcType=CHAR}, #{fhFirmaP,jdbcType=DATE})
+  </insert>
+  <insert id="insertSelective" parameterType="mx.sep.poho.modelo.Tsh087TramitesFirmados" >
+    insert into "tsh087_tramites_firmados"
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="annio != null" >
+        annio,
+      </if>
+      <if test="nuTramite != null" >
+        nu_tramite,
+      </if>
+      <if test="nombreFirmanteDg != null" >
+        nombre_firmante_dg,
+      </if>
+      <if test="puestoFirmanteDg != null" >
+        puesto_firmante_dg,
+      </if>
+      <if test="curpFirmanteDg != null" >
+        curp_firmante_dg,
+      </if>
+      <if test="nuSerieFirmanteDg != null" >
+        nu_serie_firmante_dg,
+      </if>
+      <if test="firmaDg != null" >
+        firma_dg,
+      </if>
+      <if test="tsaDg != null" >
+        tsa_dg,
+      </if>
+      <if test="suplenciaDg != null" >
+        suplencia_dg,
+      </if>
+      <if test="nombreFirmanteUr != null" >
+        nombre_firmante_ur,
+      </if>
+      <if test="puestoFirmanteUr != null" >
+        puesto_firmante_ur,
+      </if>
+      <if test="curpFirmanteUr != null" >
+        curp_firmante_ur,
+      </if>
+      <if test="nuSerieFirmanteUr != null" >
+        nu_serie_firmante_ur,
+      </if>
+      <if test="firmaUr != null" >
+        firma_ur,
+      </if>
+      <if test="tsaUr != null" >
+        tsa_ur,
+      </if>
+      <if test="suplenciaUr != null" >
+        suplencia_ur,
+      </if>
+      <if test="cadenaOriginal != null" >
+        cadena_original,
+      </if>
+      <if test="fhFirma != null" >
+        fh_firma,
+      </if>
+      <if test="nombreFirmanteP != null" >
+        nombre_firmante_p,
+      </if>
+      <if test="curpFirmanteP != null" >
+        curp_firmante_p,
+      </if>
+      <if test="nuSerieFirmanteP != null" >
+        nu_serie_firmante_p,
+      </if>
+      <if test="firmaP != null" >
+        firma_p,
+      </if>
+      <if test="tsaP != null" >
+        tsa_p,
+      </if>
+      <if test="fhFirmaP != null" >
+        fh_firma_p,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="annio != null" >
+        #{annio,jdbcType=SMALLINT},
+      </if>
+      <if test="nuTramite != null" >
+        #{nuTramite,jdbcType=INTEGER},
+      </if>
+      <if test="nombreFirmanteDg != null" >
+        #{nombreFirmanteDg,jdbcType=VARCHAR},
+      </if>
+      <if test="puestoFirmanteDg != null" >
+        #{puestoFirmanteDg,jdbcType=VARCHAR},
+      </if>
+      <if test="curpFirmanteDg != null" >
+        #{curpFirmanteDg,jdbcType=VARCHAR},
+      </if>
+      <if test="nuSerieFirmanteDg != null" >
+        #{nuSerieFirmanteDg,jdbcType=VARCHAR},
+      </if>
+      <if test="firmaDg != null" >
+        #{firmaDg,jdbcType=CHAR},
+      </if>
+      <if test="tsaDg != null" >
+        #{tsaDg,jdbcType=CHAR},
+      </if>
+      <if test="suplenciaDg != null" >
+        #{suplenciaDg,jdbcType=VARCHAR},
+      </if>
+      <if test="nombreFirmanteUr != null" >
+        #{nombreFirmanteUr,jdbcType=VARCHAR},
+      </if>
+      <if test="puestoFirmanteUr != null" >
+        #{puestoFirmanteUr,jdbcType=VARCHAR},
+      </if>
+      <if test="curpFirmanteUr != null" >
+        #{curpFirmanteUr,jdbcType=VARCHAR},
+      </if>
+      <if test="nuSerieFirmanteUr != null" >
+        #{nuSerieFirmanteUr,jdbcType=VARCHAR},
+      </if>
+      <if test="firmaUr != null" >
+        #{firmaUr,jdbcType=CHAR},
+      </if>
+      <if test="tsaUr != null" >
+        #{tsaUr,jdbcType=CHAR},
+      </if>
+      <if test="suplenciaUr != null" >
+        #{suplenciaUr,jdbcType=VARCHAR},
+      </if>
+      <if test="cadenaOriginal != null" >
+        #{cadenaOriginal,jdbcType=VARCHAR},
+      </if>
+      <if test="fhFirma != null" >
+        #{fhFirma,jdbcType=DATE},
+      </if>
+      <if test="nombreFirmanteP != null" >
+        #{nombreFirmanteP,jdbcType=VARCHAR},
+      </if>
+      <if test="curpFirmanteP != null" >
+        #{curpFirmanteP,jdbcType=VARCHAR},
+      </if>
+      <if test="nuSerieFirmanteP != null" >
+        #{nuSerieFirmanteP,jdbcType=VARCHAR},
+      </if>
+      <if test="firmaP != null" >
+        #{firmaP,jdbcType=CHAR},
+      </if>
+      <if test="tsaP != null" >
+        #{tsaP,jdbcType=CHAR},
+      </if>
+      <if test="fhFirmaP != null" >
+        #{fhFirmaP,jdbcType=DATE},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="mx.sep.poho.modelo.Tsh087TramitesFirmadosExample" resultType="java.lang.Integer" >
+    select count(*) from "tsh087_tramites_firmados"
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update "tsh087_tramites_firmados"
+    <set >
+      <if test="record.annio != null" >
+        annio = #{record.annio,jdbcType=SMALLINT},
+      </if>
+      <if test="record.nuTramite != null" >
+        nu_tramite = #{record.nuTramite,jdbcType=INTEGER},
+      </if>
+      <if test="record.nombreFirmanteDg != null" >
+        nombre_firmante_dg = #{record.nombreFirmanteDg,jdbcType=VARCHAR},
+      </if>
+      <if test="record.puestoFirmanteDg != null" >
+        puesto_firmante_dg = #{record.puestoFirmanteDg,jdbcType=VARCHAR},
+      </if>
+      <if test="record.curpFirmanteDg != null" >
+        curp_firmante_dg = #{record.curpFirmanteDg,jdbcType=VARCHAR},
+      </if>
+      <if test="record.nuSerieFirmanteDg != null" >
+        nu_serie_firmante_dg = #{record.nuSerieFirmanteDg,jdbcType=VARCHAR},
+      </if>
+      <if test="record.firmaDg != null" >
+        firma_dg = #{record.firmaDg,jdbcType=CHAR},
+      </if>
+      <if test="record.tsaDg != null" >
+        tsa_dg = #{record.tsaDg,jdbcType=CHAR},
+      </if>
+      <if test="record.suplenciaDg != null" >
+        suplencia_dg = #{record.suplenciaDg,jdbcType=VARCHAR},
+      </if>
+      <if test="record.nombreFirmanteUr != null" >
+        nombre_firmante_ur = #{record.nombreFirmanteUr,jdbcType=VARCHAR},
+      </if>
+      <if test="record.puestoFirmanteUr != null" >
+        puesto_firmante_ur = #{record.puestoFirmanteUr,jdbcType=VARCHAR},
+      </if>
+      <if test="record.curpFirmanteUr != null" >
+        curp_firmante_ur = #{record.curpFirmanteUr,jdbcType=VARCHAR},
+      </if>
+      <if test="record.nuSerieFirmanteUr != null" >
+        nu_serie_firmante_ur = #{record.nuSerieFirmanteUr,jdbcType=VARCHAR},
+      </if>
+      <if test="record.firmaUr != null" >
+        firma_ur = #{record.firmaUr,jdbcType=CHAR},
+      </if>
+      <if test="record.tsaUr != null" >
+        tsa_ur = #{record.tsaUr,jdbcType=CHAR},
+      </if>
+      <if test="record.suplenciaUr != null" >
+        suplencia_ur = #{record.suplenciaUr,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cadenaOriginal != null" >
+        cadena_original = #{record.cadenaOriginal,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fhFirma != null" >
+        fh_firma = #{record.fhFirma,jdbcType=DATE},
+      </if>
+      <if test="record.nombreFirmanteP != null" >
+        nombre_firmante_p = #{record.nombreFirmanteP,jdbcType=VARCHAR},
+      </if>
+      <if test="record.curpFirmanteP != null" >
+        curp_firmante_p = #{record.curpFirmanteP,jdbcType=VARCHAR},
+      </if>
+      <if test="record.nuSerieFirmanteP != null" >
+        nu_serie_firmante_p = #{record.nuSerieFirmanteP,jdbcType=VARCHAR},
+      </if>
+      <if test="record.firmaP != null" >
+        firma_p = #{record.firmaP,jdbcType=CHAR},
+      </if>
+      <if test="record.tsaP != null" >
+        tsa_p = #{record.tsaP,jdbcType=CHAR},
+      </if>
+      <if test="record.fhFirmaP != null" >
+        fh_firma_p = #{record.fhFirmaP,jdbcType=DATE},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update "tsh087_tramites_firmados"
+    set annio = #{record.annio,jdbcType=SMALLINT},
+      nu_tramite = #{record.nuTramite,jdbcType=INTEGER},
+      nombre_firmante_dg = #{record.nombreFirmanteDg,jdbcType=VARCHAR},
+      puesto_firmante_dg = #{record.puestoFirmanteDg,jdbcType=VARCHAR},
+      curp_firmante_dg = #{record.curpFirmanteDg,jdbcType=VARCHAR},
+      nu_serie_firmante_dg = #{record.nuSerieFirmanteDg,jdbcType=VARCHAR},
+      firma_dg = #{record.firmaDg,jdbcType=CHAR},
+      tsa_dg = #{record.tsaDg,jdbcType=CHAR},
+      suplencia_dg = #{record.suplenciaDg,jdbcType=VARCHAR},
+      nombre_firmante_ur = #{record.nombreFirmanteUr,jdbcType=VARCHAR},
+      puesto_firmante_ur = #{record.puestoFirmanteUr,jdbcType=VARCHAR},
+      curp_firmante_ur = #{record.curpFirmanteUr,jdbcType=VARCHAR},
+      nu_serie_firmante_ur = #{record.nuSerieFirmanteUr,jdbcType=VARCHAR},
+      firma_ur = #{record.firmaUr,jdbcType=CHAR},
+      tsa_ur = #{record.tsaUr,jdbcType=CHAR},
+      suplencia_ur = #{record.suplenciaUr,jdbcType=VARCHAR},
+      cadena_original = #{record.cadenaOriginal,jdbcType=VARCHAR},
+      fh_firma = #{record.fhFirma,jdbcType=DATE},
+      nombre_firmante_p = #{record.nombreFirmanteP,jdbcType=VARCHAR},
+      curp_firmante_p = #{record.curpFirmanteP,jdbcType=VARCHAR},
+      nu_serie_firmante_p = #{record.nuSerieFirmanteP,jdbcType=VARCHAR},
+      firma_p = #{record.firmaP,jdbcType=CHAR},
+      tsa_p = #{record.tsaP,jdbcType=CHAR},
+      fh_firma_p = #{record.fhFirmaP,jdbcType=DATE}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="mx.sep.poho.modelo.Tsh087TramitesFirmados" >
+    update "tsh087_tramites_firmados"
+    <set >
+      <if test="nombreFirmanteDg != null" >
+        nombre_firmante_dg = #{nombreFirmanteDg,jdbcType=VARCHAR},
+      </if>
+      <if test="puestoFirmanteDg != null" >
+        puesto_firmante_dg = #{puestoFirmanteDg,jdbcType=VARCHAR},
+      </if>
+      <if test="curpFirmanteDg != null" >
+        curp_firmante_dg = #{curpFirmanteDg,jdbcType=VARCHAR},
+      </if>
+      <if test="nuSerieFirmanteDg != null" >
+        nu_serie_firmante_dg = #{nuSerieFirmanteDg,jdbcType=VARCHAR},
+      </if>
+      <if test="firmaDg != null" >
+        firma_dg = #{firmaDg,jdbcType=CHAR},
+      </if>
+      <if test="tsaDg != null" >
+        tsa_dg = #{tsaDg,jdbcType=CHAR},
+      </if>
+      <if test="suplenciaDg != null" >
+        suplencia_dg = #{suplenciaDg,jdbcType=VARCHAR},
+      </if>
+      <if test="nombreFirmanteUr != null" >
+        nombre_firmante_ur = #{nombreFirmanteUr,jdbcType=VARCHAR},
+      </if>
+      <if test="puestoFirmanteUr != null" >
+        puesto_firmante_ur = #{puestoFirmanteUr,jdbcType=VARCHAR},
+      </if>
+      <if test="curpFirmanteUr != null" >
+        curp_firmante_ur = #{curpFirmanteUr,jdbcType=VARCHAR},
+      </if>
+      <if test="nuSerieFirmanteUr != null" >
+        nu_serie_firmante_ur = #{nuSerieFirmanteUr,jdbcType=VARCHAR},
+      </if>
+      <if test="firmaUr != null" >
+        firma_ur = #{firmaUr,jdbcType=CHAR},
+      </if>
+      <if test="tsaUr != null" >
+        tsa_ur = #{tsaUr,jdbcType=CHAR},
+      </if>
+      <if test="suplenciaUr != null" >
+        suplencia_ur = #{suplenciaUr,jdbcType=VARCHAR},
+      </if>
+      <if test="cadenaOriginal != null" >
+        cadena_original = #{cadenaOriginal,jdbcType=VARCHAR},
+      </if>
+      <if test="fhFirma != null" >
+        fh_firma = #{fhFirma,jdbcType=DATE},
+      </if>
+      <if test="nombreFirmanteP != null" >
+        nombre_firmante_p = #{nombreFirmanteP,jdbcType=VARCHAR},
+      </if>
+      <if test="curpFirmanteP != null" >
+        curp_firmante_p = #{curpFirmanteP,jdbcType=VARCHAR},
+      </if>
+      <if test="nuSerieFirmanteP != null" >
+        nu_serie_firmante_p = #{nuSerieFirmanteP,jdbcType=VARCHAR},
+      </if>
+      <if test="firmaP != null" >
+        firma_p = #{firmaP,jdbcType=CHAR},
+      </if>
+      <if test="tsaP != null" >
+        tsa_p = #{tsaP,jdbcType=CHAR},
+      </if>
+      <if test="fhFirmaP != null" >
+        fh_firma_p = #{fhFirmaP,jdbcType=DATE},
+      </if>
+    </set>
+    where annio = #{annio,jdbcType=SMALLINT}
+      and nu_tramite = #{nuTramite,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="mx.sep.poho.modelo.Tsh087TramitesFirmados" >
+    update "tsh087_tramites_firmados"
+    set nombre_firmante_dg = #{nombreFirmanteDg,jdbcType=VARCHAR},
+      puesto_firmante_dg = #{puestoFirmanteDg,jdbcType=VARCHAR},
+      curp_firmante_dg = #{curpFirmanteDg,jdbcType=VARCHAR},
+      nu_serie_firmante_dg = #{nuSerieFirmanteDg,jdbcType=VARCHAR},
+      firma_dg = #{firmaDg,jdbcType=CHAR},
+      tsa_dg = #{tsaDg,jdbcType=CHAR},
+      suplencia_dg = #{suplenciaDg,jdbcType=VARCHAR},
+      nombre_firmante_ur = #{nombreFirmanteUr,jdbcType=VARCHAR},
+      puesto_firmante_ur = #{puestoFirmanteUr,jdbcType=VARCHAR},
+      curp_firmante_ur = #{curpFirmanteUr,jdbcType=VARCHAR},
+      nu_serie_firmante_ur = #{nuSerieFirmanteUr,jdbcType=VARCHAR},
+      firma_ur = #{firmaUr,jdbcType=CHAR},
+      tsa_ur = #{tsaUr,jdbcType=CHAR},
+      suplencia_ur = #{suplenciaUr,jdbcType=VARCHAR},
+      cadena_original = #{cadenaOriginal,jdbcType=VARCHAR},
+      fh_firma = #{fhFirma,jdbcType=DATE},
+      nombre_firmante_p = #{nombreFirmanteP,jdbcType=VARCHAR},
+      curp_firmante_p = #{curpFirmanteP,jdbcType=VARCHAR},
+      nu_serie_firmante_p = #{nuSerieFirmanteP,jdbcType=VARCHAR},
+      firma_p = #{firmaP,jdbcType=CHAR},
+      tsa_p = #{tsaP,jdbcType=CHAR},
+      fh_firma_p = #{fhFirmaP,jdbcType=DATE}
+    where annio = #{annio,jdbcType=SMALLINT}
+      and nu_tramite = #{nuTramite,jdbcType=INTEGER}
+  </update>
+</mapper>

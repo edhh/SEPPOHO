@@ -5272,6 +5272,66 @@ public class Tsh003TramiteExample {
             addCriterion("extension not between", value1, value2, "extension");
             return (Criteria) this;
         }
+
+        public Criteria andCveStatusFirmantesIsNull() {
+            addCriterion("cve_status_firmantes is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCveStatusFirmantesIsNotNull() {
+            addCriterion("cve_status_firmantes is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCveStatusFirmantesEqualTo(Integer value) {
+            addCriterion("cve_status_firmantes =", value, "cveStatusFirmantes");
+            return (Criteria) this;
+        }
+
+        public Criteria andCveStatusFirmantesNotEqualTo(Integer value) {
+            addCriterion("cve_status_firmantes <>", value, "cveStatusFirmantes");
+            return (Criteria) this;
+        }
+
+        public Criteria andCveStatusFirmantesGreaterThan(Integer value) {
+            addCriterion("cve_status_firmantes >", value, "cveStatusFirmantes");
+            return (Criteria) this;
+        }
+
+        public Criteria andCveStatusFirmantesGreaterThanOrEqualTo(Integer value) {
+            addCriterion("cve_status_firmantes >=", value, "cveStatusFirmantes");
+            return (Criteria) this;
+        }
+
+        public Criteria andCveStatusFirmantesLessThan(Integer value) {
+            addCriterion("cve_status_firmantes <", value, "cveStatusFirmantes");
+            return (Criteria) this;
+        }
+
+        public Criteria andCveStatusFirmantesLessThanOrEqualTo(Integer value) {
+            addCriterion("cve_status_firmantes <=", value, "cveStatusFirmantes");
+            return (Criteria) this;
+        }
+
+        public Criteria andCveStatusFirmantesIn(List<Integer> values) {
+            addCriterion("cve_status_firmantes in", values, "cveStatusFirmantes");
+            return (Criteria) this;
+        }
+
+        public Criteria andCveStatusFirmantesNotIn(List<Integer> values) {
+            addCriterion("cve_status_firmantes not in", values, "cveStatusFirmantes");
+            return (Criteria) this;
+        }
+
+        public Criteria andCveStatusFirmantesBetween(Integer value1, Integer value2) {
+            addCriterion("cve_status_firmantes between", value1, value2, "cveStatusFirmantes");
+            return (Criteria) this;
+        }
+
+        public Criteria andCveStatusFirmantesNotBetween(Integer value1, Integer value2) {
+            addCriterion("cve_status_firmantes not between", value1, value2, "cveStatusFirmantes");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

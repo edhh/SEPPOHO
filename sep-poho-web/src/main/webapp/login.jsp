@@ -1,7 +1,7 @@
 <%@page language="java" contentType="text/html; charset=UTF-8"
         pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@taglib prefix="s" uri="http://www.springframework.org/tags"%>
+<%@taglib prefix="sx" uri="http://www.springframework.org/tags"%>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -43,7 +43,14 @@
                         </div>
                         </div>
                         </div>
-
+                        <div id="errorLog" tabindex="0" class="row col-md-12">
+                                <div class="alert alert-danger" id="errorDiv" tabindex="1" style="display:none">
+                                    <s:property value="error" escapeHtml="false"/>         						
+                                </div>
+                                <div class="alert alert-warning" id="warningDiv" tabindex="2" style="display:none">
+                                    <s:property value="warning"  escapeHtml="false"/>
+                                </div>
+                            </div>
                         <div id="login" class="col-sm-10">
 
                             <br>
@@ -70,7 +77,9 @@
                                         <input  type="file" style="display: none"/> -->
                                     </div>
                                 </div>
-                                                                
+                                <div id="error5" style="display: none;">
+                                    <span style="color: red">Es necesario ingresar el certificado.</span>
+                                </div>
                                 <div class="row">
                                     <div class="col-md-5">
                                     <label class="control-label" for="llavePrivada">Clave privada (.key)*:</label>
@@ -90,16 +99,22 @@
                                         <input  type="file" style="display: none"/> -->
                                     </div>
                                 </div>
-                                
+                                <div id="error6" style="display: none;">
+                                    <span style="color: red">Es necesario ingresar la clave privada.</span>
+                                </div>
                                 <div class="row">
                                     <div class="col-md-5">
                                     <label class="control-label" for="fraseLlaves">Contrase&ntilde;a de clave privada*:</label>
                                     </div>
-                                    </div>
+                                </div>
+                                
                                 <div class="row">
                                     <div class="col-md-5">
                                     <input class="form-control" id="fraseLlaves" name="fraseLlaves" placeholder="Contrase&ntilde;a" type="password">
                                     </div>
+                                </div>
+                                <div id="error7" style="display: none;">
+                                    <span style="color: red">Es necesario ingresar la contrase&ntilde;a de la clave privada.</span>
                                 </div>
                                 <div class="row" id="divRFC">
                                     <div class="col-md-5">
@@ -128,10 +143,13 @@
                                     <span style="color: red">El usuario ya ha iniciado sesi&oacue;n en otro lugar.</span>
                                 </div>
                                 <div id="error4" style="display: none;">
-                                    <span style="color: red">Problema al ingresar,verifique su conexión a Internet.</span>
+                                    <span style="color: red">Problema al ingresar,verifica tu conexión a internet.</span>
                                 </div>
-                                <div id="error5" style="display: none;">
-                                    <span style="color: red">Debe aceptar el aviso de privacidad antes de validar su e.firma.</span>
+                                
+                                
+                                
+                                <div id="error8" style="display: none;">
+                                    <span style="color: red">Es necesario leer y aceptar el aviso de privacidad para validar tu e.firma.</span>
                                 </div>
                                 <br>
                                 <div>
@@ -311,22 +329,48 @@
     
     //Función que intentará abrir el par de llaves
     function validateKeyPairs(e) {
+         $('#warningDiv').css("display", "none");
         jQuery("#loadingLlaves").show("blind");
         $('#firmaButton').prop('disabled',true);
         console.log($("#certificado").val());
-        if (($("#certificado").val() == '')){
-            //jQuery("#error5").show("blind");
-            alert("Ingrese el certificado");
+        if (($("#idFileCer").val() == '')|| ($("#idFileCer").val() == null)){
+            jQuery("#error5").show("blind");
+            jQuery("#loadingLlaves").hide();
+            $('#firmaButton').prop('disabled',false);
+            //alert("Ingrese el certificado");
             return;
         }
+        else
+            jQuery("#error5").hide();
+        
+        if (($("#idFileKey").val() == '')|| ($("#idFileKey").val() == null)){
+            jQuery("#error6").show("blind");
+            jQuery("#loadingLlaves").hide();
+            $('#firmaButton').prop('disabled',false);
+            //alert("Ingrese el certificado");
+            return;
+        }
+        else
+            jQuery("#error6").hide();
+        
+        if (($("#fraseLlaves").val() == '')|| ($("#fraseLlaves").val() == null)){
+            jQuery("#error7").show("blind");
+            jQuery("#loadingLlaves").hide();
+            $('#firmaButton').prop('disabled',false);
+            //alert("Ingrese el certificado");
+            return;
+        }
+        else
+            jQuery("#error7").hide();
+        
         if (!jQuery('#checkPrivacidad').is(':checked')) {
-            jQuery("#error5").show("blind");
+            jQuery("#error8").show("blind");
             jQuery("#loadingLlaves").hide();
             $('#firmaButton').prop('disabled',false);
             return;
         }
         else{
-            jQuery("#error5").hide();
+            jQuery("#error8").hide();
         }
         console.log($('.checkPrivacidad:checked').val());
         //objFirma.readCertificateAndPrivateKey($("#fraseLlaves").val(),$("#fraseLlaves").val());
@@ -334,13 +378,17 @@
         objFirma.validateKeyPairs($("#fraseLlaves").val(), function (result) {
             console.log(result);
             if (result.state == 0) {
-                console.log("Correcto");
+                console.log(result);
                 decodificarCertificadoUsuario(true);
             } else {
+                console.log(result);
                 console.log("Fallo");
-                alert(result.description);
+                //alert(result.description);
                 jQuery("#loadingLlaves").hide();
                 $('#firmaButton').prop('disabled',false);
+                $('#warningDiv').html(result.description);
+                $('#warningDiv').css("display", "block");
+                document.getElementById('errorLog').focus();
             }
         });
         //$('#solicitudRVOERevisionForm').submit();

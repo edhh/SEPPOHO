@@ -20,6 +20,11 @@ import mx.sep.poho.modelo.Tsh003Tramite;
 import mx.sep.poho.modelo.Tsh003TramiteExample;
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
+import mx.sep.poho.dao.Tsh087TramitesFirmadosMapper;
+import mx.sep.poho.modelo.Tsh087TramitesFirmados;
+import mx.sep.poho.modelo.Tsh087TramitesFirmadosExample;
+import mx.sep.poho.dao.join.TramitesFirmadosJoinMapper;
+import mx.sep.poho.servicios.util.Constants;
 
 /**
  *
@@ -28,6 +33,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 @Service
 public class TramitesServiceImpl implements TramitesService{
     
+    
+    
     @Autowired
     private TramitesJoinMapper tramitesJoinMapper;
     
@@ -35,7 +42,13 @@ public class TramitesServiceImpl implements TramitesService{
     private Tsh82ConfigModeloContratoMapper tsh82ConfigModeloContratoMapper;
     
     @Autowired
+    private Tsh087TramitesFirmadosMapper tsh087TramitesFirmadosMapper;
+    
+    @Autowired
     private Tsh003TramiteMapper tsh003TramiteMapper;
+    
+    @Autowired
+    private TramitesFirmadosJoinMapper tramitesFirmadosJoinMapper;
     
     public List <Integer> obtieneAnniosTramite(String rfc){
         List<Integer> lstAnnios = tramitesJoinMapper.obtieneAnniosTramites(rfc);
@@ -77,6 +90,29 @@ public class TramitesServiceImpl implements TramitesService{
             }
         }
         return modeloContrato;
+    }
+    
+    public Integer guardaDatosFirmaPrestador (Tsh087TramitesFirmados datosFirma){
+        
+        Integer noTramitesFirmadosPrestador = tramitesFirmadosJoinMapper.obtieneNoContratosXAnioNoTramite(datosFirma.getAnnio().intValue(), datosFirma.getNuTramite());
+        if(noTramitesFirmadosPrestador == 0){
+            tramitesFirmadosJoinMapper.guardaDatosFirma(datosFirma);
+            tramitesJoinMapper.actualizaEstatusCveFirmantes(Constants.EN_ESPERA_FIRMA_AUTORIDAD, datosFirma.getAnnio().intValue(),datosFirma.getNuTramite());
+            return 1;
+        }
+        else {
+            return null;
+        }
+        //Tsh087TramitesFirmadosExample tsh087Example = new Tsh087TramitesFirmadosExample();
+        //tsh087Example.createCriteria().andAnnioEqualTo(datosFirma.getAnnio()).andNuTramiteEqualTo(datosFirma.getNuTramite());
+        //List<Tsh087TramitesFirmados> lstTsh087 = tsh087TramitesFirmadosMapper.selectByExample(tsh087Example);
+        /*if(!lstTsh087.isEmpty() || lstTsh087.size() != 0){
+            return null;
+        }
+        else{
+            return tsh087TramitesFirmadosMapper.insert(datosFirma);
+        }*/
+       //return tsh087TramitesFirmadosMapper.insert(datosFirma);
     }
     
 }

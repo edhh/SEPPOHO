@@ -10,6 +10,7 @@ import java.util.List;
 import mx.sep.poho.datos.vo.ContratoVO;
 import mx.sep.poho.modelo.Tsh003Tramite;
 import mx.sep.poho.modelo.Tsh82ConfigModeloContrato;
+import mx.sep.poho.modelo.Tsh087TramitesFirmados;
 
 /**
  *
@@ -24,4 +25,6 @@ public interface TramitesService {
     Tsh82ConfigModeloContrato obtieneNombreReporte (Short annio, Date fechaIniContrato, String claveUnidad);
     
     List<Tsh003Tramite> obtieneContratosXnumTramite (Integer noTramite);
+    
+    Integer guardaDatosFirmaPrestador (Tsh087TramitesFirmados datosFirma);
 }

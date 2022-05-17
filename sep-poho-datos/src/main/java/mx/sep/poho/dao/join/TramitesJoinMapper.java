@@ -19,4 +19,6 @@ public interface TramitesJoinMapper {
     
     List<ContratoVO> obtieneContratosXAnnio (@Param("rfc") String rfc, @Param("annio") Integer annio);
     
+    void actualizaEstatusCveFirmantes (@Param("estatusFirmantes") Integer estatusFirmantes, @Param("annio") Integer annio, @Param("nuTramite") Integer noTramite);
+    
 }
