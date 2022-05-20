@@ -8,7 +8,7 @@
     <!-- Aqui se agregan las vistas que usarán los controllers para generar jasper reports. -->
     <bean id="repContrato"
           class="org.springframework.web.servlet.view.jasperreports.JasperReportsPdfView">
-        <property name="url" value="/WEB-INF/classes/mx/sep/poho/reportes/ModeloContrato_01032022_SC.jasper"/>     
+        <property name="url" value="/WEB-INF/classes/mx/sep/poho/reportes/ModeloContrato_prueba_SC.jasper"/>     
         <property name="headers">
             <props>
                 <prop key="Content-Disposition">        

@@ -21,7 +21,7 @@
   </resultMap>
    
     <select id="obtieneAnniosTramites" parameterType="java.lang.String" resultType="java.lang.Integer">
-        SELECT ANNIO FROM TSH003_TRAMITE WHERE RFC = #{rfc,jdbcType=VARCHAR} AND CVE_STATUS = 1036
+        SELECT UNIQUE ANNIO FROM TSH003_TRAMITE WHERE RFC = #{rfc,jdbcType=VARCHAR} AND CVE_STATUS = 1036
     </select>
     
     <select id="obtieneContratosXAnnio" resultMap="contratoResultMap">

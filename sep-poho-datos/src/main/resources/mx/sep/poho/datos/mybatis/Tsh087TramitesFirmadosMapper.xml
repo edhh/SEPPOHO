@@ -97,7 +97,7 @@
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from "tsh087_tramites_firmados"
+    from tsh087_tramites_firmados
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>

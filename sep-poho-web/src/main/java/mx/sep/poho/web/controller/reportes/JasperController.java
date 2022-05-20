@@ -27,6 +27,13 @@ import javax.servlet.http.HttpServletResponse;
 import mx.sep.poho.datos.vo.ContratoVO;
 import mx.sep.poho.modelo.Tsh003Tramite;
 import mx.sep.poho.modelo.Tsh82ConfigModeloContrato;
+import mx.sep.poho.dao.Tsh088DatosContratosDefMapper;
+import mx.sep.poho.modelo.Tsh088DatosContratosDef;
+import mx.sep.poho.modelo.Tsh088DatosContratosDefExample;
+import mx.sep.poho.dao.Tsh087TramitesFirmadosMapper;
+import mx.sep.poho.modelo.Tsh087TramitesFirmados;
+import mx.sep.poho.modelo.Tsh087TramitesFirmadosExample;
+import mx.sep.poho.modelo.join.DatosGeneracionContratoVO;
 import mx.sep.poho.modelo.join.DatosContratoVO;
 import mx.sep.poho.servicios.TramitesService;
 import net.sf.jasperreports.engine.JasperExportManager;
@@ -66,9 +73,17 @@ public class JasperController {
     @Autowired
     private TramitesService tramitesService;
     
+    @Autowired
+    private Tsh088DatosContratosDefMapper tsh088DatosContratosDefMapper;
+    
+    @Autowired
+    private  Tsh087TramitesFirmadosMapper tsh087TramitesFirmadosMapper;
+    
         @RequestMapping(value = "/repContrato", method = RequestMethod.GET)
     public ModelAndView reporteContrato(ModelMap modelMap,HttpServletResponse response, HttpServletRequest request, @RequestParam("noTramite") Integer noTramite)throws WriterException, IOException, Exception {
         Map model = new HashMap();
+        Tsh088DatosContratosDefExample tsh088Example = new Tsh088DatosContratosDefExample();
+        DatosGeneracionContratoVO datosContrato = new DatosGeneracionContratoVO();
         try{
             List<Tsh003Tramite> contratoLst = tramitesService.obtieneContratosXnumTramite(noTramite);
             if(contratoLst.isEmpty() || contratoLst.size() == 0){
@@ -79,6 +94,83 @@ public class JasperController {
             if(modeloContrato.getId() == null){
                 return null;
             }
+            
+            tsh088Example.createCriteria().andNuTramiteEqualTo(noTramite).andAnnioEqualTo(contrato.getAnnio().shortValue());
+            List<Tsh088DatosContratosDef> lstDatosContrato = tsh088DatosContratosDefMapper.selectByExample(tsh088Example);
+            Tsh087TramitesFirmadosExample tsh087Example = new Tsh087TramitesFirmadosExample();
+            tsh087Example.createCriteria().andAnnioEqualTo(contrato.getAnnio().shortValue()).andNuTramiteEqualTo(noTramite);
+            List<Tsh087TramitesFirmados> tsh087Lst = tsh087TramitesFirmadosMapper.selectByExample(tsh087Example);
+            
+            datosContrato.setAnnio(lstDatosContrato.get(0).getAnnio());
+            datosContrato.setCiudadFirma(lstDatosContrato.get(0).getCiudadFirma());
+            datosContrato.setCurpContratado(tsh087Lst.get(0).getCurpFirmanteP());
+            datosContrato.setCurpDirectorGeneral(tsh087Lst.get(0).getCurpFirmanteDg());
+            datosContrato.setCurpDirectorUR(tsh087Lst.get(0).getCurpFirmanteUr());
+            datosContrato.setDescEntregables(lstDatosContrato.get(0).getDescEntregables());
+            datosContrato.setDescFunciones(lstDatosContrato.get(0).getDescFunciones());
+            datosContrato.setDescNacContratado(lstDatosContrato.get(0).getDescNacContratado());
+            datosContrato.setDescPerfilContratado(lstDatosContrato.get(0).getDescPerfilContratado());
+            datosContrato.setDomDependencia(lstDatosContrato.get(0).getDomDependencia());
+            datosContrato.setDomicilioContratado(lstDatosContrato.get(0).getDomicilioContratado());
+            datosContrato.setExperienciaContratado(lstDatosContrato.get(0).getExperienciaContratado());
+            datosContrato.setFhFirmaContrato(lstDatosContrato.get(0).getFhFirmaContrato());
+            datosContrato.setFhVigenciaFinal(lstDatosContrato.get(0).getFhVigenciaFinal());
+            datosContrato.setFhVigenciaInicial(lstDatosContrato.get(0).getFhVigenciaInicial());
+            datosContrato.setFirmaDirectorGeneral(tsh087Lst.get(0).getFirmaDg());
+            datosContrato.setFirmaDirectorUr(tsh087Lst.get(0).getFirmaUr());
+            datosContrato.setFirmaPrestador(tsh087Lst.get(0).getFirmaP());
+            datosContrato.setFirmaRecepRepActNombre(lstDatosContrato.get(0).getFirmaRecepRepActNombre());
+            datosContrato.setFirmaRecepRepActPrefijo(lstDatosContrato.get(0).getFirmaRecepRepActPrefijo());
+            datosContrato.setFirmaRecepRepActPuesto(lstDatosContrato.get(0).getFirmaRecepRepActPuesto());
+            datosContrato.setFirmaRepAreaNombre(lstDatosContrato.get(0).getFirmaRepAreaNombre());
+            datosContrato.setFirmaRepAreaPrefijo(lstDatosContrato.get(0).getFirmaRepAreaPrefijo());
+            datosContrato.setFirmaRepAreaPuesto(lstDatosContrato.get(0).getFirmaRepAreaPuesto());
+            datosContrato.setFirmaRepAreaTitulo(lstDatosContrato.get(0).getFirmaRepAreaTitulo());
+            datosContrato.setFirmaRepSepNombre(lstDatosContrato.get(0).getFirmaRepSepNombre());
+            datosContrato.setFirmaRepSepPrefijo(lstDatosContrato.get(0).getFirmaRepSepPrefijo());
+            datosContrato.setFirmaRepSepPuesto(lstDatosContrato.get(0).getFirmaRepSepPuesto());
+            datosContrato.setFirmaRepSepTitulo(lstDatosContrato.get(0).getFirmaRepSepTitulo());
+            datosContrato.setImporteLetra(lstDatosContrato.get(0).getImporteLetra());
+            datosContrato.setNbDepCompatibilidad(lstDatosContrato.get(0).getNbDepCompatibilidad());
+            datosContrato.setNombreContratado(tsh087Lst.get(0).getNuSerieFirmanteP());
+            datosContrato.setNombreUr(lstDatosContrato.get(0).getNombreUr());
+            datosContrato.setNuExhibiciones(lstDatosContrato.get(0).getNuExhibiciones());
+            datosContrato.setNuTramite(noTramite);
+            datosContrato.setNum2ReqCompatibilidad(lstDatosContrato.get(0).getNum2ReqCompatibilidad());
+            datosContrato.setNumOfExisPzaVac(lstDatosContrato.get(0).getNumOfExisPzaVac());
+            datosContrato.setNumOfResSfp(lstDatosContrato.get(0).getNumOfResSfp());
+            datosContrato.setNumReqCompatiblidad(lstDatosContrato.get(0).getNumReqCompatiblidad());
+            datosContrato.setOficioFhCompatiblidad(lstDatosContrato.get(0).getOficioFhCompatiblidad());
+            datosContrato.setOficioFhExisPzaVac(lstDatosContrato.get(0).getOficioFhExisPzaVac());
+            datosContrato.setOficioFhRespSfp(lstDatosContrato.get(0).getOficioFhRespSfp());
+            datosContrato.setPartida(lstDatosContrato.get(0).getPartida());
+            datosContrato.setPrefijoContratado(lstDatosContrato.get(0).getPrefijoContratado());
+            datosContrato.setPrevioDefinitivo(lstDatosContrato.get(0).getPrevioDefinitivo());
+            datosContrato.setPuestoCompatibilidad(lstDatosContrato.get(0).getPuestoCompatibilidad());
+            datosContrato.setReqCompatibilidad(lstDatosContrato.get(0).getReqCompatibilidad());
+            datosContrato.setReqIssste(lstDatosContrato.get(0).getReqIssste());
+            datosContrato.setReqOfExisPzaVac(lstDatosContrato.get(0).getReqOfExisPzaVac());
+            datosContrato.setReqOfRespSfp(lstDatosContrato.get(0).getReqOfRespSfp());
+            datosContrato.setRfcContratado(lstDatosContrato.get(0).getRfcContratado());
+            datosContrato.setSelloDirectorGeneral(tsh087Lst.get(0).getTsaDg());
+            datosContrato.setSelloDirectorUR(tsh087Lst.get(0).getTsaUr());
+            datosContrato.setSelloPrestador(tsh087Lst.get(0).getTsaP());
+            datosContrato.setSerieDirectorGeneral(tsh087Lst.get(0).getNuSerieFirmanteDg());
+            datosContrato.setSerieDirectorUR(tsh087Lst.get(0).getNuSerieFirmanteUr());
+            datosContrato.setSeriePrestador(tsh087Lst.get(0).getNuSerieFirmanteP());
+            datosContrato.setSumImBrutoRecibidos(lstDatosContrato.get(0).getSumImBrutoRecibidos());
+            datosContrato.setSuplenciaDirectorGeneral(tsh087Lst.get(0).getSuplenciaDg());
+            datosContrato.setSuplenciaDirectorUR(tsh087Lst.get(0).getSuplenciaUr());
+            datosContrato.setUr(lstDatosContrato.get(0).getUr());
+            datosContrato.setCadenaOriginal(tsh087Lst.get(0).getCadenaOriginal());
+            datosContrato.setBanderaPrestador("1");
+            datosContrato.setLstDatos(lstDatosContrato);
+            
+
+                    
+            //datosContrato = DatosGeneracionContratoVO(lstDatosContrato.get(0));
+            
+            /*  LECTURA Y GENERACION DEL ARCHIVO MEDIANTE UN ARRAY CHAR DE LA BD
             String path = System.getProperty("user.dir");
             System.out.println(path);
             String userDirectory = new File("").getAbsolutePath();
@@ -102,13 +194,14 @@ public class JasperController {
             System.out.println(jasperFiles);
             //FileUtils.writeByteArrayToFile(new File("C:\\Users\\PabloJesusMendozaCer\\Documents\\GitHub\\SEPPOHO\\sep-poho-web\\target\\sep-poho-web\\WEB-INF\\classes\\mx\\sep\\poho\\reportes\\ModeloContrato_01032022_SC_clon.jasper"), jasperFiles);
             //TimeUnit.SECONDS.sleep(5);
+*/
         }
         catch(Exception  e){
             System.out.println(e);
         }
         //File jasperFile2 = new File ("C:\\Users\\PabloJesusMendozaCer\\Documents\\GitHub\\SEPPOHO\\sep-poho-web\\target\\sep-poho-web\\WEB-INF\\classes\\mx\\sep\\poho\\reportes\\ModeloContrato_01032022_SC_clon.jasper");
         System.out.println("SE LLENA EL OBJETO");
-        List<DatosContratoVO> lstDatosContrato = new ArrayList<DatosContratoVO>();
+        /*List<DatosContratoVO> lstDatosContrato = new ArrayList<DatosContratoVO>();
         DatosContratoVO datosContrato = new DatosContratoVO();
         datosContrato.setNombreFirmaRepArea("JACOBO BELLO JOYA");
         datosContrato.setNombreContratado("PABLO JESUS MENDOZA CERON");
@@ -123,6 +216,8 @@ public class JasperController {
         datosContrato.setImporteLetra("VEINTICINCO MIL DOSCIENTOS CINCUENTA Y CUATRO PESOS 76/100 M.N");
         datosContrato.setNoExhibiciones("4");
         datosContrato.setPrevioDefinitivo("0");
+        lstDatosContrato.add(datosContrato);*/
+        List<DatosGeneracionContratoVO> lstDatosContrato = new ArrayList();
         lstDatosContrato.add(datosContrato);
         JRBeanCollectionDataSource jrbean = new JRBeanCollectionDataSource(lstDatosContrato);
         model.put("lista", jrbean);
@@ -137,8 +232,7 @@ public class JasperController {
         //modelMap.put("datasource", jRBeanCollectionDataSource);
         //JasperReportsCsvView view = (JasperReportsCsvView) context.getBean("csvReport");
         
-        
-        //JasperReport jasperReport = 
+        /* PRUEBAS PARA LA GENERACION Y DESCARGA DEL REPORTE DESDE LA BD
         System.out.println("Se obtiene el jasper de la ruta especificada");
         //InputStream jasperStream = this.getClass().getResourceAsStream(new File("C:\\Users\\PabloJesusMendozaCer\\Documents\\GitHub\\SEPPOHO\\sep-poho-web\\target\\sep-poho-web\\WEB-INF\\classes\\mx\\sep\\poho\\reportes\\ModeloContrato_01032022_SC_clon.jasper", jasperFiles));
         System.out.println("Se carga el jasper en el objeto especificado");
@@ -148,11 +242,14 @@ public class JasperController {
         System.out.println("Se crea el reporte");
         //print = JasperFillManager.fillReport(jasperReport,model);
         //byte[] pdfBytes = JasperExportManager.exportReportToPdf(print);
+       */
+        
+        
         ModelAndView modelAndView = new ModelAndView("repContrato", model);
-        System.out.println("Se retorna el model and view empty");
+        //System.out.println("Se retorna el model and view empty");
         //ModelAndView modelAndView = new ModelAndView();
         
-        System.out.println("eNCABEZADOS DE RESPUESTA");
+        //System.out.println("eNCABEZADOS DE RESPUESTA");
         //response.setContentType("application/x-pdf");
         //response.setHeader("Content-disposition", "inline; filename=helloWorldReport.pdf");
         //final OutputStream outStream = response.getOutputStream();

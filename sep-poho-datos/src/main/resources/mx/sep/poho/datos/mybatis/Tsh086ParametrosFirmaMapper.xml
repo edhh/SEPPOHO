@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="mx.sep.poho.dao.Tsh086ParametrosFirmaMapper" >
+  <resultMap id="BaseResultMap" type="mx.sep.poho.modelo.Tsh086ParametrosFirma" >
+    <id column="nid_parametro_firma" property="nidParametroFirma" jdbcType="INTEGER" />
+    <result column="cparametro_firma" property="cparametroFirma" jdbcType="VARCHAR" />
+    <result column="cvalor_parametro_firma" property="cvalorParametroFirma" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    nid_parametro_firma, cparametro_firma, cvalor_parametro_firma
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="mx.sep.poho.modelo.Tsh086ParametrosFirmaExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from tsh086_parametros_firma
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from tsh086_parametros_firma
+    where nid_parametro_firma = #{nidParametroFirma,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tsh086_parametros_firma
+    where nid_parametro_firma = #{nidParametroFirma,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="mx.sep.poho.modelo.Tsh086ParametrosFirmaExample" >
+    delete from tsh086_parametros_firma
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="mx.sep.poho.modelo.Tsh086ParametrosFirma" >
+    insert into tsh086_parametros_firma (nid_parametro_firma, cparametro_firma, 
+      cvalor_parametro_firma)
+    values (#{nidParametroFirma,jdbcType=INTEGER}, #{cparametroFirma,jdbcType=VARCHAR}, 
+      #{cvalorParametroFirma,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="mx.sep.poho.modelo.Tsh086ParametrosFirma" >
+    insert into tsh086_parametros_firma
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="nidParametroFirma != null" >
+        nid_parametro_firma,
+      </if>
+      <if test="cparametroFirma != null" >
+        cparametro_firma,
+      </if>
+      <if test="cvalorParametroFirma != null" >
+        cvalor_parametro_firma,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="nidParametroFirma != null" >
+        #{nidParametroFirma,jdbcType=INTEGER},
+      </if>
+      <if test="cparametroFirma != null" >
+        #{cparametroFirma,jdbcType=VARCHAR},
+      </if>
+      <if test="cvalorParametroFirma != null" >
+        #{cvalorParametroFirma,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="mx.sep.poho.modelo.Tsh086ParametrosFirmaExample" resultType="java.lang.Integer" >
+    select count(*) from tsh086_parametros_firma
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update tsh086_parametros_firma
+    <set >
+      <if test="record.nidParametroFirma != null" >
+        nid_parametro_firma = #{record.nidParametroFirma,jdbcType=INTEGER},
+      </if>
+      <if test="record.cparametroFirma != null" >
+        cparametro_firma = #{record.cparametroFirma,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cvalorParametroFirma != null" >
+        cvalor_parametro_firma = #{record.cvalorParametroFirma,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update tsh086_parametros_firma
+    set nid_parametro_firma = #{record.nidParametroFirma,jdbcType=INTEGER},
+      cparametro_firma = #{record.cparametroFirma,jdbcType=VARCHAR},
+      cvalor_parametro_firma = #{record.cvalorParametroFirma,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="mx.sep.poho.modelo.Tsh086ParametrosFirma" >
+    update tsh086_parametros_firma
+    <set >
+      <if test="cparametroFirma != null" >
+        cparametro_firma = #{cparametroFirma,jdbcType=VARCHAR},
+      </if>
+      <if test="cvalorParametroFirma != null" >
+        cvalor_parametro_firma = #{cvalorParametroFirma,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where nid_parametro_firma = #{nidParametroFirma,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="mx.sep.poho.modelo.Tsh086ParametrosFirma" >
+    update tsh086_parametros_firma
+    set cparametro_firma = #{cparametroFirma,jdbcType=VARCHAR},
+      cvalor_parametro_firma = #{cvalorParametroFirma,jdbcType=VARCHAR}
+    where nid_parametro_firma = #{nidParametroFirma,jdbcType=INTEGER}
+  </update>
+</mapper>

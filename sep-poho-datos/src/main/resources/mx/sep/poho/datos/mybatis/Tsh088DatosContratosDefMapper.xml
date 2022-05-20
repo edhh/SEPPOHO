@@ -2,8 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="mx.sep.poho.dao.Tsh088DatosContratosDefMapper" >
   <resultMap id="BaseResultMap" type="mx.sep.poho.modelo.Tsh088DatosContratosDef" >
-    <id column="annio" property="annio" jdbcType="CHAR" />
-    <id column="nu_tramite" property="nuTramite" jdbcType="VARCHAR" />
+    <id column="annio" property="annio" jdbcType="SMALLINT" />
+    <id column="nu_tramite" property="nuTramite" jdbcType="INTEGER" />
     <result column="ur" property="ur" jdbcType="CHAR" />
     <result column="nombre_ur" property="nombreUr" jdbcType="VARCHAR" />
     <result column="previo_definitivo" property="previoDefinitivo" jdbcType="CHAR" />
@@ -47,6 +47,7 @@
     <result column="firma_rep_sep_titulo" property="firmaRepSepTitulo" jdbcType="VARCHAR" />
     <result column="firma_rep_sep_nombre" property="firmaRepSepNombre" jdbcType="CHAR" />
     <result column="firma_rep_sep_puesto" property="firmaRepSepPuesto" jdbcType="CHAR" />
+    <result column="puesto_compatibilidad" property="puestoCompatibilidad" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -116,7 +117,7 @@
     req_of_resp_sfp, num_of_res_sfp, oficio_fh_resp_sfp, req_of_exis_pza_vac, num_of_exis_pza_vac, 
     oficio_fh_exis_pza_vac, nb_dep_compatibilidad, desc_entregables, req_issste, num2_req_compatibilidad, 
     dom_dependencia, ciudad_firma, partida, firma_rep_sep_prefijo, firma_rep_sep_titulo, 
-    firma_rep_sep_nombre, firma_rep_sep_puesto
+    firma_rep_sep_nombre, firma_rep_sep_puesto, puesto_compatibilidad
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="mx.sep.poho.modelo.Tsh088DatosContratosDefExample" >
     select
@@ -136,13 +137,13 @@
     select 
     <include refid="Base_Column_List" />
     from tsh088_datos_contratos_def
-    where annio = #{annio,jdbcType=CHAR}
-      and nu_tramite = #{nuTramite,jdbcType=VARCHAR}
+    where annio = #{annio,jdbcType=SMALLINT}
+      and nu_tramite = #{nuTramite,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="map" >
     delete from tsh088_datos_contratos_def
-    where annio = #{annio,jdbcType=CHAR}
-      and nu_tramite = #{nuTramite,jdbcType=VARCHAR}
+    where annio = #{annio,jdbcType=SMALLINT}
+      and nu_tramite = #{nuTramite,jdbcType=INTEGER}
   </delete>
   <delete id="deleteByExample" parameterType="mx.sep.poho.modelo.Tsh088DatosContratosDefExample" >
     delete from tsh088_datos_contratos_def
@@ -165,9 +166,9 @@
       oficio_fh_exis_pza_vac, nb_dep_compatibilidad, desc_entregables, 
       req_issste, num2_req_compatibilidad, dom_dependencia, 
       ciudad_firma, partida, firma_rep_sep_prefijo, 
-      firma_rep_sep_titulo, firma_rep_sep_nombre, firma_rep_sep_puesto
-      )
-    values (#{annio,jdbcType=CHAR}, #{nuTramite,jdbcType=VARCHAR}, #{ur,jdbcType=CHAR}, 
+      firma_rep_sep_titulo, firma_rep_sep_nombre, firma_rep_sep_puesto, 
+      puesto_compatibilidad)
+    values (#{annio,jdbcType=SMALLINT}, #{nuTramite,jdbcType=INTEGER}, #{ur,jdbcType=CHAR}, 
       #{nombreUr,jdbcType=VARCHAR}, #{previoDefinitivo,jdbcType=CHAR}, #{firmaRepAreaPrefijo,jdbcType=CHAR}, 
       #{firmaRepAreaNombre,jdbcType=CHAR}, #{firmaRepAreaPuesto,jdbcType=CHAR}, #{descPerfilContratado,jdbcType=CHAR}, 
       #{descNacContratado,jdbcType=CHAR}, #{rfcContratado,jdbcType=CHAR}, #{experienciaContratado,jdbcType=CHAR}, 
@@ -181,8 +182,8 @@
       #{oficioFhExisPzaVac,jdbcType=VARCHAR}, #{nbDepCompatibilidad,jdbcType=CHAR}, #{descEntregables,jdbcType=CHAR}, 
       #{reqIssste,jdbcType=CHAR}, #{num2ReqCompatibilidad,jdbcType=CHAR}, #{domDependencia,jdbcType=CHAR}, 
       #{ciudadFirma,jdbcType=CHAR}, #{partida,jdbcType=CHAR}, #{firmaRepSepPrefijo,jdbcType=CHAR}, 
-      #{firmaRepSepTitulo,jdbcType=VARCHAR}, #{firmaRepSepNombre,jdbcType=CHAR}, #{firmaRepSepPuesto,jdbcType=CHAR}
-      )
+      #{firmaRepSepTitulo,jdbcType=VARCHAR}, #{firmaRepSepNombre,jdbcType=CHAR}, #{firmaRepSepPuesto,jdbcType=CHAR}, 
+      #{puestoCompatibilidad,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="mx.sep.poho.modelo.Tsh088DatosContratosDef" >
     insert into tsh088_datos_contratos_def
@@ -322,13 +323,16 @@
       <if test="firmaRepSepPuesto != null" >
         firma_rep_sep_puesto,
       </if>
+      <if test="puestoCompatibilidad != null" >
+        puesto_compatibilidad,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="annio != null" >
-        #{annio,jdbcType=CHAR},
+        #{annio,jdbcType=SMALLINT},
       </if>
       <if test="nuTramite != null" >
-        #{nuTramite,jdbcType=VARCHAR},
+        #{nuTramite,jdbcType=INTEGER},
       </if>
       <if test="ur != null" >
         #{ur,jdbcType=CHAR},
@@ -459,6 +463,9 @@
       <if test="firmaRepSepPuesto != null" >
         #{firmaRepSepPuesto,jdbcType=CHAR},
       </if>
+      <if test="puestoCompatibilidad != null" >
+        #{puestoCompatibilidad,jdbcType=VARCHAR},
+      </if>
     </trim>
   </insert>
   <select id="countByExample" parameterType="mx.sep.poho.modelo.Tsh088DatosContratosDefExample" resultType="java.lang.Integer" >
@@ -471,10 +478,10 @@
     update tsh088_datos_contratos_def
     <set >
       <if test="record.annio != null" >
-        annio = #{record.annio,jdbcType=CHAR},
+        annio = #{record.annio,jdbcType=SMALLINT},
       </if>
       <if test="record.nuTramite != null" >
-        nu_tramite = #{record.nuTramite,jdbcType=VARCHAR},
+        nu_tramite = #{record.nuTramite,jdbcType=INTEGER},
       </if>
       <if test="record.ur != null" >
         ur = #{record.ur,jdbcType=CHAR},
@@ -605,6 +612,9 @@
       <if test="record.firmaRepSepPuesto != null" >
         firma_rep_sep_puesto = #{record.firmaRepSepPuesto,jdbcType=CHAR},
       </if>
+      <if test="record.puestoCompatibilidad != null" >
+        puesto_compatibilidad = #{record.puestoCompatibilidad,jdbcType=VARCHAR},
+      </if>
     </set>
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -612,8 +622,8 @@
   </update>
   <update id="updateByExample" parameterType="map" >
     update tsh088_datos_contratos_def
-    set annio = #{record.annio,jdbcType=CHAR},
-      nu_tramite = #{record.nuTramite,jdbcType=VARCHAR},
+    set annio = #{record.annio,jdbcType=SMALLINT},
+      nu_tramite = #{record.nuTramite,jdbcType=INTEGER},
       ur = #{record.ur,jdbcType=CHAR},
       nombre_ur = #{record.nombreUr,jdbcType=VARCHAR},
       previo_definitivo = #{record.previoDefinitivo,jdbcType=CHAR},
@@ -656,7 +666,8 @@
       firma_rep_sep_prefijo = #{record.firmaRepSepPrefijo,jdbcType=CHAR},
       firma_rep_sep_titulo = #{record.firmaRepSepTitulo,jdbcType=VARCHAR},
       firma_rep_sep_nombre = #{record.firmaRepSepNombre,jdbcType=CHAR},
-      firma_rep_sep_puesto = #{record.firmaRepSepPuesto,jdbcType=CHAR}
+      firma_rep_sep_puesto = #{record.firmaRepSepPuesto,jdbcType=CHAR},
+      puesto_compatibilidad = #{record.puestoCompatibilidad,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -793,9 +804,12 @@
       <if test="firmaRepSepPuesto != null" >
         firma_rep_sep_puesto = #{firmaRepSepPuesto,jdbcType=CHAR},
       </if>
+      <if test="puestoCompatibilidad != null" >
+        puesto_compatibilidad = #{puestoCompatibilidad,jdbcType=VARCHAR},
+      </if>
     </set>
-    where annio = #{annio,jdbcType=CHAR}
-      and nu_tramite = #{nuTramite,jdbcType=VARCHAR}
+    where annio = #{annio,jdbcType=SMALLINT}
+      and nu_tramite = #{nuTramite,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="mx.sep.poho.modelo.Tsh088DatosContratosDef" >
     update tsh088_datos_contratos_def
@@ -841,8 +855,9 @@
       firma_rep_sep_prefijo = #{firmaRepSepPrefijo,jdbcType=CHAR},
       firma_rep_sep_titulo = #{firmaRepSepTitulo,jdbcType=VARCHAR},
       firma_rep_sep_nombre = #{firmaRepSepNombre,jdbcType=CHAR},
-      firma_rep_sep_puesto = #{firmaRepSepPuesto,jdbcType=CHAR}
-    where annio = #{annio,jdbcType=CHAR}
-      and nu_tramite = #{nuTramite,jdbcType=VARCHAR}
+      firma_rep_sep_puesto = #{firmaRepSepPuesto,jdbcType=CHAR},
+      puesto_compatibilidad = #{puestoCompatibilidad,jdbcType=VARCHAR}
+    where annio = #{annio,jdbcType=SMALLINT}
+      and nu_tramite = #{nuTramite,jdbcType=INTEGER}
   </update>
 </mapper>

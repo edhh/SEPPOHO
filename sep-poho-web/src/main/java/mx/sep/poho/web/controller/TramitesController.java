@@ -100,20 +100,24 @@ public class TramitesController {
     
     @RequestMapping(value = "/datosFirmaPrestador", method = RequestMethod.POST)
     @ResponseBody
-    public Object obtenerCedulaGrado(@RequestBody Tsh087TramitesFirmados datosFirma) throws Exception {
-        Map<String, Object> mensaje = new HashMap<String, Object>();
+    public Integer obtenerCedulaGrado(@RequestBody Tsh087TramitesFirmados datosFirma) throws Exception {
+        //Map<String, Object> mensaje = new HashMap<String, Object>();
         System.out.println("DATOS OBJ FIRMA PRESTADOR");
         System.out.println(datosFirma.getAnnio());
         System.out.println(datosFirma.getNuTramite());
         Integer resultadoInsert = tramitesService.guardaDatosFirmaPrestador(datosFirma);
+        Integer mensaje = 0;
         if(resultadoInsert == null){
-            mensaje.put("El contrato ha sido previamente firmado",null);
+            mensaje = 0;
+            //mensaje.put("El contrato ha sido previamente firmado",null);
         }
         else if(resultadoInsert != 0){
-            mensaje.put("El contrato ha sido firmado exitosamente",1);
+            mensaje = 1;
+            //mensaje.put("El contrato ha sido firmado exitosamente",1);
         }
         else {
-            mensaje.put("Ocurri? un error durante la firma del contrato, inténtelo m?s tarde",0);
+            mensaje = 0;
+            //mensaje.put("Ocurri? un error durante la firma del contrato, inténtelo m?s tarde",0);
         }
         return mensaje;
     }

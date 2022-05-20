@@ -10,7 +10,7 @@ public interface Tsh088DatosContratosDefMapper {
 
     int deleteByExample(Tsh088DatosContratosDefExample example);
 
-    int deleteByPrimaryKey(@Param("annio") String annio, @Param("nuTramite") String nuTramite);
+    int deleteByPrimaryKey(@Param("annio") Short annio, @Param("nuTramite") Integer nuTramite);
 
     int insert(Tsh088DatosContratosDef record);
 
@@ -18,7 +18,7 @@ public interface Tsh088DatosContratosDefMapper {
 
     List<Tsh088DatosContratosDef> selectByExample(Tsh088DatosContratosDefExample example);
 
-    Tsh088DatosContratosDef selectByPrimaryKey(@Param("annio") String annio, @Param("nuTramite") String nuTramite);
+    Tsh088DatosContratosDef selectByPrimaryKey(@Param("annio") Short annio, @Param("nuTramite") Integer nuTramite);
 
     int updateByExampleSelective(@Param("record") Tsh088DatosContratosDef record, @Param("example") Tsh088DatosContratosDefExample example);
 

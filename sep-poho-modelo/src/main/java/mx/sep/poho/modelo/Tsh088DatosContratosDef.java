@@ -1,9 +1,9 @@
 package mx.sep.poho.modelo;
 
 public class Tsh088DatosContratosDef {
-    private String annio;
+    private Short annio;
 
-    private String nuTramite;
+    private Integer nuTramite;
 
     private String ur;
 
@@ -91,20 +91,22 @@ public class Tsh088DatosContratosDef {
 
     private String firmaRepSepPuesto;
 
-    public String getAnnio() {
+    private String puestoCompatibilidad;
+
+    public Short getAnnio() {
         return annio;
     }
 
-    public void setAnnio(String annio) {
-        this.annio = annio == null ? null : annio.trim();
+    public void setAnnio(Short annio) {
+        this.annio = annio;
     }
 
-    public String getNuTramite() {
+    public Integer getNuTramite() {
         return nuTramite;
     }
 
-    public void setNuTramite(String nuTramite) {
-        this.nuTramite = nuTramite == null ? null : nuTramite.trim();
+    public void setNuTramite(Integer nuTramite) {
+        this.nuTramite = nuTramite;
     }
 
     public String getUr() {
@@ -451,6 +453,14 @@ public class Tsh088DatosContratosDef {
         this.firmaRepSepPuesto = firmaRepSepPuesto == null ? null : firmaRepSepPuesto.trim();
     }
 
+    public String getPuestoCompatibilidad() {
+        return puestoCompatibilidad;
+    }
+
+    public void setPuestoCompatibilidad(String puestoCompatibilidad) {
+        this.puestoCompatibilidad = puestoCompatibilidad == null ? null : puestoCompatibilidad.trim();
+    }
+
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -507,7 +517,8 @@ public class Tsh088DatosContratosDef {
             && (this.getFirmaRepSepPrefijo() == null ? other.getFirmaRepSepPrefijo() == null : this.getFirmaRepSepPrefijo().equals(other.getFirmaRepSepPrefijo()))
             && (this.getFirmaRepSepTitulo() == null ? other.getFirmaRepSepTitulo() == null : this.getFirmaRepSepTitulo().equals(other.getFirmaRepSepTitulo()))
             && (this.getFirmaRepSepNombre() == null ? other.getFirmaRepSepNombre() == null : this.getFirmaRepSepNombre().equals(other.getFirmaRepSepNombre()))
-            && (this.getFirmaRepSepPuesto() == null ? other.getFirmaRepSepPuesto() == null : this.getFirmaRepSepPuesto().equals(other.getFirmaRepSepPuesto()));
+            && (this.getFirmaRepSepPuesto() == null ? other.getFirmaRepSepPuesto() == null : this.getFirmaRepSepPuesto().equals(other.getFirmaRepSepPuesto()))
+            && (this.getPuestoCompatibilidad() == null ? other.getPuestoCompatibilidad() == null : this.getPuestoCompatibilidad().equals(other.getPuestoCompatibilidad()));
     }
 
     @Override
@@ -559,6 +570,7 @@ public class Tsh088DatosContratosDef {
         result = prime * result + ((getFirmaRepSepTitulo() == null) ? 0 : getFirmaRepSepTitulo().hashCode());
         result = prime * result + ((getFirmaRepSepNombre() == null) ? 0 : getFirmaRepSepNombre().hashCode());
         result = prime * result + ((getFirmaRepSepPuesto() == null) ? 0 : getFirmaRepSepPuesto().hashCode());
+        result = prime * result + ((getPuestoCompatibilidad() == null) ? 0 : getPuestoCompatibilidad().hashCode());
         return result;
     }
 }

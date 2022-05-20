@@ -114,62 +114,52 @@ public class Tsh088DatosContratosDefExample {
             return (Criteria) this;
         }
 
-        public Criteria andAnnioEqualTo(String value) {
+        public Criteria andAnnioEqualTo(Short value) {
             addCriterion("annio =", value, "annio");
             return (Criteria) this;
         }
 
-        public Criteria andAnnioNotEqualTo(String value) {
+        public Criteria andAnnioNotEqualTo(Short value) {
             addCriterion("annio <>", value, "annio");
             return (Criteria) this;
         }
 
-        public Criteria andAnnioGreaterThan(String value) {
+        public Criteria andAnnioGreaterThan(Short value) {
             addCriterion("annio >", value, "annio");
             return (Criteria) this;
         }
 
-        public Criteria andAnnioGreaterThanOrEqualTo(String value) {
+        public Criteria andAnnioGreaterThanOrEqualTo(Short value) {
             addCriterion("annio >=", value, "annio");
             return (Criteria) this;
         }
 
-        public Criteria andAnnioLessThan(String value) {
+        public Criteria andAnnioLessThan(Short value) {
             addCriterion("annio <", value, "annio");
             return (Criteria) this;
         }
 
-        public Criteria andAnnioLessThanOrEqualTo(String value) {
+        public Criteria andAnnioLessThanOrEqualTo(Short value) {
             addCriterion("annio <=", value, "annio");
             return (Criteria) this;
         }
 
-        public Criteria andAnnioLike(String value) {
-            addCriterion("annio like", value, "annio");
-            return (Criteria) this;
-        }
-
-        public Criteria andAnnioNotLike(String value) {
-            addCriterion("annio not like", value, "annio");
-            return (Criteria) this;
-        }
-
-        public Criteria andAnnioIn(List<String> values) {
+        public Criteria andAnnioIn(List<Short> values) {
             addCriterion("annio in", values, "annio");
             return (Criteria) this;
         }
 
-        public Criteria andAnnioNotIn(List<String> values) {
+        public Criteria andAnnioNotIn(List<Short> values) {
             addCriterion("annio not in", values, "annio");
             return (Criteria) this;
         }
 
-        public Criteria andAnnioBetween(String value1, String value2) {
+        public Criteria andAnnioBetween(Short value1, Short value2) {
             addCriterion("annio between", value1, value2, "annio");
             return (Criteria) this;
         }
 
-        public Criteria andAnnioNotBetween(String value1, String value2) {
+        public Criteria andAnnioNotBetween(Short value1, Short value2) {
             addCriterion("annio not between", value1, value2, "annio");
             return (Criteria) this;
         }
@@ -184,62 +174,52 @@ public class Tsh088DatosContratosDefExample {
             return (Criteria) this;
         }
 
-        public Criteria andNuTramiteEqualTo(String value) {
+        public Criteria andNuTramiteEqualTo(Integer value) {
             addCriterion("nu_tramite =", value, "nuTramite");
             return (Criteria) this;
         }
 
-        public Criteria andNuTramiteNotEqualTo(String value) {
+        public Criteria andNuTramiteNotEqualTo(Integer value) {
             addCriterion("nu_tramite <>", value, "nuTramite");
             return (Criteria) this;
         }
 
-        public Criteria andNuTramiteGreaterThan(String value) {
+        public Criteria andNuTramiteGreaterThan(Integer value) {
             addCriterion("nu_tramite >", value, "nuTramite");
             return (Criteria) this;
         }
 
-        public Criteria andNuTramiteGreaterThanOrEqualTo(String value) {
+        public Criteria andNuTramiteGreaterThanOrEqualTo(Integer value) {
             addCriterion("nu_tramite >=", value, "nuTramite");
             return (Criteria) this;
         }
 
-        public Criteria andNuTramiteLessThan(String value) {
+        public Criteria andNuTramiteLessThan(Integer value) {
             addCriterion("nu_tramite <", value, "nuTramite");
             return (Criteria) this;
         }
 
-        public Criteria andNuTramiteLessThanOrEqualTo(String value) {
+        public Criteria andNuTramiteLessThanOrEqualTo(Integer value) {
             addCriterion("nu_tramite <=", value, "nuTramite");
             return (Criteria) this;
         }
 
-        public Criteria andNuTramiteLike(String value) {
-            addCriterion("nu_tramite like", value, "nuTramite");
-            return (Criteria) this;
-        }
-
-        public Criteria andNuTramiteNotLike(String value) {
-            addCriterion("nu_tramite not like", value, "nuTramite");
-            return (Criteria) this;
-        }
-
-        public Criteria andNuTramiteIn(List<String> values) {
+        public Criteria andNuTramiteIn(List<Integer> values) {
             addCriterion("nu_tramite in", values, "nuTramite");
             return (Criteria) this;
         }
 
-        public Criteria andNuTramiteNotIn(List<String> values) {
+        public Criteria andNuTramiteNotIn(List<Integer> values) {
             addCriterion("nu_tramite not in", values, "nuTramite");
             return (Criteria) this;
         }
 
-        public Criteria andNuTramiteBetween(String value1, String value2) {
+        public Criteria andNuTramiteBetween(Integer value1, Integer value2) {
             addCriterion("nu_tramite between", value1, value2, "nuTramite");
             return (Criteria) this;
         }
 
-        public Criteria andNuTramiteNotBetween(String value1, String value2) {
+        public Criteria andNuTramiteNotBetween(Integer value1, Integer value2) {
             addCriterion("nu_tramite not between", value1, value2, "nuTramite");
             return (Criteria) this;
         }
@@ -3251,6 +3231,76 @@ public class Tsh088DatosContratosDefExample {
 
         public Criteria andFirmaRepSepPuestoNotBetween(String value1, String value2) {
             addCriterion("firma_rep_sep_puesto not between", value1, value2, "firmaRepSepPuesto");
+            return (Criteria) this;
+        }
+
+        public Criteria andPuestoCompatibilidadIsNull() {
+            addCriterion("puesto_compatibilidad is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPuestoCompatibilidadIsNotNull() {
+            addCriterion("puesto_compatibilidad is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPuestoCompatibilidadEqualTo(String value) {
+            addCriterion("puesto_compatibilidad =", value, "puestoCompatibilidad");
+            return (Criteria) this;
+        }
+
+        public Criteria andPuestoCompatibilidadNotEqualTo(String value) {
+            addCriterion("puesto_compatibilidad <>", value, "puestoCompatibilidad");
+            return (Criteria) this;
+        }
+
+        public Criteria andPuestoCompatibilidadGreaterThan(String value) {
+            addCriterion("puesto_compatibilidad >", value, "puestoCompatibilidad");
+            return (Criteria) this;
+        }
+
+        public Criteria andPuestoCompatibilidadGreaterThanOrEqualTo(String value) {
+            addCriterion("puesto_compatibilidad >=", value, "puestoCompatibilidad");
+            return (Criteria) this;
+        }
+
+        public Criteria andPuestoCompatibilidadLessThan(String value) {
+            addCriterion("puesto_compatibilidad <", value, "puestoCompatibilidad");
+            return (Criteria) this;
+        }
+
+        public Criteria andPuestoCompatibilidadLessThanOrEqualTo(String value) {
+            addCriterion("puesto_compatibilidad <=", value, "puestoCompatibilidad");
+            return (Criteria) this;
+        }
+
+        public Criteria andPuestoCompatibilidadLike(String value) {
+            addCriterion("puesto_compatibilidad like", value, "puestoCompatibilidad");
+            return (Criteria) this;
+        }
+
+        public Criteria andPuestoCompatibilidadNotLike(String value) {
+            addCriterion("puesto_compatibilidad not like", value, "puestoCompatibilidad");
+            return (Criteria) this;
+        }
+
+        public Criteria andPuestoCompatibilidadIn(List<String> values) {
+            addCriterion("puesto_compatibilidad in", values, "puestoCompatibilidad");
+            return (Criteria) this;
+        }
+
+        public Criteria andPuestoCompatibilidadNotIn(List<String> values) {
+            addCriterion("puesto_compatibilidad not in", values, "puestoCompatibilidad");
+            return (Criteria) this;
+        }
+
+        public Criteria andPuestoCompatibilidadBetween(String value1, String value2) {
+            addCriterion("puesto_compatibilidad between", value1, value2, "puestoCompatibilidad");
+            return (Criteria) this;
+        }
+
+        public Criteria andPuestoCompatibilidadNotBetween(String value1, String value2) {
+            addCriterion("puesto_compatibilidad not between", value1, value2, "puestoCompatibilidad");
             return (Criteria) this;
         }
     }

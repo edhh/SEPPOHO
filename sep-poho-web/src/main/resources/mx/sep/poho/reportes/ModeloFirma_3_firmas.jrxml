@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RepModeloFirma" pageWidth="440" pageHeight="471" columnWidth="440" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="01d3c9bb-5ea3-4479-ad8e-5346216572c1">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RepCosteoTramite" pageWidth="442" pageHeight="471" columnWidth="442" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="01d3c9bb-5ea3-4479-ad8e-5346216572c1">
 	<property name="ireport.zoom" value="1.4641000000000006"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.y" value="355"/>
 	<parameter name="REAL_PATH" class="java.lang.String" isForPrompting="false">
 		<defaultValueExpression><![CDATA["C:/Users/jose.hernandezb/Documents/ProyectosNB/SIHO-2011/siho2011/web"]]></defaultValueExpression>
 	</parameter>
@@ -78,14 +78,19 @@
 	<parameter name="pFhInicioContrato" class="java.lang.String" isForPrompting="false">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
+	<parameter name="pSeriePrestador" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="pFirmaPrestador" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="pSelloPrestador" class="java.lang.String" isForPrompting="false"/>
 	<queryString>
-		<![CDATA[SELECT tabid  FROM systables WHERE tabid = 1]]>
+		<![CDATA[]]>
 	</queryString>
-	<field name="tabid" class="java.lang.Integer"/>
+	<field name="nombreUr" class="java.lang.String">
+		<fieldDescription><![CDATA[nombreUr]]></fieldDescription>
+	</field>
 	<detail>
 		<band height="14" splitType="Stretch">
 			<textField isStretchWithOverflow="true">
-				<reportElement uuid="2d338b65-3d51-48bd-818c-e295f86be251" stretchType="RelativeToTallestObject" mode="Opaque" x="0" y="0" width="440" height="14" backcolor="#FFFFFF"/>
+				<reportElement uuid="2d338b65-3d51-48bd-818c-e295f86be251" stretchType="RelativeToTallestObject" mode="Opaque" x="0" y="0" width="442" height="14" backcolor="#FFFFFF"/>
 				<textElement textAlignment="Justified" markup="none">
 					<font fontName="SansSerif" size="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
 				</textElement>
@@ -94,7 +99,7 @@
 		</band>
 		<band height="14">
 			<textField>
-				<reportElement uuid="b0e395fa-a612-4c87-8d6b-07f0a57a5940" mode="Opaque" x="0" y="0" width="440" height="14" backcolor="#CCCCCC"/>
+				<reportElement uuid="b0e395fa-a612-4c87-8d6b-07f0a57a5940" mode="Opaque" x="0" y="0" width="442" height="14" backcolor="#CCCCCC"/>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
@@ -107,10 +112,10 @@
 				<textFieldExpression><![CDATA["POR LA SECRETARÍA DE EDUCACIÓN PÚBLICA"]]></textFieldExpression>
 			</textField>
 		</band>
-		<band height="78">
+		<band height="75">
 			<printWhenExpression><![CDATA[new Boolean( $P{pNombreDirectorGeneral} != null )]]></printWhenExpression>
 			<textField>
-				<reportElement uuid="2ecba507-3fb1-4ad8-9268-5e0d4e40f2bf" mode="Opaque" x="170" y="64" width="35" height="14" backcolor="#F8F8F8"/>
+				<reportElement uuid="2ecba507-3fb1-4ad8-9268-5e0d4e40f2bf" mode="Opaque" x="170" y="62" width="35" height="13" backcolor="#F8F8F8"/>
 				<box>
 					<topPen lineWidth="0.5"/>
 					<leftPen lineWidth="0.5"/>
@@ -123,7 +128,7 @@
 				<textFieldExpression><![CDATA[" e.firma"]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="9217fff5-81d5-4ec6-8312-7669421cec5c" mode="Opaque" x="60" y="28" width="380" height="14"/>
+				<reportElement uuid="9217fff5-81d5-4ec6-8312-7669421cec5c" mode="Opaque" x="60" y="28" width="382" height="13"/>
 				<box>
 					<topPen lineWidth="0.5"/>
 					<leftPen lineWidth="0.5"/>
@@ -136,7 +141,7 @@
 				<textFieldExpression><![CDATA[" " + $P{pNombreDirectorGeneral}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="e121716d-8e38-4520-9f9b-4a4f28741a5b" mode="Opaque" x="0" y="64" width="60" height="14" backcolor="#F8F8F8"/>
+				<reportElement uuid="e121716d-8e38-4520-9f9b-4a4f28741a5b" mode="Opaque" x="0" y="62" width="60" height="13" backcolor="#F8F8F8"/>
 				<box>
 					<topPen lineWidth="0.5"/>
 					<leftPen lineWidth="1.0"/>
@@ -149,7 +154,7 @@
 				<textFieldExpression><![CDATA[" CURP"]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="c80a1edd-e20b-4a11-b015-67772148aebc" mode="Opaque" x="60" y="64" width="110" height="14"/>
+				<reportElement uuid="c80a1edd-e20b-4a11-b015-67772148aebc" mode="Opaque" x="60" y="62" width="110" height="13"/>
 				<box>
 					<topPen lineWidth="0.5"/>
 					<leftPen lineWidth="0.5"/>
@@ -162,7 +167,7 @@
 				<textFieldExpression><![CDATA[" " + $P{pCurpDirectorGeneral}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="4e37a42a-38e4-4168-8d1f-ba37afa5d50a" mode="Opaque" x="0" y="28" width="60" height="14" backcolor="#F8F8F8"/>
+				<reportElement uuid="4e37a42a-38e4-4168-8d1f-ba37afa5d50a" mode="Opaque" x="0" y="28" width="60" height="13" backcolor="#F8F8F8"/>
 				<box>
 					<topPen lineWidth="0.5"/>
 					<leftPen lineWidth="1.0"/>
@@ -175,7 +180,7 @@
 				<textFieldExpression><![CDATA[" NOMBRE"]]></textFieldExpression>
 			</textField>
 			<textField pattern="">
-				<reportElement uuid="5a4b2984-bd93-43e4-a39c-1858230927f0" mode="Opaque" x="205" y="64" width="235" height="14"/>
+				<reportElement uuid="5a4b2984-bd93-43e4-a39c-1858230927f0" mode="Opaque" x="205" y="62" width="237" height="13"/>
 				<box>
 					<topPen lineWidth="0.5"/>
 					<leftPen lineWidth="0.5"/>
@@ -188,7 +193,7 @@
 				<textFieldExpression><![CDATA[" " + $P{pSerieDirectorGeneral}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="5e65f75d-bd0d-4d8a-b63a-0028e113af5a" mode="Opaque" x="0" y="42" width="60" height="22" backcolor="#F8F8F8"/>
+				<reportElement uuid="5e65f75d-bd0d-4d8a-b63a-0028e113af5a" mode="Opaque" x="0" y="41" width="60" height="21" backcolor="#F8F8F8"/>
 				<box>
 					<topPen lineWidth="0.5"/>
 					<leftPen lineWidth="1.0"/>
@@ -201,7 +206,7 @@
 				<textFieldExpression><![CDATA[" PUESTO"]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="36072255-0186-4a19-ac94-37ead6c65301" mode="Opaque" x="60" y="42" width="380" height="22"/>
+				<reportElement uuid="36072255-0186-4a19-ac94-37ead6c65301" mode="Opaque" x="60" y="41" width="382" height="21"/>
 				<box>
 					<topPen lineWidth="0.5"/>
 					<leftPen lineWidth="0.5"/>
@@ -214,7 +219,7 @@
 				<textFieldExpression><![CDATA[" " + $P{pPuestoDirectorGeneral}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="0e7fd961-1e1e-41e0-89c5-885ad8a1717a" mode="Opaque" x="0" y="0" width="440" height="28" backcolor="#CCCCCC"/>
+				<reportElement uuid="0e7fd961-1e1e-41e0-89c5-885ad8a1717a" mode="Opaque" x="0" y="0" width="442" height="28" backcolor="#CCCCCC"/>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
@@ -230,7 +235,7 @@
 		<band height="32">
 			<printWhenExpression><![CDATA[new Boolean( $P{pNombreDirectorGeneral} != null )]]></printWhenExpression>
 			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-				<reportElement uuid="baa4e25b-6cdb-45e3-baef-8dddba18b9ab" stretchType="RelativeToTallestObject" mode="Opaque" x="60" y="0" width="380" height="32" backcolor="#FFFFFF"/>
+				<reportElement uuid="baa4e25b-6cdb-45e3-baef-8dddba18b9ab" stretchType="RelativeToTallestObject" mode="Opaque" x="60" y="0" width="382" height="32" backcolor="#FFFFFF"/>
 				<box>
 					<topPen lineWidth="0.5"/>
 					<leftPen lineWidth="0.5"/>
@@ -259,7 +264,7 @@
 		<band height="32">
 			<printWhenExpression><![CDATA[new Boolean( $P{pNombreDirectorGeneral} != null )]]></printWhenExpression>
 			<textField isStretchWithOverflow="true">
-				<reportElement uuid="7d054f7d-fbf0-4f3c-bfc5-04b4bee46c70" stretchType="RelativeToTallestObject" mode="Opaque" x="60" y="0" width="380" height="32"/>
+				<reportElement uuid="7d054f7d-fbf0-4f3c-bfc5-04b4bee46c70" stretchType="RelativeToTallestObject" mode="Opaque" x="60" y="0" width="382" height="32"/>
 				<box>
 					<topPen lineWidth="0.5"/>
 					<leftPen lineWidth="0.5"/>
@@ -288,7 +293,7 @@
 		<band height="14">
 			<printWhenExpression><![CDATA[new Boolean( $P{pSuplenciaDirectorGeneral} != null )]]></printWhenExpression>
 			<textField isStretchWithOverflow="true" isBlankWhenNull="false">
-				<reportElement uuid="7f628e76-7893-4be9-99e6-adec162c0e7b" stretchType="RelativeToTallestObject" mode="Opaque" x="0" y="0" width="440" height="14" backcolor="#FFFFFF"/>
+				<reportElement uuid="7f628e76-7893-4be9-99e6-adec162c0e7b" stretchType="RelativeToTallestObject" mode="Opaque" x="0" y="0" width="442" height="14" backcolor="#FFFFFF"/>
 				<box>
 					<topPen lineWidth="0.5"/>
 					<leftPen lineWidth="1.0"/>
@@ -303,7 +308,7 @@
 		</band>
 		<band height="14">
 			<textField isStretchWithOverflow="true">
-				<reportElement uuid="2cdba53b-72c8-42ed-940f-6e5228342dfc" stretchType="RelativeToTallestObject" mode="Opaque" x="0" y="0" width="440" height="14" backcolor="#CCCCCC"/>
+				<reportElement uuid="2cdba53b-72c8-42ed-940f-6e5228342dfc" stretchType="RelativeToTallestObject" mode="Opaque" x="0" y="0" width="442" height="14" backcolor="#CCCCCC"/>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
@@ -316,9 +321,9 @@
 				<textFieldExpression><![CDATA["DATOS Y FIRMA ELECTRÓNICA DEL(A) TITULAR DE " + $P{pNombreUr} + ". "]]></textFieldExpression>
 			</textField>
 		</band>
-		<band height="50">
+		<band height="47">
 			<textField>
-				<reportElement uuid="497d571b-af68-46c7-8823-47bbaf51ee5a" mode="Opaque" x="170" y="36" width="35" height="14" backcolor="#F8F8F8"/>
+				<reportElement uuid="497d571b-af68-46c7-8823-47bbaf51ee5a" mode="Opaque" x="170" y="34" width="35" height="13" backcolor="#F8F8F8"/>
 				<box>
 					<topPen lineWidth="0.5"/>
 					<leftPen lineWidth="0.5"/>
@@ -331,7 +336,7 @@
 				<textFieldExpression><![CDATA[" e.firma"]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="95ec570e-98ef-4ea6-820d-e9845f56e1b1" mode="Opaque" x="0" y="14" width="60" height="22" backcolor="#F8F8F8"/>
+				<reportElement uuid="95ec570e-98ef-4ea6-820d-e9845f56e1b1" mode="Opaque" x="0" y="13" width="60" height="21" backcolor="#F8F8F8"/>
 				<box>
 					<topPen lineWidth="0.5"/>
 					<leftPen lineWidth="1.0"/>
@@ -344,7 +349,7 @@
 				<textFieldExpression><![CDATA[" PUESTO"]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="9859d96d-faa7-4c8b-84bd-ec59b0feba67" mode="Opaque" x="0" y="0" width="60" height="14" backcolor="#F8F8F8"/>
+				<reportElement uuid="9859d96d-faa7-4c8b-84bd-ec59b0feba67" mode="Opaque" x="0" y="0" width="60" height="13" backcolor="#F8F8F8"/>
 				<box>
 					<topPen lineWidth="0.5"/>
 					<leftPen lineWidth="1.0"/>
@@ -357,7 +362,7 @@
 				<textFieldExpression><![CDATA[" NOMBRE"]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="333d2be3-6bc6-4859-8923-5e69c8a84953" mode="Opaque" x="60" y="36" width="110" height="14"/>
+				<reportElement uuid="333d2be3-6bc6-4859-8923-5e69c8a84953" mode="Opaque" x="60" y="34" width="110" height="13"/>
 				<box>
 					<topPen lineWidth="0.5"/>
 					<leftPen lineWidth="0.5"/>
@@ -370,7 +375,7 @@
 				<textFieldExpression><![CDATA[$P{pCurpDirectorUr}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="59e7e0ba-2e33-430a-adc4-337cecb461bb" mode="Opaque" x="0" y="36" width="60" height="14" backcolor="#F8F8F8"/>
+				<reportElement uuid="59e7e0ba-2e33-430a-adc4-337cecb461bb" mode="Opaque" x="0" y="34" width="60" height="13" backcolor="#F8F8F8"/>
 				<box>
 					<topPen lineWidth="0.5"/>
 					<leftPen lineWidth="1.0"/>
@@ -383,7 +388,7 @@
 				<textFieldExpression><![CDATA[" CURP"]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="1495a232-d4ca-41c1-9eb9-d4c18e84e9c4" stretchType="RelativeToBandHeight" mode="Opaque" x="60" y="14" width="380" height="22"/>
+				<reportElement uuid="1495a232-d4ca-41c1-9eb9-d4c18e84e9c4" stretchType="RelativeToBandHeight" mode="Opaque" x="60" y="13" width="382" height="21"/>
 				<box>
 					<topPen lineWidth="0.5"/>
 					<leftPen lineWidth="0.5"/>
@@ -396,7 +401,7 @@
 				<textFieldExpression><![CDATA[$P{pPuestoDirectorUr}]]></textFieldExpression>
 			</textField>
 			<textField pattern="">
-				<reportElement uuid="8f499568-e6e8-4ed6-971e-34fcab659768" mode="Opaque" x="205" y="36" width="235" height="14"/>
+				<reportElement uuid="8f499568-e6e8-4ed6-971e-34fcab659768" mode="Opaque" x="205" y="34" width="237" height="13"/>
 				<box>
 					<topPen lineWidth="0.5"/>
 					<leftPen lineWidth="0.5"/>
@@ -409,7 +414,7 @@
 				<textFieldExpression><![CDATA[" " + $P{pSerieDirectorUr}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="f506905d-2aeb-471b-8d92-4de9a822429c" mode="Opaque" x="60" y="0" width="380" height="14"/>
+				<reportElement uuid="f506905d-2aeb-471b-8d92-4de9a822429c" mode="Opaque" x="60" y="0" width="382" height="13"/>
 				<box>
 					<topPen lineWidth="0.5"/>
 					<leftPen lineWidth="0.5"/>
@@ -424,7 +429,7 @@
 		</band>
 		<band height="32">
 			<textField isStretchWithOverflow="true">
-				<reportElement uuid="31ffae49-ab1c-41cb-bf9d-e79e4060e0c1" stretchType="RelativeToTallestObject" mode="Opaque" x="60" y="0" width="380" height="32" backcolor="#FFFFFF"/>
+				<reportElement uuid="31ffae49-ab1c-41cb-bf9d-e79e4060e0c1" stretchType="RelativeToTallestObject" mode="Opaque" x="60" y="0" width="382" height="32" backcolor="#FFFFFF"/>
 				<box>
 					<topPen lineWidth="0.5"/>
 					<leftPen lineWidth="0.5"/>
@@ -452,7 +457,7 @@
 		</band>
 		<band height="32">
 			<textField isStretchWithOverflow="true">
-				<reportElement uuid="3a32e227-0944-4974-81cf-675dc13675c6" stretchType="RelativeToTallestObject" mode="Opaque" x="60" y="0" width="380" height="32"/>
+				<reportElement uuid="3a32e227-0944-4974-81cf-675dc13675c6" stretchType="RelativeToTallestObject" mode="Opaque" x="60" y="0" width="382" height="32"/>
 				<box>
 					<topPen lineWidth="0.5"/>
 					<leftPen lineWidth="0.5"/>
@@ -481,7 +486,7 @@
 		<band height="14">
 			<printWhenExpression><![CDATA[new Boolean( $P{pSuplenciaDirectorUr} != null )]]></printWhenExpression>
 			<textField isStretchWithOverflow="true">
-				<reportElement uuid="eff02931-26f0-44fb-8a57-8279f7e2237c" stretchType="RelativeToTallestObject" mode="Opaque" x="0" y="0" width="440" height="14" backcolor="#FFFFFF"/>
+				<reportElement uuid="eff02931-26f0-44fb-8a57-8279f7e2237c" stretchType="RelativeToTallestObject" mode="Opaque" x="0" y="0" width="442" height="14" backcolor="#FFFFFF"/>
 				<box>
 					<topPen lineWidth="0.5"/>
 					<leftPen lineWidth="1.0"/>
@@ -494,22 +499,9 @@
 				<textFieldExpression><![CDATA[$P{pSuplenciaDirectorUr}]]></textFieldExpression>
 			</textField>
 		</band>
-		<band height="106">
+		<band height="110">
 			<textField>
-				<reportElement uuid="ee695bbd-7f8e-4a6d-9ac0-b4710879c4f3" mode="Opaque" x="205" y="42" width="35" height="14" backcolor="#F8F8F8"/>
-				<box>
-					<topPen lineWidth="0.5"/>
-					<leftPen lineWidth="0.5"/>
-					<bottomPen lineWidth="0.5"/>
-					<rightPen lineWidth="0.5"/>
-				</box>
-				<textElement verticalAlignment="Middle">
-					<font size="8"/>
-				</textElement>
-				<textFieldExpression><![CDATA[" RFC"]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement uuid="c5ca1820-2c4f-4698-ad17-491f5a022ac1" mode="Opaque" x="0" y="14" width="440" height="14" backcolor="#CCCCCC"/>
+				<reportElement uuid="c5ca1820-2c4f-4698-ad17-491f5a022ac1" mode="Opaque" x="0" y="14" width="442" height="14" backcolor="#CCCCCC"/>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
@@ -522,7 +514,7 @@
 				<textFieldExpression><![CDATA["DATOS Y FIRMA"]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="84f9b523-8fd1-4981-8f65-4752ce894b1e" mode="Opaque" x="0" y="0" width="440" height="14" backcolor="#CCCCCC"/>
+				<reportElement uuid="84f9b523-8fd1-4981-8f65-4752ce894b1e" mode="Opaque" x="0" y="0" width="442" height="14" backcolor="#CCCCCC"/>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
@@ -535,7 +527,7 @@
 				<textFieldExpression><![CDATA["POR EL PRESTADOR DE SERVICIOS PROFESIONALES"]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="5a54b730-aa68-4ab3-bd50-13f7005d7bd6" mode="Opaque" x="0" y="28" width="60" height="14" backcolor="#F8F8F8"/>
+				<reportElement uuid="5a54b730-aa68-4ab3-bd50-13f7005d7bd6" mode="Opaque" x="0" y="28" width="60" height="13" backcolor="#F8F8F8"/>
 				<box>
 					<topPen lineWidth="0.5"/>
 					<leftPen lineWidth="1.0"/>
@@ -548,7 +540,7 @@
 				<textFieldExpression><![CDATA[" NOMBRE"]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="c8aefa74-b9da-43d2-9a1f-ebc873f08b83" mode="Opaque" x="60" y="42" width="145" height="14"/>
+				<reportElement uuid="c8aefa74-b9da-43d2-9a1f-ebc873f08b83" mode="Opaque" x="60" y="41" width="110" height="13"/>
 				<box>
 					<topPen lineWidth="0.5"/>
 					<leftPen lineWidth="0.5"/>
@@ -561,7 +553,7 @@
 				<textFieldExpression><![CDATA[$P{pCurpPrestador}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="2b365bcd-5b99-4570-83a3-8bf4170f0152" mode="Opaque" x="0" y="42" width="60" height="14" backcolor="#F8F8F8"/>
+				<reportElement uuid="2b365bcd-5b99-4570-83a3-8bf4170f0152" mode="Opaque" x="0" y="41" width="60" height="13" backcolor="#F8F8F8"/>
 				<box>
 					<topPen lineWidth="0.5"/>
 					<leftPen lineWidth="1.0"/>
@@ -573,21 +565,8 @@
 				</textElement>
 				<textFieldExpression><![CDATA[" CURP"]]></textFieldExpression>
 			</textField>
-			<textField pattern="">
-				<reportElement uuid="80582a05-7884-4f9f-bc37-5a976764a63b" mode="Opaque" x="240" y="42" width="200" height="14"/>
-				<box>
-					<topPen lineWidth="0.5"/>
-					<leftPen lineWidth="0.5"/>
-					<bottomPen lineWidth="0.5"/>
-					<rightPen lineWidth="1.0"/>
-				</box>
-				<textElement verticalAlignment="Middle">
-					<font size="8"/>
-				</textElement>
-				<textFieldExpression><![CDATA[" " + $P{pRfcContratado}]]></textFieldExpression>
-			</textField>
 			<textField>
-				<reportElement uuid="c7094937-2e58-452d-ab51-6bdf542e14ad" mode="Opaque" x="60" y="28" width="380" height="14"/>
+				<reportElement uuid="c7094937-2e58-452d-ab51-6bdf542e14ad" mode="Opaque" x="60" y="28" width="382" height="13"/>
 				<box>
 					<topPen lineWidth="0.5"/>
 					<leftPen lineWidth="0.5"/>
@@ -599,21 +578,21 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$P{pNombrePrestador}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement uuid="e7d1599b-8647-4487-8907-657a45fd18d6" mode="Opaque" x="60" y="56" width="380" height="50" backcolor="#F8F8F8"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="e7d1599b-8647-4487-8907-657a45fd18d6" stretchType="RelativeToTallestObject" mode="Opaque" x="60" y="54" width="382" height="35" backcolor="#F8F8F8"/>
 				<box>
 					<topPen lineWidth="0.5"/>
 					<leftPen lineWidth="0.5"/>
 					<bottomPen lineWidth="1.0"/>
 					<rightPen lineWidth="1.0"/>
 				</box>
-				<textElement verticalAlignment="Middle">
-					<font size="8"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top">
+					<font size="7"/>
 				</textElement>
-				<textFieldExpression><![CDATA[" "]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{pFirmaPrestador}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="8b58c29a-595a-4e3f-b51d-49e035aa6d77" mode="Opaque" x="0" y="56" width="60" height="50" backcolor="#F8F8F8"/>
+				<reportElement uuid="8b58c29a-595a-4e3f-b51d-49e035aa6d77" mode="Opaque" x="0" y="54" width="60" height="35" backcolor="#F8F8F8"/>
 				<box>
 					<topPen lineWidth="0.5"/>
 					<leftPen lineWidth="1.0"/>
@@ -623,12 +602,64 @@
 				<textElement verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[" FIRMA AUTÓGRAFA"]]></textFieldExpression>
+				<textFieldExpression><![CDATA[" FIRMA ELECTRÓNICA AVANZADA"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="a8757472-e6b5-46a8-a274-d63ee6767a27" mode="Opaque" x="0" y="89" width="60" height="21" backcolor="#F8F8F8"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" SELLO DIGITAL DE TIEMPO SEP"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="b2bc4c63-80f0-4159-99a8-b7d3d2c23a35" mode="Opaque" x="60" y="89" width="382" height="21"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{pSelloPrestador}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="4ab98b32-b106-4595-8bb5-69ebf40943e8" mode="Opaque" x="170" y="41" width="35" height="13" backcolor="#F8F8F8"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" e.firma"]]></textFieldExpression>
+			</textField>
+			<textField pattern="">
+				<reportElement uuid="b62b0a1d-b672-4646-ae3b-99acbe00d177" mode="Opaque" x="205" y="41" width="237" height="13"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $P{pSeriePrestador}]]></textFieldExpression>
 			</textField>
 		</band>
 		<band height="14">
 			<textField>
-				<reportElement uuid="fb54fa56-76b4-433a-b175-e430d03e4c9a" mode="Opaque" x="0" y="0" width="440" height="14" backcolor="#CCCCCC"/>
+				<reportElement uuid="fb54fa56-76b4-433a-b175-e430d03e4c9a" mode="Opaque" x="0" y="0" width="442" height="14" backcolor="#CCCCCC"/>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
@@ -643,7 +674,7 @@
 		</band>
 		<band height="15">
 			<textField isStretchWithOverflow="true">
-				<reportElement uuid="4c1974f8-c456-4dd7-8a86-a9281b003062" stretchType="RelativeToTallestObject" mode="Opaque" x="0" y="0" width="440" height="14" backcolor="#FFFFFF"/>
+				<reportElement uuid="4c1974f8-c456-4dd7-8a86-a9281b003062" stretchType="RelativeToTallestObject" mode="Opaque" x="0" y="0" width="442" height="14" backcolor="#FFFFFF"/>
 				<box>
 					<topPen lineWidth="0.5"/>
 					<leftPen lineWidth="1.0"/>
@@ -658,7 +689,7 @@
 		</band>
 		<band height="14">
 			<textField isStretchWithOverflow="true">
-				<reportElement uuid="2e404757-2ab9-4204-8e84-423eda8b86c1" stretchType="RelativeToTallestObject" mode="Opaque" x="0" y="0" width="440" height="14" backcolor="#FFFFFF"/>
+				<reportElement uuid="2e404757-2ab9-4204-8e84-423eda8b86c1" stretchType="RelativeToTallestObject" mode="Opaque" x="0" y="0" width="442" height="14" backcolor="#FFFFFF"/>
 				<box>
 					<topPen lineWidth="0.0"/>
 					<leftPen lineWidth="0.0"/>

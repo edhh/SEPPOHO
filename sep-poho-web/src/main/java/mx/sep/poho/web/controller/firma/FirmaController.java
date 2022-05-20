@@ -49,23 +49,39 @@ package mx.sep.poho.web.controller.firma;
     import java.io.PrintWriter;
     import java.net.URL;
     import java.util.List;
+import javax.servlet.ServletConfig;
     import javax.servlet.ServletException;
     import javax.servlet.http.HttpServlet;
     import javax.servlet.http.HttpServletRequest;
     import javax.servlet.http.HttpServletResponse;
-import mx.sep.poho.web.controller.MenuSeguridadController;
+    import mx.sep.poho.web.controller.MenuSeguridadController;
     import org.codehaus.jackson.map.ObjectMapper;
     import org.codehaus.jackson.map.ObjectWriter;
     import org.slf4j.Logger;
     import org.slf4j.LoggerFactory;
+    import mx.sep.poho.servicios.ParametrosFirmaService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.context.support.SpringBeanAutowiringSupport;
 
     /**
      *
      * @author eduardo.hernandez
      */
+    @Controller
     public class FirmaController extends HttpServlet {
         
+        
         final static Logger logger = LoggerFactory.getLogger(MenuSeguridadController.class);
+        
+        @Autowired
+        private ParametrosFirmaService parametrosFirmaService;
+        
+        public void init(ServletConfig config) throws ServletException {
+        super.init(config);
+        SpringBeanAutowiringSupport.processInjectionBasedOnServletContext(this,
+          config.getServletContext());
+      }
         
         protected void processRequest(HttpServletRequest request, HttpServletResponse response)
                 throws ServletException, IOException {
@@ -74,9 +90,13 @@ import mx.sep.poho.web.controller.MenuSeguridadController;
             response.setContentType("application/json; charset=utf-8");
             PrintWriter out = response.getWriter();
             String entidad = this.getInitParameter("entidad");
+            //String entidad = parametrosFirmaService.obtieneEntidad();
             String url = this.getInitParameter("url");
+            //String url = parametrosFirmaService.obtieneURL();
             String usuario = this.getInitParameter("usuario");
+            //String usuario = parametrosFirmaService.obtieneEntidad();
             String pass = this.getInitParameter("contrasena");
+            //String pass = parametrosFirmaService.obtienePassword();
             fielnet.ws.Autenticacion authentication = new Autenticacion();
             authentication.setEntity(entidad);
             authentication.setUser(usuario);
@@ -87,9 +107,11 @@ import mx.sep.poho.web.controller.MenuSeguridadController;
                 String nomName = request.getParameter("nom");
                 String makeOcsp = request.getParameter("verifyOCSP");
                 //String tsaName = request.getParameter("tsaName");
-                String tsaName = "septsaqa";
+                //String tsaName = "septsaqa";
+                String tsaName = parametrosFirmaService.obtieneNombreTSA();
                 //String tsaAlgorithm = request.getParameter("tsaAlgorithm");
-                String tsaAlgorithm = "3";
+                //String tsaAlgorithm = "3";
+                String tsaAlgorithm = parametrosFirmaService.obtieneAlgoritmoTSA();
                 String operacion = request.getParameter("metodo");
                 if (operacion == null) {
                     out.write(encodeError(-89, "Operación no definida"));

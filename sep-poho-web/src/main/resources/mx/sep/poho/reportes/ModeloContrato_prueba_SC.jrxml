@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ModeloContrato2015_12082015" pageWidth="612" pageHeight="792" columnWidth="442" leftMargin="85" rightMargin="85" topMargin="70" bottomMargin="69" isSummaryNewPage="true" isFloatColumnFooter="true" uuid="d390a025-d823-4a71-9d52-4d01bcd4d79d">
-	<property name="ireport.zoom" value="1.2100000000000015"/>
+	<property name="ireport.zoom" value="1.4641000000000033"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="1489"/>
+	<property name="ireport.y" value="1104"/>
 	<style name="style1" fontName="Arial Black" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
 	<style name="style_previa">
 		<conditionalStyle>
-			<conditionExpression><![CDATA[new Boolean( $F{previoDefinitivo}.equals( "0" ) )]]></conditionExpression>
+			<conditionExpression><![CDATA[new Boolean( $P{pPrevioDefinitivo}.equals( "0" ) )]]></conditionExpression>
 			<style mode="Transparent"/>
 		</conditionalStyle>
 		<conditionalStyle>
-			<conditionExpression><![CDATA[new Boolean( $F{previoDefinitivo}.equals( "1" ) )]]></conditionExpression>
+			<conditionExpression><![CDATA[new Boolean( $P{pPrevioDefinitivo}.equals( "1" ) )]]></conditionExpression>
 			<style mode="Opaque"/>
 		</conditionalStyle>
 	</style>
@@ -20,29 +20,36 @@
 	<parameter name="pRuta" class="java.lang.String" isForPrompting="false">
 		<defaultValueExpression><![CDATA["C:\\NEN\\UP01\\imagenes"]]></defaultValueExpression>
 	</parameter>
+	<parameter name="pPrevioDefinitivo" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["0"]]></defaultValueExpression>
+	</parameter>
 	<queryString>
 		<![CDATA[]]>
 	</queryString>
+	<field name="lstDatos" class="java.util.List">
+		<property name="com.jaspersoft.studio.field.name" value="lstDatos"/>
+		<property name="com.jaspersoft.studio.field.label" value="lstDatos"/>
+	</field>
 	<field name="previoDefinitivo" class="java.lang.String">
 		<fieldDescription><![CDATA[previoDefinitivo]]></fieldDescription>
 	</field>
-	<field name="prefijoFirmaRepArea" class="java.lang.String">
-		<fieldDescription><![CDATA[prefijoFirmaRepArea]]></fieldDescription>
+	<field name="firmaRepAreaPrefijo" class="java.lang.String">
+		<fieldDescription><![CDATA[firmaRepAreaPrefijo]]></fieldDescription>
 	</field>
-	<field name="nombreFirmaRepArea" class="java.lang.String">
-		<fieldDescription><![CDATA[nombreFirmaRepArea]]></fieldDescription>
+	<field name="firmaRepAreaNombre" class="java.lang.String">
+		<fieldDescription><![CDATA[firmaRepAreaNombre]]></fieldDescription>
 	</field>
 	<field name="nombreContratado" class="java.lang.String">
 		<fieldDescription><![CDATA[nombreContratado]]></fieldDescription>
 	</field>
-	<field name="puestoFirmaRepArea" class="java.lang.String">
-		<fieldDescription><![CDATA[puestoFirmaRepArea]]></fieldDescription>
+	<field name="firmaRepAreaPuesto" class="java.lang.String">
+		<fieldDescription><![CDATA[firmaRepAreaPuesto]]></fieldDescription>
 	</field>
-	<field name="descPerfinContratado" class="java.lang.String">
-		<fieldDescription><![CDATA[descPerfinContratado]]></fieldDescription>
+	<field name="descPerfilContratado" class="java.lang.String">
+		<fieldDescription><![CDATA[descPerfilContratado]]></fieldDescription>
 	</field>
-	<field name="descNacionalidadContratado" class="java.lang.String">
-		<fieldDescription><![CDATA[descNacionalidadContratado]]></fieldDescription>
+	<field name="descNacContratado" class="java.lang.String">
+		<fieldDescription><![CDATA[descNacContratado]]></fieldDescription>
 	</field>
 	<field name="rfcContratado" class="java.lang.String">
 		<fieldDescription><![CDATA[rfcContratado]]></fieldDescription>
@@ -56,35 +63,35 @@
 	<field name="descFunciones" class="java.lang.String">
 		<fieldDescription><![CDATA[descFunciones]]></fieldDescription>
 	</field>
-	<field name="sumaImpBrutoRecibido" class="java.lang.String">
-		<fieldDescription><![CDATA[sumaImpBrutoRecibido]]></fieldDescription>
+	<field name="sumImBrutoRecibidos" class="java.lang.String">
+		<fieldDescription><![CDATA[sumImBrutoRecibidos]]></fieldDescription>
 	</field>
 	<field name="importeLetra" class="java.lang.String">
 		<fieldDescription><![CDATA[importeLetra]]></fieldDescription>
 	</field>
-	<field name="noExhibiciones" class="java.lang.String">
-		<fieldDescription><![CDATA[noExhibiciones]]></fieldDescription>
+	<field name="nuExhibiciones" class="java.lang.String">
+		<fieldDescription><![CDATA[nuExhibiciones]]></fieldDescription>
 	</field>
-	<field name="fechaVigenciaInicial" class="java.lang.String">
-		<fieldDescription><![CDATA[fechaVigenciaInicial]]></fieldDescription>
+	<field name="fhVigenciaInicial" class="java.lang.String">
+		<fieldDescription><![CDATA[fhVigenciaInicial]]></fieldDescription>
 	</field>
-	<field name="fechaVigenciaFinal" class="java.lang.String">
-		<fieldDescription><![CDATA[fechaVigenciaFinal]]></fieldDescription>
+	<field name="fhVigenciaFinal" class="java.lang.String">
+		<fieldDescription><![CDATA[fhVigenciaFinal]]></fieldDescription>
 	</field>
-	<field name="prefijoFirmaRecepRepAct" class="java.lang.String">
-		<fieldDescription><![CDATA[prefijoFirmaRecepRepAct]]></fieldDescription>
+	<field name="firmaRecepRepActPrefijo" class="java.lang.String">
+		<fieldDescription><![CDATA[firmaRecepRepActPrefijo]]></fieldDescription>
 	</field>
-	<field name="nombreFirmaRecepRepAct" class="java.lang.String">
-		<fieldDescription><![CDATA[nombreFirmaRecepRepAct]]></fieldDescription>
+	<field name="firmaRecepRepActNombre" class="java.lang.String">
+		<fieldDescription><![CDATA[firmaRecepRepActNombre]]></fieldDescription>
 	</field>
-	<field name="puestoFirmaRecepRepAct" class="java.lang.String">
-		<fieldDescription><![CDATA[puestoFirmaRecepRepAct]]></fieldDescription>
+	<field name="firmaRecepRepActPuesto" class="java.lang.String">
+		<fieldDescription><![CDATA[firmaRecepRepActPuesto]]></fieldDescription>
 	</field>
-	<field name="fechaFirmaContrato" class="java.lang.String">
-		<fieldDescription><![CDATA[fechaFirmaContrato]]></fieldDescription>
+	<field name="fhFirmaContrato" class="java.lang.String">
+		<fieldDescription><![CDATA[fhFirmaContrato]]></fieldDescription>
 	</field>
-	<field name="tituloFirmaRepArea" class="java.lang.String">
-		<fieldDescription><![CDATA[tituloFirmaRepArea]]></fieldDescription>
+	<field name="firmaRepAreaTitulo" class="java.lang.String">
+		<fieldDescription><![CDATA[firmaRepAreaTitulo]]></fieldDescription>
 	</field>
 	<field name="prefijoContratado" class="java.lang.String">
 		<fieldDescription><![CDATA[prefijoContratado]]></fieldDescription>
@@ -92,32 +99,32 @@
 	<field name="reqCompatibilidad" class="java.lang.String">
 		<fieldDescription><![CDATA[reqCompatibilidad]]></fieldDescription>
 	</field>
-	<field name="numReqCompatibilidad" class="java.lang.String">
-		<fieldDescription><![CDATA[numReqCompatibilidad]]></fieldDescription>
+	<field name="numReqCompatiblidad" class="java.lang.String">
+		<fieldDescription><![CDATA[numReqCompatiblidad]]></fieldDescription>
 	</field>
-	<field name="fechaOficioCompatibilidad" class="java.lang.String">
-		<fieldDescription><![CDATA[fechaOficioCompatibilidad]]></fieldDescription>
+	<field name="oficioFhCompatiblidad" class="java.lang.String">
+		<fieldDescription><![CDATA[oficioFhCompatiblidad]]></fieldDescription>
 	</field>
-	<field name="reqOfRespSFP" class="java.lang.String">
-		<fieldDescription><![CDATA[reqOfRespSFP]]></fieldDescription>
+	<field name="reqOfRespSfp" class="java.lang.String">
+		<fieldDescription><![CDATA[reqOfRespSfp]]></fieldDescription>
 	</field>
-	<field name="numeroOfRespoSFP" class="java.lang.String">
-		<fieldDescription><![CDATA[numeroOfRespoSFP]]></fieldDescription>
+	<field name="numOfResSfp" class="java.lang.String">
+		<fieldDescription><![CDATA[numOfResSfp]]></fieldDescription>
 	</field>
-	<field name="fechaOficioRespSFP" class="java.lang.String">
-		<fieldDescription><![CDATA[fechaOficioRespSFP]]></fieldDescription>
+	<field name="oficioFhRespSfp" class="java.lang.String">
+		<fieldDescription><![CDATA[oficioFhRespSfp]]></fieldDescription>
 	</field>
 	<field name="reqOfExisPzaVac" class="java.lang.String">
 		<fieldDescription><![CDATA[reqOfExisPzaVac]]></fieldDescription>
 	</field>
-	<field name="numOfExisOzaVac" class="java.lang.String">
-		<fieldDescription><![CDATA[numOfExisOzaVac]]></fieldDescription>
+	<field name="numOfExisPzaVac" class="java.lang.String">
+		<fieldDescription><![CDATA[numOfExisPzaVac]]></fieldDescription>
 	</field>
-	<field name="fechaOficioExisPzaVac" class="java.lang.String">
-		<fieldDescription><![CDATA[fechaOficioExisPzaVac]]></fieldDescription>
+	<field name="oficioFhExisPzaVac" class="java.lang.String">
+		<fieldDescription><![CDATA[oficioFhExisPzaVac]]></fieldDescription>
 	</field>
-	<field name="nbPuestoCompatibilidad" class="java.lang.String">
-		<fieldDescription><![CDATA[nbPuestoCompatibilidad]]></fieldDescription>
+	<field name="puestoCompatibilidad" class="java.lang.String">
+		<fieldDescription><![CDATA[puestoCompatibilidad]]></fieldDescription>
 	</field>
 	<field name="nbDepCompatibilidad" class="java.lang.String">
 		<fieldDescription><![CDATA[nbDepCompatibilidad]]></fieldDescription>
@@ -140,25 +147,25 @@
 	<field name="partida" class="java.lang.String">
 		<fieldDescription><![CDATA[partida]]></fieldDescription>
 	</field>
-	<field name="prefijoFirmaRepSep" class="java.lang.String">
-		<fieldDescription><![CDATA[prefijoFirmaRepSep]]></fieldDescription>
+	<field name="firmaRepSepPrefijo" class="java.lang.String">
+		<fieldDescription><![CDATA[firmaRepSepPrefijo]]></fieldDescription>
 	</field>
-	<field name="tituloFirmaRepSep" class="java.lang.String">
-		<fieldDescription><![CDATA[tituloFirmaRepSep]]></fieldDescription>
+	<field name="firmaRepSepTitulo" class="java.lang.String">
+		<fieldDescription><![CDATA[firmaRepSepTitulo]]></fieldDescription>
 	</field>
-	<field name="nombreFirmaRepSep" class="java.lang.String">
-		<fieldDescription><![CDATA[nombreFirmaRepSep]]></fieldDescription>
+	<field name="firmaRepSepNombre" class="java.lang.String">
+		<fieldDescription><![CDATA[firmaRepSepNombre]]></fieldDescription>
 	</field>
-	<field name="puestoFirmaRepSep" class="java.lang.String">
-		<fieldDescription><![CDATA[puestoFirmaRepSep]]></fieldDescription>
+	<field name="firmaRepSepPuesto" class="java.lang.String">
+		<fieldDescription><![CDATA[firmaRepSepPuesto]]></fieldDescription>
 	</field>
-	<field name="noTramite" class="java.lang.String">
-		<fieldDescription><![CDATA[noTramite]]></fieldDescription>
+	<field name="nuTramite" class="java.lang.Integer">
+		<fieldDescription><![CDATA[nuTramite]]></fieldDescription>
 	</field>
 	<field name="ur" class="java.lang.String">
 		<fieldDescription><![CDATA[ur]]></fieldDescription>
 	</field>
-	<field name="annio" class="java.lang.String">
+	<field name="annio" class="java.lang.Short">
 		<fieldDescription><![CDATA[annio]]></fieldDescription>
 	</field>
 	<field name="firmaDirectorGeneral" class="java.lang.String">
@@ -179,8 +186,8 @@
 	<field name="suplenciaDirectorGeneral" class="java.lang.String">
 		<fieldDescription><![CDATA[suplenciaDirectorGeneral]]></fieldDescription>
 	</field>
-	<field name="nombreUR" class="java.lang.String">
-		<fieldDescription><![CDATA[nombreUR]]></fieldDescription>
+	<field name="nombreUr" class="java.lang.String">
+		<fieldDescription><![CDATA[nombreUr]]></fieldDescription>
 	</field>
 	<field name="curpDirectorUR" class="java.lang.String">
 		<fieldDescription><![CDATA[curpDirectorUR]]></fieldDescription>
@@ -200,17 +207,29 @@
 	<field name="cadenaOriginal" class="java.lang.String">
 		<fieldDescription><![CDATA[cadenaOriginal]]></fieldDescription>
 	</field>
+	<field name="seriePrestador" class="java.lang.String">
+		<fieldDescription><![CDATA[seriePrestador]]></fieldDescription>
+	</field>
+	<field name="firmaPrestador" class="java.lang.String">
+		<fieldDescription><![CDATA[firmaPrestador]]></fieldDescription>
+	</field>
+	<field name="selloPrestador" class="java.lang.String">
+		<fieldDescription><![CDATA[selloPrestador]]></fieldDescription>
+	</field>
+	<field name="banderaPrestador" class="java.lang.String">
+		<fieldDescription><![CDATA[banderaPrestador]]></fieldDescription>
+	</field>
 	<background>
 		<band height="653" splitType="Prevent">
 			<image evaluationTime="Report">
 				<reportElement uuid="690e849e-9aac-462f-b525-3aae6525fecd" positionType="FixRelativeToBottom" stretchType="RelativeToBandHeight" isPrintRepeatedValues="false" x="0" y="0" width="440" height="641" isPrintWhenDetailOverflows="true">
-					<printWhenExpression><![CDATA[new Boolean( $F{previoDefinitivo}.equals( "0" ) )]]></printWhenExpression>
+					<printWhenExpression><![CDATA[new Boolean( $P{pPrevioDefinitivo}.equals( "0" ) )]]></printWhenExpression>
 				</reportElement>
 				<imageExpression><![CDATA[$P{pRuta}+"/img_vista_previa.png"]]></imageExpression>
 			</image>
 			<image evaluationTime="Report">
 				<reportElement uuid="a7585e52-ed78-48e4-9f5c-ea75cad6c667" positionType="FixRelativeToBottom" stretchType="RelativeToBandHeight" isPrintRepeatedValues="false" x="0" y="0" width="440" height="641" isPrintWhenDetailOverflows="true">
-					<printWhenExpression><![CDATA[new Boolean( $F{previoDefinitivo}.equals( "1" ) )]]></printWhenExpression>
+					<printWhenExpression><![CDATA[new Boolean( $P{pPrevioDefinitivo}.equals( "1" ) )]]></printWhenExpression>
 				</reportElement>
 				<imageExpression><![CDATA[$P{pRuta}+"/img_rayas_horizontales.png"]]></imageExpression>
 			</image>
@@ -223,14 +242,14 @@
 				<textElement textAlignment="Right" markup="none">
 					<font fontName="SansSerif" size="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
 				</textElement>
-				<textFieldExpression><![CDATA["UR " + $F{ur} + " / " + $F{annio}]]></textFieldExpression>
+				<textFieldExpression><![CDATA["UR " + $F{ur} + " / " + $F{annio}.toString()]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
 				<reportElement uuid="e8a34273-7a55-452b-be8c-f538d73b5210" stretchType="RelativeToTallestObject" mode="Opaque" x="255" y="0" width="187" height="14" backcolor="#FFFFFF"/>
 				<textElement textAlignment="Right" markup="none">
 					<font fontName="SansSerif" size="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{noTramite}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{nuTramite}.toString()]]></textFieldExpression>
 			</textField>
 		</band>
 	</pageHeader>
@@ -241,7 +260,7 @@
 				<textElement textAlignment="Justified" markup="none">
 					<font fontName="SansSerif" size="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
 				</textElement>
-				<textFieldExpression><![CDATA["CONTRATO DE PRESTACIÓN DE SERVICIOS PROFESIONALES POR HONORARIOS QUE CELEBRAN, POR UNA PARTE, EL EJECUTIVO FEDERAL POR CONDUCTO DE LA SECRETARÍA DE EDUCACIÓN PÚBLICA, REPRESENTADA POR MARÍA TERESA LÓPEZ MATA, EN SU CARÁCTER DE DIRECTORA GENERAL DE RECURSOS HUMANOS Y ORGANIZACIÓN Y " + $F{nombreFirmaRepArea} + ", "+$F{puestoFirmaRepArea}+", Y POR LA OTRA, " + $F{nombreContratado} +", A QUIENES EN LO SUCESIVO Y PARA LOS EFECTOS DEL PRESENTE CONTRATO SE LES DENOMINARÁ “LA DEPENDENCIA” Y “EL PRESTADOR DE LOS SERVICIOS”, RESPECTIVAMENTE, AL TENOR DE LAS SIGUIENTES:"]]></textFieldExpression>
+				<textFieldExpression><![CDATA["CONTRATO DE PRESTACIÓN DE SERVICIOS PROFESIONALES POR HONORARIOS QUE CELEBRAN, POR UNA PARTE, EL EJECUTIVO FEDERAL POR CONDUCTO DE LA SECRETARÍA DE EDUCACIÓN PÚBLICA, REPRESENTADA POR MARÍA TERESA LÓPEZ MATA, EN SU CARÁCTER DE DIRECTORA GENERAL DE RECURSOS HUMANOS Y ORGANIZACIÓN Y " + $F{firmaRepAreaNombre} + ", "+$F{firmaRepAreaPuesto}+", Y POR LA OTRA, " + $F{nombreContratado} +", A QUIENES EN LO SUCESIVO Y PARA LOS EFECTOS DEL PRESENTE CONTRATO SE LES DENOMINARÁ “LA DEPENDENCIA” Y “EL PRESTADOR DE LOS SERVICIOS”, RESPECTIVAMENTE, AL TENOR DE LAS SIGUIENTES:"]]></textFieldExpression>
 			</textField>
 		</band>
 		<band height="14">
@@ -287,7 +306,7 @@
 				<textElement textAlignment="Justified" markup="html">
 					<font fontName="SansSerif" size="10" isBold="false" pdfEncoding="Cp1252" isPdfEmbedded="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA["<b>I.2</b> QUE DE ACUERDO A SUS NECESIDADES REQUIERE TEMPORALMENTE CONTAR CON LOS SERVICIOS DE UNA PERSONA FÍSICA CON CONOCIMIENTOS EN " + $F{descPerfinContratado} + ", POR LO QUE HA DETERMINADO LLEVAR A CABO LA CONTRATACIÓN DE <b>“EL PRESTADOR DE LOS SERVICIOS”</b>."]]></textFieldExpression>
+				<textFieldExpression><![CDATA["<b>I.2</b> QUE DE ACUERDO A SUS NECESIDADES REQUIERE TEMPORALMENTE CONTAR CON LOS SERVICIOS DE UNA PERSONA FÍSICA CON CONOCIMIENTOS EN " + $F{descPerfilContratado} + ", POR LO QUE HA DETERMINADO LLEVAR A CABO LA CONTRATACIÓN DE <b>“EL PRESTADOR DE LOS SERVICIOS”</b>."]]></textFieldExpression>
 			</textField>
 		</band>
 		<band height="16" splitType="Stretch">
@@ -339,18 +358,18 @@
 				<textElement textAlignment="Justified" markup="html">
 					<font fontName="SansSerif" size="10" isBold="false"/>
 				</textElement>
-				<textFieldExpression><![CDATA["<b>"+$F{fechaOficioCompatibilidad}+"</b> QUE PARA LOS EFECTOS DEL PRESENTE CONTRATO SE CUENTA CON EL DICTAMEN DE COMPATIBILIDAD DE EMPLEOS Y/O CONTRATOS DE PRESTACIÓN DE SERVICIOS PROFESIONALES POR HONORARIOS, OFICIO No. "+$F{fechaOficioCompatibilidad}+", EMITIDO POR LA INSTITUCIÓN PÚBLICA CONTRATANTE O POR LA DIRECCIÓN GENERAL DE DESARROLLO HUMANO Y ORGANIZACIÓN DE LA ADMINISTRACIÓN PÚBLICA FEDERAL DE LA SECRETARÍA DE LA FUNCIÓN PÚBLICA, SEGÚN SEA EL CASO, PREVIA VERIFICACIÓN DE QUE NO SE ACTUALIZA LA HIPÓTESIS PREVISTA EN LA FRACCIÓN XX DEL ARTÍCULO 8 DE LA LEY FEDERAL DE RESPONSABILIDADES ADMINISTRATIVAS DE LOS SERVIDORES PÚBLICOS."]]></textFieldExpression>
+				<textFieldExpression><![CDATA["<b>"+$F{numReqCompatiblidad}+"</b> QUE PARA LOS EFECTOS DEL PRESENTE CONTRATO SE CUENTA CON EL DICTAMEN DE COMPATIBILIDAD DE EMPLEOS Y/O CONTRATOS DE PRESTACIÓN DE SERVICIOS PROFESIONALES POR HONORARIOS, OFICIO No. "+$F{oficioFhCompatiblidad}+", EMITIDO POR LA INSTITUCIÓN PÚBLICA CONTRATANTE O POR LA DIRECCIÓN GENERAL DE DESARROLLO HUMANO Y ORGANIZACIÓN DE LA ADMINISTRACIÓN PÚBLICA FEDERAL DE LA SECRETARÍA DE LA FUNCIÓN PÚBLICA, SEGÚN SEA EL CASO, PREVIA VERIFICACIÓN DE QUE NO SE ACTUALIZA LA HIPÓTESIS PREVISTA EN LA FRACCIÓN XX DEL ARTÍCULO 8 DE LA LEY FEDERAL DE RESPONSABILIDADES ADMINISTRATIVAS DE LOS SERVIDORES PÚBLICOS."]]></textFieldExpression>
 			</textField>
 		</band>
 		<band height="16" splitType="Stretch">
-			<printWhenExpression><![CDATA[new Boolean( ( $F{reqOfRespSFP}.equals("SI") ) )]]></printWhenExpression>
+			<printWhenExpression><![CDATA[new Boolean( ( $F{reqOfRespSfp}.equals("SI") ) )]]></printWhenExpression>
 			<textField isStretchWithOverflow="true">
 				<reportElement uuid="fcd8922d-3ccf-4417-b2c7-8a6e7016ec61" style="style_previa" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="16" backcolor="#FFFFFF"/>
 				<box topPadding="9"/>
 				<textElement textAlignment="Justified" markup="html">
 					<font fontName="SansSerif" size="10" isBold="false"/>
 				</textElement>
-				<textFieldExpression><![CDATA["<b>"+$F{fechaOficioRespSFP}+"</b> QUE MANIFIESTA CONTAR CON LA AUTORIZACIÓN DE LA DIRECCIÓN GENERAL DE DESARROLLO HUMANO Y ORGANIZACIÓN DE LA ADMINISTRACIÓN PÚBLICA FEDERAL DE LA SECRETARÍA DE LA FUNCIÓN PÚBLICA, OFICIO NO. "+$F{numeroOfRespoSFP}+"."]]></textFieldExpression>
+				<textFieldExpression><![CDATA["<b>"+$F{numOfResSfp}+"</b> QUE MANIFIESTA CONTAR CON LA AUTORIZACIÓN DE LA DIRECCIÓN GENERAL DE DESARROLLO HUMANO Y ORGANIZACIÓN DE LA ADMINISTRACIÓN PÚBLICA FEDERAL DE LA SECRETARÍA DE LA FUNCIÓN PÚBLICA, OFICIO NO. "+$F{oficioFhRespSfp}+"."]]></textFieldExpression>
 			</textField>
 		</band>
 		<band height="16" splitType="Stretch">
@@ -361,7 +380,7 @@
 				<textElement textAlignment="Justified" markup="html">
 					<font fontName="SansSerif" size="10" isBold="false"/>
 				</textElement>
-				<textFieldExpression><![CDATA["<b>"+$F{numOfExisOzaVac}+"</b> QUE MANIFIESTA HABER PRESENTADO LA JUSTIFICACIÓN, DE LA EXISTENCIA DE VACANTES QUE PUDIERAN PERMITIR LA CONTRATACIÓN RESPECTIVA EN TODOS LOS CASOS, EXCEPTO PARA PROGRAMAS SUJETOS A REGLAS DE OPERACIÓN Y PARA PROYECTOS FINANCIADOS CON CRÉDITO EXTERNO, ANTE LA DIRECCIÓN GENERAL DE DESARROLLO HUMANO Y ORGANIZACIÓN DE LA ADMINISTRACIÓN PÚBLICA FEDERAL DE LA SECRETARÍA DE LA FUNCIÓN PÚBLICA, OFICIO NO. "+ $F{fechaOficioExisPzaVac} +"."]]></textFieldExpression>
+				<textFieldExpression><![CDATA["<b>"+$F{numOfExisPzaVac}+"</b> QUE MANIFIESTA HABER PRESENTADO LA JUSTIFICACIÓN, DE LA EXISTENCIA DE VACANTES QUE PUDIERAN PERMITIR LA CONTRATACIÓN RESPECTIVA EN TODOS LOS CASOS, EXCEPTO PARA PROGRAMAS SUJETOS A REGLAS DE OPERACIÓN Y PARA PROYECTOS FINANCIADOS CON CRÉDITO EXTERNO, ANTE LA DIRECCIÓN GENERAL DE DESARROLLO HUMANO Y ORGANIZACIÓN DE LA ADMINISTRACIÓN PÚBLICA FEDERAL DE LA SECRETARÍA DE LA FUNCIÓN PÚBLICA, OFICIO NO. "+ $F{oficioFhExisPzaVac} +"."]]></textFieldExpression>
 			</textField>
 		</band>
 		<band height="19" splitType="Prevent">
@@ -388,7 +407,7 @@
 				<textElement textAlignment="Justified" markup="html">
 					<font fontName="SansSerif" size="10" isBold="false" isPdfEmbedded="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA["<b>II.1</b> QUE ES DE NACIONALIDAD "+ $F{descNacionalidadContratado}.trim() +", EN PLENO USO Y GOCE DE LAS FACULTADES QUE LE OTORGA LA LEY, Y QUE CUENTA CON LOS CONOCIMIENTOS Y, EN SU CASO, CON LA EXPERIENCIA NECESARIOS PARA PRESTAR EL SERVICIO REQUERIDO POR <b>“LA DEPENDENCIA”</b>."]]></textFieldExpression>
+				<textFieldExpression><![CDATA["<b>II.1</b> QUE ES DE NACIONALIDAD "+ $F{descNacContratado}.trim() +", EN PLENO USO Y GOCE DE LAS FACULTADES QUE LE OTORGA LA LEY, Y QUE CUENTA CON LOS CONOCIMIENTOS Y, EN SU CASO, CON LA EXPERIENCIA NECESARIOS PARA PRESTAR EL SERVICIO REQUERIDO POR <b>“LA DEPENDENCIA”</b>."]]></textFieldExpression>
 			</textField>
 		</band>
 		<band height="16" splitType="Stretch">
@@ -430,7 +449,7 @@
 				<textElement textAlignment="Justified" markup="html">
 					<font fontName="SansSerif" size="10" isBold="false"/>
 				</textElement>
-				<textFieldExpression><![CDATA["<b>II.4</b> QUE MANIFIESTA, BAJO PROTESTA DE DECIR VERDAD, QUE NO SE ENCUENTRA INHABILITADO PARA EL DESEMPEÑO DE UN EMPLEO, CARGO O COMISIÓN EN EL SERVICIO PÚBLICO Y QUE CONOCE EL RÉGIMEN DE COMPATIBILIDAD DE EMPLEOS POR LO QUE SIN DETRIMENTO DE LAS FUNCIONES QUE TIENE ENCOMENDADAS EN EL PUESTO DE " + $F{nbPuestoCompatibilidad} + " O DE LA PRESTACIÓN DE LOS SERVICIOS CONTRATADOS CON LA " + $F{nbDepCompatibilidad} + ", SE COMPROMETE A CUMPLIR CON LA MÁXIMA DILIGENCIA LAS OBLIGACIONES A QUE SE REFIERE LA CLÁUSULA PRIMERA DE ESTE CONTRATO; ASIMISMO QUE NO ES PARTE EN UN JUICIO DEL ORDEN CIVIL, MERCANTIL O LABORAL EN CONTRA DE ALGUNA DEPENDENCIA O ENTIDAD DE LA ADMINISTRACIÓN PÚBLICA FEDERAL, DE LA PROCURADURÍA GENERAL DE LA REPÚBLICA, DE UN TRIBUNAL ADMINISTRATIVO O DE LA PRESIDENCIA DE LA REPÚBLICA; Y QUE NO SE ENCUENTRA EN ALGÚN OTRO SUPUESTO O SITUACIÓN QUE PUDIERA GENERAR CONFLICTO DE INTERESES PARA PRESTAR LOS SERVICIOS PROFESIONALES OBJETO DEL PRESENTE CONTRATO."]]></textFieldExpression>
+				<textFieldExpression><![CDATA["<b>II.4</b> QUE MANIFIESTA, BAJO PROTESTA DE DECIR VERDAD, QUE NO SE ENCUENTRA INHABILITADO PARA EL DESEMPEÑO DE UN EMPLEO, CARGO O COMISIÓN EN EL SERVICIO PÚBLICO Y QUE CONOCE EL RÉGIMEN DE COMPATIBILIDAD DE EMPLEOS POR LO QUE SIN DETRIMENTO DE LAS FUNCIONES QUE TIENE ENCOMENDADAS EN EL PUESTO DE " + $F{puestoCompatibilidad} + " O DE LA PRESTACIÓN DE LOS SERVICIOS CONTRATADOS CON LA " + $F{nbDepCompatibilidad} + ", SE COMPROMETE A CUMPLIR CON LA MÁXIMA DILIGENCIA LAS OBLIGACIONES A QUE SE REFIERE LA CLÁUSULA PRIMERA DE ESTE CONTRATO; ASIMISMO QUE NO ES PARTE EN UN JUICIO DEL ORDEN CIVIL, MERCANTIL O LABORAL EN CONTRA DE ALGUNA DEPENDENCIA O ENTIDAD DE LA ADMINISTRACIÓN PÚBLICA FEDERAL, DE LA PROCURADURÍA GENERAL DE LA REPÚBLICA, DE UN TRIBUNAL ADMINISTRATIVO O DE LA PRESIDENCIA DE LA REPÚBLICA; Y QUE NO SE ENCUENTRA EN ALGÚN OTRO SUPUESTO O SITUACIÓN QUE PUDIERA GENERAR CONFLICTO DE INTERESES PARA PRESTAR LOS SERVICIOS PROFESIONALES OBJETO DEL PRESENTE CONTRATO."]]></textFieldExpression>
 			</textField>
 		</band>
 		<band height="16" splitType="Stretch">
@@ -496,7 +515,7 @@
 				<textElement textAlignment="Justified" verticalAlignment="Top" markup="html">
 					<font fontName="SansSerif" size="10" isBold="false"/>
 				</textElement>
-				<textFieldExpression><![CDATA["<b>CUARTA.- “LA DEPENDENCIA”</b> CUBRIRÁ A <b>“EL PRESTADOR DE LOS SERVICIOS”</b> POR CONCEPTO DE SUS HONORARIOS, UN IMPORTE BRUTO DE $ "+$F{sumaImpBrutoRecibido}+" (" + $F{importeLetra} + "). DICHO IMPORTE SERÁ PAGADO EN "+ $F{noExhibiciones} +", PREVIA LA ENTREGA DE LOS INFORMES O DE LOS SERVICIOS ENCOMENDADOS A SATISFACCIÓN DE <b>“LA DEPENDENCIA”</b>." +
+				<textFieldExpression><![CDATA["<b>CUARTA.- “LA DEPENDENCIA”</b> CUBRIRÁ A <b>“EL PRESTADOR DE LOS SERVICIOS”</b> POR CONCEPTO DE SUS HONORARIOS, UN IMPORTE BRUTO DE $ "+$F{sumImBrutoRecibidos}+" (" + $F{importeLetra} + "). DICHO IMPORTE SERÁ PAGADO EN "+ $F{nuExhibiciones} +", PREVIA LA ENTREGA DE LOS INFORMES O DE LOS SERVICIOS ENCOMENDADOS A SATISFACCIÓN DE <b>“LA DEPENDENCIA”</b>." +
 "<br><br>SÍ PARA EL CUMPLIMIENTO DEL OBJETO DEL PRESENTE CONTRATO SE REQUIERE DEL TRASLADO DE <b>“EL PRESTADOR DE LOS SERVICIOS”</b> A LUGAR DISTINTO A AQUEL QUE PRESTE SUS SERVICIOS, SE PAGARÁN LAS EXPENSAS CORRESPONDIENTES, DE CONFORMIDAD CON LO ESTABLECIDO POR LOS ARTÍCULOS 2609 Y 2610 DEL CÓDIGO CIVIL FEDERAL Y CON SUJECIÓN A LAS NORMAS Y TARIFAS ESTABLECIDAS PARA ESTE TIPO DE EROGACIONES." +
 "<br><br>LAS EXPENSAS SE PAGARÁN CON BASE EN LAS TARIFAS ESTABLECIDAS EN LA NORMATIVIDAD APLICABLE A <b“LA DEPENDENCIA”</b>, OBLIGÁNDOSE <b>“EL PRESTADOR DE LOS SERVICIOS”</b> A SU COMPROBACIÓN CON LOS DOCUMENTOS QUE CUMPLAN CON LOS REQUISITOS FISCALES APLICABLES."]]></textFieldExpression>
 			</textField>
@@ -529,7 +548,7 @@
 				<textElement textAlignment="Justified" markup="html">
 					<font fontName="SansSerif" size="10" isBold="false"/>
 				</textElement>
-				<textFieldExpression><![CDATA["<b>QUINTA.-</b> EL PRESENTE CONTRATO OBSERVARÁ UNA VIGENCIA DEL " + $F{fechaVigenciaInicial} + " AL "+ $F{fechaVigenciaFinal}  +"."]]></textFieldExpression>
+				<textFieldExpression><![CDATA["<b>QUINTA.-</b> EL PRESENTE CONTRATO OBSERVARÁ UNA VIGENCIA DEL " + $F{fhVigenciaInicial} + " AL "+ $F{fhVigenciaFinal}  +"."]]></textFieldExpression>
 			</textField>
 		</band>
 		<band height="16">
@@ -579,7 +598,7 @@
 				<textElement textAlignment="Justified" markup="html">
 					<font fontName="SansSerif" size="10" isBold="false"/>
 				</textElement>
-				<textFieldExpression><![CDATA["<b>DÉCIMA.- “LA DEPENDENCIA”</b> DESIGNA A " + $F{nombreFirmaRecepRepAct} + ", " + $F{puestoFirmaRecepRepAct} + ", PARA RECIBIR A SU ENTERA SATISFACCIÓN LOS INFORMES DE LAS ACTIVIDADES DESARROLLADAS POR <b>“EL PRESTADOR DE LOS SERVICIOS”</b>, ASÍ COMO EL RESULTADO DE LOS SERVICIOS PACTADOS EN EL CONTRATO (ENTREGABLES)."]]></textFieldExpression>
+				<textFieldExpression><![CDATA["<b>DÉCIMA.- “LA DEPENDENCIA”</b> DESIGNA A " + $F{firmaRecepRepActNombre} + ", " + $F{firmaRecepRepActPuesto} + ", PARA RECIBIR A SU ENTERA SATISFACCIÓN LOS INFORMES DE LAS ACTIVIDADES DESARROLLADAS POR <b>“EL PRESTADOR DE LOS SERVICIOS”</b>, ASÍ COMO EL RESULTADO DE LOS SERVICIOS PACTADOS EN EL CONTRATO (ENTREGABLES)."]]></textFieldExpression>
 			</textField>
 		</band>
 		<band height="16" splitType="Stretch">
@@ -819,28 +838,28 @@
 				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-				<reportElement uuid="4fae1889-b479-4051-9a7e-d62320e07fba" stretchType="RelativeToTallestObject" mode="Opaque" x="0" y="0" width="210" height="38" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF">
-					<printWhenExpression><![CDATA[new Boolean( $F{previoDefinitivo}.equals( "1" ) )]]></printWhenExpression>
+				<reportElement uuid="4fae1889-b479-4051-9a7e-d62320e07fba" stretchType="RelativeToTallestObject" mode="Opaque" x="0" y="0" width="140" height="38" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF">
+					<printWhenExpression><![CDATA[new Boolean( $P{pPrevioDefinitivo}.equals( "1" ) && $F{banderaPrestador}.equals( "1" ) )]]></printWhenExpression>
 				</reportElement>
 				<box topPadding="5"/>
 				<textElement textAlignment="Justified" markup="html">
 					<font fontName="SansSerif" size="5" isBold="false"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{firmaDirectorGeneral}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{firmaPrestador}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-				<reportElement uuid="1849dd72-2072-4d11-ad45-26d28c29ad00" stretchType="RelativeToTallestObject" mode="Opaque" x="0" y="40" width="210" height="12" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF">
-					<printWhenExpression><![CDATA[new Boolean( $F{previoDefinitivo}.equals( "1" ) )]]></printWhenExpression>
+				<reportElement uuid="1849dd72-2072-4d11-ad45-26d28c29ad00" stretchType="RelativeToTallestObject" mode="Opaque" x="0" y="40" width="140" height="12" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF">
+					<printWhenExpression><![CDATA[new Boolean( $P{pPrevioDefinitivo}.equals( "1" ) && $F{banderaPrestador}.equals( "1" ) )]]></printWhenExpression>
 				</reportElement>
 				<box topPadding="5"/>
 				<textElement textAlignment="Justified" markup="html">
 					<font fontName="SansSerif" size="5" isBold="false"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{nombreFirmaRepSep}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{nombreContratado}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-				<reportElement uuid="e755d428-6017-44d8-9b9f-23b594f422de" stretchType="RelativeToTallestObject" mode="Opaque" x="232" y="0" width="210" height="38" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF">
-					<printWhenExpression><![CDATA[new Boolean( $F{previoDefinitivo}.equals( "1" ) )]]></printWhenExpression>
+				<reportElement uuid="e755d428-6017-44d8-9b9f-23b594f422de" stretchType="RelativeToTallestObject" mode="Opaque" x="301" y="0" width="140" height="38" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF">
+					<printWhenExpression><![CDATA[new Boolean( $P{pPrevioDefinitivo}.equals( "1" ) )]]></printWhenExpression>
 				</reportElement>
 				<box topPadding="5"/>
 				<textElement textAlignment="Justified" markup="html">
@@ -849,14 +868,34 @@
 				<textFieldExpression><![CDATA[$F{firmaDirectorUr}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-				<reportElement uuid="ad190117-f916-4a6b-904e-6d822dc01f68" stretchType="RelativeToTallestObject" mode="Opaque" x="232" y="40" width="210" height="12" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF">
-					<printWhenExpression><![CDATA[new Boolean( $F{previoDefinitivo}.equals( "1" ) )]]></printWhenExpression>
+				<reportElement uuid="ad190117-f916-4a6b-904e-6d822dc01f68" stretchType="RelativeToTallestObject" mode="Opaque" x="301" y="40" width="140" height="12" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF">
+					<printWhenExpression><![CDATA[new Boolean( $P{pPrevioDefinitivo}.equals( "1" ) )]]></printWhenExpression>
 				</reportElement>
 				<box topPadding="5"/>
 				<textElement textAlignment="Justified" markup="html">
 					<font fontName="SansSerif" size="5" isBold="false"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{nombreFirmaRepArea}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{firmaRepAreaNombre}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="b04997fc-5ab6-4822-ba99-b9a7f17f7d84" stretchType="RelativeToTallestObject" mode="Opaque" x="150" y="0" width="140" height="38" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF">
+					<printWhenExpression><![CDATA[new Boolean( $P{pPrevioDefinitivo}.equals( "1" ) )]]></printWhenExpression>
+				</reportElement>
+				<box topPadding="5"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="SansSerif" size="5" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{firmaDirectorGeneral}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="7435c00d-3c2a-4b98-99a3-92ab32efa0be" stretchType="RelativeToTallestObject" mode="Opaque" x="150" y="40" width="140" height="12" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF">
+					<printWhenExpression><![CDATA[new Boolean( $P{pPrevioDefinitivo}.equals( "1" ) )]]></printWhenExpression>
+				</reportElement>
+				<box topPadding="5"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="SansSerif" size="5" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{firmaRepSepNombre}]]></textFieldExpression>
 			</textField>
 		</band>
 	</pageFooter>
@@ -877,8 +916,8 @@
 				<textFieldExpression><![CDATA[$V{PAGE_NUMBER} + " de  "]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-				<reportElement uuid="8043a31a-3d84-4a43-8dd6-5edce3c406f4" stretchType="RelativeToTallestObject" mode="Opaque" x="232" y="0" width="210" height="38" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF">
-					<printWhenExpression><![CDATA[new Boolean( $F{previoDefinitivo}.equals( "1" ) )]]></printWhenExpression>
+				<reportElement uuid="8043a31a-3d84-4a43-8dd6-5edce3c406f4" stretchType="RelativeToTallestObject" mode="Opaque" x="301" y="0" width="140" height="38" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF">
+					<printWhenExpression><![CDATA[new Boolean( $P{pPrevioDefinitivo}.equals( "1" ) )]]></printWhenExpression>
 				</reportElement>
 				<box topPadding="5"/>
 				<textElement textAlignment="Justified" markup="html">
@@ -887,18 +926,18 @@
 				<textFieldExpression><![CDATA[$F{firmaDirectorUr}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-				<reportElement uuid="04ca8692-39b3-4730-ad26-fa45f51adec8" stretchType="RelativeToTallestObject" mode="Opaque" x="232" y="40" width="210" height="12" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF">
-					<printWhenExpression><![CDATA[new Boolean( $F{previoDefinitivo}.equals( "1" ) )]]></printWhenExpression>
+				<reportElement uuid="04ca8692-39b3-4730-ad26-fa45f51adec8" stretchType="RelativeToTallestObject" mode="Opaque" x="301" y="40" width="141" height="12" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF">
+					<printWhenExpression><![CDATA[new Boolean( $P{pPrevioDefinitivo}.equals( "1" ) )]]></printWhenExpression>
 				</reportElement>
 				<box topPadding="5"/>
 				<textElement textAlignment="Justified" markup="html">
 					<font fontName="SansSerif" size="5" isBold="false"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{nombreFirmaRepArea}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{firmaRepAreaNombre}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-				<reportElement uuid="0e0c88bd-f602-4506-a98f-cfad383edc12" stretchType="RelativeToTallestObject" mode="Opaque" x="0" y="0" width="210" height="38" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF">
-					<printWhenExpression><![CDATA[new Boolean( $F{previoDefinitivo}.equals( "1" ) )]]></printWhenExpression>
+				<reportElement uuid="0e0c88bd-f602-4506-a98f-cfad383edc12" stretchType="RelativeToTallestObject" mode="Opaque" x="150" y="0" width="140" height="38" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF">
+					<printWhenExpression><![CDATA[new Boolean( $P{pPrevioDefinitivo}.equals( "1" ) )]]></printWhenExpression>
 				</reportElement>
 				<box topPadding="5"/>
 				<textElement textAlignment="Justified" markup="html">
@@ -907,18 +946,200 @@
 				<textFieldExpression><![CDATA[$F{firmaDirectorGeneral}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-				<reportElement uuid="e9dd478b-24ff-46b3-9d42-abf722bd5747" stretchType="RelativeToTallestObject" mode="Opaque" x="0" y="40" width="210" height="12" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF">
-					<printWhenExpression><![CDATA[new Boolean( $F{previoDefinitivo}.equals( "1" ) )]]></printWhenExpression>
+				<reportElement uuid="e9dd478b-24ff-46b3-9d42-abf722bd5747" stretchType="RelativeToTallestObject" mode="Opaque" x="150" y="40" width="140" height="12" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF">
+					<printWhenExpression><![CDATA[new Boolean( $P{pPrevioDefinitivo}.equals( "1" ) )]]></printWhenExpression>
 				</reportElement>
 				<box topPadding="5"/>
 				<textElement textAlignment="Justified" markup="html">
 					<font fontName="SansSerif" size="5" isBold="false"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{nombreFirmaRepSep}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{firmaRepSepNombre}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="8668e0a6-2d80-468d-a89e-23e5fe71cc53" stretchType="RelativeToTallestObject" mode="Opaque" x="0" y="40" width="140" height="12" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF">
+					<printWhenExpression><![CDATA[new Boolean( $P{pPrevioDefinitivo}.equals( "1" ) && $F{banderaPrestador}.equals( "1" ) )]]></printWhenExpression>
+				</reportElement>
+				<box topPadding="5"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="SansSerif" size="5" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nombreContratado}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="f51b2d63-a5e6-406d-9825-c9ef1eda15a9" stretchType="RelativeToTallestObject" mode="Opaque" x="0" y="0" width="140" height="38" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF">
+					<printWhenExpression><![CDATA[new Boolean( $P{pPrevioDefinitivo}.equals( "1" ) && $F{banderaPrestador}.equals( "1" ) )]]></printWhenExpression>
+				</reportElement>
+				<box topPadding="5"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="SansSerif" size="5" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{firmaPrestador}]]></textFieldExpression>
 			</textField>
 		</band>
 	</lastPageFooter>
 	<summary>
-		<band height="100"/>
+		<band height="98">
+			<subreport>
+				<reportElement uuid="cf55871e-34e1-4aee-bf95-7db0c3b1ebb5" x="0" y="0" width="442" height="62">
+					<printWhenExpression><![CDATA[new Boolean( $F{banderaPrestador}.equals( "1" ) )]]></printWhenExpression>
+				</reportElement>
+				<subreportParameter name="pCurpPrestador">
+					<subreportParameterExpression><![CDATA[$F{curpContratado}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pNumeroTramite">
+					<subreportParameterExpression><![CDATA[$F{nuTramite}.toString()]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pFirmaPrestador">
+					<subreportParameterExpression><![CDATA[$F{firmaPrestador}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pSelloDirectorUr">
+					<subreportParameterExpression><![CDATA[$F{selloDirectorUR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pNombreDirectorUr">
+					<subreportParameterExpression><![CDATA[$F{firmaRepAreaNombre}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pAnnio">
+					<subreportParameterExpression><![CDATA[$F{annio}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pPuestoDirectorUr">
+					<subreportParameterExpression><![CDATA[$F{firmaRepAreaPuesto}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pSuplenciaDirectorUr">
+					<subreportParameterExpression><![CDATA[$F{suplenciaDirectorUR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pCadenaOriginal">
+					<subreportParameterExpression><![CDATA[$F{cadenaOriginal}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pSerieDirectorGeneral">
+					<subreportParameterExpression><![CDATA[$F{serieDirectorGeneral}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pFhInicioContrato">
+					<subreportParameterExpression><![CDATA[$F{fhVigenciaInicial}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pFirmaDirectorGeneral">
+					<subreportParameterExpression><![CDATA[$F{firmaDirectorGeneral}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pSelloDirectorGeneral">
+					<subreportParameterExpression><![CDATA[$F{selloDirectorGeneral}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pSelloPrestador">
+					<subreportParameterExpression><![CDATA[$F{selloPrestador}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pFhFirmaContrato">
+					<subreportParameterExpression><![CDATA[$F{fhFirmaContrato}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pFirmaDirectorUr">
+					<subreportParameterExpression><![CDATA[$F{firmaDirectorUr}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pCurpDirectorUr">
+					<subreportParameterExpression><![CDATA[$F{curpDirectorUR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pSerieDirectorUr">
+					<subreportParameterExpression><![CDATA[$F{serieDirectorUR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pNombreDirectorGeneral">
+					<subreportParameterExpression><![CDATA[$F{firmaRepSepNombre}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pCurpDirectorGeneral">
+					<subreportParameterExpression><![CDATA[$F{curpDirectorGeneral}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pSeriePrestador">
+					<subreportParameterExpression><![CDATA[$F{seriePrestador}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pSuplenciaDirectorGeneral">
+					<subreportParameterExpression><![CDATA[$F{suplenciaDirectorGeneral}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pRfcContratado">
+					<subreportParameterExpression><![CDATA[$F{rfcContratado}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pPuestoDirectorGeneral">
+					<subreportParameterExpression><![CDATA[$F{firmaRepSepPuesto}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pNombrePrestador">
+					<subreportParameterExpression><![CDATA[$F{nombreContratado}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pNombreUr">
+					<subreportParameterExpression><![CDATA[$F{nombreUr}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{lstDatos})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{REAL_PATH}+"/ModeloFirma_3_firmas.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement uuid="fb4678e1-a643-4286-8cc2-3d86f1410b33" x="0" y="9" width="442" height="62">
+					<printWhenExpression><![CDATA[new Boolean( $F{banderaPrestador}.equals( "0" ) )]]></printWhenExpression>
+				</reportElement>
+				<subreportParameter name="pCurpPrestador">
+					<subreportParameterExpression><![CDATA[$F{curpContratado}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pNumeroTramite">
+					<subreportParameterExpression><![CDATA[$F{nuTramite}.toString()]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pSelloDirectorUr">
+					<subreportParameterExpression><![CDATA[$F{selloDirectorUR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pNombreDirectorUr">
+					<subreportParameterExpression><![CDATA[$F{firmaRepAreaNombre}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pAnnio">
+					<subreportParameterExpression><![CDATA[$F{annio}.toString()]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pPuestoDirectorUr">
+					<subreportParameterExpression><![CDATA[$F{firmaRepAreaPuesto}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pSuplenciaDirectorUr">
+					<subreportParameterExpression><![CDATA[$F{suplenciaDirectorUR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pCadenaOriginal">
+					<subreportParameterExpression><![CDATA[$F{cadenaOriginal}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pFhInicioContrato">
+					<subreportParameterExpression><![CDATA[$F{fhVigenciaInicial}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pSerieDirectorGeneral">
+					<subreportParameterExpression><![CDATA[$F{serieDirectorGeneral}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pFirmaDirectorGeneral">
+					<subreportParameterExpression><![CDATA[$F{firmaDirectorGeneral}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pFhFirmaContrato">
+					<subreportParameterExpression><![CDATA[$F{fhFirmaContrato}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pSelloDirectorGeneral">
+					<subreportParameterExpression><![CDATA[$F{selloDirectorGeneral}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pCurpDirectorUr">
+					<subreportParameterExpression><![CDATA[$F{curpDirectorUR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pFirmaDirectorUr">
+					<subreportParameterExpression><![CDATA[$F{firmaDirectorUr}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pNombreDirectorGeneral">
+					<subreportParameterExpression><![CDATA[$F{firmaRepSepNombre}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pSerieDirectorUr">
+					<subreportParameterExpression><![CDATA[$F{serieDirectorUR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pCurpDirectorGeneral">
+					<subreportParameterExpression><![CDATA[$F{curpDirectorGeneral}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pRfcContratado">
+					<subreportParameterExpression><![CDATA[$F{rfcContratado}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pSuplenciaDirectorGeneral">
+					<subreportParameterExpression><![CDATA[$F{suplenciaDirectorGeneral}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pPuestoDirectorGeneral">
+					<subreportParameterExpression><![CDATA[$F{firmaRepSepPuesto}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pNombrePrestador">
+					<subreportParameterExpression><![CDATA[$F{nombreContratado}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pNombreUr">
+					<subreportParameterExpression><![CDATA[$F{nombreUr}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{REAL_PATH}+"/ModeloFirma.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
 	</summary>
 </jasperReport>

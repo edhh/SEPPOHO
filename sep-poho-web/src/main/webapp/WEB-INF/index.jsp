@@ -86,11 +86,11 @@
                         <div class="modal-body">
                             <div class="alert alert-success" id="alertaExito">
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                <p>El contrato se ha firmado exitósamente</p>
+                                <p>El contrato se ha firmado exitosamente, espera a que sea firmado por la autoridad para descargarlo.</p>
                             </div>
                             <div class="alert alert-danger" id="alertaError">
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                <p>El contrato ya ha sido firmado previamente</p>
+                                <p>El contrato ya ha sido firmado previamente.</p>
                             </div>
                             <div id="errorLog" tabindex="0" class="row col-md-12">
                                 <div class="alert alert-danger" id="errorDiv" tabindex="1" style="display:none">

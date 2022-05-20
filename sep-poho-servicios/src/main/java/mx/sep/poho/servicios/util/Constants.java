@@ -48,4 +48,12 @@ public class Constants {
     
     //ESTATUS FIRMANTES
     public static final Integer EN_ESPERA_FIRMA_AUTORIDAD = 1903;
+    
+    //PARAMETROS FIRMA
+    public static final String URL_FIRMA = "URL_WS_FIRMA_ELECTRONICA";
+    public static final String ENTIDAD_FIRMA = "ENTIDAD_FIRMA_ELECTRONICA";
+    public static final String PASSWORD_FIRMA = "PASSWORD_FIRMA_ELECTRONICA";
+    public static final String TSA_NAME_FIRMA = "TSANAME_FIRMA_ELECTRONICA";
+    public static final String TSA_ALGORITHM_FIRMA = "TSAALGORITHM_FIRMA_ELECTRONICA";
+    public static final String OCSP_ALGORITHM_FIRMA = "OCSPALGORITHM_FIRMA_ELECTRONICA";
 }

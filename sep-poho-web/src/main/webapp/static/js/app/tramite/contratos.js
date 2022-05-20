@@ -185,17 +185,17 @@ function drawTableGeneric(result) {
             field: 'estatus',
             title: 'Estatus',
             align: 'left',
-            formatter : formatterEstatus(result[0].estatus)
+            formatter : formatterEstatus
         },{
             field: 'firmar',
             title: '',
             align: 'left',
-            formatter: btnFirmar(result[0].estatus)
+            formatter: btnFirmar
         },{
             field: 'descargar',
             title: '',
             align: 'left',
-            formatter: btnDescargar(result[0])
+            formatter: btnDescargar
         },
         
     ]
@@ -224,11 +224,14 @@ function drawTableGeneric(result) {
     document.getElementById("resultadoLista").style.display = "inline";
 }
 
-function btnFirmar(estatus){
+function btnFirmar(estatus , row){
     console.log(estatus);
+     console.log("row estatus: " + row.estatus);
                       $('#contratosTrabajador').on('click-cell.bs.table', function (field, value, row, $el) {
                             console.log("CLICK" + value);
                             console.log($el);
+                            var str = JSON.stringify(row);
+                            console.log("field = "+ str);
                         if (value == "firmar"){
                             //alert($el.ctId"-"+$el.curp+"-"+$el.nombre);
                             console.log("Modficar");
@@ -304,14 +307,16 @@ function btnFirmar(estatus){
     //var btn = document.createElement("BUTTON");
     //btn.innerHTML = "Do Something";
     //document.body.appendChild(btn);
-    if (estatus == 6)
-        return "<button type='button' class='btn btn-primary' disabled>Firmar</button>";
+    if (row.estatus != 1904)
+        return "<button type='button' value ='firmar' class='btn btn-primary' disabled>Firmar</button>";
     else
-        return "<button type='button' class='btn btn-primary'>Firmar</button>";
+        return "<button type='button' value ='firmar' class='btn btn-primary'>Firmar</button>";
 }
 
-function btnDescargar(contrato){
-    console.log("Btn Descargar val: "+contrato.annio);
+function btnDescargar(estatus , row){
+    console.log(estatus);
+    console.log(row.estatus);
+   // console.log("Btn Descargar val: "+contrato.annio);
     //var btn = document.createElement("BUTTON");
     //btn.innerHTML = "Do Something";
     //document.body.appendChild(btn); 
@@ -320,15 +325,17 @@ function btnDescargar(contrato){
         console.log($el);
         generarContrato(contrato);
     });*/
-    if (contrato.annio < 2022)
-        return "<button type='button' class='btn btn-primary' disabled>Descargar</button>";
+    if (row.estatus != 1901 && row.estatus != null )
+        return "<button type='button' class='btn btn-primary' value ='descargar'>Descargar</button>";
     else{
         //return "<form action='${pageContext.request.contextPath}/mvc/jasper/repContrato?noTramite='" + contrato.noTramite + "> <button class='btn btn-primary pull-right'  id='btnDescarga' type='submit' >Descargar</button></form>";
-        return "<button type='button' class='btn btn-primary'>Descargar</button>";    
+        return "<button type='button' class='btn btn-primary' disabled value ='descargar'>Descargar</button>";    
     }
 }
 
-function formatterEstatus(estatus){
+function formatterEstatus(estatus , row){
+    console.log("FORMATTER ESTATUS: " + estatus);
+    console.log("FORMATTER ESTATUS: " + row);
     if(estatus == 1901 || estatus == null || estatus == '')
         return "SIN FIRMAS ELECTR&Oacute;NICAS";
     if (estatus == 1902)
