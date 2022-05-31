@@ -30,7 +30,7 @@
                         <li><a href="http://www.gob.mx"> <i class="icon icon-home"></i>
                         </a></li>
                         <li><a href="${pageContext.request.contextPath}/mvc/index">
-                        POHO</a></li>
+                        Firmas SIHO</a></li>
                     </ol>
                 </div>
             </div>

@@ -86,7 +86,7 @@
                         <div class="modal-body">
                             <div class="alert alert-success" id="alertaExito">
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                <p>El contrato se ha firmado exitosamente, espera a que sea firmado por la autoridad para descargarlo.</p>
+                                <p>El contrato se ha firmado exitosamente.</p>
                             </div>
                             <div class="alert alert-danger" id="alertaError">
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -203,11 +203,11 @@
                                 <div class="alert alert-info bottom-buffer">
                                 <strong>Aviso de privacidad</strong>
                                 <p>
-                                    La recolección de datos personales se lleva a cabo a través de la página electrónica www.gob.mx/cedulaprofesional cuyo administrador y responsable del tratamiento es la Dirección General de Profesiones de la Secretaría de Educación Pública. Los datos personales que se recaban serán utilizados con la finalidad de generar y obtener el registro de título profesional y expedición de cédula profesional.
+                                    La Dirección General de Recursos Humanos y Organización de la Secretaría de Educación Pública, con domicilio en Avenida Universidad No. 1200, Sector 3-1, Col. Xoco, Alcaldía Benito Juárez, C.P. 03330, utilizará sus datos personales recabados de conformidad con lo dispuesto por la Ley General de Protección de Datos Personales en Posesión de Sujetos Obligados y demás disposiciones aplicables y serán incorporados, protegidos y tratados en el Sistema de Datos Personales.
                                     <br>
-                                    Si deseas conocer nuestro aviso de privacidad integral, lo podrás consultar en el portal: 
+                                    Usted puede acceder al aviso de privacidad integral a través de la página oficial de la Secretaría de Educación Pública: 
                                     <br>
-                                    <a href ="http://www.sep.gob.mx/actualiza/aviso.html"> www.sep.gob.mx/actualiza/aviso.html </a>
+                                    <a href ="https://www.gob.mx/cms/uploads/attachment/file/724546/AVISO_DE_PRIVACIDAD_INTEGRAL_-_DGRHYO.pdf">www.gob.mx/cms/uploads/attachment/file/724546/AVISO_DE_PRIVACIDAD_INTEGRAL_-_DGRHYO.pdf </a>
                                 </p>
                                 </div>
                         </div>
@@ -383,7 +383,7 @@
                 if(rfcUsuario != cert.subjectRFC){
                     alert("La e.firma no corresponde al usuario registrado.");
                     jQuery("#loadingLlaves").hide();
-                    $('#firmarBtn').prop('disabled',false);
+                    $('#firmarBtn').prop('disabled',true);
                     //firma();
                 }else{
                                     $('#firmarBtn').prop('disabled',false);
@@ -437,7 +437,6 @@
             alert(e.description);
             }
         });
-        
     }
     
     function guardaDatosFirma(datosContrato){
@@ -456,6 +455,8 @@
                         jQuery("#firmando").hide();
                         jQuery("#alertaExito").show("blind");
                         $('#firmarBtn').prop('disabled',true);
+                        obtieneContratos();
+                        console.log("Obteniendo datos grid")
                     }
                     else{
                         jQuery("#firmando").hide();
@@ -477,6 +478,7 @@
                 console.log("Hecho los datos");
             }
         });
+        
     }
     
     function limpiaDatosEFirma(){

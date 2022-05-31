@@ -26,7 +26,7 @@
 
 <t:loginTemplate>
     <jsp:attribute name="paginaTitulo">
-        Portal de Honorarios
+        Portal de firmas del SIHO
     </jsp:attribute>
     <jsp:attribute name="scripts">
     </jsp:attribute>
@@ -35,7 +35,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8">
-                    <h3>Portal de Honorarios</h3>
+                    <h3>Portal de firmas del SIHO</h3>
                         <hr class="red">
                         
                         <div>
@@ -123,7 +123,7 @@
                                     </div>
                                 <div class="row">
                                     <div class="col-md-5">
-                                    <input class="form-control" id="j_username" name="j_username" placeholder="RFC" type="text" onkeyup="this.value = this.value.toUpperCase()" maxlength="13">
+                                    <input class="form-control" id="j_username" name="j_username" placeholder="RFC" type="text" onkeyup="this.value = this.value.toUpperCase()" maxlength="13" readonly="">
                                     <span id="errorRFC" class="help-block" ></span>
                                 </div>
                                     </div>
@@ -169,11 +169,11 @@
                                 <div class="alert alert-info bottom-buffer">
                                 <strong>Aviso de privacidad</strong>
                                 <p>
-                                    La recolección de datos personales se lleva a cabo a través de la página electrónica www.gob.mx/cedulaprofesional cuyo administrador y responsable del tratamiento es la Dirección General de Profesiones de la Secretaría de Educación Pública. Los datos personales que se recaban serán utilizados con la finalidad de generar y obtener el registro de título profesional y expedición de cédula profesional.
+                                    La Dirección General de Recursos Humanos y Organización de la Secretaría de Educación Pública, con domicilio en Avenida Universidad No. 1200, Sector 3-1, Col. Xoco, Alcaldía Benito Juárez, C.P. 03330, utilizará sus datos personales recabados de conformidad con lo dispuesto por la Ley General de Protección de Datos Personales en Posesión de Sujetos Obligados y demás disposiciones aplicables y serán incorporados, protegidos y tratados en el Sistema de Datos Personales.
                                     <br>
-                                    Si deseas conocer nuestro aviso de privacidad integral, lo podrás consultar en el portal: 
+                                    Usted puede acceder al aviso de privacidad integral a través de la página oficial de la Secretaría de Educación Pública: 
                                     <br>
-                                    <a href ="http://www.sep.gob.mx/actualiza/aviso.html"> www.sep.gob.mx/actualiza/aviso.html </a>
+                                    <a href ="https://www.gob.mx/cms/uploads/attachment/file/724546/AVISO_DE_PRIVACIDAD_INTEGRAL_-_DGRHYO.pdf">www.gob.mx/cms/uploads/attachment/file/724546/AVISO_DE_PRIVACIDAD_INTEGRAL_-_DGRHYO.pdf </a>
                                 </p>
                                 </div>
                         </div>
@@ -182,7 +182,7 @@
                     <!-- TESTING -->
                     <!--<h6 id="title" align="center">versi&oacute;n 2.27</h6>-->
                     <!-- PRODUCCION -->
-                    <h6 id="title">versi&oacute;n 2.0.6</h6>
+                    <h6 id="title">versi&oacute;n 1.0.0</h6>
                 </div>
             </jsp:body>
         </t:loginTemplate>

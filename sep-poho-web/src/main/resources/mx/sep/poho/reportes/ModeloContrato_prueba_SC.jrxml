@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ModeloContrato2015_12082015" pageWidth="612" pageHeight="792" columnWidth="442" leftMargin="85" rightMargin="85" topMargin="70" bottomMargin="69" isSummaryNewPage="true" isFloatColumnFooter="true" uuid="d390a025-d823-4a71-9d52-4d01bcd4d79d">
 	<property name="ireport.zoom" value="1.4641000000000033"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="1104"/>
+	<property name="ireport.y" value="1037"/>
 	<style name="style1" fontName="Arial Black" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
 	<style name="style_previa">
 		<conditionalStyle>
@@ -225,13 +225,13 @@
 				<reportElement uuid="690e849e-9aac-462f-b525-3aae6525fecd" positionType="FixRelativeToBottom" stretchType="RelativeToBandHeight" isPrintRepeatedValues="false" x="0" y="0" width="440" height="641" isPrintWhenDetailOverflows="true">
 					<printWhenExpression><![CDATA[new Boolean( $P{pPrevioDefinitivo}.equals( "0" ) )]]></printWhenExpression>
 				</reportElement>
-				<imageExpression><![CDATA[$P{pRuta}+"/img_vista_previa.png"]]></imageExpression>
+				<imageExpression><![CDATA[$P{pRuta}+"static/images/reporte/img_doc_informativo.png"]]></imageExpression>
 			</image>
 			<image evaluationTime="Report">
 				<reportElement uuid="a7585e52-ed78-48e4-9f5c-ea75cad6c667" positionType="FixRelativeToBottom" stretchType="RelativeToBandHeight" isPrintRepeatedValues="false" x="0" y="0" width="440" height="641" isPrintWhenDetailOverflows="true">
 					<printWhenExpression><![CDATA[new Boolean( $P{pPrevioDefinitivo}.equals( "1" ) )]]></printWhenExpression>
 				</reportElement>
-				<imageExpression><![CDATA[$P{pRuta}+"/img_rayas_horizontales.png"]]></imageExpression>
+				<imageExpression><![CDATA[$P{pRuta}+"static/images/reporte/img_rayas_horizontales.png"]]></imageExpression>
 			</image>
 		</band>
 	</background>

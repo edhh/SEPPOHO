@@ -26,6 +26,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import mx.sep.poho.datos.vo.ContratoVO;
 import mx.sep.poho.modelo.Tsh003Tramite;
+import mx.sep.poho.modelo.Tsh003TramiteExample;
+import mx.sep.poho.dao.Tsh003TramiteMapper;
 import mx.sep.poho.modelo.Tsh82ConfigModeloContrato;
 import mx.sep.poho.dao.Tsh088DatosContratosDefMapper;
 import mx.sep.poho.modelo.Tsh088DatosContratosDef;
@@ -79,17 +81,25 @@ public class JasperController {
     @Autowired
     private  Tsh087TramitesFirmadosMapper tsh087TramitesFirmadosMapper;
     
+    @Autowired
+    private Tsh003TramiteMapper tsh003TramiteMapper;
+    
         @RequestMapping(value = "/repContrato", method = RequestMethod.GET)
     public ModelAndView reporteContrato(ModelMap modelMap,HttpServletResponse response, HttpServletRequest request, @RequestParam("noTramite") Integer noTramite)throws WriterException, IOException, Exception {
         Map model = new HashMap();
         Tsh088DatosContratosDefExample tsh088Example = new Tsh088DatosContratosDefExample();
         DatosGeneracionContratoVO datosContrato = new DatosGeneracionContratoVO();
+        String rutaSer = request.getSession().getServletContext()
+                .getRealPath("/");
         try{
             List<Tsh003Tramite> contratoLst = tramitesService.obtieneContratosXnumTramite(noTramite);
             if(contratoLst.isEmpty() || contratoLst.size() == 0){
                 return null;
             }
             Tsh003Tramite contrato = contratoLst.get(0); 
+            System.out.println(contrato.getCurp());
+            String nombre = contrato.getNbContratante().trim() + " " + contrato.getApPaterno().trim() + " " + contrato.getApMaterno().trim();
+            System.out.println(nombre);
             Tsh82ConfigModeloContrato modeloContrato = tramitesService.obtieneNombreReporte(contrato.getAnnio().shortValue(), contrato.getFhIni(), contrato.getCveUnidad());
             if(modeloContrato.getId() == null){
                 return null;
@@ -98,14 +108,15 @@ public class JasperController {
             tsh088Example.createCriteria().andNuTramiteEqualTo(noTramite).andAnnioEqualTo(contrato.getAnnio().shortValue());
             List<Tsh088DatosContratosDef> lstDatosContrato = tsh088DatosContratosDefMapper.selectByExample(tsh088Example);
             Tsh087TramitesFirmadosExample tsh087Example = new Tsh087TramitesFirmadosExample();
-            tsh087Example.createCriteria().andAnnioEqualTo(contrato.getAnnio().shortValue()).andNuTramiteEqualTo(noTramite);
-            List<Tsh087TramitesFirmados> tsh087Lst = tsh087TramitesFirmadosMapper.selectByExample(tsh087Example);
+            //tsh087Example.createCriteria().andAnnioEqualTo(contrato.getAnnio().shortValue()).andNuTramiteEqualTo(noTramite);
+            //List<Tsh087TramitesFirmados> tsh087Lst = tsh087TramitesFirmadosMapper.selectByExample(tsh087Example);
             
             datosContrato.setAnnio(lstDatosContrato.get(0).getAnnio());
             datosContrato.setCiudadFirma(lstDatosContrato.get(0).getCiudadFirma());
-            datosContrato.setCurpContratado(tsh087Lst.get(0).getCurpFirmanteP());
-            datosContrato.setCurpDirectorGeneral(tsh087Lst.get(0).getCurpFirmanteDg());
-            datosContrato.setCurpDirectorUR(tsh087Lst.get(0).getCurpFirmanteUr());
+            //datosContrato.setCurpContratado(tsh087Lst.get(0).getCurpFirmanteP());
+            datosContrato.setCurpContratado(contrato.getCurp());
+            //datosContrato.setCurpDirectorGeneral(tsh087Lst.get(0).getCurpFirmanteDg());
+            //datosContrato.setCurpDirectorUR(tsh087Lst.get(0).getCurpFirmanteUr());
             datosContrato.setDescEntregables(lstDatosContrato.get(0).getDescEntregables());
             datosContrato.setDescFunciones(lstDatosContrato.get(0).getDescFunciones());
             datosContrato.setDescNacContratado(lstDatosContrato.get(0).getDescNacContratado());
@@ -116,9 +127,9 @@ public class JasperController {
             datosContrato.setFhFirmaContrato(lstDatosContrato.get(0).getFhFirmaContrato());
             datosContrato.setFhVigenciaFinal(lstDatosContrato.get(0).getFhVigenciaFinal());
             datosContrato.setFhVigenciaInicial(lstDatosContrato.get(0).getFhVigenciaInicial());
-            datosContrato.setFirmaDirectorGeneral(tsh087Lst.get(0).getFirmaDg());
-            datosContrato.setFirmaDirectorUr(tsh087Lst.get(0).getFirmaUr());
-            datosContrato.setFirmaPrestador(tsh087Lst.get(0).getFirmaP());
+            //datosContrato.setFirmaDirectorGeneral(tsh087Lst.get(0).getFirmaDg());
+            //datosContrato.setFirmaDirectorUr(tsh087Lst.get(0).getFirmaUr());
+            //datosContrato.setFirmaPrestador(tsh087Lst.get(0).getFirmaP());
             datosContrato.setFirmaRecepRepActNombre(lstDatosContrato.get(0).getFirmaRecepRepActNombre());
             datosContrato.setFirmaRecepRepActPrefijo(lstDatosContrato.get(0).getFirmaRecepRepActPrefijo());
             datosContrato.setFirmaRecepRepActPuesto(lstDatosContrato.get(0).getFirmaRecepRepActPuesto());
@@ -132,7 +143,8 @@ public class JasperController {
             datosContrato.setFirmaRepSepTitulo(lstDatosContrato.get(0).getFirmaRepSepTitulo());
             datosContrato.setImporteLetra(lstDatosContrato.get(0).getImporteLetra());
             datosContrato.setNbDepCompatibilidad(lstDatosContrato.get(0).getNbDepCompatibilidad());
-            datosContrato.setNombreContratado(tsh087Lst.get(0).getNuSerieFirmanteP());
+            //datosContrato.setNombreContratado(tsh087Lst.get(0).getNuSerieFirmanteP());
+            datosContrato.setNombreContratado(nombre);
             datosContrato.setNombreUr(lstDatosContrato.get(0).getNombreUr());
             datosContrato.setNuExhibiciones(lstDatosContrato.get(0).getNuExhibiciones());
             datosContrato.setNuTramite(noTramite);
@@ -152,17 +164,17 @@ public class JasperController {
             datosContrato.setReqOfExisPzaVac(lstDatosContrato.get(0).getReqOfExisPzaVac());
             datosContrato.setReqOfRespSfp(lstDatosContrato.get(0).getReqOfRespSfp());
             datosContrato.setRfcContratado(lstDatosContrato.get(0).getRfcContratado());
-            datosContrato.setSelloDirectorGeneral(tsh087Lst.get(0).getTsaDg());
-            datosContrato.setSelloDirectorUR(tsh087Lst.get(0).getTsaUr());
-            datosContrato.setSelloPrestador(tsh087Lst.get(0).getTsaP());
-            datosContrato.setSerieDirectorGeneral(tsh087Lst.get(0).getNuSerieFirmanteDg());
-            datosContrato.setSerieDirectorUR(tsh087Lst.get(0).getNuSerieFirmanteUr());
-            datosContrato.setSeriePrestador(tsh087Lst.get(0).getNuSerieFirmanteP());
+            //datosContrato.setSelloDirectorGeneral(tsh087Lst.get(0).getTsaDg());
+            //datosContrato.setSelloDirectorUR(tsh087Lst.get(0).getTsaUr());
+            //datosContrato.setSelloPrestador(tsh087Lst.get(0).getTsaP());
+            //datosContrato.setSerieDirectorGeneral(tsh087Lst.get(0).getNuSerieFirmanteDg());
+            //datosContrato.setSerieDirectorUR(tsh087Lst.get(0).getNuSerieFirmanteUr());
+            //datosContrato.setSeriePrestador(tsh087Lst.get(0).getNuSerieFirmanteP());
             datosContrato.setSumImBrutoRecibidos(lstDatosContrato.get(0).getSumImBrutoRecibidos());
-            datosContrato.setSuplenciaDirectorGeneral(tsh087Lst.get(0).getSuplenciaDg());
-            datosContrato.setSuplenciaDirectorUR(tsh087Lst.get(0).getSuplenciaUr());
+            //datosContrato.setSuplenciaDirectorGeneral(tsh087Lst.get(0).getSuplenciaDg());
+            //datosContrato.setSuplenciaDirectorUR(tsh087Lst.get(0).getSuplenciaUr());
             datosContrato.setUr(lstDatosContrato.get(0).getUr());
-            datosContrato.setCadenaOriginal(tsh087Lst.get(0).getCadenaOriginal());
+            //datosContrato.setCadenaOriginal(tsh087Lst.get(0).getCadenaOriginal());
             datosContrato.setBanderaPrestador("1");
             datosContrato.setLstDatos(lstDatosContrato);
             
@@ -220,6 +232,7 @@ public class JasperController {
         List<DatosGeneracionContratoVO> lstDatosContrato = new ArrayList();
         lstDatosContrato.add(datosContrato);
         JRBeanCollectionDataSource jrbean = new JRBeanCollectionDataSource(lstDatosContrato);
+        model.put("pRuta", rutaSer);
         model.put("lista", jrbean);
         List<Object> emptyList = new ArrayList<Object>();
         Object nothing = null;
