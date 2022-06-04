@@ -981,7 +981,7 @@
 		<band height="98">
 			<subreport>
 				<reportElement uuid="cf55871e-34e1-4aee-bf95-7db0c3b1ebb5" x="0" y="0" width="442" height="62">
-					<printWhenExpression><![CDATA[new Boolean( $F{banderaPrestador}.equals( "1" ) )]]></printWhenExpression>
+					<printWhenExpression><![CDATA[new Boolean( $P{pPrevioDefinitivo}.equals( "1" ) && $F{banderaPrestador}.equals( "1" ) )]]></printWhenExpression>
 				</reportElement>
 				<subreportParameter name="pCurpPrestador">
 					<subreportParameterExpression><![CDATA[$F{curpContratado}]]></subreportParameterExpression>
@@ -1066,7 +1066,7 @@
 			</subreport>
 			<subreport>
 				<reportElement uuid="fb4678e1-a643-4286-8cc2-3d86f1410b33" x="0" y="9" width="442" height="62">
-					<printWhenExpression><![CDATA[new Boolean( $F{banderaPrestador}.equals( "0" ) )]]></printWhenExpression>
+					<printWhenExpression><![CDATA[new Boolean( $P{pPrevioDefinitivo}.equals( "1" ) && $F{banderaPrestador}.equals( "0" ) )]]></printWhenExpression>
 				</reportElement>
 				<subreportParameter name="pCurpPrestador">
 					<subreportParameterExpression><![CDATA[$F{curpContratado}]]></subreportParameterExpression>

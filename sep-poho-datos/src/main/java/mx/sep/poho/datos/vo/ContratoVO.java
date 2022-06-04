@@ -36,6 +36,8 @@ public class ContratoVO {
     private String claveUnidad;
     
     private Integer estatus;
+    
+    private Long noTramite088;
 
     /**
      * @return the annio
@@ -217,6 +219,20 @@ public class ContratoVO {
      */
     public void setFechaFinContrato(String fechaFinContrato) {
         this.fechaFinContrato = fechaFinContrato;
+    }
+
+    /**
+     * @return the noTramite088
+     */
+    public Long getNoTramite088() {
+        return noTramite088;
+    }
+
+    /**
+     * @param noTramite088 the noTramite088 to set
+     */
+    public void setNoTramite088(Long noTramite088) {
+        this.noTramite088 = noTramite088;
     }
     
 }

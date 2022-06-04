@@ -25,11 +25,11 @@ $("#btnFirma_cer").on("change", function () {
 });
     
  function validaDatos() {
-        console.log("Validacion de datos requeridos");
+        //console.log("Validacion de datos requeridos");
         var rfcPattern = "^([A-ZÑ\x26]{3,4}([0-9]{2})(0[1-9]|1[0-2])(0[1-9]|1[0-9]|2[0-9]|3[0-1])([A-Z]|[0-9]){2}([A-Z]|[0-9]){1})?$";
         var datosValidos = true;
         var rfc = $("#rfc").val();
-        console.log("DATOS A VALIDAR: " + "  "+rfc);
+        //console.log("DATOS A VALIDAR: " + "  "+rfc);
         if (rfc == "" || rfc === null || rfc.length === 0 ) {
             $("#divRFC").parent("div.form-group").addClass("has-error");
             $("#errorRFC").text('');
@@ -65,11 +65,11 @@ $("#btnFirma_cer").on("change", function () {
 		dataType : "json",
 		cache : false,
             success: function(response) {
-                console.log(response);
+                //console.log(response);
                 var search = {};
                 search["rfc"] = response.username;
-                console.log(search);
-                console.log("Search antes de peticion: " +search);
+                //console.log(search);
+                //console.log("Search antes de peticion: " +search);
                 $.ajax({
                         type: "GET",
                         cache: false,
@@ -78,8 +78,8 @@ $("#btnFirma_cer").on("change", function () {
                         data : JSON.stringify(""),
                         dataType: 'json',
                         success: function(response) {
-                            console.log(response);
-                            console.log(response.length);
+                            //console.log(response);
+                            //console.log(response.length);
                             //drawTableGeneric(response);
                             populateSelectAnnios(response);
                         },
@@ -108,8 +108,8 @@ $("#btnFirma_cer").on("change", function () {
 }
 
 function populateSelectAnnios(lstAnnios){
-    console.log("POPULATING SELECT GRADOS");
-    console.log(lstAnnios);
+    //console.log("POPULATING SELECT GRADOS");
+    //console.log(lstAnnios);
     document.getElementById("anio").options.length = 0;
     for (var i = 0; i <= lstAnnios.length-1; i++) {
             $('#anio').append('<option value="' + lstAnnios[i] + '">' + lstAnnios[i] + '</option>');
@@ -123,7 +123,7 @@ function obtieneContratos(){
     //deshabilitaBotones();
     $('#btnGuardar').prop('disabled',true);
     jQuery("#loadingBuscar").show("blind");
-    console.log($("#anio").val());
+    //console.log($("#anio").val());
     $.ajax({
             type: "GET",
             cache: false,
@@ -131,16 +131,16 @@ function obtieneContratos(){
             contentType: "application/json; charset=utf-8",
             dataType: 'json',
             success: function(response) {
-                console.log(response);
-                console.log(response.length);
+                //console.log(response);
+                //console.log(response.length);
                 jQuery("#loadingBuscar").hide();
                 //drawTableGeneric(response);
                 if (response.length > 0) {
-                    console.log('if');
+                    //console.log('if');
                     drawTableGeneric(response);
 
                 } else {
-                    console.log('else');
+                    //console.log('else');
                     //muestraDivMensajeError();
                 }
                 $('#btnGuardar').prop('disabled',false);
@@ -158,8 +158,8 @@ function obtieneContratos(){
 }
 
 function drawTableGeneric(result) {
-    console.log("RESULTADO CUANDO SE DIBUJA LA TABLA");
-        console.log(result);
+    //console.log("RESULTADO CUANDO SE DIBUJA LA TABLA");
+        //console.log(result);
     var columnas = [{
             field: 'annio',
             title: 'A&ntilde;o',
@@ -225,18 +225,18 @@ function drawTableGeneric(result) {
 }
 
 function btnFirmar(estatus , row){
-    console.log(estatus);
-     console.log("row estatus: " + row.estatus);
+    //console.log(estatus);
+     //console.log("row estatus btn firmar: " + row.estatus);
                       $('#contratosTrabajador').on('click-cell.bs.table', function (field, value, row, $el) {
-                            console.log("CLICK" + value);
-                            console.log($el);
+                            //console.log("CLICK" + value);
+                            //console.log($el);
                             var str = JSON.stringify(row);
-                            console.log("field = "+ str);
+                            //console.log("field = "+ str);
                         if (value == "firmar"){
                             //alert($el.ctId"-"+$el.curp+"-"+$el.nombre);
-                            console.log("Modficar");
+                            //console.log("Modficar");
                             cadenaOriginal = "||" + $el.annio + "|" + $el.noTramite + "|" + $el.rfc + "|" + $el.curp + "|" + $el.apPaterno + "|" + $el.apMaterno + "|" + $el.nombre + "|" + $el.fechaIniContrato + "|" + $el.fechaFinContrato + "|" + $el.claveNivel + "|" + $el.claveUnidad + "||";
-                            console.log("cadena Original: "+cadenaOriginal);
+                            //console.log("cadena Original: "+cadenaOriginal);
                             objectFirmaPrestador.annio = $el.annio;
                             objectFirmaPrestador.curpFirmanteP = $el.curp;
                             //objectFirmaPrestador.nombreFirmanteP = $el.nombre + " " + $el.apPaterno + " " + $el.apMaterno;
@@ -259,7 +259,7 @@ function btnFirmar(estatus , row){
                             $('#checkPrivacidad').prop('checked',false);
                         }
                         else if(value == "descargar"){
-                            console.log("DESCARGANDO");
+                            //console.log("DESCARGANDO");
                             var aux = {};
                             aux["noTramite"] = $el.noTramite;
                             window.document.location.href = baseURI + '/mvc/jasper/repContrato?noTramite=' + $el.noTramite;
@@ -307,15 +307,15 @@ function btnFirmar(estatus , row){
     //var btn = document.createElement("BUTTON");
     //btn.innerHTML = "Do Something";
     //document.body.appendChild(btn);
-    if (row.estatus != 1904)
+    if ((row.estatus != 1902 ))
         return "<button type='button' value ='firmar' class='btn btn-primary' disabled>Firmar</button>";
     else
         return "<button type='button' value ='firmar' class='btn btn-primary'>Firmar</button>";
 }
 
 function btnDescargar(estatus , row){
-    console.log(estatus);
-    console.log(row.estatus);
+    //console.log(estatus);
+    //console.log("NU TRAMITE 088: " + row.noTramite088);
    // console.log("Btn Descargar val: "+contrato.annio);
     //var btn = document.createElement("BUTTON");
     //btn.innerHTML = "Do Something";
@@ -325,7 +325,7 @@ function btnDescargar(estatus , row){
         console.log($el);
         generarContrato(contrato);
     });*/
-    if (row.estatus != 1901 && row.estatus != null )
+    if (row.estatus != 1901 && row.estatus != null && row.noTramite088 !== null && row.estatus != 1906 && row.estatus != 0)
         return "<button type='button' class='btn btn-primary' value ='descargar'>Descargar</button>";
     else{
         //return "<form action='${pageContext.request.contextPath}/mvc/jasper/repContrato?noTramite='" + contrato.noTramite + "> <button class='btn btn-primary pull-right'  id='btnDescarga' type='submit' >Descargar</button></form>";
@@ -334,18 +334,20 @@ function btnDescargar(estatus , row){
 }
 
 function formatterEstatus(estatus , row){
-    console.log("FORMATTER ESTATUS: " + estatus);
-    console.log("FORMATTER ESTATUS: " + row);
-    if(estatus == 1901 || estatus == null || estatus == '')
+    //console.log("FORMATTER ESTATUS: " + estatus);
+    //console.log("FORMATTER ESTATUS: " + row.noTramite088);
+    if(estatus == 1901 || estatus == null || estatus == '' || row.noTramite088 == null)
         return "SIN FIRMAS ELECTR&Oacute;NICAS";
     if (estatus == 1902)
-            return "FIRMADO POR LA AUTORIDAD";
+            return "EN ESPERA DE FIRMA ELECTR&Oacute;NICA";
     if (estatus == 1903)
         return "EN ESPERA DE FIRMA DE LA AUTORIDAD";
     if (estatus == 1904)
         return "EN ESPERA DE FIRMAR ELECTR&Oacute;NICAMENTE";
     if (estatus == 1905)
         return "FIRMADO ELECTR&Oacute;NICAMENTE";
+    if (estatus == 1906)
+        return "PARA FIRMA AUT&Oacute;GRAFA";
     
 }
 
@@ -397,7 +399,7 @@ function formatterEstatus(estatus , row){
     }
     
         function initEfirma() {
-        console.log("inicializando las variables de la e.firma...");
+        //console.log("inicializando las variables de la e.firma...");
         var wrapper = $('<div/>').css({height: 0, width: 0, 'overflow': 'hidden'});
         var fileInput = $('#idFileCer').wrap(wrapper);
         $('#cer').val(null);

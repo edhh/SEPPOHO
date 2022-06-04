@@ -182,7 +182,7 @@
                     <!-- TESTING -->
                     <!--<h6 id="title" align="center">versi&oacute;n 2.27</h6>-->
                     <!-- PRODUCCION -->
-                    <h6 id="title">versi&oacute;n 1.0.0</h6>
+                    <h6 id="title">versi&oacute;n 0.0.1</h6>
                 </div>
             </jsp:body>
         </t:loginTemplate>

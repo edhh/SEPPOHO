@@ -18,6 +18,7 @@
     <result column="NB_CONTRATANTE" property="nombre" jdbcType="INTEGER" />
     <result column="fh_ini" property="fechaIniContrato" jdbcType="INTEGER" />
     <result column="fh_fin" property="fechaFinContrato" jdbcType="INTEGER" />
+    <result column="NU_TRAMITE_088" property="noTramite088" jdbcType="INTEGER" />
   </resultMap>
    
     <select id="obtieneAnniosTramites" parameterType="java.lang.String" resultType="java.lang.Integer">
@@ -25,10 +26,12 @@
     </select>
     
     <select id="obtieneContratosXAnnio" resultMap="contratoResultMap">
-        SELECT ANNIO, NU_TRAMITE, TRIM(CVE_CODIGO) AS CVE_CODIGO, (FH_INI) || ' AL ' || (FH_FIN) AS PERIODO , TRIM(CVE_UNIDAD) AS CVE_UNIDAD,
-            CURP, RFC, TRIM(AP_PATERNO) AS AP_PATERNO, TRIM(AP_MATERNO) AS AP_MATERNO, TRIM(NB_CONTRATANTE) AS NB_CONTRATANTE, fh_ini, fh_fin,
-            CVE_STATUS_FIRMANTES
-            FROM TSH003_TRAMITE WHERE RFC = #{rfc} AND ANNIO = #{annio} AND CVE_STATUS = 1036
+        SELECT T.ANNIO, T.NU_TRAMITE, TRIM(T.CVE_CODIGO) AS CVE_CODIGO, (T.FH_INI) || ' AL ' || (T.FH_FIN) AS PERIODO , TRIM(T.CVE_UNIDAD) AS CVE_UNIDAD,
+            T.CURP, T.RFC, TRIM(T.AP_PATERNO) AS AP_PATERNO, TRIM(T.AP_MATERNO) AS AP_MATERNO, TRIM(T.NB_CONTRATANTE) AS NB_CONTRATANTE, T.fh_ini, T.fh_fin,
+            T.CVE_STATUS_FIRMANTES, DCD.NU_TRAMITE AS NU_TRAMITE_088
+            FROM TSH003_TRAMITE T
+            LEFT JOIN TSH088_DATOS_CONTRATOS_DEF DCD ON T.NU_TRAMITE = DCD.NU_TRAMITE AND T.ANNIO = DCD.ANNIO
+             WHERE RFC = #{rfc} AND T.ANNIO = #{annio} AND T.CVE_STATUS = 1036
     </select>
     
     <update id = "actualizaEstatusCveFirmantes" >
