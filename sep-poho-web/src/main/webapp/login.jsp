@@ -9,7 +9,7 @@
 <%@page import="java.util.jar.Manifest"%>
 <%@page import="java.io.InputStream"%>
 
-<!-- v 2.0.6 -->
+<!-- v 0.0.2 -->
 <%! String impVersion = "";%>  
 <%
     try {
@@ -80,6 +80,9 @@
                                 <div id="error5" style="display: none;">
                                     <span style="color: red">Es necesario ingresar el certificado.</span>
                                 </div>
+                                <div id="errorFormCer" style="display: none;">
+                                    <span style="color: red">Debe ingresar un archivo con extensi&oacute;n cer.</span>
+                                </div>
                                 <div class="row">
                                     <div class="col-md-5">
                                     <label class="control-label" for="llavePrivada">Clave privada (.key)*:</label>
@@ -102,15 +105,22 @@
                                 <div id="error6" style="display: none;">
                                     <span style="color: red">Es necesario ingresar la clave privada.</span>
                                 </div>
+                                <div id="errorFormKey" style="display: none;">
+                                    <span style="color: red">Debe ingresar un archivo con extensi&oacute;n key.</span>
+                                </div>
                                 <div class="row">
                                     <div class="col-md-5">
-                                    <label class="control-label" for="fraseLlaves">Contrase&ntilde;a de clave privada*:</label>
+                                        <label class="control-label" for="fraseLlaves">Contrase&ntilde;a de clave privada*:</label>
                                     </div>
                                 </div>
                                 
                                 <div class="row">
                                     <div class="col-md-5">
                                     <input class="form-control" id="fraseLlaves" name="fraseLlaves" placeholder="Contrase&ntilde;a" type="password">
+                                    </div>
+                                    <div class="col-md-5">
+                                        <button class="btn btn-primary" type="button" id="firmaButton" onclick="return validateKeyPairs(event);" ><i class='fa fa-circle-o-notch fa-spin' id="loadingLlaves" style="display: none;"></i> Validar</button>
+                                        <div style="height: 0px; width: 0px; overflow: hidden;"><div style="height: 0px; width: 0px; overflow: hidden;"></div></div>
                                     </div>
                                 </div>
                                 <div id="error7" style="display: none;">
@@ -134,7 +144,7 @@
                                     </label>
                                 </div>
                                 <div id="error" style="display: none;">
-                                    <span style="color: red">Datos incorrectos, verifique e inténtelo de nuevo.</span>
+                                    <span style="color: red">No se cuenta con al menos un contrato autorizado por la Dependencia.</span>
                                 </div>
                                 <div id="error2" style="display: none;">
                                     <span style="color: red">El usuario se encuentra inhabilitado.</span>
@@ -155,13 +165,9 @@
                                 <div>
                                     <p>(*) Campos obligatorios </p>
                                 </div>
-                                <div class="form-group pull-right">
-                                <button class="btn btn-primary" type="button" id="firmaButton" onclick="return validateKeyPairs(event);" ><i class='fa fa-circle-o-notch fa-spin' id="loadingLlaves" style="display: none;"></i> Validar e.firma</button>
-                                        &nbsp;
-                                
-                                        
-                                    <button class="btn btn-default pull-right" type="button" id="btnEnviar" ><i class='fa fa-circle-o-notch fa-spin' id="loadingEntrar" style="display: none;"></i> Ingresar</button>
-                                        <button class="btn btn-default pull-right" type="submit" style="display:none" id="btnSubmit"></button>
+                                <div class="form-group pull-right">   
+                                    <button class="btn btn-default " type="button" id="btnEnviar" ><i class='fa fa-circle-o-notch fa-spin' id="loadingEntrar" style="display: none;"></i> Ingresar</button>
+                                        <button class="btn btn-default " type="submit" style="display:none" id="btnSubmit"></button>
                                 </div>
                                 
                             </form>
@@ -182,7 +188,7 @@
                     <!-- TESTING -->
                     <!--<h6 id="title" align="center">versi&oacute;n 2.27</h6>-->
                     <!-- PRODUCCION -->
-                    <h6 id="title">versi&oacute;n 0.0.1</h6>
+                    <h6 id="title">versi&oacute;n 0.0.2</h6>
                 </div>
             </jsp:body>
         </t:loginTemplate>
@@ -194,7 +200,17 @@
                 jQuery('#recordarme').click(function () {
                     crearCookieRecordame();
                 });
-               
+               $(window).keydown(function(event){
+                if(event.keyCode == 13) {
+                    if(($('#j_username').val() == '')|| ($("#j_username").val() == null)){
+                        $('#warningDiv').html("Debe validar la e.firma para ingresar al portal");
+                        $('#warningDiv').css("display", "block");
+                        return false;
+                    }
+                  //event.preventDefault();
+                  
+                }
+              });
                 verificarCookieRecordarme();
 
             <c:if test="${param.authfailed == true}" >
@@ -216,13 +232,13 @@
                     jQuery("#btnSubmit").click();
                     jQuery("#loadingEntrar").show("blind");
                     $('#btnEnviar').prop('disabled',true);
-                    console.log("BOTN ENTRAR");
+                    //console.log("BOTN ENTRAR");
                 });
 
                 jQuery('#j_username').keypress(function (e) {
                     var key = e.which;
                     if (key == 13) {
-                        console.log("Enviado");
+                        //console.log("Enviado");
                         jQuery("#btnEnviar").click();
                         return false;
                     }
@@ -306,9 +322,11 @@
         ajaxAsync : true,
         controller : "${pageContext.request.contextPath}/FirmaController"
     });
+    var fileExtensionCer = "";
+    var fileExtensionKey = "";
     initEfirma();
     $("#btnFirma_cer").on("change", function () {
-        console.log($_cer);
+        //console.log($_cer);
     $_cer = this.files[0];
     $cer.val($_cer.name);
     });
@@ -316,23 +334,30 @@
     $('#j_username').val("");
     $('#checkPrivacidad').prop('checked',false);
     $('#loadingLlaves'). prop('styler','display:none;');
-    console.log("${pageContext.request.contextPath}/FirmaController");
+    //console.log("${pageContext.request.contextPath}/FirmaController");
     var fileDragAndDrop = null;
-    console.log("Script firma");
+    //console.log("Script firma");
     objFirma.validateWebBrowser("El explorador web no tiene soporte para HTML5. El proceso de firmado no continuará");
     
     $(function() {
-        console.log("Function lee certificado y llave");
+        //console.log("Function lee certificado y llave");
         objFirma.readCertificate("idFileCer");
         objFirma.readPrivateKey("idFileKey");
     });
     
     //Función que intentará abrir el par de llaves
     function validateKeyPairs(e) {
-         $('#warningDiv').css("display", "none");
+        jQuery("#error").hide();
+        jQuery("#error4").hide();
+        if (e.detail === 2 || e.detail === 3) {
+            //console.log("Double click");
+            jQuery("#loadingLlaves").hide();
+            return;
+          }
+        $('#warningDiv').css("display", "none");
         jQuery("#loadingLlaves").show("blind");
         $('#firmaButton').prop('disabled',true);
-        console.log($("#certificado").val());
+        //console.log($("#certificado").val());
         if (($("#idFileCer").val() == '')|| ($("#idFileCer").val() == null)){
             jQuery("#error5").show("blind");
             jQuery("#loadingLlaves").hide();
@@ -340,9 +365,14 @@
             //alert("Ingrese el certificado");
             return;
         }
-        else
+        else{ 
             jQuery("#error5").hide();
-        
+            if(fileExtensionCer !== "cer"){
+                jQuery("#loadingLlaves").hide();
+                $('#firmaButton').prop('disabled',false);
+                return;
+            }
+        }
         if (($("#idFileKey").val() == '')|| ($("#idFileKey").val() == null)){
             jQuery("#error6").show("blind");
             jQuery("#loadingLlaves").hide();
@@ -350,9 +380,14 @@
             //alert("Ingrese el certificado");
             return;
         }
-        else
+        else{
             jQuery("#error6").hide();
-        
+            if(fileExtensionKey !== "key"){
+                jQuery("#loadingLlaves").hide();
+                $('#firmaButton').prop('disabled',false);
+                return;
+            }
+        }
         if (($("#fraseLlaves").val() == '')|| ($("#fraseLlaves").val() == null)){
             jQuery("#error7").show("blind");
             jQuery("#loadingLlaves").hide();
@@ -372,25 +407,27 @@
         else{
             jQuery("#error8").hide();
         }
-        console.log($('.checkPrivacidad:checked').val());
+        //console.log($('.checkPrivacidad:checked').val());
         //objFirma.readCertificateAndPrivateKey($("#fraseLlaves").val(),$("#fraseLlaves").val());
-        console.log("Validando pares llaves");
+        //console.log("Validando pares llaves");
         objFirma.validateKeyPairs($("#fraseLlaves").val(), function (result) {
-            console.log(result);
+            //console.log(result);
             if (result.state == 0) {
-                console.log(result);
+                //console.log(result);
                 decodificarCertificadoUsuario(true);
             } else {
-                console.log(result);
-                console.log("Fallo");
+                //console.log(result);
+                //console.log("Fallo");
                 //alert(result.description);
                 jQuery("#loadingLlaves").hide();
                 $('#firmaButton').prop('disabled',false);
                 $('#warningDiv').html(result.description);
                 $('#warningDiv').css("display", "block");
                 document.getElementById('errorLog').focus();
+                jQuery("#loadingLlaves").hide();
             }
         });
+        jQuery("#loadingLlaves").hide();
         //$('#solicitudRVOERevisionForm').submit();
     }
     
@@ -398,14 +435,14 @@
         objFirma.setReferencia("Decodificación de Certificado");
         objFirma.decodeCertificate({ocsp: true, tsa: {name: "NA", algorithm: fielnet.Digest.SHA1}}, function (e) {
             if (e.state == 0) {
-                console.log("1");
-                console.log("e.state-"+e.state);
-                console.log(e);
+                //console.log("1");
+                //console.log("e.state-"+e.state);
+                //console.log(e);
                 var nombre = e.subjectName;
                 var serie = e.hexSerie;
                 var vigencia = e.notBefore + " - " + e.notAfter;
                 //alert("Propietario:"+nombre+" Serie:"+serie+ " Vigencia:"+vigencia);
-                console.log("Propietario:"+nombre+" Serie:"+serie+ " Vigencia:"+vigencia);
+                //console.log("Propietario:"+nombre+" Serie:"+serie+ " Vigencia:"+vigencia);
             } else {
                 //$("#credenciales").html("Error al decodificar certificado");
                 alert("Error al decodificar certificado");
@@ -414,7 +451,7 @@
     }
     
             function initEfirma() {
-        console.log("inicializando las variables de la e.firma...");
+        //console.log("inicializando las variables de la e.firma...");
         var wrapper = $('<div/>').css({height: 0, width: 0, 'overflow': 'hidden'});
         var fileInput = $('#idFileCer').wrap(wrapper);
         $('#cer').val(null);
@@ -423,7 +460,18 @@
         fileInput.change(function () {
             $this = $(this);
             $('#cer').val($this.val().substring(12));
-            console.log($this.val());
+            
+            if ($this.val().lastIndexOf(".") > 0) {
+                fileExtensionCer = $this.val().substring($this.val().lastIndexOf(".") + 1, $this.val().length);
+                if(fileExtensionCer == "cer"){
+                    jQuery("#errorFormCer").hide();
+                }
+                else{
+                    jQuery("#errorFormCer").show("blind");
+                }
+            }
+            //console.log(fileExtensionCer);
+            //console.log($this.val());
         });
 
         $('#fileCer').click(function () {
@@ -436,6 +484,15 @@
         fileInputKey.change(function () {
             $this = $(this);
             $('#key').val($this.val().substring(12));
+            if ($this.val().lastIndexOf(".") > 0) {
+                fileExtensionKey = $this.val().substring($this.val().lastIndexOf(".") + 1, $this.val().length);
+                if(fileExtensionKey == "key"){
+                    jQuery("#errorFormKey").hide();
+                }
+                else{
+                    jQuery("#errorFormKey").show("blind");
+                }
+            }
         });
 
         $('#fileKey').click(function () {
@@ -449,21 +506,21 @@
         //console.log("rfcUsuario-"+rfcUsuario);
         //console.log("solicitud-"+solicitudRvoe);
         //var cadena = prompt("Referencia");
-        console.log(objFirma.getCertificate());
-        var cadena = "MECP940508SR2"+"-"+"12345";
-        console.log("cadena-"+cadena);
+        //console.log(objFirma.getCertificate());
+        var cadena = "cadena"+"-"+"12345";
+        //console.log("cadena-"+cadena);
         //$('#firmaButton' ).append( "<i class='fa fa-circle-o-notch fa-spin'></i>" );
         objFirma.setReferencia(cadena);
         objFirma.decodeCertificate({ocsp: (typeof bOcsp == "undefined" ? false : bOcsp), tsa: {name: "NA", algorithm: fielnet.Digest.SHA1}}, function (cert) {
-            console.log(cert);
+            //console.log(cert);
             if (cert.state == 0) {
-                console.log("cert.state-"+cert.state);
+                //console.log("cert.state-"+cert.state);
                 cert.transfer;
-                console.log("cert.transfer-"+cert.transfer);
-                console.log(cert);
-                console.log("ab");
-                console.log(JSON.stringify(cert, undefined, 4));
-                console.log("RFC-"+cert.subjectRFC);
+                //console.log("cert.transfer-"+cert.transfer);
+                //console.log(cert);
+                //console.log("ab");
+                //console.log(JSON.stringify(cert, undefined, 4));
+                //console.log("RFC-"+cert.subjectRFC);
                 $('#j_username').val(cert.subjectRFC);
                 $('#btnEnviar').prop('disabled',false);
                 $('#firmaButton').prop('disabled',true);

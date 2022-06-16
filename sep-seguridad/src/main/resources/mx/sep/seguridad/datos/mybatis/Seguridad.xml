@@ -40,7 +40,7 @@
 		SELECT 1 AS ID_USUARIO, RFC AS USERNAME, (TRIM(NB_CONTRATANTE) || ' ' || TRIM(AP_PATERNO) || ' ' || TRIM(AP_MATERNO)) AS NOMBRE, RFC AS PASSWORD, 'TRUE'  AS USUARIO_ACTIVO,
                 1 AS ID_ROL, "ROLE_ADMINISTRADOR" AS ROL, 'TRUE' AS ROL_ACTIVO
                 FROM TSH003_TRAMITE
-                WHERE RFC = #{username}
+                WHERE RFC = #{username} AND CVE_STATUS = 1036 
 	</select>
 	
 </mapper>

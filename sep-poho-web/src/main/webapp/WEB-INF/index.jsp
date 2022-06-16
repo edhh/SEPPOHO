@@ -52,10 +52,10 @@
                 <p>(*) Campos obligatorios </p>
             </div>
              <div class="row">
-             <div class="form-group">
-            <div class="col-md-12">
-                <button class="btn btn-primary pull-right" type="submit" onclick="obtieneContratos()" id="btnGuardar"><i class='fa fa-circle-o-notch fa-spin' id="loadingBuscar" style="display: none;"></i> Buscar</button>
-            </div>
+             <div class="form-group pull-right">
+                <button class="btn btn-primary" type="submit" onclick="obtieneContratos(event)" id="btnGuardar"><i class='fa fa-circle-o-notch fa-spin' id="loadingBuscar" style="display: none;"></i> Buscar</button>
+                &nbsp;
+                <button class="btn btn-default pull-right" type="button" onclick="limpiaGrid()" id="btnLimpiar"><i class='fa fa-circle-o-notch fa-spin' id="loadingBuscar" style="display: none;"></i> Limpiar</button>
              </div>
             </div>            
             
@@ -213,7 +213,7 @@
                         </div>
                         <div class="modal-footer">
                             <button class="btn btn-primary" type="button" id="firmaButton" onclick="return validateKeyPairs(event);" ><i class='fa fa-circle-o-notch fa-spin' id="loadingLlaves" style="display: none;"></i> Validar e.firma</button>
-                            <button type="button" class="btn btn-default" onclick="return firma();" id="firmarBtn"><i class='fa fa-circle-o-notch fa-spin' id="firmando" style="display: none;"></i> Firmar</button>
+                            <button type="button" class="btn btn-default" onclick="return firma(event);" id="firmarBtn"><i class='fa fa-circle-o-notch fa-spin' id="firmando" style="display: none;"></i> Firmar</button>
                             <button type="button" class="btn btn-danger" data-dismiss="modal" id="no">Cerrar</button>
                         </div>
                         <div class="modal-body">
@@ -272,7 +272,7 @@
         $('#firmarBtn').prop('disabled',true);
         $('#rfc').val("");
         $('#checkPrivacidad').prop('checked',false);
-    console.log("${pageContext.request.contextPath}/FirmaController");
+    //console.log("${pageContext.request.contextPath}/FirmaController");
      $('#myModal4').modal('show');
     }
     var objFirma = new fielnet.Firma({
@@ -285,19 +285,20 @@
     $('#firmarBtn').prop('disabled',true);
     $('#rfc').val("");
     $('#checkPrivacidad').prop('checked',false);
-    console.log("${pageContext.request.contextPath}/FirmaController");
+    //console.log("${pageContext.request.contextPath}/FirmaController");
     var fileDragAndDrop = null;
-    console.log("Script firma");
+    //console.log("Script firma");
     objFirma.validateWebBrowser("El explorador web no tiene soporte para HTML5. El proceso de firmado no continuará");
     
     $(function() {
-        console.log("Function lee certificado y llave");
+        //console.log("Function lee certificado y llave");
         objFirma.readCertificate("idFileCer");
         objFirma.readPrivateKey("idFileKey");
     });
     
     //Función que intentará abrir el par de llaves
     function validateKeyPairs(e) {
+        validaSesion();
         $('#warningDiv').css("display", "none");
         jQuery("#loadingLlaves").show("blind");
         $('#firmaButton').prop('disabled',true);
@@ -340,11 +341,11 @@
         else{
             jQuery("#error8").hide();
         }
-        console.log($('.checkPrivacidad:checked').val());
+        //console.log($('.checkPrivacidad:checked').val());
         //objFirma.readCertificateAndPrivateKey($("#fraseLlaves").val(),$("#fraseLlaves").val());
-        console.log("Validando pares llaves");
+        //console.log("Validando pares llaves");
         objFirma.validateKeyPairs($("#fraseLlaves").val(), function (result) {
-            console.log(result);
+            //console.log(result);
             if (result.state == 0) {
                 decodificarCertificadoUsuario(true);
             } else {
@@ -406,15 +407,21 @@
     }
     
  
-    function firma(){
+    function firma(e){
+        if (e.detail === 2) {
+            //console.log("Double click");
+            jQuery("#firmando").hide();
+            return;
+          }
+          validaSesion();
         jQuery("#alertaError").hide();
         jQuery("#firmando").show("blind");
         $('#firmarBtn').prop('disabled',true);
         //console.log(cadenaOriginal);
         objFirma.signPKCS1(cadenaOriginal,fielnet.Digest.SHA1,fielnet.Encoding.UTF8,{ocsp:true,tsa:{name:'NA', algorithm:0},nom:{name:'NA'}},function(e){
             if (e.state == 0) {
-                console.log("FIRMADO EXITOSO");
-                console.log(e);
+                //console.log("FIRMADO EXITOSO");
+                //console.log(e);
             var strCommonName = e.cn;
             var strFechaProceso = e.tsaMoment;
             var strHexSerie = e.hexSerie;
@@ -426,8 +433,8 @@
             objectFirmaPrestador.firmaP = e.sign;
             objectFirmaPrestador.tsaP = e.sign;
             //objectFirmaPrestador.curpFirmanteP = e.subjectCurp;
-            console.log("FIRMADO EXITOSO!!!!");
-            console.log(objectFirmaPrestador);
+            //console.log("FIRMADO EXITOSO!!!!");
+            //console.log(objectFirmaPrestador);
             guardaDatosFirma(objectFirmaPrestador);
             }
             else {
@@ -456,7 +463,7 @@
                         jQuery("#alertaExito").show("blind");
                         $('#firmarBtn').prop('disabled',true);
                         obtieneContratos();
-                        console.log("Obteniendo datos grid")
+                        //console.log("Obteniendo datos grid")
                     }
                     else{
                         jQuery("#firmando").hide();
@@ -470,12 +477,12 @@
                 jQuery("#firmando").hide();
                 $('#firmarBtn').prop('disabled',false);
                 jQuery("#alertaError").show("blind");
-                console.log("error js " + e.toString());
-                console.log("error js " + errorThrown);
+                //console.log("error js " + e.toString());
+                //console.log("error js " + errorThrown);
             },
             done: function (e) {
                 jQuery("#firmando").hide();
-                console.log("Hecho los datos");
+                //console.log("Hecho los datos");
             }
         });
         
@@ -491,7 +498,7 @@
         $('#firmarBtn').prop('disabled',true);
         $('#rfc').val("");
         $('#checkPrivacidad').prop('checked',false);
-    console.log("${pageContext.request.contextPath}/FirmaController");
+    //console.log("${pageContext.request.contextPath}/FirmaController");
      $('#myModal4').modal('show');
     }
 

@@ -86,9 +86,9 @@ $("#btnFirma_cer").on("change", function () {
 
                         error: function(jqXHR, textStatus, errorThrown) {
                           $('#mensajesError').html('<div class="alert alert-warning">No se encontraron registros</div>').show();
-                            console.log('jqXHR.status:: ' + jqXHR.status);
-                            console.log('jqXHR.text:: ' + jqXHR.text);
-                            console.log('textStatus:: ' + textStatus);
+                            //console.log('jqXHR.status:: ' + jqXHR.status);
+                            //console.log('jqXHR.text:: ' + jqXHR.text);
+                            //console.log('textStatus:: ' + textStatus);
                         }
                     });
                     rfcUsuario = response.username;
@@ -96,9 +96,9 @@ $("#btnFirma_cer").on("change", function () {
                    
             error: function(jqXHR, textStatus, errorThrown) {
               $('#mensajesError').html('<div class="alert alert-warning">No se encontraron registros</div>').show();
-                console.log('jqXHR.status:: ' + jqXHR.status);
-                console.log('jqXHR.text:: ' + jqXHR.text);
-                console.log('textStatus:: ' + textStatus);
+                //console.log('jqXHR.status:: ' + jqXHR.status);
+                //console.log('jqXHR.text:: ' + jqXHR.text);
+                //console.log('textStatus:: ' + textStatus);
             }
         });
     //console.log(rfcUsuario);
@@ -116,13 +116,19 @@ function populateSelectAnnios(lstAnnios){
         }
 }
 
-function obtieneContratos(){
+function obtieneContratos(e){
 
     //obtCT();
     //obtGrados();
     //deshabilitaBotones();
+    if (e.detail === 2) {
+            //console.log("Double click");
+            jQuery("#loadingBuscar").hide();
+            return;
+          }
     $('#btnGuardar').prop('disabled',true);
     jQuery("#loadingBuscar").show("blind");
+
     //console.log($("#anio").val());
     $.ajax({
             type: "GET",
@@ -148,11 +154,18 @@ function obtieneContratos(){
                    
             error: function(jqXHR, textStatus, errorThrown) {
               //$('#mensajesError').html('<div class="alert alert-warning">No se encontraron registros</div>').show();
-                console.log('jqXHR.status:: ' + jqXHR.status);
-                console.log('jqXHR.text:: ' + jqXHR.text);
-                console.log('textStatus:: ' + textStatus);
+                //console.log('jqXHR.status:: ' + jqXHR.status);
+                //console.log('jqXHR.text:: ' + jqXHR.text);
+                //console.log('textStatus:: ' + textStatus);
                 $('#btnGuardar').prop('disabled',false);
                 jQuery("#loadingBuscar").hide();
+                if (jqXHR.status == 200 && (jqXHR.text == '' || jqXHR.text == null)) {
+                alert("La sesi\u00F3n ha sido cerrada por inactividad");
+
+                setTimeout(function () {
+                    location.href = baseURI + '/sep-poho-web/login.jsp';
+                }, 10);
+            }
             }
         });
 }
@@ -227,12 +240,13 @@ function drawTableGeneric(result) {
 function btnFirmar(estatus , row){
     //console.log(estatus);
      //console.log("row estatus btn firmar: " + row.estatus);
-                      $('#contratosTrabajador').on('click-cell.bs.table', function (field, value, row, $el) {
+                      $('#contratosTrabajador').on('click-cell.bs.table', function (field, value, row2, $el) {
+                            validaSesion();
                             //console.log("CLICK" + value);
                             //console.log($el);
                             var str = JSON.stringify(row);
                             //console.log("field = "+ str);
-                        if (value == "firmar"){
+                        if (value == "firmar" && row.estatus == 1902 ){
                             //alert($el.ctId"-"+$el.curp+"-"+$el.nombre);
                             //console.log("Modficar");
                             cadenaOriginal = "||" + $el.annio + "|" + $el.noTramite + "|" + $el.rfc + "|" + $el.curp + "|" + $el.apPaterno + "|" + $el.apMaterno + "|" + $el.nombre + "|" + $el.fechaIniContrato + "|" + $el.fechaFinContrato + "|" + $el.claveNivel + "|" + $el.claveUnidad + "||";
@@ -258,7 +272,7 @@ function btnFirmar(estatus , row){
                             jQuery('#idFileKey').val(null);
                             $('#checkPrivacidad').prop('checked',false);
                         }
-                        else if(value == "descargar"){
+                        else if(value == "descargar" && (row.estatus != 1901 && row.estatus != null && row.noTramite088 !== null && row.estatus != 1906 && row.estatus != 0)){
                             //console.log("DESCARGANDO");
                             var aux = {};
                             aux["noTramite"] = $el.noTramite;
@@ -426,5 +440,37 @@ function formatterEstatus(estatus , row){
         }).show();
 
         //$('#confirmarTramite').prop('disabled', true);
+    }
+    
+    function limpiaGrid(){
+        validaSesion();
+        drawTableGeneric(null);
+    }
+    
+    function validaSesion(){
+            $.ajax({
+            type: "POST",
+            cache: false,
+            url: baseURI + "/mvc/seguridad/menu/obtenerUsuario",
+            contentType: "application/json; charset=utf-8",
+            dataType: 'json',
+            success: function(response) {
+            },                   
+            error: function(jqXHR, textStatus, errorThrown) {
+              //$('#mensajesError').html('<div class="alert alert-warning">No se encontraron registros</div>').show();
+                //console.log('jqXHR.status:: ' + jqXHR.status);
+                //console.log('jqXHR.text:: ' + jqXHR.text);
+                //console.log('textStatus:: ' + textStatus);
+                $('#btnGuardar').prop('disabled',false);
+                jQuery("#loadingBuscar").hide();
+                if (jqXHR.status == 200 && (jqXHR.text == '' || jqXHR.text == null)) {
+                alert("La sesi\u00F3n ha sido cerrada por inactividad");
+
+                setTimeout(function () {
+                    location.href = baseURI + '/sep-poho-web/login.jsp';
+                }, 10);
+            }
+            }
+        }); 
     }
     
