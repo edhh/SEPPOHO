@@ -9,7 +9,7 @@
 <%@page import="java.util.jar.Manifest"%>
 <%@page import="java.io.InputStream"%>
 
-<!-- v 0.0.2 -->
+<!-- v 0.0.3 -->
 <%! String impVersion = "";%>  
 <%
     try {
@@ -55,7 +55,7 @@
 
                             <br>
                             <form id="command" role="form" class="form-horizontal bottom-buffer"
-                                  role="form" id="frmLogin" action="j_spring_security_check"
+                                  role="form" id="frmLogin" action="j_spring_security_check" onsubmit="return validateForm()" 
                                   method="post">
                                 <div class="row">
                                     
@@ -188,7 +188,7 @@
                     <!-- TESTING -->
                     <!--<h6 id="title" align="center">versi&oacute;n 2.27</h6>-->
                     <!-- PRODUCCION -->
-                    <h6 id="title">versi&oacute;n 0.0.2</h6>
+                    <h6 id="title">versi&oacute;n 0.0.3</h6>
                 </div>
             </jsp:body>
         </t:loginTemplate>
@@ -230,8 +230,8 @@
                 jQuery("#btnEnviar").click(function () {
                     crearCookieRecordame();
                     jQuery("#btnSubmit").click();
-                    jQuery("#loadingEntrar").show("blind");
-                    $('#btnEnviar').prop('disabled',true);
+                    //jQuery("#loadingEntrar").show("blind");
+                    //$('#btnEnviar').prop('disabled',true);
                     //console.log("BOTN ENTRAR");
                 });
 
@@ -324,6 +324,7 @@
     });
     var fileExtensionCer = "";
     var fileExtensionKey = "";
+    var rfcEFirma = "";
     initEfirma();
     $("#btnFirma_cer").on("change", function () {
         //console.log($_cer);
@@ -345,11 +346,12 @@
         objFirma.readPrivateKey("idFileKey");
     });
     
+    
     //Función que intentará abrir el par de llaves
     function validateKeyPairs(e) {
         jQuery("#error").hide();
         jQuery("#error4").hide();
-        if (e.detail === 2 || e.detail === 3) {
+        if (e.detail > 1 || e.detail === 2 || e.detail === 3) {
             //console.log("Double click");
             jQuery("#loadingLlaves").hide();
             return;
@@ -522,6 +524,7 @@
                 //console.log(JSON.stringify(cert, undefined, 4));
                 //console.log("RFC-"+cert.subjectRFC);
                 $('#j_username').val(cert.subjectRFC);
+                rfcEFirma = cert.subjectRFC;
                 $('#btnEnviar').prop('disabled',false);
                 $('#firmaButton').prop('disabled',true);
                 jQuery("#loadingLlaves").hide();
@@ -560,5 +563,22 @@
         $('#btnEnviar').prop('disabled',true);
         $('#firmaButton').prop('disabled',false);
     }
+    
+    function validateForm(){
+               console.log(rfcEFirma);
+               console.log($('#j_username').val());
+   if($('#j_username').val() != rfcEFirma){
+       jQuery("#loadingEntrar").hide();
+       $('#btnEnviar').prop('disabled',false);
+       $('#warningDiv').html("El RFC no corresponde al de la e.firma");
+       $('#warningDiv').css("display", "block");
+      return false;
+   }else{
+      jQuery("#loadingEntrar").show("blind");
+      $('#btnEnviar').prop('disabled',true);
+      return true;
+   }
+    }
+   
 
 </script>

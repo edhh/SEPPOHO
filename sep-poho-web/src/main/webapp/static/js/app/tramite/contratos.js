@@ -8,6 +8,7 @@ window.addEventListener("load", obtAnniosTramites, false) :
 window.attachEvent && window.attachEvent("onload", obtAnniosTramites);
 var rfcUsuario = "";
 var cadenaOriginal = "";
+var estatusTramiteFirmar = "";
 var objectFirmaPrestador = {
     annio: "",
     nuTramite: "",
@@ -121,11 +122,11 @@ function obtieneContratos(e){
     //obtCT();
     //obtGrados();
     //deshabilitaBotones();
-    if (e.detail === 2) {
+    /*if (e.detail === 2) {
             //console.log("Double click");
             jQuery("#loadingBuscar").hide();
             return;
-          }
+          }*/
     $('#btnGuardar').prop('disabled',true);
     jQuery("#loadingBuscar").show("blind");
 
@@ -238,46 +239,40 @@ function drawTableGeneric(result) {
 }
 
 function btnFirmar(estatus , row){
-    //console.log(estatus);
+    console.log(row);
      //console.log("row estatus btn firmar: " + row.estatus);
                       $('#contratosTrabajador').on('click-cell.bs.table', function (field, value, row2, $el) {
+                          //var text = $(event.target).text();
+                          //console.log(text);
                             validaSesion();
-                            //console.log("CLICK" + value);
                             //console.log($el);
+                            //console.log("CLICK" + value);
+                            //console.log("El: " + $el);
+                            //console.log(field);
+                            //console.log(row2);
                             var str = JSON.stringify(row);
                             //console.log("field = "+ str);
                         if (value == "firmar" && row.estatus == 1902 ){
                             //alert($el.ctId"-"+$el.curp+"-"+$el.nombre);
                             //console.log("Modficar");
+                            estatusTramiteFirmar = row.estatus;
+                            console.log(estatusTramiteFirmar);
                             cadenaOriginal = "||" + $el.annio + "|" + $el.noTramite + "|" + $el.rfc + "|" + $el.curp + "|" + $el.apPaterno + "|" + $el.apMaterno + "|" + $el.nombre + "|" + $el.fechaIniContrato + "|" + $el.fechaFinContrato + "|" + $el.claveNivel + "|" + $el.claveUnidad + "||";
                             //console.log("cadena Original: "+cadenaOriginal);
                             objectFirmaPrestador.annio = $el.annio;
                             objectFirmaPrestador.curpFirmanteP = $el.curp;
                             //objectFirmaPrestador.nombreFirmanteP = $el.nombre + " " + $el.apPaterno + " " + $el.apMaterno;
                             objectFirmaPrestador.nuTramite = $el.noTramite;
-                            $('#firmarBtn').prop('disabled',true);
-                            $('#rfc').val("");
-                            $('#checkPrivacidad').prop('checked',false);
-                            $('#myModal4').modal('show');
-                            jQuery("#alertaExito").hide();
-                            jQuery("#alertaError").hide();
-                            jQuery("#warningDiv").hide();
-                            $('#firmaButton').prop('disabled',false);
-                            $('#firmarBtn').prop('disabled',true);
-                            $('#rfc').val("");
-                            jQuery('#cer').val(null);
-                            jQuery('#key').val(null);
-                            jQuery('#fraseLlaves').val(null);
-                            jQuery('#idFileCer').val(null);
-                            jQuery('#idFileKey').val(null);
-                            $('#checkPrivacidad').prop('checked',false);
+                            
                         }
                         else if(value == "descargar" && (row.estatus != 1901 && row.estatus != null && row.noTramite088 !== null && row.estatus != 1906 && row.estatus != 0)){
                             //console.log("DESCARGANDO");
                             var aux = {};
-                            aux["noTramite"] = $el.noTramite;
-                            window.document.location.href = baseURI + '/mvc/jasper/repContrato?noTramite=' + $el.noTramite;
-                            //$('#ModalGafetes').modal('hide');
+                            //aux["noTramite"] = $el.noTramite;
+                            //window.document.location.href = baseURI + '/mvc/jasper/repContrato?noTramite=' + $el.noTramite;
+                            
+                            //
+//$('#ModalGafetes').modal('hide');
                         
             /*$.ajax({
                 type: "GET",
@@ -321,12 +316,32 @@ function btnFirmar(estatus , row){
     //var btn = document.createElement("BUTTON");
     //btn.innerHTML = "Do Something";
     //document.body.appendChild(btn);
-    if ((row.estatus != 1902 ))
-        return "<button type='button' value ='firmar' class='btn btn-primary' disabled>Firmar</button>";
+    if ((row.estatus != 1902))
+        return "<button type='button' id = 'btnFirmar' value ='firmar' onclick='accionBtnFirma()' class='btn btn-primary' disabled>Firmar</button>";
     else
-        return "<button type='button' value ='firmar' class='btn btn-primary'>Firmar</button>";
-}
+        return "<button type='button' value ='firmar' id = 'btnFirmar' onclick='accionBtnFirma()' class='btn btn-primary'>Firmar</button>";
+}2
 
+function accionBtnFirma(){
+    $('#firmarBtn').prop('disabled', true);
+    $('#rfc').val("");
+    $('#checkPrivacidad').prop('checked', false);
+    $('#myModal4').modal('show');
+    jQuery("#alertaExito").hide();
+    jQuery("#alertaError").hide();
+    jQuery("#alertaErrorEstatus").hide();
+    jQuery("#warningDiv").hide();
+    $('#firmaButton').prop('disabled', false);
+    $('#firmarBtn').prop('disabled', true);
+    $('#rfc').val("");
+    jQuery('#cer').val(null);
+    jQuery('#key').val(null);
+    jQuery('#fraseLlaves').val(null);
+    jQuery('#idFileCer').val(null);
+    jQuery('#idFileKey').val(null);
+    $('#checkPrivacidad').prop('checked', false);
+    
+}
 function btnDescargar(estatus , row){
     //console.log(estatus);
     //console.log("NU TRAMITE 088: " + row.noTramite088);
@@ -340,11 +355,18 @@ function btnDescargar(estatus , row){
         generarContrato(contrato);
     });*/
     if (row.estatus != 1901 && row.estatus != null && row.noTramite088 !== null && row.estatus != 1906 && row.estatus != 0)
-        return "<button type='button' class='btn btn-primary' value ='descargar'>Descargar</button>";
+        return "<button type='button' class='btn btn-primary' onclick='accionBtnDescargar("+row.noTramite+")' value ='descargar'>Descargar</button>";
     else{
         //return "<form action='${pageContext.request.contextPath}/mvc/jasper/repContrato?noTramite='" + contrato.noTramite + "> <button class='btn btn-primary pull-right'  id='btnDescarga' type='submit' >Descargar</button></form>";
-        return "<button type='button' class='btn btn-primary' disabled value ='descargar'>Descargar</button>";    
+        return "<button type='button' class='btn btn-primary'  onclick='accionBtnDescargar("+row.noTramite+")' disabled value ='descargar'>Descargar</button>";    
     }
+}
+
+function accionBtnDescargar(noTramite){
+    console.log(noTramite);
+    var aux = {};
+    aux["noTramite"] = noTramite;
+    window.document.location.href = baseURI + '/mvc/jasper/repContrato?noTramite=' + noTramite;
 }
 
 function formatterEstatus(estatus , row){

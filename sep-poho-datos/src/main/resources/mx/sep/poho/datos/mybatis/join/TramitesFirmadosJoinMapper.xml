@@ -16,7 +16,7 @@
       firma_p, tsa_p, fh_firma_p)
     values (#{annio,jdbcType=SMALLINT}, #{nuTramite,jdbcType=INTEGER}, 
       #{nombreFirmanteP,jdbcType=VARCHAR}, #{curpFirmanteP,jdbcType=VARCHAR}, #{nuSerieFirmanteP,jdbcType=VARCHAR}, 
-      #{firmaP,jdbcType=CHAR}, #{tsaP,jdbcType=CHAR}, #{fhFirmaP,jdbcType=DATE})
+      #{firmaP,jdbcType=CHAR}, #{tsaP,jdbcType=CHAR}, TODAY)
         
     </insert>
     

@@ -53,9 +53,11 @@
             </div>
              <div class="row">
              <div class="form-group pull-right">
-                <button class="btn btn-primary" type="submit" onclick="obtieneContratos(event)" id="btnGuardar"><i class='fa fa-circle-o-notch fa-spin' id="loadingBuscar" style="display: none;"></i> Buscar</button>
-                &nbsp;
-                <button class="btn btn-default pull-right" type="button" onclick="limpiaGrid()" id="btnLimpiar"><i class='fa fa-circle-o-notch fa-spin' id="loadingBuscar" style="display: none;"></i> Limpiar</button>
+                 <button class="btn btn-default" type="button" onclick="limpiaGrid()" id="btnLimpiar"><i style="display: none;"></i> Limpiar</button>
+                 &nbsp;
+                 <button class="btn btn-primary" type="submit" onclick="obtieneContratos(event)" id="btnGuardar"><i class='fa fa-circle-o-notch fa-spin' id="loadingBuscar" style="display: none;"></i> Buscar</button>
+                
+                
              </div>
             </div>            
             
@@ -91,6 +93,10 @@
                             <div class="alert alert-danger" id="alertaError">
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                 <p>El contrato ya ha sido firmado previamente.</p>
+                            </div>
+                            <div class="alert alert-danger" id="alertaErrorEstatus">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <p>El contrato no es apto para firma debido a su estatus.</p>
                             </div>
                             <div id="errorLog" tabindex="0" class="row col-md-12">
                                 <div class="alert alert-danger" id="errorDiv" tabindex="1" style="display:none">
@@ -155,6 +161,10 @@
                                     <div class="col-md-5">
                                     <input class="form-control" id="fraseLlaves" name="fraseLlaves" placeholder="Contrase&ntilde;a" type="password">
                                     </div>
+                                    <div class="col-md-5">
+                                        <button class="btn btn-primary" type="button" id="firmaButton" onclick="return validateKeyPairs(event);" ><i class='fa fa-circle-o-notch fa-spin' id="loadingLlaves" style="display: none;"></i> Validar</button>
+                                        <div style="height: 0px; width: 0px; overflow: hidden;"><div style="height: 0px; width: 0px; overflow: hidden;"></div></div>
+                                    </div>
                                 </div>
                                 <div id="error7" style="display: none;">
                                     <span style="color: red">Es necesario ingresar la contrase&ntilde;a de la clave privada.</span>
@@ -212,7 +222,6 @@
                                 </div>
                         </div>
                         <div class="modal-footer">
-                            <button class="btn btn-primary" type="button" id="firmaButton" onclick="return validateKeyPairs(event);" ><i class='fa fa-circle-o-notch fa-spin' id="loadingLlaves" style="display: none;"></i> Validar e.firma</button>
                             <button type="button" class="btn btn-default" onclick="return firma(event);" id="firmarBtn"><i class='fa fa-circle-o-notch fa-spin' id="firmando" style="display: none;"></i> Firmar</button>
                             <button type="button" class="btn btn-danger" data-dismiss="modal" id="no">Cerrar</button>
                         </div>
@@ -298,6 +307,11 @@
     
     //Función que intentará abrir el par de llaves
     function validateKeyPairs(e) {
+        if (e.detail > 1 || e.detail === 2 || e.detail === 3) {
+            //console.log("Double click");
+            jQuery("#loadingLlaves").hide();
+            return;
+          }
         validaSesion();
         $('#warningDiv').css("display", "none");
         jQuery("#loadingLlaves").show("blind");
@@ -414,14 +428,22 @@
             return;
           }
           validaSesion();
+          console.log("Estatus a firmar: " + estatusTramiteFirmar);
+          if(estatusTramiteFirmar != 1902){
+              jQuery("#firmando").hide();
+              jQuery("#alertaErrorEstatus").show("blind");
+              $('#firmarBtn').prop('disabled',false);
+              return;
+          }
         jQuery("#alertaError").hide();
+        jQuery("#alertaErrorEstatus").hide();
         jQuery("#firmando").show("blind");
         $('#firmarBtn').prop('disabled',true);
         //console.log(cadenaOriginal);
         objFirma.signPKCS1(cadenaOriginal,fielnet.Digest.SHA1,fielnet.Encoding.UTF8,{ocsp:true,tsa:{name:'NA', algorithm:0},nom:{name:'NA'}},function(e){
             if (e.state == 0) {
                 //console.log("FIRMADO EXITOSO");
-                //console.log(e);
+                console.log(e);
             var strCommonName = e.cn;
             var strFechaProceso = e.tsaMoment;
             var strHexSerie = e.hexSerie;
@@ -431,7 +453,7 @@
             objectFirmaPrestador.nombreFirmanteP = e.cn;
             objectFirmaPrestador.nuSerieFirmanteP = e.hexSerie;
             objectFirmaPrestador.firmaP = e.sign;
-            objectFirmaPrestador.tsaP = e.sign;
+            objectFirmaPrestador.tsaP = e.tsaMoment;
             //objectFirmaPrestador.curpFirmanteP = e.subjectCurp;
             //console.log("FIRMADO EXITOSO!!!!");
             //console.log(objectFirmaPrestador);
@@ -482,7 +504,6 @@
             },
             done: function (e) {
                 jQuery("#firmando").hide();
-                //console.log("Hecho los datos");
             }
         });
         

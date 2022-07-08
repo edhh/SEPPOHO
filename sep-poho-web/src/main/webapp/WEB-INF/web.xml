@@ -27,19 +27,19 @@
         <servlet-class>mx.sep.poho.web.controller.firma.FirmaController</servlet-class>
         <init-param>
             <param-name>url</param-name>
-            <param-value>http://172.31.70.6:8080/WSCommercefielJava/WSCommerceFiel?wsdl</param-value>
+            <param-value>http://busfirma.sep.gob.mx/WSCommercefielJava/WSCommerceFiel?wsdl</param-value>
         </init-param>
         <init-param>
             <param-name>entidad</param-name>
-            <param-value>RVOESup</param-value>
+            <param-value>SIHO</param-value>
         </init-param>
         <init-param>
             <param-name>usuario</param-name>
-            <param-value>RVOESup</param-value>
+            <param-value>SIHO</param-value>
         </init-param>
         <init-param>
             <param-name>contrasena</param-name>
-            <param-value>1hi1hh9hz2</param-value>
+            <param-value>7xa1dn1fy1</param-value>
         </init-param>
         <load-on-startup>0</load-on-startup>
     </servlet>
