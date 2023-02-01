@@ -89,6 +89,7 @@ public class JasperController {
         Map model = new HashMap();
         Tsh088DatosContratosDefExample tsh088Example = new Tsh088DatosContratosDefExample();
         DatosGeneracionContratoVO datosContrato = new DatosGeneracionContratoVO();
+        String cveUnidad = "";
         String rutaSer = request.getSession().getServletContext()
                 .getRealPath("/");
         try{
@@ -98,6 +99,7 @@ public class JasperController {
             }
             Tsh003Tramite contrato = contratoLst.get(0); 
             System.out.println(contrato.getCurp());
+            cveUnidad = contrato.getCveUnidad();
             String nombre = contrato.getNbContratante().trim() + " " + contrato.getApPaterno().trim() + " " + contrato.getApMaterno().trim();
             System.out.println(nombre);
             Tsh82ConfigModeloContrato modeloContrato = tramitesService.obtieneNombreReporte(contrato.getAnnio().shortValue(), contrato.getFhIni(), contrato.getCveUnidad());
@@ -256,9 +258,13 @@ public class JasperController {
         //print = JasperFillManager.fillReport(jasperReport,model);
         //byte[] pdfBytes = JasperExportManager.exportReportToPdf(print);
        */
+        ModelAndView modelAndView;
+        if(cveUnidad.equals("K00")){
+            modelAndView = new ModelAndView("repContratoK00", model);
+        }else{
+            modelAndView = new ModelAndView("repContrato", model);
+        }
         
-        
-        ModelAndView modelAndView = new ModelAndView("repContrato", model);
         //System.out.println("Se retorna el model and view empty");
         //ModelAndView modelAndView = new ModelAndView();
         

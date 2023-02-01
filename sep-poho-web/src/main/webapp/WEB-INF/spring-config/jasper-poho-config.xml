@@ -17,4 +17,16 @@
             </props>
         </property>
     </bean>
+    
+    <bean id="repContratoK00"
+          class="org.springframework.web.servlet.view.jasperreports.JasperReportsPdfView">
+        <property name="url" value="/WEB-INF/classes/mx/sep/poho/reportes/ModeloContrato2023_K00_3firmas.jasper"/>     
+        <property name="headers">
+            <props>
+                <prop key="Content-Disposition">        
+                    attachment; filename=ModeloContrato_K00.pdf
+                </prop>
+            </props>
+        </property>
+    </bean>
 </beans>

@@ -9,7 +9,7 @@
 <%@page import="java.util.jar.Manifest"%>
 <%@page import="java.io.InputStream"%>
 
-<!-- v 0.0.3 -->
+<!-- v 1.0.3 -->
 <%! String impVersion = "";%>  
 <%
     try {
@@ -188,7 +188,7 @@
                     <!-- TESTING -->
                     <!--<h6 id="title" align="center">versi&oacute;n 2.27</h6>-->
                     <!-- PRODUCCION -->
-                    <h6 id="title">versi&oacute;n 0.0.3</h6>
+                    <h6 id="title">versi&oacute;n 1.0.3</h6>
                 </div>
             </jsp:body>
         </t:loginTemplate>

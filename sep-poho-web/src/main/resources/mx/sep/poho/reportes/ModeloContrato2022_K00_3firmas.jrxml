@@ -1,0 +1,1115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ModeloContrato2015_12082015" pageWidth="612" pageHeight="792" columnWidth="442" leftMargin="85" rightMargin="85" topMargin="70" bottomMargin="69" isSummaryNewPage="true" isFloatColumnFooter="true" uuid="d390a025-d823-4a71-9d52-4d01bcd4d79d">
+	<property name="ireport.zoom" value="1.2100000000000015"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="564"/>
+	<style name="style1" fontName="Arial Black" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+	<style name="style_previa">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean( $P{pPrevioDefinitivo}.equals( "0" ) )]]></conditionExpression>
+			<style mode="Transparent"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean( $P{pPrevioDefinitivo}.equals( "1" ) )]]></conditionExpression>
+			<style mode="Opaque"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="REAL_PATH" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\Users\\PabloJesusMendozaCer\\Documents\\GitHub\\SEPPOHO\\sep-poho-web\\src\\main\\resources\\mx\\sep\\poho\\reportes"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="pRuta" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\NEN\\UP01\\imagenes"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="pPrevioDefinitivo" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["0"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="lstDatos" class="java.util.List">
+		<property name="com.jaspersoft.studio.field.name" value="lstDatos"/>
+		<property name="com.jaspersoft.studio.field.label" value="lstDatos"/>
+	</field>
+	<field name="previoDefinitivo" class="java.lang.String">
+		<fieldDescription><![CDATA[previoDefinitivo]]></fieldDescription>
+	</field>
+	<field name="firmaRepAreaPrefijo" class="java.lang.String">
+		<fieldDescription><![CDATA[firmaRepAreaPrefijo]]></fieldDescription>
+	</field>
+	<field name="firmaRepAreaNombre" class="java.lang.String">
+		<fieldDescription><![CDATA[firmaRepAreaNombre]]></fieldDescription>
+	</field>
+	<field name="nombreContratado" class="java.lang.String">
+		<fieldDescription><![CDATA[nombreContratado]]></fieldDescription>
+	</field>
+	<field name="firmaRepAreaPuesto" class="java.lang.String">
+		<fieldDescription><![CDATA[firmaRepAreaPuesto]]></fieldDescription>
+	</field>
+	<field name="descPerfilContratado" class="java.lang.String">
+		<fieldDescription><![CDATA[descPerfilContratado]]></fieldDescription>
+	</field>
+	<field name="descNacContratado" class="java.lang.String">
+		<fieldDescription><![CDATA[descNacContratado]]></fieldDescription>
+	</field>
+	<field name="rfcContratado" class="java.lang.String">
+		<fieldDescription><![CDATA[rfcContratado]]></fieldDescription>
+	</field>
+	<field name="experienciaContratado" class="java.lang.String">
+		<fieldDescription><![CDATA[experienciaContratado]]></fieldDescription>
+	</field>
+	<field name="domicilioContratado" class="java.lang.String">
+		<fieldDescription><![CDATA[domicilioContratado]]></fieldDescription>
+	</field>
+	<field name="descFunciones" class="java.lang.String">
+		<fieldDescription><![CDATA[descFunciones]]></fieldDescription>
+	</field>
+	<field name="sumImBrutoRecibidos" class="java.lang.String">
+		<fieldDescription><![CDATA[sumImBrutoRecibidos]]></fieldDescription>
+	</field>
+	<field name="importeLetra" class="java.lang.String">
+		<fieldDescription><![CDATA[importeLetra]]></fieldDescription>
+	</field>
+	<field name="nuExhibiciones" class="java.lang.String">
+		<fieldDescription><![CDATA[nuExhibiciones]]></fieldDescription>
+	</field>
+	<field name="fhVigenciaInicial" class="java.lang.String">
+		<fieldDescription><![CDATA[fhVigenciaInicial]]></fieldDescription>
+	</field>
+	<field name="fhVigenciaFinal" class="java.lang.String">
+		<fieldDescription><![CDATA[fhVigenciaFinal]]></fieldDescription>
+	</field>
+	<field name="firmaRecepRepActPrefijo" class="java.lang.String">
+		<fieldDescription><![CDATA[firmaRecepRepActPrefijo]]></fieldDescription>
+	</field>
+	<field name="firmaRecepRepActNombre" class="java.lang.String">
+		<fieldDescription><![CDATA[firmaRecepRepActNombre]]></fieldDescription>
+	</field>
+	<field name="firmaRecepRepActPuesto" class="java.lang.String">
+		<fieldDescription><![CDATA[firmaRecepRepActPuesto]]></fieldDescription>
+	</field>
+	<field name="fhFirmaContrato" class="java.lang.String">
+		<fieldDescription><![CDATA[fhFirmaContrato]]></fieldDescription>
+	</field>
+	<field name="firmaRepAreaTitulo" class="java.lang.String">
+		<fieldDescription><![CDATA[firmaRepAreaTitulo]]></fieldDescription>
+	</field>
+	<field name="prefijoContratado" class="java.lang.String">
+		<fieldDescription><![CDATA[prefijoContratado]]></fieldDescription>
+	</field>
+	<field name="reqCompatibilidad" class="java.lang.String">
+		<fieldDescription><![CDATA[reqCompatibilidad]]></fieldDescription>
+	</field>
+	<field name="numReqCompatiblidad" class="java.lang.String">
+		<fieldDescription><![CDATA[numReqCompatiblidad]]></fieldDescription>
+	</field>
+	<field name="oficioFhCompatiblidad" class="java.lang.String">
+		<fieldDescription><![CDATA[oficioFhCompatiblidad]]></fieldDescription>
+	</field>
+	<field name="reqOfRespSfp" class="java.lang.String">
+		<fieldDescription><![CDATA[reqOfRespSfp]]></fieldDescription>
+	</field>
+	<field name="numOfResSfp" class="java.lang.String">
+		<fieldDescription><![CDATA[numOfResSfp]]></fieldDescription>
+	</field>
+	<field name="oficioFhRespSfp" class="java.lang.String">
+		<fieldDescription><![CDATA[oficioFhRespSfp]]></fieldDescription>
+	</field>
+	<field name="reqOfExisPzaVac" class="java.lang.String">
+		<fieldDescription><![CDATA[reqOfExisPzaVac]]></fieldDescription>
+	</field>
+	<field name="numOfExisPzaVac" class="java.lang.String">
+		<fieldDescription><![CDATA[numOfExisPzaVac]]></fieldDescription>
+	</field>
+	<field name="oficioFhExisPzaVac" class="java.lang.String">
+		<fieldDescription><![CDATA[oficioFhExisPzaVac]]></fieldDescription>
+	</field>
+	<field name="puestoCompatibilidad" class="java.lang.String">
+		<fieldDescription><![CDATA[puestoCompatibilidad]]></fieldDescription>
+	</field>
+	<field name="nbDepCompatibilidad" class="java.lang.String">
+		<fieldDescription><![CDATA[nbDepCompatibilidad]]></fieldDescription>
+	</field>
+	<field name="descEntregables" class="java.lang.String">
+		<fieldDescription><![CDATA[descEntregables]]></fieldDescription>
+	</field>
+	<field name="reqIssste" class="java.lang.String">
+		<fieldDescription><![CDATA[reqIssste]]></fieldDescription>
+	</field>
+	<field name="num2ReqCompatibilidad" class="java.lang.String">
+		<fieldDescription><![CDATA[num2ReqCompatibilidad]]></fieldDescription>
+	</field>
+	<field name="domDependencia" class="java.lang.String">
+		<fieldDescription><![CDATA[domDependencia]]></fieldDescription>
+	</field>
+	<field name="ciudadFirma" class="java.lang.String">
+		<fieldDescription><![CDATA[ciudadFirma]]></fieldDescription>
+	</field>
+	<field name="partida" class="java.lang.String">
+		<fieldDescription><![CDATA[partida]]></fieldDescription>
+	</field>
+	<field name="firmaRepSepPrefijo" class="java.lang.String">
+		<fieldDescription><![CDATA[firmaRepSepPrefijo]]></fieldDescription>
+	</field>
+	<field name="firmaRepSepTitulo" class="java.lang.String">
+		<fieldDescription><![CDATA[firmaRepSepTitulo]]></fieldDescription>
+	</field>
+	<field name="firmaRepSepNombre" class="java.lang.String">
+		<fieldDescription><![CDATA[firmaRepSepNombre]]></fieldDescription>
+	</field>
+	<field name="firmaRepSepPuesto" class="java.lang.String">
+		<fieldDescription><![CDATA[firmaRepSepPuesto]]></fieldDescription>
+	</field>
+	<field name="nuTramite" class="java.lang.Integer">
+		<fieldDescription><![CDATA[nuTramite]]></fieldDescription>
+	</field>
+	<field name="ur" class="java.lang.String">
+		<fieldDescription><![CDATA[ur]]></fieldDescription>
+	</field>
+	<field name="annio" class="java.lang.Short">
+		<fieldDescription><![CDATA[annio]]></fieldDescription>
+	</field>
+	<field name="firmaDirectorGeneral" class="java.lang.String">
+		<fieldDescription><![CDATA[firmaDirectorGeneral]]></fieldDescription>
+	</field>
+	<field name="firmaDirectorUr" class="java.lang.String">
+		<fieldDescription><![CDATA[firmaDirectorUr]]></fieldDescription>
+	</field>
+	<field name="curpDirectorGeneral" class="java.lang.String">
+		<fieldDescription><![CDATA[curpDirectorGeneral]]></fieldDescription>
+	</field>
+	<field name="serieDirectorGeneral" class="java.lang.String">
+		<fieldDescription><![CDATA[serieDirectorGeneral]]></fieldDescription>
+	</field>
+	<field name="selloDirectorGeneral" class="java.lang.String">
+		<fieldDescription><![CDATA[selloDirectorGeneral]]></fieldDescription>
+	</field>
+	<field name="suplenciaDirectorGeneral" class="java.lang.String">
+		<fieldDescription><![CDATA[suplenciaDirectorGeneral]]></fieldDescription>
+	</field>
+	<field name="nombreUr" class="java.lang.String">
+		<fieldDescription><![CDATA[nombreUr]]></fieldDescription>
+	</field>
+	<field name="curpDirectorUR" class="java.lang.String">
+		<fieldDescription><![CDATA[curpDirectorUR]]></fieldDescription>
+	</field>
+	<field name="serieDirectorUR" class="java.lang.String">
+		<fieldDescription><![CDATA[serieDirectorUR]]></fieldDescription>
+	</field>
+	<field name="selloDirectorUR" class="java.lang.String">
+		<fieldDescription><![CDATA[selloDirectorUR]]></fieldDescription>
+	</field>
+	<field name="suplenciaDirectorUR" class="java.lang.String">
+		<fieldDescription><![CDATA[suplenciaDirectorUR]]></fieldDescription>
+	</field>
+	<field name="curpContratado" class="java.lang.String">
+		<fieldDescription><![CDATA[curpContratado]]></fieldDescription>
+	</field>
+	<field name="cadenaOriginal" class="java.lang.String">
+		<fieldDescription><![CDATA[cadenaOriginal]]></fieldDescription>
+	</field>
+	<field name="seriePrestador" class="java.lang.String">
+		<fieldDescription><![CDATA[seriePrestador]]></fieldDescription>
+	</field>
+	<field name="firmaPrestador" class="java.lang.String">
+		<fieldDescription><![CDATA[firmaPrestador]]></fieldDescription>
+	</field>
+	<field name="selloPrestador" class="java.lang.String">
+		<fieldDescription><![CDATA[selloPrestador]]></fieldDescription>
+	</field>
+	<field name="banderaPrestador" class="java.lang.String">
+		<fieldDescription><![CDATA[banderaPrestador]]></fieldDescription>
+	</field>
+	<variable name="vFechaInicial" class="java.lang.String">
+		<variableExpression><![CDATA[$F{fhVigenciaInicial}.compareTo( "16 DE ABRIL DE 2020" ) == 0 ? "15 DE ABRIL DE 2020" : $F{fhVigenciaInicial}]]></variableExpression>
+	</variable>
+	<background>
+		<band height="653" splitType="Prevent">
+			<image evaluationTime="Report">
+				<reportElement uuid="690e849e-9aac-462f-b525-3aae6525fecd" positionType="FixRelativeToBottom" stretchType="RelativeToBandHeight" isPrintRepeatedValues="false" x="0" y="0" width="440" height="641" isPrintWhenDetailOverflows="true">
+					<printWhenExpression><![CDATA[new Boolean( $P{pPrevioDefinitivo}.equals( "0" ) )]]></printWhenExpression>
+				</reportElement>
+				<imageExpression><![CDATA[$P{pRuta}+"static/images/reporte/img_doc_informativo.png"]]></imageExpression>
+			</image>
+			<image evaluationTime="Report">
+				<reportElement uuid="a7585e52-ed78-48e4-9f5c-ea75cad6c667" positionType="FixRelativeToBottom" stretchType="RelativeToBandHeight" isPrintRepeatedValues="false" x="0" y="0" width="440" height="641" isPrintWhenDetailOverflows="true">
+					<printWhenExpression><![CDATA[new Boolean( $P{pPrevioDefinitivo}.equals( "1" ) )]]></printWhenExpression>
+				</reportElement>
+				<imageExpression><![CDATA[$P{pRuta}+"static/images/reporte/img_rayas_horizontales.png"]]></imageExpression>
+			</image>
+		</band>
+	</background>
+	<pageHeader>
+		<band height="14">
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="04544709-5891-4377-adb6-170ea9e7bdd1" stretchType="RelativeToTallestObject" mode="Opaque" x="0" y="0" width="255" height="14" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Right" markup="none">
+					<font fontName="SansSerif" size="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["UR " + $F{ur} + " / " + $F{annio}.toString()]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="e8a34273-7a55-452b-be8c-f538d73b5210" stretchType="RelativeToTallestObject" mode="Opaque" x="255" y="0" width="187" height="14" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Right" markup="none">
+					<font fontName="SansSerif" size="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nuTramite}.toString()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="14" splitType="Stretch">
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="ea22d249-b74e-4a01-8465-803f4666fee2" style="style_previa" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="14" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Justified" markup="none">
+					<font fontName="SansSerif" size="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["CONTRATO DE PRESTACIÓN DE SERVICIOS PROFESIONALES POR HONORARIOS QUE CELEBRAN, POR UNA PARTE, EL EJECUTIVO FEDERAL POR CONDUCTO DE LA UNIVERSIDAD ABIERTA Y A DISTANCIA DE MÉXICO, REPRESENTADA POR LILIAN KRAVZOV APPEL, EN SU CARÁCTER DE RECTORA, Y POR LA OTRA, " + $F{nombreContratado} +", A QUIENES EN LO SUCESIVO Y PARA LOS EFECTOS DEL PRESENTE CONTRATO SE LES DENOMINARÁ “LA UNIVERSIDAD” Y “EL PRESTADOR DE LOS SERVICIOS”, RESPECTIVAMENTE, AL TENOR DE LAS SIGUIENTES:"]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="14">
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="e844df3a-ba32-45fe-b652-cbc1229849be" style="style_previa" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="14" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="html">
+					<font fontName="SansSerif" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["D E C L A R A C I O N E S"]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="13" splitType="Prevent">
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="bcfd97da-8d04-4f9f-aec2-6d4435189307" style="style_previa" stretchType="RelativeToTallestObject" x="0" y="0" width="34" height="13" backcolor="#FFFFFF"/>
+				<box topPadding="5"/>
+				<textElement textAlignment="Justified" markup="none">
+					<font fontName="SansSerif" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["I."]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="9bdb07aa-9e55-4db9-aa95-b1790f9e1a8c" style="style_previa" stretchType="RelativeToTallestObject" x="34" y="0" width="408" height="13" backcolor="#FFFFFF"/>
+				<box topPadding="5" leftPadding="0"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="SansSerif" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["DE “LA UNIVERSIDAD”:"]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="14" splitType="Stretch">
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="20210490-7288-4a52-a28a-c2b98ff38e38" style="style_previa" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="14" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="SansSerif" size="10" isBold="false" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<b>I.1</b> QUE ES UNA ÓRGANO ADMINISTRATIVO DESCONCENTRADO DE LA SECRETARÍA DE EDUCACIÓN PÚBLICA DE CONFORMIDAD CON LOS ARTÍCULOS 17 DE LA LEY ORGÁNICA DE LA ADMINISTRACIÓN PÚBLICA FEDERAL Y 1° DEL DECRETO QUE CREA LA UNIVERSIDAD ABIERTA Y A DISTANCIA DE MÉXICO, Y QUE SU REPRESENTANTE, TIENE FACULTADES PARA SUSCRIBIR EL PRESENTE CONTRATO, COMO SE DESPRENDE DEL ARTÍCULO 8° FRACCIONES I Y VI DE SU DECRETO DE CREACIÓN PUBLICADO EN EL DIARIO OFICIAL DE LA FEDERACIÓN EL 19 DE ENERO DE 2012."]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="16" splitType="Stretch">
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="1794c115-a73a-4a45-b3b9-7b1fe8364995" style="style_previa" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="16" backcolor="#FFFFFF"/>
+				<box topPadding="9"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="SansSerif" size="10" isBold="false" pdfEncoding="Cp1252" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<b>I.2</b> QUE DE ACUERDO A SUS NECESIDADES REQUIERE TEMPORALMENTE CONTAR CON LOS SERVICIOS DE UNA PERSONA FÍSICA CON CONOCIMIENTOS EN " + $F{descPerfilContratado} + ", POR LO QUE HA DETERMINADO LLEVAR A CABO LA CONTRATACIÓN DE <b>“EL PRESTADOR DE LOS SERVICIOS”</b>."]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="16" splitType="Stretch">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="false">
+				<reportElement uuid="33bb4c4d-0819-4f6a-9b34-b320b1252803" style="style_previa" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="16" forecolor="#000000" backcolor="#FFFFFF"/>
+				<box topPadding="9"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top" rotation="None" markup="html">
+					<font fontName="SansSerif" size="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<b>I.3</b> QUE CUENTA CON LOS RECURSOS SUFICIENTES PARA CUBRIR EL IMPORTE DE LOS HONORARIOS DE <b>“EL PRESTADOR DE LOS SERVICIOS”</b> CONFORME A LA PARTIDA PRESUPUESTARIA: "+$F{partida}+"."]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="16" splitType="Prevent">
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="92a9aa7f-3178-4804-bec7-1bf8990a4f19" style="style_previa" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="16" backcolor="#FFFFFF"/>
+				<box topPadding="9"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="SansSerif" size="10" isBold="false" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<b>I.4</b> QUE ESTE CONTRATO QUE CELEBRA DE CONFORMIDAD CON LO DISPUESTO POR LOS ARTÍCULOS 2606 AL 2615 DEL CÓDIGO CIVIL FEDERAL, 69 DE LA LEY FEDERAL DE PRESUPUESTO Y RESPONSABILIDAD HACENDARIA, Y CON BASE EN EL ARTÍCULO 15 DEL PRESUPUESTO DE EGRESOS DE LA FEDERACIÓN PARA EL EJERCICIO FISCAL 2022, PUBLICADO EN EL DIARIO OFICIAL DE LA FEDERACIÓN EL 29 DE NOVIEMBRE DE 2021; ASÍ COMO POR EL “ACUERDO POR EL QUE SE EMITEN LAS DISPOSICIONES EN LAS MATERIAS DE RECURSOS HUMANOS Y DE SERVICIO PROFESIONAL DE CARRERA, ASÍ COMO EL MANUAL ADMINISTRATIVO DE APLICACIÓN GENERAL EN MATERIA DE RECURSOS HUMANOS Y ORGANIZACIÓN Y EL MANUAL DE SERVICIO PROFESIONAL DE CARRERA”, PUBLICADO EN EL DIARIO OFICIAL DE LA FEDERACIÓN EL 12 DE JULIO DE 2010; REFORMADO POR LOS SIMILARES DE FECHA DE PUBLICACIÓN 29 DE AGOSTO DE 2011, 8 DE SEPTIEMBRE DE 2012, 23 DE AGOSTO DE 2013, 4 DE FEBRERO DE 2016, 27 DE NOVIEMBRE DE 2018 Y 17 DE MAYO DE 2019."]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="16" splitType="Prevent">
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="99944383-0b1a-4eb7-815f-736285c03892" style="style_previa" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="16" backcolor="#FFFFFF"/>
+				<box topPadding="9"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="SansSerif" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<b>I.5</b> QUE CUENTA CON EL DICTAMEN PRESUPUESTARIO EMITIDO POR LA SECRETARÍA DE HACIENDA Y CRÉDITO PÚBLICO No. 307-A-0021 DE 21 DE ENERO DE 2022."]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="16" splitType="Stretch">
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="965abc43-ef5b-4314-b1e4-652a44602980" style="style_previa" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="16" backcolor="#FFFFFF"/>
+				<box topPadding="9"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="SansSerif" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<b>I.6</b> QUE PARA LOS EFECTOS DEL PRESENTE CONTRATO, SEÑALA COMO SU DOMICILIO EL UBICADO EN AV. UNIVERSIDAD 1200, COL. XOCO, ALCALDÍA BENITO JUÁREZ, C.P. 03330, EN LA CIUDAD DE MÉXICO."]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="19" splitType="Prevent">
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="c5227bb1-30c3-4f4a-9294-80295e877f38" style="style_previa" stretchType="RelativeToBandHeight" x="0" y="0" width="34" height="19" backcolor="#FFFFFF"/>
+				<box topPadding="12"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="SansSerif" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["II."]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="5c0f4d65-c4af-4a62-9bd0-7b7481326163" style="style_previa" stretchType="RelativeToTallestObject" x="34" y="0" width="408" height="19" backcolor="#FFFFFF"/>
+				<box topPadding="12"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="SansSerif" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["DE “EL PRESTADOR DE LOS SERVICIOS”:"]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="14" splitType="Stretch">
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="6ac103ab-d854-4f44-bad7-37da4bc54e08" style="style_previa" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="14" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="SansSerif" size="10" isBold="false" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<b>II.1</b> QUE ES DE NACIONALIDAD "+ $F{descNacContratado}.trim() +", EN PLENO USO Y GOCE DE LAS FACULTADES QUE LE OTORGA LA LEY, Y QUE CUENTA CON LOS CONOCIMIENTOS Y, EN SU CASO, CON LA EXPERIENCIA NECESARIOS PARA PRESTAR EL SERVICIO REQUERIDO POR <b>“LA UNIVERSIDAD”</b>."]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="16" splitType="Stretch">
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="1c1ddfab-f740-4373-88f1-1ab0340b2b34" style="style_previa" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="16" backcolor="#FFFFFF"/>
+				<box topPadding="9"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="SansSerif" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<b>II.2</b> QUE CUENTA CON EL REGISTRO FEDERAL DE CONTRIBUYENTES No. "+ $F{rfcContratado} +", OTORGADO POR EL SERVICIO DE ADMINISTRACIÓN TRIBUTARIA DE LA SECRETARÍA DE HACIENDA Y CRÉDITO PÚBLICO."]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="16" splitType="Stretch">
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="a175b364-30f2-4e90-8bcc-a34148611d91" style="style_previa" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="16" backcolor="#FFFFFF"/>
+				<box topPadding="9"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="SansSerif" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<b>II.3</b> QUE CUENTA CON ESTUDIOS Y CONOCIMIENTOS EN MATERIA DE " + $F{experienciaContratado} + " Y CONOCE PLENAMENTE LAS CARACTERÍSTICAS Y NECESIDADES DE LOS SERVICIOS MATERIA DEL PRESENTE CONTRATO, ASÍ COMO QUE HA CONSIDERADO TODOS LOS FACTORES QUE INTERVIENEN PARA DESARROLLAR EFICAZMENTE LAS ACTIVIDADES QUE DESEMPEÑARÁ."]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="16" splitType="Stretch">
+			<printWhenExpression><![CDATA[new Boolean( ( $F{reqCompatibilidad}.equals("NO") ) )]]></printWhenExpression>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="c4f627d6-e65b-4fd8-a521-b1cbc1d502c0" style="style_previa" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="16" backcolor="#FFFFFF"/>
+				<box topPadding="9"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="SansSerif" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<b>II.4</b> QUE MANIFIESTA, BAJO PROTESTA DE DECIR VERDAD, QUE NO DESEMPEÑA UN EMPLEO, CARGO O COMISIÓN EN EL SERVICIO PÚBLICO NI SE ENCUENTRA INHABILITADO PARA EL DESEMPEÑO DE ÉSTOS, ASÍ COMO QUE A LA SUSCRIPCIÓN DEL PRESENTE DOCUMENTO NO ESTÁ PRESTANDO SERVICIOS PROFESIONALES POR HONORARIOS EN LA MISMA Y/O EN DISTINTA DEPENDENCIA O ENTIDAD DE LA ADMINISTRACIÓN PÚBLICA FEDERAL, EN LA PROCURADURÍA GENERAL DE LA REPÚBLICA, EN UN TRIBUNAL ADMINISTRATIVO O EN LA PRESIDENCIA DE LA REPÚBLICA. ASIMISMO, QUE NO ES PARTE EN UN JUICIO DEL ORDEN CIVIL, MERCANTIL O LABORAL EN CONTRA DE ALGUNA DE LAS REFERIDAS INSTITUCIONES PÚBLICAS; Y QUE NO SE ENCUENTRA EN ALGÚN OTRO SUPUESTO O SITUACIÓN QUE PUDIERA GENERAR CONFLICTO DE INTERESES PARA PRESTAR LOS SERVICIOS PROFESIONALES OBJETO DEL PRESENTE CONTRATO."]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="16" splitType="Stretch">
+			<printWhenExpression><![CDATA[new Boolean( ( $F{reqCompatibilidad}.equals("SI") ) )]]></printWhenExpression>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="60725ce2-f322-484f-bab7-8b7cce335efa" style="style_previa" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="16" backcolor="#FFFFFF"/>
+				<box topPadding="9"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="SansSerif" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<b>II.4</b> QUE MANIFIESTA, BAJO PROTESTA DE DECIR VERDAD, QUE NO SE ENCUENTRA INHABILITADO PARA EL DESEMPEÑO DE UN EMPLEO, CARGO O COMISIÓN EN EL SERVICIO PÚBLICO Y QUE CONOCE EL RÉGIMEN DE COMPATIBILIDAD DE EMPLEOS POR LO QUE SIN DETRIMENTO DE LAS FUNCIONES QUE TIENE ENCOMENDADAS EN EL PUESTO DE " + $F{puestoCompatibilidad} + " O DE LA PRESTACIÓN DE LOS SERVICIOS CONTRATADOS CON LA " + $F{nbDepCompatibilidad} + ", SE COMPROMETE A CUMPLIR CON LA MÁXIMA DILIGENCIA LAS OBLIGACIONES A QUE SE REFIERE LA CLÁUSULA PRIMERA DE ESTE CONTRATO; ASIMISMO QUE NO ES PARTE EN UN JUICIO DEL ORDEN CIVIL, MERCANTIL O LABORAL EN CONTRA DE ALGUNA DEPENDENCIA O ENTIDAD DE LA ADMINISTRACIÓN PÚBLICA FEDERAL, DE LA PROCURADURÍA GENERAL DE LA REPÚBLICA, DE UN TRIBUNAL ADMINISTRATIVO O DE LA PRESIDENCIA DE LA REPÚBLICA; Y QUE NO SE ENCUENTRA EN ALGÚN OTRO SUPUESTO O SITUACIÓN QUE PUDIERA GENERAR CONFLICTO DE INTERESES PARA PRESTAR LOS SERVICIOS PROFESIONALES OBJETO DEL PRESENTE CONTRATO."]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="16" splitType="Stretch">
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="e4978b92-d1ed-4ad8-8dc8-9b75396bddce" style="style_previa" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="16" backcolor="#FFFFFF"/>
+				<box topPadding="9"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="SansSerif" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<b>II.5</b> QUE PARA LOS EFECTOS DEL PRESENTE CONTRATO, SEÑALA COMO SU DOMICILIO EL UBICADO EN " + $F{domicilioContratado} +"."]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="50" splitType="Prevent">
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="f2ba998e-1b59-4479-b6f5-be07fd248215" style="style_previa" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="36" backcolor="#FFFFFF"/>
+				<box topPadding="8"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="SansSerif" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["DECLARAN LAS PARTES QUE ES SU VOLUNTAD CELEBRAR EL PRESENTE CONTRATO, PARA LO CUAL CONVIENEN EN SUJETARSE A LAS SIGUIENTES:"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="7dc684f3-f8be-465e-a8f6-fa30ab5ed1ab" style="style_previa" stretchType="RelativeToTallestObject" x="0" y="36" width="442" height="14" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="html">
+					<font fontName="SansSerif" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["C L Á U S U L A S"]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="15" splitType="Stretch">
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="d39bfb10-33df-4edc-8bd9-7b90f5071809" style="style_previa" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="15" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="SansSerif" size="10" isBold="false" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<b>PRIMERA.- “LA UNIVERSIDAD”</b> ENCOMIENDA A <b>“EL PRESTADOR DE LOS SERVICIOS”</b> Y ÉSTE SE OBLIGA A PRESTAR LOS SERVICIOS PROFESIONALES CONSISTENTES EN " + (( $F{descFunciones}.trim().substring( $F{descFunciones}.trim().length()-1 , $F{descFunciones}.trim().length() ).equals(".") )?$F{descFunciones}.trim().substring(0,$F{descFunciones}.trim().length()-1):$F{descFunciones}.trim()) + ", ASÍ COMO A RENDIR LOS INFORMES DE LAS ACTIVIDADES DESARROLLADAS Y/O LOS SERVICIOS ENCOMENDADOS MENSUALMENTE O CUANDO SE LE REQUIERA, MISMOS QUE DEBERÁ PRESENTAR AL SERVIDOR PÚBLICO QUE DESIGNE <b>“LA UNIVERSIDAD”</b>. LOS INFORMES A ENTREGAR SERÁN LOS SIGUIENTES: " + (( $F{descEntregables}.trim().substring( $F{descEntregables}.trim().length()-1 , $F{descEntregables}.trim().length() ).equals(".") )?$F{descEntregables}.trim().substring(0,$F{descEntregables}.trim().length()-1):$F{descEntregables}.trim()) + "."]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="16">
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="88cc70ae-e292-4b41-90cb-1971432c6f0b" style="style_previa" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="16" backcolor="#FFFFFF"/>
+				<box topPadding="9"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="SansSerif" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<b>SEGUNDA.- “EL PRESTADOR DE LOS SERVICIOS”</b> SE OBLIGA A APLICAR SU CAPACIDAD Y SUS CONOCIMIENTOS PARA CUMPLIR SATISFACTORIAMENTE CON LAS ACTIVIDADES QUE LE ENCOMIENDE <b>“LA UNIVERSIDAD”</b>, ASÍ COMO A RESPONDER DE LA CALIDAD DE LOS SERVICIOS Y DE CUALQUIER OTRA RESPONSABILIDAD EN LA QUE INCURRA, ASÍ COMO DE LOS DAÑOS Y PERJUICIOS QUE POR INOBSERVANCIA O NEGLIGENCIA DE SU PARTE SE CAUSAREN A <b>“LA UNIVERSIDAD”</b>."]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="16">
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="826f12bb-bca7-4bae-a44b-6e117242ad93" style="style_previa" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="16" backcolor="#FFFFFF"/>
+				<box topPadding="9"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="SansSerif" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<b>TERCERA.- “EL PRESTADOR DE LOS SERVICIOS”</b> SE OBLIGA A DESEMPEÑAR LOS SERVICIOS OBJETO DEL CONTRATO A <b>“LA UNIVERSIDAD”</b> EN FORMA PERSONAL E INDEPENDIENTE, POR LO QUE SERÁ EL ÚNICO RESPONSABLE DE LA EJECUCIÓN DE LOS SERVICIOS CUANDO NO SE AJUSTEN A LOS TÉRMINOS Y CONDICIONES DE ESTE CONTRATO."]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="28">
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="f228d014-07c4-46f8-8557-e538a5033916" style="style_previa" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="28" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF"/>
+				<box topPadding="9" bottomPadding="0"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top" markup="html">
+					<font fontName="SansSerif" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<b>CUARTA.- “LA UNIVERSIDAD”</b> CUBRIRÁ A <b>“EL PRESTADOR DE LOS SERVICIOS”</b> POR CONCEPTO DE SUS HONORARIOS, UN IMPORTE BRUTO DE $ "+$F{sumImBrutoRecibidos}+" (" + $F{importeLetra} + "). DICHO IMPORTE SERÁ PAGADO EN "+ $F{nuExhibiciones} +", PREVIA LA ENTREGA DE LOS INFORMES O DE LOS SERVICIOS ENCOMENDADOS A SATISFACCIÓN DE <b>“LA UNIVERSIDAD”</b>." +
+"<br><br>SÍ PARA EL CUMPLIMIENTO DEL OBJETO DEL PRESENTE CONTRATO SE REQUIERE DEL TRASLADO DE <b>“EL PRESTADOR DE LOS SERVICIOS”</b> A LUGAR DISTINTO A AQUEL QUE PRESTE SUS SERVICIOS, SE PAGARÁN LAS EXPENSAS CORRESPONDIENTES, DE CONFORMIDAD CON LO ESTABLECIDO POR LOS ARTÍCULOS 2609 Y 2610 DEL CÓDIGO CIVIL FEDERAL Y CON SUJECIÓN A LAS NORMAS Y TARIFAS ESTABLECIDAS PARA ESTE TIPO DE EROGACIONES." +
+"<br><br>LAS EXPENSAS SE PAGARÁN CON BASE EN LAS TARIFAS ESTABLECIDAS EN LA NORMATIVIDAD APLICABLE A <b“LA DEPENDENCIA”</b>, OBLIGÁNDOSE <b>“EL PRESTADOR DE LOS SERVICIOS”</b> A SU COMPROBACIÓN CON LOS DOCUMENTOS QUE CUMPLAN CON LOS REQUISITOS FISCALES APLICABLES."]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="16">
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="23f5ffa8-d591-4fa7-9daa-7e7fe410c74f" style="style_previa" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="16" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF"/>
+				<box topPadding="9"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="SansSerif" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<b>“EL PRESTADOR DE LOS SERVICIOS”</b> ESTÁ DE ACUERDO EN QUE <b>“LA UNIVERSIDAD”</b> LE RETENDRÁ DE LOS PAGOS QUE RECIBA POR CONCEPTO DE HONORARIOS, LA CANTIDAD QUE RESULTE APLICABLE EN LOS TÉRMINOS DE LA LEY DEL IMPUESTO SOBRE LA RENTA."]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="16">
+			<printWhenExpression><![CDATA[new Boolean( ( $F{reqIssste}.equals("SI") ) )]]></printWhenExpression>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="c047f83a-11d1-444f-aa46-1317f05a719b" style="style_previa" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="16" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF"/>
+				<box topPadding="9"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="SansSerif" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["LAS PARTES CONVIENEN EN QUE <b>“LA UNIVERSIDAD”</b> INCORPORARÁ INTEGRALMENTE A <b>“EL PRESTADOR DE LOS SERVICIOS”</b> AL RÉGIMEN DE SEGURIDAD SOCIAL DEL INSTITUTO DE SEGURIDAD Y SERVICIOS SOCIALES DE LOS TRABAJADORES DEL ESTADO, PARA LO CUAL, <b>“EL PRESTADOR DE LOS SERVICIOS”</b> ESTÁ DE ACUERDO EN QUE <b>“LA UNIVERSIDAD”</b> LE RETENGA, DE LOS HONORARIOS PACTADOS, LAS CANTIDADES QUE RESULTEN COMO CUOTAS QUE DEBE APORTAR AL INSTITUTO DE SEGURIDAD Y SERVICIOS SOCIALES DE LOS TRABAJADORES DEL ESTADO."]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="16">
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="1bb86252-7a21-406b-a353-4cf48b3a5a3e" style="style_previa" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="16" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF"/>
+				<box topPadding="9"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="SansSerif" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<b>QUINTA.-</b> EL PRESENTE CONTRATO OBSERVARÁ UNA VIGENCIA DEL " + $F{fhVigenciaInicial} + " AL "+ $F{fhVigenciaFinal}  +"."]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="16">
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="d29a66d1-3419-4161-94d1-7a8c9a3804f8" style="style_previa" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="16" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF"/>
+				<box topPadding="9"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="SansSerif" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<b>SEXTA.- “EL PRESTADOR DE LOS SERVICIOS”</b> NO PODRÁ, CON MOTIVO DE LA PRESTACIÓN DE LOS SERVICIOS QUE REALICE A <b>“LA UNIVERSIDAD”</b>, ASESORAR, PATROCINAR O CONSTITUIRSE EN CONSULTOR DE CUALQUIER PERSONA QUE TENGA RELACIONES DIRECTAS O INDIRECTAS CON EL OBJETO DE LAS ACTIVIDADES QUE LLEVE A CABO."]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="16">
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="5f6009e0-d01f-427c-bbe6-55047b6589c5" style="style_previa" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="16" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF"/>
+				<box topPadding="9"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="SansSerif" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<b>SÉPTIMA.- “EL PRESTADOR DE LOS SERVICIOS”</b> SE OBLIGA A NO DIVULGAR A TERCERAS PERSONAS, POR MEDIO DE PUBLICACIONES, INFORMES, O CUALQUIER OTRO MEDIO, LOS DATOS Y RESULTADOS QUE OBTENGA CON MOTIVO DE LA PRESTACIÓN DE LOS SERVICIOS OBJETO DE ESTE CONTRATO, O LA INFORMACIÓN QUE <b>“LA UNIVERSIDAD”</b> LE PROPORCIONE O A LA QUE TENGA ACCESO EN RAZÓN DEL OBJETO DEL PRESENTE CONTRATO."]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="16">
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="74796492-604c-4b22-afa6-6ac3483c9291" style="style_previa" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="16" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF"/>
+				<box topPadding="9"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="SansSerif" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<b>OCTAVA.- “EL PRESTADOR DE LOS SERVICIOS”</b> NO PODRÁ CEDER EN FORMA PARCIAL NI TOTAL EN FAVOR DE CUALQUIER OTRA PERSONA FÍSICA O MORAL, LOS DERECHOS Y OBLIGACIONES DERIVADAS DEL PRESENTE CONTRATO."]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="16">
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="8149b535-605b-4880-8a4f-b8a2cf0e9d3f" style="style_previa" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="16" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF"/>
+				<box topPadding="9"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="SansSerif" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<b>NOVENA.- “EL PRESTADOR DE LOS SERVICIOS”</b> COMUNICARÁ A <b>“LA UNIVERSIDAD”</b>, CUALQUIER HECHO O CIRCUNSTANCIA QUE POR VIRTUD DE LOS SERVICIOS PRESTADOS PUDIERAN BENEFICIAR O EVITAR PERJUICIO A LA MISMA."]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="16">
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="295f68fd-395e-4fea-af10-25e87afaf0b9" style="style_previa" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="16" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF"/>
+				<box topPadding="9"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="SansSerif" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<b>DÉCIMA.- “LA UNIVERSIDAD”</b> DESIGNA A " + $F{firmaRecepRepActNombre} + ", " + $F{firmaRecepRepActPuesto} + ", PARA RECIBIR A SU ENTERA SATISFACCIÓN LOS INFORMES DE LAS ACTIVIDADES DESARROLLADAS POR <b>“EL PRESTADOR DE LOS SERVICIOS”</b>, ASÍ COMO EL RESULTADO DE LOS SERVICIOS PACTADOS EN EL CONTRATO (ENTREGABLES)."]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="16" splitType="Stretch">
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="2eaaadf6-94ff-45d5-a20e-6f5b67ec5582" style="style_previa" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="16" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF"/>
+				<box topPadding="9"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="SansSerif" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<b>DÉCIMA PRIMERA.- “LA UNIVERSIDAD”</b>, PODRÁ RESCINDIR EL PRESENTE CONTRATO, SIN NECESIDAD DE JUICIO, POR CUALQUIERA DE LAS SIGUIENTES CAUSAS IMPUTABLES A <b>“EL PRESTADOR DE LOS SERVICIOS”</b>:"]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="14" splitType="Stretch">
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="bcffbe6e-6c7b-4b75-8952-de46b487068b" style="style_previa" stretchType="RelativeToTallestObject" x="50" y="0" width="392" height="14" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF"/>
+				<box topPadding="5"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="SansSerif" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["POR PRESTAR LOS SERVICIOS DEFICIENTEMENTE, DE MANERA INOPORTUNA O POR NO APEGARSE A LO ESTIPULADO EN EL PRESENTE CONTRATO;"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="29d3bd6e-30d2-46d9-b362-07b54ac4bd3e" style="style_previa" stretchType="RelativeToTallestObject" x="0" y="0" width="50" height="14" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF"/>
+				<box topPadding="5" leftPadding="35"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="SansSerif" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["A)"]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="14" splitType="Stretch">
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="1255b87c-37b6-443b-badf-166fc4979504" style="style_previa" stretchType="RelativeToTallestObject" x="50" y="0" width="392" height="14" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF"/>
+				<box topPadding="5"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="SansSerif" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["POR NO OBSERVAR LA DISCRECIÓN DEBIDA RESPECTO DE LA INFORMACIÓN A LA QUE TENGA ACCESO COMO CONSECUENCIA DE LA PRESTACIÓN DE LOS SERVICIOS ENCOMENDADOS;"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="ebe2b607-89a7-440e-acff-125133d74251" style="style_previa" stretchType="RelativeToTallestObject" x="0" y="0" width="50" height="14" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF"/>
+				<box topPadding="5" leftPadding="35"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="SansSerif" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["B)"]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="14" splitType="Stretch">
+			<elementGroup>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="d799f3dc-be30-4661-a4fc-b3b4a0aea825" style="style_previa" stretchType="RelativeToTallestObject" x="50" y="0" width="392" height="14" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF"/>
+					<box topPadding="5"/>
+					<textElement textAlignment="Justified" markup="html">
+						<font fontName="SansSerif" size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["POR SUSPENDER INJUSTIFICADAMENTE LA PRESTACIÓN DE LOS SERVICIOS O POR NEGARSE A CORREGIR LO RECHAZADO POR <b>“LA UNIVERSIDAD”</b>;"]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="32096555-c105-42ca-ada6-f79f77861171" style="style_previa" stretchType="RelativeToTallestObject" x="0" y="0" width="50" height="14" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF"/>
+					<box topPadding="5" leftPadding="35"/>
+					<textElement textAlignment="Justified" markup="html">
+						<font fontName="SansSerif" size="10" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["C)"]]></textFieldExpression>
+				</textField>
+			</elementGroup>
+		</band>
+		<band height="14" splitType="Stretch">
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="d9290f61-05be-40a1-8e18-4ff60fb56749" style="style_previa" stretchType="RelativeToTallestObject" x="50" y="0" width="392" height="14" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF"/>
+				<box topPadding="5"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="SansSerif" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["POR NEGARSE A INFORMAR A <b>“LA UNIVERSIDAD”</b> SOBRE LA PRESTACIÓN Y/O EL RESULTADO DE LOS SERVICIOS ENCOMENDADOS;"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="b2759324-e33b-41ca-9df6-9ec7751ac616" style="style_previa" stretchType="RelativeToTallestObject" x="0" y="0" width="50" height="14" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF"/>
+				<box topPadding="5" leftPadding="35"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="SansSerif" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["D)"]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="14" splitType="Stretch">
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="9f93161e-ecea-4e27-8cc8-94d23c944f19" style="style_previa" stretchType="RelativeToTallestObject" x="50" y="0" width="392" height="14" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF"/>
+				<box topPadding="5"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="SansSerif" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["POR IMPEDIR EL DESEMPEÑO NORMAL DE LABORES DE <b>“LA UNIVERSIDAD”</b> DURANTE LA PRESTACIÓN DE LOS SERVICIOS;"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="afe3e0bc-080c-423f-aeed-797e7d4a6cdc" style="style_previa" stretchType="RelativeToTallestObject" x="0" y="0" width="50" height="14" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF"/>
+				<box topPadding="5" leftPadding="35"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="SansSerif" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["E)"]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="14" splitType="Stretch">
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="fae47e56-4829-4891-97ad-6dc1d482cfb4" style="style_previa" stretchType="RelativeToTallestObject" x="0" y="0" width="50" height="14" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF"/>
+				<box topPadding="5" leftPadding="35"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="SansSerif" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["F)"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="867340a6-0e21-4a28-8d25-f810ec4e878a" style="style_previa" stretchType="RelativeToTallestObject" x="50" y="0" width="392" height="14" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF"/>
+				<box topPadding="5"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="SansSerif" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["SI SE COMPRUEBA QUE LA PROTESTA A QUE SE REFIERE LA DECLARACIÓN II.4, SE REALIZÓ CON FALSEDAD, Y"]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="14" splitType="Stretch">
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="f7a04deb-fdcd-4829-9700-86b5e613268b" style="style_previa" stretchType="RelativeToTallestObject" x="50" y="0" width="392" height="14" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF"/>
+				<box topPadding="5"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="SansSerif" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["POR INCUMPLIMIENTO DE CUALQUIERA DE LAS OBLIGACIONES ESTABLECIDAS EN ESTE CONTRATO."]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="bde7153e-b467-4ef8-8cc9-0498fea4d1ff" style="style_previa" stretchType="RelativeToTallestObject" x="0" y="0" width="50" height="14" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF"/>
+				<box topPadding="5" leftPadding="35"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="SansSerif" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["G)"]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="16">
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="118803e8-35e9-41b3-9127-792bd0a80a3d" style="style_previa" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="16" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF"/>
+				<box topPadding="5"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="SansSerif" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["PARA LOS EFECTOS A LOS QUE SE REFIERE ESTA CLÁUSULA <b>“LA UNIVERSIDAD”</b> COMUNICARÁ POR ESCRITO A <b>“EL PRESTADOR DE LOS SERVICIOS”</b>, EL INCUMPLIMIENTO EN QUE ÉSTE HAYA INCURRIDO, PARA QUE EN UN TÉRMINO DE DIEZ DÍAS HÁBILES, EXPONGA LO QUE A SU DERECHO CONVENGA, Y APORTE, EN SU CASO, LAS PRUEBAS CORRESPONDIENTES."]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="16">
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="ec789c3e-1eed-446d-b56e-e3744a0d96bb" style="style_previa" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="16" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF"/>
+				<box topPadding="5"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="SansSerif" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["TRANSCURRIDO EL TÉRMINO SEÑALADO EN EL PÁRRAFO ANTERIOR, <b>“LA UNIVERSIDAD”</b> TOMANDO EN CUENTA LOS ARGUMENTOS Y PRUEBAS OFRECIDOS POR <b>“EL PRESTADOR DE LOS SERVICIOS”</b>, DETERMINARÁ DE MANERA FUNDADA Y MOTIVADA SI RESULTA PROCEDENTE O NO RESCINDIR EL CONTRATO Y COMUNICARÁ POR ESCRITO A <b>“EL PRESTADOR DE LOS SERVICIOS”</b> DICHA DETERMINACIÓN."]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="16" splitType="Stretch">
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="3970c2e9-d534-4571-a2c2-6c95a0305bac" style="style_previa" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="16" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF"/>
+				<box topPadding="5" bottomPadding="0"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="SansSerif" size="10" isBold="false" isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<b>DÉCIMA SEGUNDA.- “LA UNIVERSIDAD”</b> EN CUALQUIER MOMENTO, PODRÁ DAR POR TERMINADO ANTICIPADAMENTE EL PRESENTE CONTRATO SIN RESPONSABILIDAD PARA ÉSTA, Y SIN NECESIDAD DE QUE MEDIE RESOLUCIÓN JUDICIAL ALGUNA, DANDO AVISO POR ESCRITO A <b>“EL PRESTADOR DE LOS SERVICIOS”</b> CON TREINTA DÍAS NATURALES DE ANTICIPACIÓN. EN TODO CASO, <b>“LA UNIVERSIDAD”</b> DEBERÁ CUBRIR LOS HONORARIOS QUE CORRESPONDAN POR LOS SERVICIOS PRESTADOS Y QUE HAYA RECIBIDO A SU ENTERA SATISFACCIÓN."]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="16">
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="1d4883db-7b4d-4001-8a08-6dbb42f7343d" style="style_previa" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="16" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF"/>
+				<box topPadding="5"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="SansSerif" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["ASIMISMO <b>“EL PRESTADOR DE LOS SERVICIOS”</b> PODRÁ DARLO POR CONCLUIDO DE MANERA ANTICIPADA, PREVIO AVISO QUE POR ESCRITO REALICE A <b>“LA UNIVERSIDAD”</b> EN EL PLAZO SEÑALADO EN EL PÁRRAFO QUE ANTECEDE. <b>“LA UNIVERSIDAD”</b> SE RESERVA EL DERECHO DE ACEPTAR LA TERMINACIÓN ANTICIPADA DEL CONTRATO SIN QUE ELLO IMPLIQUE LA RENUNCIA A DEDUCIR LAS ACCIONES LEGALES QUE, EN SU CASO, PROCEDAN."]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="16">
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="7275fbb4-ab55-473c-968b-0900ffb657e0" style="style_previa" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="16" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF"/>
+				<box topPadding="5"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="SansSerif" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<b>DÉCIMA TERCERA.- “EL PRESTADOR DE LOS SERVICIOS”</b> NO SERÁ RESPONSABLE POR CUALQUIER EVENTO DE CASO FORTUITO O DE FUERZA MAYOR QUE LE IMPIDA PARCIAL O TOTALMENTE CUMPLIR CON LAS OBLIGACIONES CONTRAÍDAS POR VIRTUD DEL PRESENTE CONTRATO, EN EL ENTENDIDO DE QUE DICHOS SUPUESTOS DEBERÁN SER DEBIDAMENTE ACREDITADOS."]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="16" splitType="Stretch">
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="a0ff729d-a96d-4746-a5a3-cd5a65be151f" style="style_previa" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="16" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF"/>
+				<box topPadding="5"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="SansSerif" size="10" isBold="false" isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<b>DÉCIMA CUARTA.- “LA UNIVERSIDAD”</b> NO ADQUIERE NI RECONOCE OBLIGACIÓN ALGUNA DE CARÁCTER LABORAL, A FAVOR DE <b>“EL PRESTADOR DE LOS SERVICIOS”</b> EN VIRTUD DE NO SER APLICABLES A LA RELACIÓN CONTRACTUAL QUE CONSTA EN ESTE INSTRUMENTO, LOS ARTÍCULOS 1° Y 8° DE LA LEY FEDERAL DEL TRABAJO Y 2° Y 8° DE LA LEY FEDERAL DE LOS TRABAJADORES AL SERVICIO DEL ESTADO, REGLAMENTARIA DEL APARTADO B) DEL ARTÍCULO 123 CONSTITUCIONAL, POR LO QUE <b>“EL PRESTADOR DE LOS SERVICIOS”</b> NO SERÁ CONSIDERADO COMO TRABAJADOR PARA LOS EFECTOS LEGALES."]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="20">
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="317e8b70-23e0-4532-83a2-87443da85e0e" style="style_previa" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="20" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF"/>
+				<box topPadding="5"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="SansSerif" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<b>DÉCIMA QUINTA.-</b> LAS PARTES ACEPTAN QUE TODO LO NO PREVISTO EN EL PRESENTE CONTRATO SE REGIRÁ POR LAS DISPOSICIONES CONTENIDAS EN EL CÓDIGO CIVIL FEDERAL, Y EN CASO DE CONTROVERSIA PARA SU INTERPRETACIÓN Y CUMPLIMIENTO, SE SOMETERÁN A LA JURISDICCIÓN DE LOS TRIBUNALES FEDERALES DE LA CIUDAD DE MÉXICO, RENUNCIANDO AL FUERO QUE LES PUDIERA CORRESPONDER EN RAZÓN DE SU DOMICILIO PRESENTE, FUTURO O POR CUALQUIER OTRA CAUSA."]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="20">
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="572caee5-861e-477c-b156-822b34c9df4b" style="style_previa" stretchType="RelativeToTallestObject" x="0" y="0" width="442" height="20" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF"/>
+				<box topPadding="5"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="SansSerif" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<b>DÉCIMA SEXTA.-</b> LAS PARTES ACUERDAN QUE EL PRESENTE CONTRATO PODRÁ FIRMARSE DE MANERA ELECTRÓNICA POR CUALQUIERA O AMBAS DE ELLAS, PARA LO CUAL EN ESTE ACTO AMBAS PARTES RECONOCEN QUE LA FIRMA ELECTRÓNICA AVANZADA QUE SERÁ UTILIZADA EN EL CONTRATO COMO DOCUMENTO ELECTRÓNICO PRODUCIRÁ LOS MISMOS EFECTOS JURÍDICOS QUE LA FIRMA AUTÓGRAFA EN UN DOCUMENTO IMPRESO; LO ANTERIOR EN TÉRMINOS DE LO DISPUESTO EN LOS ARTÍCULOS 1834 Y 1834 BIS DEL CÓDIGO CIVIL FEDERAL, ASÍ COMO LOS ARTÍCULOS 2, FRACCIÓN I, X, XIII Y 3 DE LA LEY DE FIRMA ELECTRÓNICA AVANZADA. "+
+"<br><br>EN CASO DE QUE UNA DE LAS PARTES DECIDA FIRMAR DE MANERA ELECTRÓNICA Y LA OTRA DECIDA FIRMAR DE MANERA AUTÓGRAFA, ÉSTA ÚLTIMA PARTE SE COMPROMETE A FIRMAR UNA REPRESENTACIÓN IMPRESA DEL CONTRATO FIRMADO ELECTRÓNICAMENTE, DICHOS EJEMPLARES SERÁN UNA REPRESENTACIÓN FIEL Y EXACTA DEL MISMO DOCUMENTO."]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="64">
+			<textField>
+				<reportElement uuid="bd986aeb-9df3-406f-a8a4-aed98b6f3b30" x="117" y="52" width="110" height="12"/>
+				<textElement textAlignment="Right" verticalAlignment="Bottom">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER} + " de  "]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement uuid="560cb1d5-1620-496e-80e7-bea6fefdd5a3" x="232" y="52" width="100" height="12"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="4fae1889-b479-4051-9a7e-d62320e07fba" stretchType="RelativeToTallestObject" mode="Opaque" x="0" y="0" width="140" height="38" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF">
+					<printWhenExpression><![CDATA[new Boolean( $P{pPrevioDefinitivo}.equals( "1" ) )]]></printWhenExpression>
+				</reportElement>
+				<box topPadding="5"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="SansSerif" size="5" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{firmaDirectorGeneral}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="1849dd72-2072-4d11-ad45-26d28c29ad00" stretchType="RelativeToTallestObject" mode="Opaque" x="0" y="40" width="140" height="12" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF">
+					<printWhenExpression><![CDATA[new Boolean( $P{pPrevioDefinitivo}.equals( "1" ) )]]></printWhenExpression>
+				</reportElement>
+				<box topPadding="5"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="SansSerif" size="5" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{firmaRepSepNombre}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="e755d428-6017-44d8-9b9f-23b594f422de" stretchType="RelativeToTallestObject" mode="Opaque" x="150" y="0" width="140" height="38" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF">
+					<printWhenExpression><![CDATA[new Boolean( $P{pPrevioDefinitivo}.equals( "1" ) )]]></printWhenExpression>
+				</reportElement>
+				<box topPadding="5"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="SansSerif" size="5" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{firmaDirectorUr}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="ad190117-f916-4a6b-904e-6d822dc01f68" stretchType="RelativeToTallestObject" mode="Opaque" x="150" y="40" width="140" height="12" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF">
+					<printWhenExpression><![CDATA[new Boolean( $P{pPrevioDefinitivo}.equals( "1" ) )]]></printWhenExpression>
+				</reportElement>
+				<box topPadding="5"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="SansSerif" size="5" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{firmaRepAreaNombre}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="61c641ad-7e58-418d-ad78-1ba8e5129c55" stretchType="RelativeToTallestObject" mode="Opaque" x="301" y="0" width="140" height="38" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF">
+					<printWhenExpression><![CDATA[new Boolean( $P{pPrevioDefinitivo}.equals( "1" ) && $F{banderaPrestador}.equals( "1" ) )]]></printWhenExpression>
+				</reportElement>
+				<box topPadding="5"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="SansSerif" size="5" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{firmaPrestador}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="0bd800ab-1aba-4d44-bfda-65eead071023" stretchType="RelativeToTallestObject" mode="Opaque" x="301" y="40" width="140" height="12" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF">
+					<printWhenExpression><![CDATA[new Boolean( $P{pPrevioDefinitivo}.equals( "1" ) && $F{banderaPrestador}.equals( "1" ) )]]></printWhenExpression>
+				</reportElement>
+				<box topPadding="5"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="SansSerif" size="5" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nombreContratado}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<lastPageFooter>
+		<band height="64">
+			<textField evaluationTime="Report">
+				<reportElement uuid="6468b850-92f2-46dd-b076-6b6b4ff4afa8" x="230" y="52" width="100" height="12"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="973a324b-c101-434c-8d69-693c5521cbbc" x="117" y="52" width="110" height="12"/>
+				<textElement textAlignment="Right" verticalAlignment="Bottom">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER} + " de  "]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="8043a31a-3d84-4a43-8dd6-5edce3c406f4" stretchType="RelativeToTallestObject" mode="Opaque" x="150" y="0" width="140" height="38" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF">
+					<printWhenExpression><![CDATA[new Boolean( $P{pPrevioDefinitivo}.equals( "1" ) )]]></printWhenExpression>
+				</reportElement>
+				<box topPadding="5"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="SansSerif" size="5" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{firmaDirectorUr}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="04ca8692-39b3-4730-ad26-fa45f51adec8" stretchType="RelativeToTallestObject" mode="Opaque" x="150" y="40" width="140" height="12" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF">
+					<printWhenExpression><![CDATA[new Boolean( $P{pPrevioDefinitivo}.equals( "1" ) )]]></printWhenExpression>
+				</reportElement>
+				<box topPadding="5"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="SansSerif" size="5" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{firmaRepAreaNombre}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="0e0c88bd-f602-4506-a98f-cfad383edc12" stretchType="RelativeToTallestObject" mode="Opaque" x="0" y="0" width="140" height="38" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF">
+					<printWhenExpression><![CDATA[new Boolean( $P{pPrevioDefinitivo}.equals( "1" ) )]]></printWhenExpression>
+				</reportElement>
+				<box topPadding="5"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="SansSerif" size="5" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{firmaDirectorGeneral}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="e9dd478b-24ff-46b3-9d42-abf722bd5747" stretchType="RelativeToTallestObject" mode="Opaque" x="0" y="40" width="140" height="12" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF">
+					<printWhenExpression><![CDATA[new Boolean( $P{pPrevioDefinitivo}.equals( "1" ) )]]></printWhenExpression>
+				</reportElement>
+				<box topPadding="5"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="SansSerif" size="5" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{firmaRepSepNombre}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="f64c49d9-7d7b-4b37-bb0d-0c20ad9d5eb8" stretchType="RelativeToTallestObject" mode="Opaque" x="301" y="0" width="140" height="38" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF">
+					<printWhenExpression><![CDATA[new Boolean( $P{pPrevioDefinitivo}.equals( "1" ) && $F{banderaPrestador}.equals( "1" ) )]]></printWhenExpression>
+				</reportElement>
+				<box topPadding="5"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="SansSerif" size="5" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{firmaPrestador}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="b71fc9a8-b240-4fa5-9e5f-6c4802051098" stretchType="RelativeToTallestObject" mode="Opaque" x="301" y="40" width="140" height="12" isPrintWhenDetailOverflows="true" backcolor="#FFFFFF">
+					<printWhenExpression><![CDATA[new Boolean( $P{pPrevioDefinitivo}.equals( "1" ) && $F{banderaPrestador}.equals( "1" ) )]]></printWhenExpression>
+				</reportElement>
+				<box topPadding="5"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="SansSerif" size="5" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nombreContratado}]]></textFieldExpression>
+			</textField>
+		</band>
+	</lastPageFooter>
+	<summary>
+		<band height="100">
+			<subreport>
+				<reportElement uuid="cf55871e-34e1-4aee-bf95-7db0c3b1ebb5" x="0" y="0" width="442" height="62">
+					<printWhenExpression><![CDATA[new Boolean( $F{banderaPrestador}.equals( "0" ) ) && new Boolean( $P{pPrevioDefinitivo}.equals( "1" ))]]></printWhenExpression>
+				</reportElement>
+				<subreportParameter name="pCurpPrestador">
+					<subreportParameterExpression><![CDATA[$F{curpContratado}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pNumeroTramite">
+					<subreportParameterExpression><![CDATA[$F{nuTramite}.toString()]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pSelloDirectorUr">
+					<subreportParameterExpression><![CDATA[$F{selloDirectorUR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pNombreDirectorUr">
+					<subreportParameterExpression><![CDATA[$F{firmaRepAreaNombre}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pAnnio">
+					<subreportParameterExpression><![CDATA[$F{annio}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pPuestoDirectorUr">
+					<subreportParameterExpression><![CDATA[$F{firmaRepAreaPuesto}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pSuplenciaDirectorUr">
+					<subreportParameterExpression><![CDATA[$F{suplenciaDirectorUR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pCadenaOriginal">
+					<subreportParameterExpression><![CDATA[$F{cadenaOriginal}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pFhInicioContrato">
+					<subreportParameterExpression><![CDATA[$F{fhVigenciaInicial}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pSerieDirectorGeneral">
+					<subreportParameterExpression><![CDATA[$F{serieDirectorGeneral}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pFirmaDirectorGeneral">
+					<subreportParameterExpression><![CDATA[$F{firmaDirectorGeneral}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pFhFirmaContrato">
+					<subreportParameterExpression><![CDATA[$F{fhFirmaContrato}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pSelloDirectorGeneral">
+					<subreportParameterExpression><![CDATA[$F{selloDirectorGeneral}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pFirmaDirectorUr">
+					<subreportParameterExpression><![CDATA[$F{firmaDirectorUr}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pCurpDirectorUr">
+					<subreportParameterExpression><![CDATA[$F{curpDirectorUR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pNombreDirectorGeneral">
+					<subreportParameterExpression><![CDATA[$F{firmaRepSepNombre}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pSerieDirectorUr">
+					<subreportParameterExpression><![CDATA[$F{serieDirectorUR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pCurpDirectorGeneral">
+					<subreportParameterExpression><![CDATA[$F{curpDirectorGeneral}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pRfcContratado">
+					<subreportParameterExpression><![CDATA[$F{rfcContratado}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pSuplenciaDirectorGeneral">
+					<subreportParameterExpression><![CDATA[$F{suplenciaDirectorGeneral}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pPuestoDirectorGeneral">
+					<subreportParameterExpression><![CDATA[$F{firmaRepSepPuesto}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pNombrePrestador">
+					<subreportParameterExpression><![CDATA[$F{nombreContratado}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pNombreUr">
+					<subreportParameterExpression><![CDATA[$F{nombreUr}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{lstDatos})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{REAL_PATH}+"/ModeloFirma_3_firmas.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement uuid="397a3a05-3446-4344-a17b-a3e8c0aac5cc" x="0" y="0" width="442" height="62">
+					<printWhenExpression><![CDATA[new Boolean( $F{banderaPrestador}.equals( "1" ) ) && new Boolean( $P{pPrevioDefinitivo}.equals( "1" ))]]></printWhenExpression>
+				</reportElement>
+				<subreportParameter name="pSelloDirectorUr">
+					<subreportParameterExpression><![CDATA[$F{selloDirectorUR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pNombreDirectorUr">
+					<subreportParameterExpression><![CDATA[$F{firmaRepAreaNombre}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pAnnio">
+					<subreportParameterExpression><![CDATA[$F{annio}.toString()]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pSuplenciaDirectorUr">
+					<subreportParameterExpression><![CDATA[$F{suplenciaDirectorUR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pSerieDirectorGeneral">
+					<subreportParameterExpression><![CDATA[$F{serieDirectorGeneral}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pFhInicioContrato">
+					<subreportParameterExpression><![CDATA[$F{fhVigenciaInicial}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pSelloPrestador">
+					<subreportParameterExpression><![CDATA[$F{selloPrestador}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pFhFirmaContrato">
+					<subreportParameterExpression><![CDATA[$F{fhFirmaContrato}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pCurpDirectorUr">
+					<subreportParameterExpression><![CDATA[$F{curpDirectorUR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pFirmaDirectorUr">
+					<subreportParameterExpression><![CDATA[$F{firmaDirectorUr}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pNombreDirectorGeneral">
+					<subreportParameterExpression><![CDATA[$F{firmaRepSepNombre}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pRfcContratado">
+					<subreportParameterExpression><![CDATA[$F{rfcContratado}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pNombrePrestador">
+					<subreportParameterExpression><![CDATA[$F{nombreContratado}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pCurpPrestador">
+					<subreportParameterExpression><![CDATA[$F{curpContratado}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pNumeroTramite">
+					<subreportParameterExpression><![CDATA[$F{nuTramite}.toString()]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pFirmaPrestador">
+					<subreportParameterExpression><![CDATA[$F{firmaPrestador}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pPuestoDirectorUr">
+					<subreportParameterExpression><![CDATA[$F{firmaRepAreaPuesto}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pCadenaOriginal">
+					<subreportParameterExpression><![CDATA[$F{cadenaOriginal}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pFirmaDirectorGeneral">
+					<subreportParameterExpression><![CDATA[$F{firmaDirectorGeneral}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pSelloDirectorGeneral">
+					<subreportParameterExpression><![CDATA[$F{selloDirectorGeneral}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pSerieDirectorUr">
+					<subreportParameterExpression><![CDATA[$F{serieDirectorUR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pCurpDirectorGeneral">
+					<subreportParameterExpression><![CDATA[$F{curpDirectorGeneral}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pSeriePrestador">
+					<subreportParameterExpression><![CDATA[$F{seriePrestador}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pSuplenciaDirectorGeneral">
+					<subreportParameterExpression><![CDATA[$F{suplenciaDirectorGeneral}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pPuestoDirectorGeneral">
+					<subreportParameterExpression><![CDATA[$F{firmaRepSepPuesto}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pNombreUr">
+					<subreportParameterExpression><![CDATA[$F{nombreUr}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{REAL_PATH}+"/ModeloFirma.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</summary>
+</jasperReport>
